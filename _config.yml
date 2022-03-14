@@ -21,14 +21,14 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/BarakHirshberg/MolecularSimulations  # Online location of your book
-  branch: main  # Which branch of the repository should be used when creating links (optional)
+  url: https://github.com/BarakHirshberg/book  # Online location of your book
+  branch: master  # Which branch of the repository should be used when creating links (optional)
   
 #Launch on colab
 launch_buttons:
   notebook_interface: "classic" #"jupyterlab"  # or "classic"
   colab_url: "https://colab.research.google.com"
-  binderhub_url: "https://mybinder.org/v2/gh/BarakHirshberg/MolecularSimulations/main"  # The URL for your BinderHub (e.g., https://mybinder.org)
+  binderhub_url: "https://mybinder.org/v2/gh/BarakHirshberg/book/master"  # The URL for your BinderHub (e.g., https://mybinder.org)
   thebe: true
 
 # Add GitHub buttons to your book
