@@ -23,7 +23,7 @@ These notes are based on the authoritative book by Professor Mark E.
  [Statistical Mechanics: Theory and Molecular Simulations](https://tau-primo.hosted.exlibrisgroup.com/permalink/f/8560f2/972TAU_ALMA51249053460004146)
  {cite}`tuckerman_statistical_2010`.
  Additional reading material can be found in the course syllabus, 
- such as [Computer Simulation of Liquids](https://tau-primo.hosted.exlibrisgroup.com/permalink/f/2v5hj1/TN_cdi_askewsholts_vlebooks_9780192524706) [CITE] by Allen and Tildesley.
+ such as [Computer Simulation of Liquids](https://tau-primo.hosted.exlibrisgroup.com/permalink/f/2v5hj1/TN_cdi_askewsholts_vlebooks_9780192524706) {cite}`allen_computer_2017` by Allen and Tildesley.
 
 
 ```{admonition} Bonus credit
@@ -32,6 +32,7 @@ This course will also feature a competition, how exciting!
 While you read the notes, will undoubtedly find typos, errors and mistakes.
 You can submit corrections to the notes by opening a pull request on Github (more about this later).
 The person that will submit the most approved pull requests will get a 5-points bonus to the final grade.
+Hint: find one deliberate typo in this page to practice on.
 ```
 <!-- #endregion -->
 

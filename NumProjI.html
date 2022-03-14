@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numerical project I - MD simulation &#8212; Molecular Simulations - 0351-4057</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Molecular dynamics" href="MolecularDynamics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/tau_logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Molecular Simulations - 0351-4057</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Intorduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ClassicalMech.html">
+   Classical mechanics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="StatMech.html">
+   Basic statistical mehcanics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MolecularDynamics.html">
+   Molecular dynamics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Numerical project I - MD simulation
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/NumProjI.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/BarakHirshberg/book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/BarakHirshberg/book/issues/new?title=Issue%20on%20page%20%2FNumProjI.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/BarakHirshberg/book/master/v2/gh/BarakHirshberg/book/master?urlpath=tree/NumProjI.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/BarakHirshberg/book/blob/master/NumProjI.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-the-anaconda-python-distribution">
+   Installing the Anaconda Python distribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-linux-terminal">
+   The Linux terminal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github-basics">
+   GitHub basics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-project">
+   The project
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Numerical project I - MD simulation</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-the-anaconda-python-distribution">
+   Installing the Anaconda Python distribution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-linux-terminal">
+   The Linux terminal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#github-basics">
+   GitHub basics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-project">
+   The project
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="numerical-project-i-md-simulation">
+<h1>Numerical project I - MD simulation<a class="headerlink" href="#numerical-project-i-md-simulation" title="Permalink to this headline">¶</a></h1>
+<p>Congratulations! you have mastered important concepts in classical and statistical mechanics, and learned about the nuts and bolts of MD simulations.
+You are now ready for your first project - writing your very own MD code. How exciting!
+The project will be written in Python, a highly popular coding language, extremely relevant for both scientific reserach and the current job market.
+To start, we need to set up our development environment. Please follow the instructions below.</p>
+<div class="section" id="installing-the-anaconda-python-distribution">
+<h2>Installing the Anaconda Python distribution<a class="headerlink" href="#installing-the-anaconda-python-distribution" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> is a very popular Python distribution, aimed for scientific computing. It bundles several useful packages, such as <a class="reference external" href="https://numpy.org/">Numpy</a>, <a class="reference external" href="https://scipy.org/">SciPy</a> and <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>. If you need to refresh your knowledge in Python, please see the <a class="reference external" href="https://scipy-lectures.org/">SciPy lecture notes</a>.</p>
+<p>Installing Anaconda is free, just follow these <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">instructions</a> for Linux, Mac or Windows operating systems. Anaconda also includes a light Integrated Development Environment (IDE) called <a class="reference external" href="https://www.spyder-ide.org/">Spyder</a>. If you already know and like <a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a> or <a class="reference external" href="https://code.visualstudio.com/">Vistual Studio code</a> instead, go ahead and use whatever IDE you like. I cannot, however, help you debug your setup unless you use Spyder and Anaconda. You can also use any text editor and just run your code through the terminal. But an IDE gives convenient access to powerful tools for modern programming including debugging, profiling, syntax highlighting and editing, etc.</p>
+</div>
+<div class="section" id="the-linux-terminal">
+<h2>The Linux terminal<a class="headerlink" href="#the-linux-terminal" title="Permalink to this headline">¶</a></h2>
+<p>If you have never used it, I highly recommend getting familiar with it. It was designed for programming.
+You can see for example this basic <a class="reference external" href="https://ubuntu.com/tutorials/command-line-for-beginners#1-overview">tutorial</a> by Ubuntu, one of the most popular Linux distribution.
+The operating system of your computer does not have to be Linux to use the Linux terminal.
+Mac OS has a terminal, and so does Windows. On Mac, just open the terminal. To enable the Windows Subsystem for Linux (WSL), see the following <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install">instructions</a>.
+You do not have to use the Linux terminal if you do not want to. All that is required to complete the project is an Anaconda installation and GitHub Desktop (see below).</p>
+</div>
+<div class="section" id="github-basics">
+<h2>GitHub basics<a class="headerlink" href="#github-basics" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/">GitHub</a> is a code hosting platform for software development. It relies on an open-source version control system called <a class="reference external" href="https://git-scm.com/">Git</a>. De facto, all software development projects today use some kind of version control. It allows us to develop the code together as a team, keep track of changes, suggest new features, and merge everything together in a simple workflow.</p>
+<p>The basic object is a <em>repository</em> (“repo”), which stores all of the source code for the project.
+You can create your own repo, or <em>clone</em> (GitHub jargon for copying) an existing repo.
+You cal also <em>fork</em> a repo, which is similar to cloning, but you typically do it when you want to contribute your changes back to the original repo, and not just develop you own version of it.</p>
+<p>Each repository can have several <em>branches</em>. The default one is called <em>main</em>.
+When you want to implement a new feature, the typical workflow is to clone the repository and create a new branch dedicated to your feature. In this way, you will not change the main version of the code while you work. Next, you develop the new feature by adding or editing the source code. Every time you would like to save a checkpoint that you could return to if needed, you should <em>commit</em> your changes and <em>push</em> them to update the remote repositoy. When you want to discuss your changes and consult with your team, you can create a <em>pull request</em> on GitHub.
+Once you are done with all changes, you need to <em>merge</em> your branch back with the original main branch. This is done by closing the pull request and merging.</p>
+<p>The first “assignment” is an exercise, developed by GitHub, to let you practice this workflow. It will exaplin everything I mentioned in brief and more.
+To do it, first choose wether you will be working with the terminal or graphical user interface (GUI).</p>
+<p>Prerequisites for all:</p>
+<ul class="simple">
+<li><p>Create a free account on <a class="reference external" href="https://github.com/">GitHub</a>.</p></li>
+</ul>
+<p>Prerequisites for GUI users:</p>
+<ul class="simple">
+<li><p>Install <a class="reference external" href="https://desktop.github.com/">GitHub Desktop</a> to clone, commit and push to repo.</p></li>
+<li><p>Install <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> and work with Spyder to edit files.</p></li>
+</ul>
+<p>Prerequisites for terminal users:</p>
+<ul class="simple">
+<li><p>Windows: Install WSL. Follow these <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install">instructions</a>.</p></li>
+<li><p>All OS: Install Anaconda with Spyder through terminal, see instructions <a class="reference external" href="https://www.anaconda.com/products/individual">here</a>. You can use the following command to fetch the installer for Linux directly from the terminal:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">anaconda</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">Anaconda3</span><span class="o">-</span><span class="mf">2021.11</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
+
+</pre></div>
+</div>
+<p>Both:</p>
+<ul class="simple">
+<li><p>Click the invitation link from GitHub Classroom. This creates your personal Git &amp; GitHub Fundamentals repo. Currently it only has one text file <code class="docutils literal notranslate"><span class="pre">README.md</span></code> which explains the GitHub workflow. Read it carefully, follow the links as needed, and make sure your understand before proceeding.</p></li>
+<li><p>Clone the repo locally to your computer. The changes you will make on your local copy will not affect the remote one, until you push your changes (see last step below).</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span>  <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Molecular</span><span class="o">-</span><span class="n">Simulations</span><span class="o">-</span><span class="n">Course</span><span class="o">/</span><span class="n">git</span><span class="o">-</span><span class="n">github</span><span class="o">-</span><span class="n">fundamentals</span><span class="o">-</span><span class="n">YOURNAME</span><span class="o">.</span><span class="n">git</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Create you own branch and switch to working in it using the command</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">feature</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Create a new Markdown file <code class="docutils literal notranslate"><span class="pre">Hello_world.md</span></code> using Spyder and add to it some text.</p></li>
+<li><p>Commit your changes.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="n">Hello_world</span><span class="o">.</span><span class="n">md</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Push your changes to the remote repo.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Go back to GitHub to your repo and open a pull request, assign Barak as reviewer. I will give you feedback and make comments. If you are done, I will close the pull request and merge your branch feature into your main branch. Then, I will also delete the feature branch, which is no longer needed.</p></li>
+</ul>
+<p>All of the steps above can also be done using the GUI of GitHub desktop instead.</p>
+</div>
+<div class="section" id="the-project">
+<h2>The project<a class="headerlink" href="#the-project" title="Permalink to this headline">¶</a></h2>
+<p>Your first real assignment (i.e., one that will be graded) is now also available on the GitHub Classroom.
+Use the link to create your own repository. You do not need to edit the <code class="docutils literal notranslate"><span class="pre">Ar_init.xyz</span></code>, <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> or <code class="docutils literal notranslate"><span class="pre">README.md</span></code> files. You will only need to edit the <code class="docutils literal notranslate"><span class="pre">run.py</span></code> and <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> files. They both have very detailed instructions inside. For example, <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> reads:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#sim.py
+
+WELCOME TO YOU FIRST PROJECT! THIS BIT OF TEXT IS CALLED A DOCSTRING.
+BELOW, I HAVE CREATED A CLASS CALLED &quot;SIMULATION&quot; FOR YOUR CONVENIENCE.
+I HAVE ALSO IMPLEMENTED A CONSTRUCTOR, WHICH IS A METHOD THAT IS CALLED 
+EVERY TIME YOU CREATE AN OBJECT OF THE CLASS USING, FOR EXAMPLE, 
+    
+    &gt;&gt;&gt; mysim = Simulation( dt=0.1E-15, L=11.3E-10, ftype=&quot;LJ&quot; )
+    
+I HAVE ALSO IMPLEMENTED SEVERAL USEFUL METHODS THAT YOU CAN CALL AND USE, 
+BUT DO NOT EDIT THEM. THEY ARE: evalForce, dumpXYZ, dumpThermo and readXYZ.
+
+YOU DO NOT NEED TO EDIT THE CLASS ITSELF.
+
+YOUR JOB IS TO IMPLEMENT THE LIST OF CLASS METHODS DEFINED BELOW. 
+ENTER YOUR COE WHERE YOU WILL SEE THE FOLLOWING TEXT:    
+
+        ################################################################
+        ####################### YOUR CODE GOES HERE ####################
+        ################################################################
+        
+YOU ARE, HOWEVER, EXPECTED TO UNDERSTAND WHAT ARE THE MEMBERS OF THE CLASS
+AND USE THEM IN YOUR IMPLEMENTATION. THEY ARE ALL EXPLAINED IN THE 
+DOCSTRING OF THE CONSTRUCTOR BELOW. FOR EXAMPLE, WHENEVER YOU WISH 
+TO USE/UPDATE THE MOMENTA OF THE PARTICLES IN ONE OF YOUR METHODS, YOU CAN
+ACCESS IT BY USING self.p. 
+
+    &gt;&gt;&gt; self.p = np.zeros( (self.Natoms,3) )
+        
+FINALLY, YOU WILL NEED TO EDIT THE run.py FILE WHICH RUNS THE SIMULATION.
+SEE MORE INSTRUCTIONS THERE.
+
+</pre></div>
+</div>
+<p>And the instructions in <code class="docutils literal notranslate"><span class="pre">run.py</span></code> are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HERE</span><span class="p">,</span> <span class="n">TO</span> <span class="n">RUN</span> <span class="n">THE</span> <span class="n">SIMULATION</span><span class="p">,</span> <span class="n">YOU</span> <span class="n">WILL</span> <span class="n">NEED</span> <span class="n">TO</span> <span class="n">DO</span> <span class="n">THE</span> <span class="n">FOLLOWING</span> <span class="n">THINGS</span><span class="p">:</span>
+
+    <span class="mf">1.</span> <span class="n">CREATE</span> <span class="n">AN</span> <span class="n">OBJECT</span> <span class="n">OF</span> <span class="n">THE</span> <span class="n">SIMULATION</span> <span class="n">CLASS</span><span class="o">.</span> <span class="n">A</span> <span class="n">MINIMAL</span> <span class="n">EXAMPLE</span> <span class="n">IS</span>
+    
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">mysim</span> <span class="o">=</span> <span class="n">Simulation</span><span class="p">(</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.1E-15</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="mf">11.3E-10</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s2">&quot;LJ&quot;</span> <span class="p">)</span>
+    
+    <span class="mf">2.</span> <span class="n">DEFINE</span> <span class="n">THE</span> <span class="n">PARAMETERS</span> <span class="n">FOR</span> <span class="n">THE</span> <span class="n">POTENTIAL</span><span class="o">.</span> 
+    <span class="n">USE</span> <span class="n">A</span> <span class="n">DICTIONARY</span><span class="p">,</span> <span class="n">FOR</span> <span class="n">EXAMPLE</span> <span class="n">FOR</span> <span class="n">LJ</span> <span class="n">MODEL</span> <span class="n">OF</span> <span class="n">ARGON</span><span class="p">,</span> <span class="n">IN</span> <span class="n">SI</span> <span class="n">UNITS</span>
+    
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;eps&quot;</span><span class="p">:</span>  <span class="mf">1.656778224E-21</span><span class="p">,</span> <span class="s2">&quot;sig&quot;</span><span class="p">:</span> <span class="mf">3.4E-10</span> <span class="p">}</span>
+    
+<span class="n">THEN</span><span class="p">,</span> <span class="n">CALLING</span> <span class="n">THE</span> <span class="n">METHODS</span> <span class="n">YOU</span> <span class="n">IMPLEMENTED</span> <span class="n">IN</span> <span class="n">sim</span><span class="o">.</span><span class="n">py</span><span class="p">,</span> <span class="n">YOU</span> <span class="n">NEED</span> <span class="n">TO</span>
+
+    <span class="mf">3.</span> <span class="n">READ</span> <span class="n">THE</span> <span class="n">INITIAL</span> <span class="n">XYZ</span> <span class="n">FILE</span> <span class="n">PROVIDED</span> <span class="n">OR</span> <span class="n">SAMPLE</span> <span class="n">INITIAL</span> <span class="n">COORDINATES</span><span class="o">.</span>
+    <span class="mf">4.</span> <span class="n">SAMPLE</span> <span class="n">INITIAL</span> <span class="n">MOMENTA</span> <span class="n">FROM</span> <span class="n">MB</span> <span class="n">DISTRIBUTION</span><span class="o">.</span>
+    <span class="mf">5.</span> <span class="n">REMOVE</span> <span class="n">COM</span> <span class="n">MOTION</span><span class="o">.</span>
+    <span class="mf">6.</span> <span class="n">RUN</span> <span class="n">THE</span> <span class="n">SIMULATION</span><span class="p">,</span> <span class="n">INCLUDING</span> <span class="n">PRINTING</span> <span class="n">XYZ</span> <span class="n">AND</span> <span class="n">ENERGIES</span> <span class="n">TO</span> <span class="n">FILES</span><span class="o">.</span>
+    
+<span class="n">NOTE</span> <span class="n">THAT</span> <span class="n">TO</span> <span class="n">CALL</span> <span class="n">A</span> <span class="n">METHOD</span> <span class="n">OF</span> <span class="n">A</span> <span class="n">CLASS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">SPECIFIC</span> <span class="n">OBJECT</span><span class="p">,</span> <span class="n">THE</span> <span class="n">SYNTAX</span> <span class="n">IS</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">mysim</span><span class="o">.</span><span class="n">funcName</span><span class="p">(</span> <span class="n">args</span> <span class="p">)</span>
+    
+<span class="n">FINALLY</span><span class="p">,</span> <span class="n">YOU</span> <span class="n">SHOULD</span>
+
+    <span class="mf">7.</span> <span class="n">ANALYZE</span> <span class="n">YOUR</span> <span class="n">RESULTS</span><span class="o">.</span> <span class="n">PLOT</span> <span class="n">THE</span> <span class="n">KINETIC</span> <span class="n">AND</span> <span class="n">POTENTIAL</span> <span class="n">ENERGIES</span><span class="p">,</span> 
+    <span class="n">AND</span> <span class="n">SEPARATE</span> <span class="n">FIGURE</span> <span class="n">WITH</span> <span class="n">THE</span> <span class="n">CHANGE</span> <span class="n">IN</span> <span class="o">%</span> <span class="n">OF</span> <span class="n">THE</span> <span class="n">TOTAL</span> <span class="n">ENERGY</span>
+    <span class="n">WITH</span> <span class="n">RESPECT</span> <span class="n">TO</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.</span>
+    
+<span class="n">NOTE</span><span class="p">:</span> <span class="n">THE</span> <span class="n">INPUT</span> <span class="n">FILE</span> <span class="n">GIVEN</span> <span class="n">HAS</span> <span class="n">THE</span> <span class="n">COORDINATES</span> <span class="n">IN</span> <span class="n">ANGSTROM</span><span class="o">.</span>
+<span class="o">*</span><span class="n">YOUR</span> <span class="n">OUTPUT</span> <span class="n">XYZ</span> <span class="n">FILE</span> <span class="n">SHOULD</span> <span class="n">BE</span> <span class="n">PRINTED</span> <span class="n">IN</span> <span class="n">ANGSTROM</span> <span class="n">TOO</span><span class="o">*</span><span class="p">,</span> <span class="n">BUT</span> <span class="n">YOU</span> <span class="n">CAN</span> <span class="n">USE</span>
+<span class="n">ANY</span> <span class="n">UNITS</span> <span class="n">YOU</span> <span class="n">WANT</span> <span class="n">IN</span> <span class="n">BETWEEN</span><span class="p">,</span> <span class="n">I</span> <span class="n">SUGGEST</span> <span class="n">USING</span> <span class="n">SI</span> <span class="n">UNITS</span><span class="o">.</span>
+
+</pre></div>
+</div>
+<p>As you can see, most of your coding will be done in the <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> file.
+I have created a class called Simulation which defines the methods and data members that you can use in your implementation. Your job is twofold:</p>
+<ul class="simple">
+<li><p>Implement the methods for class Simulation, based on the material we have covered.</p></li>
+<li><p>Implement a several short scripts <code class="docutils literal notranslate"><span class="pre">run.py</span></code> to call the methods you have implemented and run a simulation.</p></li>
+</ul>
+<p>The methods you will have to implement include, for example, sampleMB() which samples initial positions from the Maxwell-Boltzmann distribution. How do I know? Because in <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> you will see its definition, with a description of what needs to be implemented and the place to write your own code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">sampleMB</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">removeCM</span><span class="o">=</span><span class="kc">True</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        THIS FUNCTIONS SAMPLES INITIAL MOMENTA FROM THE MB DISTRIBUTION.</span>
+<span class="sd">        IT ALSO REMOVES THE COM MOMENTA, IF REQUESTED.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        temp : float</span>
+<span class="sd">            The temperature to sample from.</span>
+<span class="sd">        removeCM : bool, optional</span>
+<span class="sd">            Remove COM velocity or not. The default is True.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None. Sets the value of self.p.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1">################################################################</span>
+        <span class="c1">####################### YOUR CODE GOES HERE ####################</span>
+        <span class="c1">################################################################</span>
+</pre></div>
+</div>
+<p>I highly recommend implementing one method at a time and testing that it works by running <code class="docutils literal notranslate"><span class="pre">run.py</span></code> that calls it, before moving on to the next method. Do not forget to commit and push along the way to create checkpoints you can go back to if something goes wrong.</p>
+<p>The repo also has a file called <code class="docutils literal notranslate"><span class="pre">ReportProjI.ipynb</span></code>. This is a Jupyter Notebook which you can open by running <a class="reference external" href="https://jupyter.org/">JupyterLab</a> or <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> from Anaconda. In it, you will find the definitions and details of the specific simulations you have to run. It also contains questions that you need to answer and figures you need to plot. Create a separate run script for each one of the sections in the notebook (<code class="docutils literal notranslate"><span class="pre">run_harmonic.py</span></code>, <code class="docutils literal notranslate"><span class="pre">run_anharm.py</span></code> and <code class="docutils literal notranslate"><span class="pre">run_Ar.py</span></code>), run the simulations, and answer the questions. Submit your report by commiting and pushing the file to your the repo.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "BarakHirshberg/book",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="MolecularDynamics.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Molecular dynamics</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Dr. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 6997801, Israel.<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
