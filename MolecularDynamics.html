@@ -94,7 +94,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Intorduction
+   Introduction
   </a>
  </li>
 </ul>
@@ -407,14 +407,14 @@ f(\textbf{x}_t) = e^{i\hat{L} t} f(\textbf{x}_0),
 \]</div>
 <p>You might have noticed that this framework for time propagation is very similar to the one you learned in quantum mechanics. If so, you are right, but unfortunately we will not discuss this in depth here.</p>
 <p>Eq. <a class="reference internal" href="#equation-traj-sol">(46)</a> is extremely powerful. We now demonstrate how it can be used to derive numerical algorithms to solve the classical equations of motion. For simplicity, we will focus on a single particle in one dimension.</p>
-<p>In principle, we if knew how to apply the classical propagator on the microstate vector, we would have solved the equations of motion for all times. For a single particle,</p>
+<p>In principle, if we knew how to apply the classical propagator on the microstate vector, we would have solved the equations of motion for all times. For a single particle,</p>
 <div class="math notranslate nohighlight">
 \[
 i \hat{L} = \dot{q} \frac{\partial }{\partial q} + \dot{p} \frac{\partial }{\partial p}  = \frac{p}{m} \frac{\partial }{\partial q} + F(q) \frac{\partial }{\partial p}.
 \]</div>
 <p>This classical propagator can be divided into two contributions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c15d8638-c5df-4f73-bf8c-3efe09890798">
-<span class="eqno">(47)<a class="headerlink" href="#equation-c15d8638-c5df-4f73-bf8c-3efe09890798" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c791dcd5-654b-48c5-8c0c-20fd3a5822a8">
+<span class="eqno">(47)<a class="headerlink" href="#equation-c791dcd5-654b-48c5-8c0c-20fd3a5822a8" title="Permalink to this equation">¶</a></span>\[\begin{align}
 
 i\hat{L}_1 &amp;= \frac{p}{m} \frac{\partial }{\partial q}, &amp; i\hat{L}_2 = F(q) \frac{\partial }{\partial p}.
 
@@ -564,7 +564,7 @@ p(t +  \frac{\Delta t}{2}) + F(t + \Delta t) \frac{\Delta t}{2}
 \left(
 \begin{matrix}
 q(t + \Delta t) \\
-p(t +  \Delta t
+p(t +  \Delta t)\\
 \end{matrix}
 \right),
 \end{split}\]</div>
@@ -631,7 +631,7 @@ V_{LJ}(r) = 4 \varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - \left( \
 <p>This force acts between every pair of particles, so that for the entire system we get</p>
 <div class="math notranslate nohighlight" id="equation-lj">
 <span class="eqno">(54)<a class="headerlink" href="#equation-lj" title="Permalink to this equation">¶</a></span>\[
-V_{LJ}(r) = 4 \varepsilon \sum_{i=1}^N \sum_{j&gt;i}^N \left[ \left( \frac{\sigma}{r_{ij}} \right)^{12} - \left( \frac{\sigma}{r_{ij}} \right)^6 \right],
+V_{LJ}(r) = 4 \varepsilon \sum_{i=1}^{N-1} \sum_{j&gt;i}^N \left[ \left( \frac{\sigma}{r_{ij}} \right)^{12} - \left( \frac{\sigma}{r_{ij}} \right)^6 \right],
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(r_{ij} = | \textbf{r}_i - \textbf{r}_j |\)</span> is the distance between particles <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>.</p>
 <div class="tip admonition">
@@ -664,13 +664,13 @@ r_0 = 2^{1/6} \sigma.
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-8491501ae0c8461d8f6e75c877a5d7c5"></div>
+<div id="altair-viz-f48d3746473549ed8b358ec6860e05b4"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-8491501ae0c8461d8f6e75c877a5d7c5") {
-      outputDiv = document.getElementById("altair-viz-8491501ae0c8461d8f6e75c877a5d7c5");
+    if (outputDiv.id !== "altair-viz-f48d3746473549ed8b358ec6860e05b4") {
+      outputDiv = document.getElementById("altair-viz-f48d3746473549ed8b358ec6860e05b4");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -738,7 +738,7 @@ r_0 = 2^{1/6} \sigma.
 </div>
 <p>Just kidding, you can still use if statements <em>if</em> you want to.</p>
 </div>
-<p>How large should be the main box so that the properties of the simulated system resemble the propoerties of a bulk liquid or solid? It depends on the interactions. If they are relatively short-ranged, then a small box may suffice. For the LJ potential, a box of side length <span class="math notranslate nohighlight">\(L=6\sigma\)</span> is usually sufficient. But for very long-range interaction, this is not the case and more sophisticated methdos are needed, of which we will not elaborate. In addition, this approach works when the fluctuations of the system in space are much smaller than the size of the box. So for the case of a gas-liquid phase transition, where the fluctuations are macroscopic (you can see the bubbles form!), this approach will not work. But for system far away from phase transitions and with short-range interactions, it is found to be highly succsessful.</p>
+<p>How large should be the main box so that the properties of the simulated system resemble the propoerties of a bulk liquid or solid? It depends on the interactions. If they are relatively short-ranged, then a small box may suffice. For the LJ potential, a box of side length <span class="math notranslate nohighlight">\(L=6\sigma\)</span> is usually sufficient. But for very long-range interaction, this is not the case and more sophisticated methods are needed, of which we will not elaborate. In addition, this approach works when the fluctuations of the system in space are much smaller than the size of the box. So for the case of a gas-liquid phase transition, where the fluctuations are macroscopic (you can see the bubbles form!), this approach will not work. But for system far away from phase transitions and with short-range interactions, it is found to be highly succsessful.</p>
 <p>Finally, while periodic boundary conditions are great, they seem to have created a new problem. Now that we have infinitely many images of every particle, how are we to calculate the interaction between all of them? The practice is to overcome this problem by defining a spherical cutoff for the interaction for short-ranged potentials. One way to do it, is by implementing the <strong>minimum image convention</strong>. The minimum image convention states that for each particle <span class="math notranslate nohighlight">\(i\)</span>, you calculate the interaction only with the closest image of particle <span class="math notranslate nohighlight">\(j\)</span>. This is done similarly for testing for periodic boundary conditions, but instead of applying it on the position vector of each particle, you use the distances between the particles. The minimum image convention effectively introduces a spherical cutoff to the potential at a distance of half the box length.</p>
 </div>
 <div class="section" id="observables">
@@ -803,7 +803,7 @@ D = \frac{1}{3} \int_0^{\infty} C_{vv}(\tau) \mathrm{d} \tau.
 \]</div>
 <p>and <span class="math notranslate nohighlight">\(\langle A \rangle\)</span> is the average from the entire simulation data, as in Eq. <a class="reference internal" href="#equation-av-sim">(55)</a>.</p>
 <p>The only question that remains is - how do we choose the number of blocks <span class="math notranslate nohighlight">\(M\)</span>? In order for this analysis to be valid, the different blocks have to generate statistically independent samples of the means. How do we know that the  blocks are spaced enough so that this is the case? It turns out, that the autocorrelation function of the observable is the answer. The autocorrelation function starts from a value of <span class="math notranslate nohighlight">\(\langle A^2 \rangle\)</span> and decays towards zero. The time it takes to decay it called the <strong>autocorrelation time</strong> and it effectively determines how long it takes for the system to forget all past correlations, so that new samples are independent from the initial ones. Thus, we need to choose the block length to be larger that the autocorrelation time.</p>
-<p>How is this done in practice? We start with very small blocks (very large <span class="math notranslate nohighlight">\(M\)</span>), containing only few steps each. In this case, many of our block means are highly correlated. Our estimate of the error on the average of the observable from Eq. <a class="reference internal" href="#equation-error">(59)</a> will be very small because we are assuming all of them are statistically independent, which is not true. Then, we increase the block size (decrease <span class="math notranslate nohighlight">\(M\)</span>) and re-calculate the error on the mean. It will increase a little. We repeat this procedure until our estimate of the error on the average has reached a plateau. Then, our estimate of the nummber of independent samples of the mean during the simulation is equal to the number of blocks we have used. The procedure to determine the statistical uncertainty according to Eq. <a class="reference internal" href="#equation-error">(59)</a> is then reliable.</p>
+<p>How is this done in practice? We start with very small blocks (very large <span class="math notranslate nohighlight">\(M\)</span>), containing only few steps each. In this case, many of our block means are highly correlated. Our estimate of the error on the average of the observable from Eq. <a class="reference internal" href="#equation-error">(59)</a> will be very small because we are assuming all of them are statistically independent, which is not true. Then, we increase the block size (decrease <span class="math notranslate nohighlight">\(M\)</span>) and re-calculate the error on the mean. It will increase a little. We repeat this procedure until our estimate of the error on the average has reached a plateau. Then, our estimate of the number of independent samples of the mean during the simulation is equal to the number of blocks we have used. The procedure to determine the statistical uncertainty according to Eq. <a class="reference internal" href="#equation-error">(59)</a> is then reliable.</p>
 </div>
 </div>
 
