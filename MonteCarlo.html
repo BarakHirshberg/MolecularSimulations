@@ -42,6 +42,8 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe,.cell"
@@ -51,6 +53,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Numerical project I - MD simulation" href="NumProjI.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -94,7 +97,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ClassicalMech.html">
    Classical mechanics
@@ -113,6 +116,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="NumProjI.html">
    Numerical project I - MD simulation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Monte Carlo
   </a>
  </li>
 </ul>
@@ -222,6 +230,39 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation-of-high-dimensional-integrals">
+   Evaluation of high-dimensional integrals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-sampling">
+   Random sampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importance-sampling">
+   Importance sampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#moves">
+   Moves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acceptance-ration-and-detailed-balance">
+   Acceptance ration and detailed balance
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -234,6 +275,39 @@
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation-of-high-dimensional-integrals">
+   Evaluation of high-dimensional integrals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-sampling">
+   Random sampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importance-sampling">
+   Importance sampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#moves">
+   Moves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acceptance-ration-and-detailed-balance">
+   Acceptance ration and detailed balance
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -242,7 +316,59 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="monte-carlo">
 <h1>Monte Carlo<a class="headerlink" href="#monte-carlo" title="Permalink to this headline">¶</a></h1>
-<p>Now that you have written you code, you have a recipe for evaluating thermodynamic properties for a system in the microcanonical ensemble. But what would you do if you wanted to get a different ensemble? You would have to evaluate Eq.<a class="reference internal" href="StatMech.html#equation-ensemble-av-nvt">(38)</a>. How would this be done in practice? By running many, many simulations at different total energies, and taking the weighted averages of the thermodynamics property according to the Boltzmann factor. This is very, very expensive. Monte carlo is a clever way to address this problem.</p>
+<p>Now that you have written your own MD code, you have a recipe for evaluating thermodynamic properties of systems in the microcanonical ensemble. We used MD simulations to sample configuration from the ensemble and, since they all had the same probability, we took their arithmetic mean to calculate ensemble averages. But what would you do if you wanted to sample the canonical ensemble? You would have to evaluate Eq.<a class="reference internal" href="StatMech.html#equation-ensemble-av-nvt">(38)</a>, in which each configuration has a different weight. Effectively, this also means evaluating very <strong>high-dimensional integrals</strong>, since <span class="math notranslate nohighlight">\(\textbf x\)</span> is of dimension <span class="math notranslate nohighlight">\(6N\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number of atoms.</p>
+<p>How could this be done in practice? By sampling <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span> on a multi dimenstional grid, multiplying each one by its Boltzmann factor and doing the integration by quadrature. This is very, very expensive and the algorithm scales exponentially with the dimensionality of <span class="math notranslate nohighlight">\(\textbf x\)</span>. In fact, it is completey prohibitive already for small <span class="math notranslate nohighlight">\(N\)</span>. Monte carlo is a clever way to evaluate such integrals without resorting to qudrature. Moreover, Monte Carlo is a different approach for sampling equilibrium distribution functions that does not rely on the dynamics in time of the system to generate the configurations.</p>
+<div class="section" id="evaluation-of-high-dimensional-integrals">
+<h2>Evaluation of high-dimensional integrals<a class="headerlink" href="#evaluation-of-high-dimensional-integrals" title="Permalink to this headline">¶</a></h2>
+<p>As we have seen, the integrals we usually encounter in statistical mechanics are of the form</p>
+<div class="math notranslate nohighlight">
+\[
+A = \langle a \rangle_f = \int f(\textbf x) \, a(\textbf{x}) \, \mathrm{d} \textbf{x},
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+f(\textbf x) = \frac{1}{\mathcal Z} \mathcal{F}(\mathcal{H} (\textbf{x}))
+\]</div>
+<p>is a positive, normalized phase space probability density.</p>
+<p>We will <em>assume</em> that we have an algorithm for obtaining a set of <span class="math notranslate nohighlight">\(M\)</span> <strong>independent</strong> samples (configurations of the system) <span class="math notranslate nohighlight">\(\textbf x_1 ,..., \textbf x_M\)</span> that are all distributed according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> with some mean <span class="math notranslate nohighlight">\(\langle a \rangle_f\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2 = \langle a^2 \rangle_f - \langle a \rangle_f^2\)</span>. This is by no means a trivial task. It is straightforward only for simple distributions and Monte Carlo was designed to address this problem exactly issue. But, for now, we will simply assume such an algorithm exists. If that is the case, we can then evaluate <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span> for each sample.</p>
+<p>The central limit theorem (CLT) ensures that if we consider the simple arithmetic mean of the samples as a random variable,</p>
+<div class="math notranslate nohighlight">
+\[
+A_M = \frac{1}{M} \sum_{j=1}^{M} a(\textbf{x}_j).
+\]</div>
+<p>It will be normally distributed with the same mean <span class="math notranslate nohighlight">\( \langle a \rangle_f \)</span> as the <span class="math notranslate nohighlight">\( \textbf{x}_j \)</span> and a variance</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma^2_M = \frac{\sigma^2}{M}
+\]</div>
+<p>In other words, the CLT guarantees that the arithmetic mean of the samples converges to ensemble average of <span class="math notranslate nohighlight">\(A\)</span> in the limit <span class="math notranslate nohighlight">\(M \to \infty\)</span>, because its variance from their mean decays like <span class="math notranslate nohighlight">\(M^{-1}\)</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Active learning</p>
+<p>Show that the mean and variance of <span class="math notranslate nohighlight">\(A_M\)</span> are <span class="math notranslate nohighlight">\( \langle a \rangle_f \)</span> and <span class="math notranslate nohighlight">\(\sigma^2_M = \frac{\sigma^2}{M}\)</span>, respectively.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The expectation value of <span class="math notranslate nohighlight">\(A_M\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[
+\langle A_M \rangle_f = \int A_M f(\textbf{x}) \, \mathrm{d} \textbf{x} = \int \frac{1}{M} \sum_{j=1}^{M} a(\textbf{x}_j) f(\textbf{x}) \, \mathrm{d} \textbf{x}
+\]</div>
+</div>
+</div>
+<div class="section" id="random-sampling">
+<h2>Random sampling<a class="headerlink" href="#random-sampling" title="Permalink to this headline">¶</a></h2>
+<p>Now, the question becomes: “How do we generate samples that are distributed according to <span class="math notranslate nohighlight">\(f(\textbf{x})\)</span>?”</p>
+</div>
+<div class="section" id="importance-sampling">
+<h2>Importance sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="moves">
+<h2>Moves<a class="headerlink" href="#moves" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="acceptance-ration-and-detailed-balance">
+<h2>Acceptance ration and detailed balance<a class="headerlink" href="#acceptance-ration-and-detailed-balance" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -269,7 +395,14 @@
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="NumProjI.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Numerical project I - MD simulation</p>
+        </div>
+    </a>
 </div>
             
         </div>

@@ -119,6 +119,11 @@
    Numerical project I - MD simulation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MonteCarlo.html">
+   Monte Carlo
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -413,8 +418,8 @@ f(\textbf{x}_t) = e^{i\hat{L} t} f(\textbf{x}_0),
 i \hat{L} = \dot{q} \frac{\partial }{\partial q} + \dot{p} \frac{\partial }{\partial p}  = \frac{p}{m} \frac{\partial }{\partial q} + F(q) \frac{\partial }{\partial p}.
 \]</div>
 <p>This classical propagator can be divided into two contributions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c791dcd5-654b-48c5-8c0c-20fd3a5822a8">
-<span class="eqno">(47)<a class="headerlink" href="#equation-c791dcd5-654b-48c5-8c0c-20fd3a5822a8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-78d4db5a-1120-40d7-9862-36ddc51022ff">
+<span class="eqno">(47)<a class="headerlink" href="#equation-78d4db5a-1120-40d7-9862-36ddc51022ff" title="Permalink to this equation">¶</a></span>\[\begin{align}
 
 i\hat{L}_1 &amp;= \frac{p}{m} \frac{\partial }{\partial q}, &amp; i\hat{L}_2 = F(q) \frac{\partial }{\partial p}.
 
@@ -664,13 +669,13 @@ r_0 = 2^{1/6} \sigma.
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-f48d3746473549ed8b358ec6860e05b4"></div>
+<div id="altair-viz-87adc7a551e7497586ef547de9baba23"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-f48d3746473549ed8b358ec6860e05b4") {
-      outputDiv = document.getElementById("altair-viz-f48d3746473549ed8b358ec6860e05b4");
+    if (outputDiv.id !== "altair-viz-87adc7a551e7497586ef547de9baba23") {
+      outputDiv = document.getElementById("altair-viz-87adc7a551e7497586ef547de9baba23");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -733,7 +738,7 @@ r_0 = 2^{1/6} \sigma.
 <p class="admonition-title">Solution</p>
 <p>Trick question alert! No if statements needed. We can do this for all the position components of all particles in two lines by using <a class="reference external" href="https://www.geeksforgeeks.org/indexing-in-numpy/">Boolean indexing</a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="p">[</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="n">L</span><span class="o">/</span><span class="mi">2</span> <span class="p">]</span> <span class="o">-=</span> <span class="n">L</span>
-<span class="n">r</span><span class="p">[</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="n">L</span><span class="o">/</span><span class="mi">2</span> <span class="p">]</span> <span class="o">+=</span> <span class="n">L</span>
+<span class="n">r</span><span class="p">[</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="n">L</span><span class="o">/</span><span class="mi">2</span> <span class="p">]</span> <span class="o">+=</span> <span class="n">L</span>
 </pre></div>
 </div>
 <p>Just kidding, you can still use if statements <em>if</em> you want to.</p>
