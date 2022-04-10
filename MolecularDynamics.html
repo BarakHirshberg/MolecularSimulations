@@ -363,7 +363,7 @@
 \[
 \textbf{r}(t) = \textbf{r}(t + \Delta t) - \frac{\textbf{p}(t + \Delta t)}{m} \Delta t + \frac{1}{2} \frac{\textbf{F}(t + \Delta t)}{m} {\Delta t}^2.
 \]</div>
-<p>This equation show a very nice property of the velocity verlet algorithm - <strong>time reversal symmetry</strong>. If we stop the simulation after some time, and propagate backwards in time by reversing the momenta, we will get back to the initial starting point.
+<p>This equation shows a very nice property of the velocity verlet algorithm - <strong>time reversal symmetry</strong>. If we stop the simulation after some time, and propagate backwards in time by reversing the momenta, we will get back to the initial starting point.
 Plugging this expression in Eq. <a class="reference internal" href="#equation-vv1">(39)</a>, and solving for <span class="math notranslate nohighlight">\(\textbf{p}(t + \Delta t)\)</span>, we get</p>
 <div class="math notranslate nohighlight" id="equation-vv2">
 <span class="eqno">(40)<a class="headerlink" href="#equation-vv2" title="Permalink to this equation">¶</a></span>\[
@@ -418,8 +418,8 @@ f(\textbf{x}_t) = e^{i\hat{L} t} f(\textbf{x}_0),
 i \hat{L} = \dot{q} \frac{\partial }{\partial q} + \dot{p} \frac{\partial }{\partial p}  = \frac{p}{m} \frac{\partial }{\partial q} + F(q) \frac{\partial }{\partial p}.
 \]</div>
 <p>This classical propagator can be divided into two contributions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78d4db5a-1120-40d7-9862-36ddc51022ff">
-<span class="eqno">(47)<a class="headerlink" href="#equation-78d4db5a-1120-40d7-9862-36ddc51022ff" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-26551611-13aa-4c03-955e-75e2dd38b59f">
+<span class="eqno">(47)<a class="headerlink" href="#equation-26551611-13aa-4c03-955e-75e2dd38b59f" title="Permalink to this equation">¶</a></span>\[\begin{align}
 
 i\hat{L}_1 &amp;= \frac{p}{m} \frac{\partial }{\partial q}, &amp; i\hat{L}_2 = F(q) \frac{\partial }{\partial p}.
 
@@ -669,13 +669,13 @@ r_0 = 2^{1/6} \sigma.
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html">
-<div id="altair-viz-87adc7a551e7497586ef547de9baba23"></div>
+<div id="altair-viz-680dc33e71a7469ca6e7d7f3c4d55e29"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-87adc7a551e7497586ef547de9baba23") {
-      outputDiv = document.getElementById("altair-viz-87adc7a551e7497586ef547de9baba23");
+    if (outputDiv.id !== "altair-viz-680dc33e71a7469ca6e7d7f3c4d55e29") {
+      outputDiv = document.getElementById("altair-viz-680dc33e71a7469ca6e7d7f3c4d55e29");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -770,7 +770,7 @@ Since the classical trajectories naturally sample the <span class="math notransl
 <p>Other properties, such as the average pressure and temperature, can be obtained from the equipartition theorem which states that every degree of freedom that is quadratic in the Hamiltonian contributes <span class="math notranslate nohighlight">\(\frac{1}{2} k_B T\)</span> to the average total energy. Thus, for the temperature of <span class="math notranslate nohighlight">\(N\)</span> particles in three dimensions, we get</p>
 <div class="math notranslate nohighlight">
 \[
-\langle T \rangle = \frac{2 \langle K \rangle}{3 k_B}.
+\langle T \rangle = \frac{2 \langle K \rangle}{3Nk_B}.
 \]</div>
 <p>Some properties, like the entropy or the (Gibbs or Helmholtz) free energy, can not be expressed as expectation values of some estimator in terms of the coordinates and momenta. Therefore, evalauting them is much more diffcult. One of the final projects of this course will deal with methods to evaluate free energies.</p>
 <p>Many structural properties are also often obtained from MD simulations, for example, the density is given by a histogram (normalized by the total number of particles) of the positions,</p>

@@ -337,24 +337,12 @@ f(\textbf x) = \frac{1}{\mathcal Z} \mathcal{F}(\mathcal{H} (\textbf{x}))
 \[
 A_M = \frac{1}{M} \sum_{j=1}^{M} a(\textbf{x}_j).
 \]</div>
-<p>It will be normally distributed with the same mean <span class="math notranslate nohighlight">\( \langle a \rangle_f \)</span> as the <span class="math notranslate nohighlight">\( \textbf{x}_j \)</span> and a variance</p>
+<p>It will be normally distributed with the same mean <span class="math notranslate nohighlight">\( \langle a \rangle_f \)</span> as the samples <span class="math notranslate nohighlight">\( \textbf{x}_j \)</span> and a variance</p>
 <div class="math notranslate nohighlight">
 \[
 \sigma^2_M = \frac{\sigma^2}{M}
 \]</div>
-<p>In other words, the CLT guarantees that the arithmetic mean of the samples converges to ensemble average of <span class="math notranslate nohighlight">\(A\)</span> in the limit <span class="math notranslate nohighlight">\(M \to \infty\)</span>, because its variance from their mean decays like <span class="math notranslate nohighlight">\(M^{-1}\)</span>.</p>
-<div class="tip admonition">
-<p class="admonition-title">Active learning</p>
-<p>Show that the mean and variance of <span class="math notranslate nohighlight">\(A_M\)</span> are <span class="math notranslate nohighlight">\( \langle a \rangle_f \)</span> and <span class="math notranslate nohighlight">\(\sigma^2_M = \frac{\sigma^2}{M}\)</span>, respectively.</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>The expectation value of <span class="math notranslate nohighlight">\(A_M\)</span> is given by</p>
-<div class="math notranslate nohighlight">
-\[
-\langle A_M \rangle_f = \int A_M f(\textbf{x}) \, \mathrm{d} \textbf{x} = \int \frac{1}{M} \sum_{j=1}^{M} a(\textbf{x}_j) f(\textbf{x}) \, \mathrm{d} \textbf{x}
-\]</div>
-</div>
+<p>In other words, the CLT guarantees that the arithmetic mean of the samples converges to ensemble average of <span class="math notranslate nohighlight">\(A\)</span> in the limit <span class="math notranslate nohighlight">\(M \to \infty\)</span>, because its variance from the mean decays like <span class="math notranslate nohighlight">\(M^{-1}\)</span>. Note that the CLT does not assume a specific form of the distribution <span class="math notranslate nohighlight">\(f(\textbf{x})\)</span>. This is very powerful, it means that even when our sampling algorithm (dynamic or not) provides samples from a nonuniform distribution, the arithmetic mean will still converge to the true expectation value. The buttom line? We can use the simple arithmetic mean of the samples for the canonical ensemble, just like in the NVE ensemble, as long as we can generate samples from the desired distribution.</p>
 </div>
 <div class="section" id="random-sampling">
 <h2>Random sampling<a class="headerlink" href="#random-sampling" title="Permalink to this headline">¶</a></h2>
