@@ -241,28 +241,33 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#random-sampling">
-   Random sampling
+  <a class="reference internal nav-link" href="#uniform-random-sampling">
+   Uniform random sampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-central-limit-theorem">
+   The Central Limit Theorem
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#importance-sampling">
-   Importance sampling
+   Importance Sampling
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#metropolis-algorithm">
-   Metropolis algorithm
+  <a class="reference internal nav-link" href="#metropolis-monte-carlo-and-detailed-balance">
+   Metropolis Monte Carlo and detailed balance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#acceptance-ratio-and-detailed-balance">
-   Acceptance ratio and detailed balance
+  <a class="reference internal nav-link" href="#mc-moves-and-acceptance-ratio">
+   MC moves and acceptance ratio
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#moves-and-sampling-other-ensembles">
-   Moves and sampling other ensembles
+  <a class="reference internal nav-link" href="#sampling-other-ensembles">
+   Sampling other ensembles
   </a>
  </li>
 </ul>
@@ -291,28 +296,33 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#random-sampling">
-   Random sampling
+  <a class="reference internal nav-link" href="#uniform-random-sampling">
+   Uniform random sampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-central-limit-theorem">
+   The Central Limit Theorem
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#importance-sampling">
-   Importance sampling
+   Importance Sampling
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#metropolis-algorithm">
-   Metropolis algorithm
+  <a class="reference internal nav-link" href="#metropolis-monte-carlo-and-detailed-balance">
+   Metropolis Monte Carlo and detailed balance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#acceptance-ratio-and-detailed-balance">
-   Acceptance ratio and detailed balance
+  <a class="reference internal nav-link" href="#mc-moves-and-acceptance-ratio">
+   MC moves and acceptance ratio
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#moves-and-sampling-other-ensembles">
-   Moves and sampling other ensembles
+  <a class="reference internal nav-link" href="#sampling-other-ensembles">
+   Sampling other ensembles
   </a>
  </li>
 </ul>
@@ -326,12 +336,12 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="monte-carlo">
 <h1>Monte Carlo<a class="headerlink" href="#monte-carlo" title="Permalink to this headline">¶</a></h1>
-<p>Now that you have written your own MD code, you have a recipe for evaluating thermodynamic properties of systems in the microcanonical ensemble. We used MD simulations to sample configuration from the ensemble and, since they all had the same probability, we took their arithmetic mean to calculate ensemble averages. But what would you do if you wanted to sample the canonical ensemble? You would have to evaluate Eq.<a class="reference internal" href="StatMech.html#equation-ensemble-av-nvt">(38)</a>, in which each configuration has a different weight. Effectively, this also means evaluating very <strong>high-dimensional integrals</strong>, since <span class="math notranslate nohighlight">\(\textbf x\)</span> is of dimension <span class="math notranslate nohighlight">\(6N\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number of atoms. Here, we will learn about the difficulties of calculating such integrals and of an ingenious alogrithm to evaluate them.</p>
+<p>Now that you have written your own MD code, you have a recipe for evaluating thermodynamic properties of systems in the microcanonical ensemble. We used MD simulations to sample configurations from that ensemble and, since they all had the same probability, we took their arithmetic mean to calculate ensemble averages. But what would you do if you wanted to sample the canonical ensemble? You would have to evaluate Eq.<a class="reference internal" href="StatMech.html#equation-ensemble-av-nvt">(38)</a>, in which each configuration has a different weight. Effectively, this also means evaluating very <strong>high-dimensional integrals</strong>, since <span class="math notranslate nohighlight">\(\textbf x\)</span> is of dimension <span class="math notranslate nohighlight">\(6N\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number of atoms. Here, we will learn about the difficulties of calculating such integrals and of an ingenious alogrithm to overcome them.</p>
 <div class="section" id="evaluation-of-high-dimensional-integrals">
 <h2>Evaluation of high-dimensional integrals<a class="headerlink" href="#evaluation-of-high-dimensional-integrals" title="Permalink to this headline">¶</a></h2>
 <p>As we have seen, the expectation values we encounter in statistical mechanics are of the form</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-expval">
+<span class="eqno">(61)<a class="headerlink" href="#equation-expval" title="Permalink to this equation">¶</a></span>\[
 A = \langle a \rangle_f = \int f(\textbf x) \, a(\textbf{x}) \, \mathrm{d} \textbf{x},
 \]</div>
 <p>where</p>
@@ -339,23 +349,29 @@ A = \langle a \rangle_f = \int f(\textbf x) \, a(\textbf{x}) \, \mathrm{d} \text
 \[
 f(\textbf x) = \frac{1}{\mathcal Z} \mathcal{F}(\mathcal{H} (\textbf{x}))
 \]</div>
-<p>is a positive, normalized phase space probability density. From now on we will consider the canonical ensemble, for which <span class="math notranslate nohighlight">\(\mathcal{F}(\mathcal{H} (\textbf{x})) = e^{-\beta \mathcal H}\)</span>.</p>
-<p>How could they be evaluated in practice? One way is to sample <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span> on a multi dimensional grid, multiplying each one of the samples by its probability and doing the integration by quadrature,</p>
+<p>is a positive, normalized phase space probability density. From now, we will consider the canonical ensemble, for which <span class="math notranslate nohighlight">\(\mathcal{F}(\mathcal{H} (\textbf{x})) = e^{-\beta \mathcal H (\textbf x)}\)</span>.</p>
+<p>How could we evaluate these expectation values in practice? One way is to sample <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span> on a multi dimensional grid, multiplying each one of the samples by its probability and doing the integration by quadrature,</p>
 <div class="math notranslate nohighlight" id="equation-quad">
-<span class="eqno">(61)<a class="headerlink" href="#equation-quad" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(62)<a class="headerlink" href="#equation-quad" title="Permalink to this equation">¶</a></span>\[
 A_M = \sum_{j=1}^{N_g} f(\textbf{x}_j) a(\textbf{x}_j) \Delta \textbf x = \frac{ \sum_{j=1}^{N_g} e^{-\beta \mathcal{H}(\textbf{x}_j)}\, a(\textbf{x}_j)}{ \sum_{j=1}^{N_g} e^{-\beta \mathcal{H} (\textbf{x}_j) }}.
 \]</div>
-<p>However, this is very, very expensive and the algorithm scales exponentially with the particles. Why? Because we need to evaluate a <span class="math notranslate nohighlight">\(6N\)</span> dimensional integral on a grid. Admittedly, if the property we are interested in does not depend on the momenta, <span class="math notranslate nohighlight">\(a(\textbf{x}_j) = (\textbf{r}_j)\)</span>, then the integration over <span class="math notranslate nohighlight">\(\textbf p\)</span> can be done analytically to obtain,</p>
+<p>However, this is very, very expensive and the algorithm scales exponentially with the particles. Why? Because we need to evaluate a <span class="math notranslate nohighlight">\(6N\)</span> dimensional integral on a grid.</p>
+<p>Admittedly, if the property we are interested in does not depend on the momenta, i.e. <span class="math notranslate nohighlight">\(a(\textbf{x}_j) = a(\textbf{r}_j)\)</span>, then the integration over <span class="math notranslate nohighlight">\(\textbf p\)</span> can be done analytically to obtain,</p>
 <div class="math notranslate nohighlight" id="equation-config-part">
-<span class="eqno">(62)<a class="headerlink" href="#equation-config-part" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(63)<a class="headerlink" href="#equation-config-part" title="Permalink to this equation">¶</a></span>\[
 A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j) }}.
 \]</div>
-<p>Nevertheless, we remain with a <span class="math notranslate nohighlight">\(3N\)</span> dimensional integral. To evalaute it, even if we divide each spatial dimension for every particle into only 10 grid points, we would need to sum over <span class="math notranslate nohighlight">\(N_g = 10^{3N}\)</span> points to evaluate the integral. This is completey prohibitive already for a very small number of particles. Monte carlo is a clever way to evaluate such integrals without resorting to qudrature. Moreover, Monte Carlo is a conceptually-different approach for sampling equilibrium distribution functions that does not rely on the dynamics in time of the system to generate the configurations (like MD).</p>
+<p>Nevertheless, we remain with a <span class="math notranslate nohighlight">\(3N\)</span> dimensional integral. To evaluate it, even if we divide each spatial dimension for every particle into only 10 grid points, we would need to sum over <span class="math notranslate nohighlight">\(N_g = 10^{3N}\)</span> points to evaluate the integral. This is completey prohibitive already for a very small number of particles. Monte carlo is a clever way to evaluate such integrals without resorting to qudrature. Moreover, Monte Carlo is a conceptually-different approach for sampling equilibrium distribution functions that does not rely on the dynamics in time of the system to generate the configurations (like MD).</p>
 </div>
-<div class="section" id="random-sampling">
-<h2>Random sampling<a class="headerlink" href="#random-sampling" title="Permalink to this headline">¶</a></h2>
-<p>The first solution to this problem was invented by Metropolis and Ulam in 1949. Their ingenious idea was to use random numbers to evaluate multidimensional integrals instead of a quadrature on a grid.</p>
-<p>They showed that using their approach, it is possible to evalaute integrals using a number of samples that is much smaller than the exponentially growing number of grid points.</p>
+<div class="section" id="uniform-random-sampling">
+<h2>Uniform random sampling<a class="headerlink" href="#uniform-random-sampling" title="Permalink to this headline">¶</a></h2>
+<p>A solution to this problem was invented by <a class="reference external" href="https://en.wikipedia.org/wiki/Stanislaw_Ulam">Ulam</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Nicholas_Metropolis">Metropolis</a> in 1949. Their ingenious idea was to use random numbers to evaluate multidimensional integrals instead of a quadrature on a grid. They showed that, using their approach, it is possible to evalaute integrals using a much smaller number of samples than the exponentially growing number of grid points. Their idea was to choose a known reference volume in space that bounds the (irregular volume) we wish to calculate. Then, we sample random points uniformly distributed in the reference volume. We count the number of samples that lie within the irregular volume we wish to calculate. The ratio of this number to the total number of samples, multiplied by the reference volume is an estimate of the irregular volume,</p>
+<div class="math notranslate nohighlight" id="equation-mcint">
+<span class="eqno">(64)<a class="headerlink" href="#equation-mcint" title="Permalink to this equation">¶</a></span>\[V = \frac{\tau_{in}}{\tau_{tot}} V_0\]</div>
+<p>For example, to evaluate the area of a two-dimensional disk with radius <span class="math notranslate nohighlight">\(R=1\)</span> in the first quadrant, we need to solve the integral</p>
+<div class="math notranslate nohighlight" id="equation-disk">
+<span class="eqno">(65)<a class="headerlink" href="#equation-disk" title="Permalink to this equation">¶</a></span>\[\int_0^1 \int_{\sqrt{1-x^2}}^1 \mathrm{d} x  \mathrm{d} y = \frac{\pi}{4}.\]</div>
+<p>Instead, we choose a reference square of unit side length that bounds the unit circle and evaluate the integral numerically using MC uniform samling. Below we demonstrate this method and evaluate the area/volume of ball in two and three dimensions, using both quadrature and Monte Carlo uniform sampling. To treat the two methods on equal footing, we make sure to use the same number of function evaluations and compare the obtained accuracy. We show that for two dimensions, quadrature is more accurate than MC sampling. But already for three dimensions, MC is more accurate by an order of magnitude. MC is also much faster than quadrature for three dimensions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#imports </span>
@@ -402,7 +418,6 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#2D MC uniform sampling</span>
-
 <span class="n">d</span> <span class="o">=</span> <span class="mi">2</span>
 
 <span class="n">Nsamples</span> <span class="o">=</span> <span class="mi">188822</span>
@@ -424,9 +439,9 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
     <span class="c1">#print( &quot;Result = &quot; + str(inside/Nsamples*V0) )</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;STD = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">))</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BSE = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">))</span> <span class="p">)</span>
 
-<span class="c1">#volume of n-ball in first quadrant</span>
+<span class="c1">#volume of d-ball in first quadrant</span>
 <span class="n">voln</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">R</span><span class="o">**</span><span class="n">d</span> <span class="o">/</span> <span class="n">special</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">**</span><span class="n">d</span>
 <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Expected = &quot;</span> <span class="o">+</span>  <span class="nb">str</span><span class="p">(</span><span class="n">voln</span><span class="p">)</span> <span class="p">)</span>
 
@@ -435,8 +450,8 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.7859327832561884
-STD = 0.00026897305444195446
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.7850663587929372
+BSE = 0.00026645193167821723
 Expected = 0.7853981633974483
 neval = 1888220
 </pre></div>
@@ -445,8 +460,28 @@ neval = 1888220
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#3D MC uniform sampling</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
 
+<span class="n">lessp</span> <span class="o">=</span> <span class="n">p</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="n">lessp</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">lessp</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lessp</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">lessp</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lessp</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">idx</span><span class="p">],</span><span class="n">lessp</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">idx</span><span class="p">],</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2b73634520&gt;]
+</pre></div>
+</div>
+<img alt="_images/MonteCarlo_6_1.png" src="_images/MonteCarlo_6_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#3D MC uniform sampling</span>
 <span class="n">d</span> <span class="o">=</span> <span class="mi">3</span>
 
 <span class="n">Nsamples</span> <span class="o">=</span> <span class="mi">183995879</span>
@@ -468,9 +503,9 @@ neval = 1888220
     <span class="c1">#print( &quot;Result = &quot; + str(inside/Nsamples*V0) )</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;STD = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">))</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BSE = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">))</span> <span class="p">)</span>
 
-<span class="c1">#volume of n-ball in first quadrant</span>
+<span class="c1">#volume of d-ball in first quadrant</span>
 <span class="n">voln</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">R</span><span class="o">**</span><span class="n">d</span> <span class="o">/</span> <span class="n">special</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">**</span><span class="n">d</span>
 <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Expected = &quot;</span> <span class="o">+</span>  <span class="nb">str</span><span class="p">(</span><span class="n">voln</span><span class="p">)</span> <span class="p">)</span>
 
@@ -479,8 +514,8 @@ neval = 1888220
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.523611308707626
-STD = 1.564304494651187e-05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.5235981105859443
+BSE = 8.05996232665892e-06
 Expected = 0.5235987755982989
 neval = 1839958790
 </pre></div>
@@ -488,13 +523,15 @@ neval = 1839958790
 </div>
 </div>
 </div>
-<div class="section" id="importance-sampling">
-<h2>Importance sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h2>
-<p>We have just established that random (uniform) sampling could be very helpful for multi-dimensional integration, in comparison to numerical quadrature. But there are situations in which uniform sampling could be highly wateful too. Consider the case when <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> is localized in some point in the <span class="math notranslate nohighlight">\(3N\)</span> dimensional space. Much of our uniform samples will not be counted when evaluating the integral. Can we do better? Yes! If we know how to generate samples that are already distributed according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>.</p>
-<p>At this point, we will <em>assume</em> that we have an algorithm for obtaining a set of <span class="math notranslate nohighlight">\(M\)</span> <strong>independent</strong> samples (configurations of the system) <span class="math notranslate nohighlight">\(\textbf x_1 ,..., \textbf x_M\)</span> that are all <strong>identically distributed</strong> according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> with some mean <span class="math notranslate nohighlight">\(\langle a \rangle_f\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2 = \langle a^2 \rangle_f - \langle a \rangle_f^2\)</span>. This is by no means a trivial task. It is straightforward only for simple distributions and the form of Monte Carlo that we will study next was designed to address this problem exactly issue. But, for now, we will simply assume such an algorithm exists. If that is the case, we can then evaluate <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span> for each sample.</p>
+<div class="section" id="the-central-limit-theorem">
+<h2>The Central Limit Theorem<a class="headerlink" href="#the-central-limit-theorem" title="Permalink to this headline">¶</a></h2>
+<p>We have just established that random (uniform) sampling could be very helpful for evaluating multi-dimensional integrals, in comparison to numerical quadrature. But there are situations in which uniform sampling could be highly wateful too. For example, when <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> is localized in a small volume in the <span class="math notranslate nohighlight">\(3N\)</span> dimensional space. In that case, many of our uniform samples will not be counted when evaluating the integral.</p>
+<p>Note that this is not the case for the example of the n-ball above. For the n-ball, the volume grows like <span class="math notranslate nohighlight">\(\sim R^d\)</span> where <span class="math notranslate nohighlight">\(d\)</span> is the number of spatial dimensions. We sample uniformy in an <span class="math notranslate nohighlight">\(d\)</span>-dimensional cube, whose volume also scales the same. This means that the ratio of the two volumes does not depend on <span class="math notranslate nohighlight">\(d\)</span>.</p>
+<p>For the problematic, localized case, can we do better than uniform sampling? Yes! If we know how to generate samples that are already distributed according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>.</p>
+<p>At this point, we will <em>assume</em> that we have an algorithm for obtaining a set of <span class="math notranslate nohighlight">\(M\)</span> <strong>independent</strong> samples (configurations of the system) <span class="math notranslate nohighlight">\(\textbf x_1 ,..., \textbf x_M\)</span> that are all <strong>identically distributed</strong> according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> with some mean <span class="math notranslate nohighlight">\(\langle a \rangle_f\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2 = \langle a^2 \rangle_f - \langle a \rangle_f^2\)</span>. This is by no means a trivial task. It is straightforward only for simple distributions and the form of Monte Carlo that we will study next was designed to address exactly this problem. But, for now, we will simply assume such an algorithm exists. If that is the case, we can then evaluate <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span> for each sample.</p>
 <p>The central limit theorem (CLT) ensures that if we consider the simple arithmetic mean of the samples as a random variable,</p>
 <div class="math notranslate nohighlight" id="equation-mean">
-<span class="eqno">(63)<a class="headerlink" href="#equation-mean" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(66)<a class="headerlink" href="#equation-mean" title="Permalink to this equation">¶</a></span>\[
 A_M = \frac{1}{M} \sum_{j=1}^{M} a(\textbf{x}_j).
 \]</div>
 <p>It will be normally distributed with the same mean <span class="math notranslate nohighlight">\( \langle a \rangle_f \)</span> as the samples <span class="math notranslate nohighlight">\( \textbf{x}_j \)</span> and a variance</p>
@@ -502,20 +539,168 @@ A_M = \frac{1}{M} \sum_{j=1}^{M} a(\textbf{x}_j).
 \[
 \sigma^2_M = \frac{\sigma^2}{M}
 \]</div>
-<p>In other words, the CLT guarantees that the arithmetic mean of the samples converges to ensemble average of <span class="math notranslate nohighlight">\(A\)</span> in the limit <span class="math notranslate nohighlight">\(M \to \infty\)</span>, because its variance from the mean decays like <span class="math notranslate nohighlight">\(M^{-1}\)</span>. Note that the CLT does not assume a specific form of the distribution <span class="math notranslate nohighlight">\(f(\textbf{x})\)</span>. This is very powerful, it means that even when our sampling algorithm (dynamic or not) provides samples from a nonuniform distribution, the arithmetic mean will still converge to the true expectation value. The buttom line? We can use the simple arithmetic mean of the samples for the canonical ensemble, just like in the NVE ensemble, as long as we can generate samples from the desired distribution.</p>
-<p>We can also use importance sampling if we don’t know how to sample from <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, but do know how to sample from a different distribution, <span class="math notranslate nohighlight">\(h(\textbf x)\)</span>, that has much more substantial overlap with <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> than the uniform distribution.</p>
+<p>In other words, the CLT guarantees that the arithmetic mean of the samples converges to ensemble average of <span class="math notranslate nohighlight">\(A\)</span> in the limit <span class="math notranslate nohighlight">\(M \to \infty\)</span>, because its variance from the mean decays like <span class="math notranslate nohighlight">\(M^{-1}\)</span>. Note that the CLT does not assume a specific form of the distribution <span class="math notranslate nohighlight">\(f(\textbf{x})\)</span>. This is very powerful, it means that even when our sampling algorithm (dynamic or not) provides samples from a nonuniform distribution, the arithmetic mean will still converge to the true expectation value. An important outcome is that we can use the simple arithmetic mean of the samples to calculate expectation values for the canonical ensemble, just like in the NVE ensemble, as long as we can generate samples from the desired distribution.</p>
+<p>However, that is exactly where things get tricky! We know how to generate random samples only from relatively simple probability distributions (Gaussian, uniform, exponential, see others <a class="reference external" href="https://numpy.org/doc/1.16/reference/routines.random.html">here</a>).</p>
+<p>There are two solutions to this problem: 1) Use a different distribution, <span class="math notranslate nohighlight">\(h(\textbf x)\)</span>, that is simple enough to be sampled directly and resembles <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> better than a uniform distribution. 2) Generate samples consecutively (and not all together at random as we did above) in a process that is sure to converge to the distribution <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>. The first solution is called <strong>importance sampling</strong>, which we describe first. The second solution, called the <strong>Metropolis Monte Carlo</strong> or <strong>Markov Chain Monte Carlo</strong>, will be discussed in the next section.</p>
 </div>
-<div class="section" id="metropolis-algorithm">
-<h2>Metropolis algorithm<a class="headerlink" href="#metropolis-algorithm" title="Permalink to this headline">¶</a></h2>
-<p>We already saw that if we have a way to sample <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, we can easily obtain expectation values using importance sampling MC. But it is an unfortunate fact that we have efficient algorithms to sample only relatively simple distributions, such as exponential, Gaussian, uniform etc.</p>
-<p>In a seminal paper in 1953, the Rosenbluths, Tellers and Metropolis (sans spouse) developed an algorithm that can be shown to provide importance sampling from arbitrary distribution function! The importance of this result truly could not be overstated. It is perhaps one of the greatest results of the previous century.</p>
+<div class="section" id="importance-sampling">
+<h2>Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h2>
+<p>We can use the CLT even if we do not know how to sample from <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> directly, but know how to sample a different distribution, <span class="math notranslate nohighlight">\(h(\textbf x)\)</span>, that has much more substantial overlap with <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> than the uniform distribution. Since <span class="math notranslate nohighlight">\(h(\textbf x)\)</span> is a positive, normalized probability density, we rewrite Eq. <a class="reference internal" href="#equation-expval">(61)</a> as</p>
+<div class="math notranslate nohighlight" id="equation-reweight">
+<span class="eqno">(67)<a class="headerlink" href="#equation-reweight" title="Permalink to this equation">¶</a></span>\[
+A = \langle a \rangle_f = \int h(\textbf x) \, \frac{f(\textbf x)}{h(\textbf x)} \, a(\textbf{x}) \, \mathrm{d} \textbf{x} = \langle a(\textbf x) w (\textbf x) \rangle_h,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(w(\textbf x) = f(\textbf x) / h(\textbf x)\)</span> is the weight we need associate with every configuration sampled from <span class="math notranslate nohighlight">\(h(\textbf x)\)</span> to obtain the expectation value we are really interested in, Eq. <a class="reference internal" href="#equation-expval">(61)</a>. As a result, this procedure is also often called <strong>reweighting</strong>.</p>
+<p>Below we show an example from the book by Tuckerman that uses importance sampling to evaluate the integral</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^1 e^{-x} \, \mathrm{d}x = 1 - \frac{1}{e} = 0.632120558829.
+\]</div>
+<p>If we sample <span class="math notranslate nohighlight">\(x\)</span> uniformly, we get a good estimate of the mean after 1000 random samples.
+But the standard error is an order of magnitude smaller if we use importance sampling with</p>
+<div class="math notranslate nohighlight">
+\[
+h(x) = \frac{1 - ax}{1-\frac{a}{2}},
+\]</div>
+<p>while choosing <span class="math notranslate nohighlight">\(a\)</span> to have maximal overlap between <span class="math notranslate nohighlight">\(h(x)\)</span> and <span class="math notranslate nohighlight">\(e^{-x}\)</span>.
+This can be also seen from in final figure, showing the value of the estimator, <span class="math notranslate nohighlight">\(e^{-x}\)</span> or <span class="math notranslate nohighlight">\(e^{-x}/h(x)\)</span>, for the various random samples. It is clear that the standard deviation of the latter is much smaller. Note that if we would have chosen <span class="math notranslate nohighlight">\(a=1\)</span>, the sampling would actually be worse that for the case of uniform sampling.</p>
+<div class="tip admonition">
+<p class="admonition-title">Active learning</p>
+<p>Show that <span class="math notranslate nohighlight">\(h(x)\)</span> given above is a postive and normalized probability density in the range [0,1].</p>
 </div>
-<div class="section" id="acceptance-ratio-and-detailed-balance">
-<h2>Acceptance ratio and detailed balance<a class="headerlink" href="#acceptance-ratio-and-detailed-balance" title="Permalink to this headline">¶</a></h2>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^1 \frac{1 - ax}{1-\frac{a}{2}} \, \mathrm{d}x = \frac{x - \frac{ax^2}{2}}{1-\frac{a}{2}} \bigg| _0^1 = 1
+\]</div>
 </div>
-<div class="section" id="moves-and-sampling-other-ensembles">
-<h2>Moves and sampling other ensembles<a class="headerlink" href="#moves-and-sampling-other-ensembles" title="Permalink to this headline">¶</a></h2>
-<p>translation, isothermal-isobaric, grand canonical?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sampleh</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    
+    <span class="n">newp</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">p</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="n">a</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a</span> <span class="o">*</span> <span class="n">newp</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
+    <span class="c1">#plt.hist(p[1,:-1:100], bins=20)</span>
+    <span class="k">return</span> <span class="n">newp</span><span class="p">,</span><span class="n">h</span>
+
+<span class="n">Nsamples</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="n">M</span><span class="o">=</span><span class="mi">10</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<span class="n">res_IS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+    <span class="c1">#generate random samples</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="n">Nsamples</span><span class="p">)</span>
+    <span class="n">expp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">p</span><span class="p">)</span>
+    
+    <span class="c1">#count how many are inside the n-ball</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">expp</span><span class="p">))</span>
+    
+    <span class="c1">#Sample from h instead</span>
+    <span class="n">newp</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">sampleh</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.64</span><span class="p">)</span>
+    <span class="n">expp_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">newp</span><span class="p">)</span><span class="o">/</span><span class="n">h</span>
+    <span class="n">res_IS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res_IS</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">expp_h</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;uniform mean = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;uniform BSE = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">))</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;IS mean = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res_IS</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;IS BSE = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res_IS</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">))</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;expected = 0.632120558829&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">expp</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">expp_h</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Sample&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Estimator&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uniform mean = 0.6321663494866864
+uniform BSE = 0.0002524226424338528
+IS mean = 0.6321550503536748
+IS BSE = 2.9095734783881982e-05
+expected = 0.632120558829
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Estimator&#39;)
+</pre></div>
+</div>
+<img alt="_images/MonteCarlo_9_2.png" src="_images/MonteCarlo_9_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">Ng</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">xg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Ng</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xg</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">xg</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xg</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="o">*</span><span class="n">xg</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xg</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span> <span class="n">xg</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;h(x)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;h(x)&#39;)
+</pre></div>
+</div>
+<img alt="_images/MonteCarlo_10_1.png" src="_images/MonteCarlo_10_1.png" />
+</div>
+</div>
+<p>Finally, we note that importance sampling is useful not only when we do not know how to sample <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>. For example, when <span class="math notranslate nohighlight">\(a(\textbf x)\)</span> is highly oscillatory, with both negative and positive contributions, such that its expctation value results from the near-cancellation of the positive and negative terms. We do not go into detail here, but a judicious choice of <span class="math notranslate nohighlight">\(h(\textbf x)\)</span> could significantly improve convergence in such difficult cases.</p>
+</div>
+<div class="section" id="metropolis-monte-carlo-and-detailed-balance">
+<h2>Metropolis Monte Carlo and detailed balance<a class="headerlink" href="#metropolis-monte-carlo-and-detailed-balance" title="Permalink to this headline">¶</a></h2>
+<p>We already saw that if we have a way to sample <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, we can easily obtain expectation values using importance sampling MC. But it is an unfortunate fact that we have efficient algorithms to sample directly only relatively simple distributions, such as exponential, Gaussian, uniform etc.</p>
+<p>In a seminal paper in 1953, the Rosenbluths, Tellers and Metropolis (sans spouse) developed an algorithm that instead of obtaining random samples from <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> at once, creates a sequential samples <span class="math notranslate nohighlight">\(\textbf{x}_1, \textbf{x}_2, ...\)</span> that can be shown to converge to the correct <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, for an arbitrary distribution function! The importance of this result truly could not be overstated. It is perhaps one of the greatest results of the previous century.</p>
+<p>The idea at the core of the algorithm is that we need to specify a rule to generate the next sample <span class="math notranslate nohighlight">\(\textbf{x}_{i+1}\)</span> from the current sample <span class="math notranslate nohighlight">\(\textbf{x}_i\)</span>. A sequence of samples that is generated based on information solely from the previous step is called a <strong>Markov chain</strong>. We denote the probability of obtaining a sample <span class="math notranslate nohighlight">\(\textbf x\)</span> from some other sample <span class="math notranslate nohighlight">\(\textbf y\)</span> as <span class="math notranslate nohighlight">\(R(\textbf x | \textbf y)\)</span>. For this probability to be a valid rule for generating a Markov chain, it must satisfy a condition called <strong>detailed balance</strong>,</p>
+<div class="math notranslate nohighlight" id="equation-detailed-balance">
+<span class="eqno">(68)<a class="headerlink" href="#equation-detailed-balance" title="Permalink to this equation">¶</a></span>\[
+R(\textbf x | \textbf y) f(\textbf y) = R(\textbf y | \textbf x) f(\textbf x)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(R(\textbf x | \textbf y) f(\textbf y)\)</span> is called the <em>a priori</em> probability of moving from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span>, which is just the probability to move from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span>, given that the system was already in <span class="math notranslate nohighlight">\(\textbf y\)</span>. Detailed balance is important, because it guarantees that the Markov chain is microscopically reversible. Then, once a move is generated, we must decide whether to accept it or not.</p>
+<p>The Metropolis MC algorithm states a rule for proposing moves, which we denote as <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y)\)</span>, which has to be normalized,</p>
+<div class="math notranslate nohighlight">
+\[
+\int T(\textbf x | \textbf y) \, \mathrm{d}x = 1,
+\]</div>
+<p>and a probability that the move is accepted, which is denoted as <span class="math notranslate nohighlight">\(A(\textbf x | \textbf y)\)</span>. Then the probability to move from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span>, is given by the product of the probability of suggesting such a move, times the acceptance probability, i.e.</p>
+<div class="math notranslate nohighlight">
+\[
+R(\textbf x | \textbf y) = T(\textbf x | \textbf y) A(\textbf x | \textbf y).
+\]</div>
+<p>Inserting this equation into the detailed balance conditions, Eq. <a class="reference internal" href="#equation-detailed-balance">(68)</a> we get</p>
+<div class="math notranslate nohighlight">
+\[
+A(\textbf x | \textbf y) = r(\textbf x | \textbf y) A(\textbf y | \textbf x),
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+r(\textbf x | \textbf y) = \frac{T(\textbf y | \textbf x) f(\textbf x)}{T(\textbf x | \textbf y) f(\textbf y)}.
+\]</div>
+<p>Now, suppose <span class="math notranslate nohighlight">\(A(\textbf x | \textbf y)=1\)</span> and the move from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span> is favorable, then <span class="math notranslate nohighlight">\(A(\textbf y | \textbf x) &lt; 1\)</span> and therefore <span class="math notranslate nohighlight">\(r(\textbf x | \textbf y) &gt; 1\)</span>. However, if <span class="math notranslate nohighlight">\(A(\textbf x | \textbf y)&lt;1\)</span>, then <span class="math notranslate nohighlight">\(A(\textbf y | \textbf x) = 1\)</span> is favorable and so <span class="math notranslate nohighlight">\(r(\textbf x | \textbf y) &lt; 1\)</span>. We can summarize these findings as</p>
+<div class="math notranslate nohighlight" id="equation-acc-crit">
+<span class="eqno">(69)<a class="headerlink" href="#equation-acc-crit" title="Permalink to this equation">¶</a></span>\[
+A(\textbf x | \textbf y) = min[1,r(\textbf x | \textbf y)].
+\]</div>
+<p>Now all the ingredients for Metropolis MC are ready! We need to initialzie the system at some configuration, then define a probability to make a move <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y)\)</span>, and suggest a step. Next, based on <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y)\)</span> and the probability we want to sample, <span class="math notranslate nohighlight">\(f(\textbf)\)</span>, we evaluate the function <span class="math notranslate nohighlight">\(r(\textbf x | \textbf y)\)</span>. Finally, we accept or reject the move based on the criterion in Eq. <a class="reference internal" href="#equation-acc-crit">(69)</a>. The final step is done in practice in the following way: If <span class="math notranslate nohighlight">\(r(\textbf x | \textbf y) \le 1\)</span> the move is accepted. If it is smaller than 1, a random number is sampled from a uniform distribution between <span class="math notranslate nohighlight">\([0,1]\)</span>. If it is smaller than <span class="math notranslate nohighlight">\(r(\textbf x | \textbf y)\)</span>, the move is accepted. Otherwise, the move is rejected.</p>
+</div>
+<div class="section" id="mc-moves-and-acceptance-ratio">
+<h2>MC moves and acceptance ratio<a class="headerlink" href="#mc-moves-and-acceptance-ratio" title="Permalink to this headline">¶</a></h2>
+<p>translation.</p>
+</div>
+<div class="section" id="sampling-other-ensembles">
+<h2>Sampling other ensembles<a class="headerlink" href="#sampling-other-ensembles" title="Permalink to this headline">¶</a></h2>
+<p>isothermal-isobaric, grand canonical?</p>
 </div>
 </div>
 
