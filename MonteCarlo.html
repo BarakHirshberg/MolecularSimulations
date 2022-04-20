@@ -361,12 +361,131 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.special</span>
 <span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
 
 <span class="n">R</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">Nsamples</span> <span class="o">=</span> <span class="mi">100000</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1">#2D</span>
+<span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">integrate</span><span class="o">.</span><span class="n">nquad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">]],</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#integrate.dblquad(func, 0, 1, lambda x: 0, lambda x: 1)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.7854453780175082, 6.043574189984469e-06, {&#39;neval&#39;: 1888215})
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#3D</span>
+<span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">integrate</span><span class="o">.</span><span class="n">nquad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">]],</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#integrate.tplquad(func, 0, 1, lambda x: 0, lambda x: 1,</span>
+<span class="c1">#                  lambda x, y: 0, lambda x, y: 1)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_886021</span><span class="o">/</span><span class="mf">2278640994.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#3D</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">integrate</span><span class="o">.</span><span class="n">nquad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">]],</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#integrate.tplquad(func, 0, 1, lambda x: 0, lambda x: 1,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#                  lambda x, y: 0, lambda x, y: 1)</span>
+
+<span class="nn">~/anaconda3/envs/book/lib/python3.9/site-packages/scipy/integrate/quadpack.py</span> in <span class="ni">nquad</span><span class="nt">(func, ranges, args, opts, full_output)</span>
+<span class="g g-Whitespace">    </span><span class="mi">823</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">824</span>         <span class="n">opts</span> <span class="o">=</span> <span class="p">[</span><span class="n">opt</span> <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span> <span class="k">else</span> <span class="n">_OptFunc</span><span class="p">(</span><span class="n">opt</span><span class="p">)</span> <span class="k">for</span> <span class="n">opt</span> <span class="ow">in</span> <span class="n">opts</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">825</span>     <span class="k">return</span> <span class="n">_NQuad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">ranges</span><span class="p">,</span> <span class="n">opts</span><span class="p">,</span> <span class="n">full_output</span><span class="p">)</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">826</span> 
+<span class="g g-Whitespace">    </span><span class="mi">827</span> 
+
+<span class="nn">~/anaconda3/envs/book/lib/python3.9/site-packages/scipy/integrate/quadpack.py</span> in <span class="ni">integrate</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">f</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">integrate</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="n">depth</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">879</span>         <span class="n">quad_r</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">full_output</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">full_output</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>                       <span class="o">**</span><span class="n">opt</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="n">value</span> <span class="o">=</span> <span class="n">quad_r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nn">~/anaconda3/envs/book/lib/python3.9/site-packages/scipy/integrate/quadpack.py</span> in <span class="ni">quad</span><span class="nt">(func, a, b, args, full_output, epsabs, epsrel, limit, points, weight, wvar, wopts, maxp1, limlst)</span>
+<span class="g g-Whitespace">    </span><span class="mi">349</span> 
+<span class="g g-Whitespace">    </span><span class="mi">350</span>     <span class="k">if</span> <span class="n">weight</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">351</span>         <span class="n">retval</span> <span class="o">=</span> <span class="n">_quad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">full_output</span><span class="p">,</span> <span class="n">epsabs</span><span class="p">,</span> <span class="n">epsrel</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">352</span>                        <span class="n">points</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">353</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/anaconda3/envs/book/lib/python3.9/site-packages/scipy/integrate/quadpack.py</span> in <span class="ni">_quad</span><span class="nt">(func, a, b, args, full_output, epsabs, epsrel, limit, points)</span>
+<span class="g g-Whitespace">    </span><span class="mi">461</span>     <span class="k">if</span> <span class="n">points</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span>         <span class="k">if</span> <span class="n">infbounds</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">463</span>             <span class="k">return</span> <span class="n">_quadpack</span><span class="o">.</span><span class="n">_qagse</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">full_output</span><span class="p">,</span><span class="n">epsabs</span><span class="p">,</span><span class="n">epsrel</span><span class="p">,</span><span class="n">limit</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">465</span>             <span class="k">return</span> <span class="n">_quadpack</span><span class="o">.</span><span class="n">_qagie</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">bound</span><span class="p">,</span><span class="n">infbounds</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">full_output</span><span class="p">,</span><span class="n">epsabs</span><span class="p">,</span><span class="n">epsrel</span><span class="p">,</span><span class="n">limit</span><span class="p">)</span>
+
+<span class="nn">~/anaconda3/envs/book/lib/python3.9/site-packages/scipy/integrate/quadpack.py</span> in <span class="ni">integrate</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">f</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">integrate</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="n">depth</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">879</span>         <span class="n">quad_r</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">full_output</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">full_output</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>                       <span class="o">**</span><span class="n">opt</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="n">value</span> <span class="o">=</span> <span class="n">quad_r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nn">~/anaconda3/envs/book/lib/python3.9/site-packages/scipy/integrate/quadpack.py</span> in <span class="ni">quad</span><span class="nt">(func, a, b, args, full_output, epsabs, epsrel, limit, points, weight, wvar, wopts, maxp1, limlst)</span>
+<span class="g g-Whitespace">    </span><span class="mi">349</span> 
+<span class="g g-Whitespace">    </span><span class="mi">350</span>     <span class="k">if</span> <span class="n">weight</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">351</span>         <span class="n">retval</span> <span class="o">=</span> <span class="n">_quad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">full_output</span><span class="p">,</span> <span class="n">epsabs</span><span class="p">,</span> <span class="n">epsrel</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">352</span>                        <span class="n">points</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">353</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/anaconda3/envs/book/lib/python3.9/site-packages/scipy/integrate/quadpack.py</span> in <span class="ni">_quad</span><span class="nt">(func, a, b, args, full_output, epsabs, epsrel, limit, points)</span>
+<span class="g g-Whitespace">    </span><span class="mi">461</span>     <span class="k">if</span> <span class="n">points</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span>         <span class="k">if</span> <span class="n">infbounds</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">463</span>             <span class="k">return</span> <span class="n">_quadpack</span><span class="o">.</span><span class="n">_qagse</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">full_output</span><span class="p">,</span><span class="n">epsabs</span><span class="p">,</span><span class="n">epsrel</span><span class="p">,</span><span class="n">limit</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">465</span>             <span class="k">return</span> <span class="n">_quadpack</span><span class="o">.</span><span class="n">_qagie</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">bound</span><span class="p">,</span><span class="n">infbounds</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">full_output</span><span class="p">,</span><span class="n">epsabs</span><span class="p">,</span><span class="n">epsrel</span><span class="p">,</span><span class="n">limit</span><span class="p">)</span>
+
+<span class="nn">~/anaconda3/envs/book/lib/python3.9/site-packages/scipy/integrate/quadpack.py</span> in <span class="ni">integrate</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">f</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">integrate</span><span class="p">,</span> <span class="n">depth</span><span class="o">=</span><span class="n">depth</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">879</span>         <span class="n">quad_r</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">full_output</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">full_output</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>                       <span class="o">**</span><span class="n">opt</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="n">value</span> <span class="o">=</span> <span class="n">quad_r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nn">~/anaconda3/envs/book/lib/python3.9/site-packages/scipy/integrate/quadpack.py</span> in <span class="ni">quad</span><span class="nt">(func, a, b, args, full_output, epsabs, epsrel, limit, points, weight, wvar, wopts, maxp1, limlst)</span>
+<span class="g g-Whitespace">    </span><span class="mi">349</span> 
+<span class="g g-Whitespace">    </span><span class="mi">350</span>     <span class="k">if</span> <span class="n">weight</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">351</span>         <span class="n">retval</span> <span class="o">=</span> <span class="n">_quad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">full_output</span><span class="p">,</span> <span class="n">epsabs</span><span class="p">,</span> <span class="n">epsrel</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">352</span>                        <span class="n">points</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">353</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">~/anaconda3/envs/book/lib/python3.9/site-packages/scipy/integrate/quadpack.py</span> in <span class="ni">_quad</span><span class="nt">(func, a, b, args, full_output, epsabs, epsrel, limit, points)</span>
+<span class="g g-Whitespace">    </span><span class="mi">461</span>     <span class="k">if</span> <span class="n">points</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span>         <span class="k">if</span> <span class="n">infbounds</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">463</span>             <span class="k">return</span> <span class="n">_quadpack</span><span class="o">.</span><span class="n">_qagse</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">full_output</span><span class="p">,</span><span class="n">epsabs</span><span class="p">,</span><span class="n">epsrel</span><span class="p">,</span><span class="n">limit</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">465</span>             <span class="k">return</span> <span class="n">_quadpack</span><span class="o">.</span><span class="n">_qagie</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">bound</span><span class="p">,</span><span class="n">infbounds</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">full_output</span><span class="p">,</span><span class="n">epsabs</span><span class="p">,</span><span class="n">epsrel</span><span class="p">,</span><span class="n">limit</span><span class="p">)</span>
+
+<span class="nn">/tmp/ipykernel_886021/2278640994.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x, y, z)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#3D</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">integrate</span><span class="o">.</span><span class="n">nquad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">]],</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#integrate.tplquad(func, 0, 1, lambda x: 0, lambda x: 1,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1">#                  lambda x, y: 0, lambda x, y: 1)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">Nsamples</span> <span class="o">=</span> <span class="mi">188822</span>
 <span class="n">M</span><span class="o">=</span><span class="mi">10</span>
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
@@ -392,16 +511,14 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Expected = &quot;</span> <span class="o">+</span>  <span class="nb">str</span><span class="p">(</span><span class="n">voln</span><span class="p">)</span> <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nsamples = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Nsamples</span><span class="p">)</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;10^d grid points = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">d</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.78484
-STD = 0.0002430349769066137
-Expected = 0.7853981633974483
-Nsamples = 100000
-10^d grid points = 100
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.5235428075118366
+STD = 0.0003885015753201022
+Expected = 0.5235987755982989
+Nsamples = 188822
 </pre></div>
 </div>
 </div>
@@ -423,7 +540,23 @@ Nsamples = 100000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0009627721126362898
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_153</span><span class="o">/</span><span class="mf">3571968020.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">mysum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">d</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="k">if</span> <span class="n">val</span> <span class="o">&lt;=</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span><span class="p">:</span> <span class="n">mysum</span><span class="o">+=</span><span class="mi">1</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
+
+<span class="nn">~/anaconda3/envs/book/lib/python3.9/site-packages/numpy/core/_methods.py</span> in <span class="ni">_sum</span><span class="nt">(a, axis, dtype, out, keepdims, initial, where)</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="k">def</span> <span class="nf">_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span>          <span class="n">initial</span><span class="o">=</span><span class="n">_NoValue</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">47</span>     <span class="k">return</span> <span class="n">umr_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> 
+<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="k">def</span> <span class="nf">_prod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
