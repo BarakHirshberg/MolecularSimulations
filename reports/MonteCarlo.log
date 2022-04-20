@@ -32,10 +32,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-#3D
+#3D quadrature
 func = lambda x,y,z: x**2 + y**2 + z**2 <= R**2
 integrate.nquad(func, [[0,R], [0,R], [0,R]], full_output=True)
-#integrate.tplquad(func, 0, 1, lambda x: 0, lambda x: 1,
-#                  lambda x, y: 0, lambda x, y: 1)
 -------------------
 
