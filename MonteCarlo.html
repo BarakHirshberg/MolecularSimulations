@@ -265,11 +265,6 @@
    MC moves and acceptance ratio
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sampling-other-ensembles">
-   Sampling other ensembles
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -318,11 +313,6 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mc-moves-and-acceptance-ratio">
    MC moves and acceptance ratio
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sampling-other-ensembles">
-   Sampling other ensembles
   </a>
  </li>
 </ul>
@@ -423,10 +413,10 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 <span class="n">Nsamples</span> <span class="o">=</span> <span class="mi">188822</span>
 <span class="n">M</span><span class="o">=</span><span class="mi">10</span>
 
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
 <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 <span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-
-    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
 
     <span class="c1">#generate random samples</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">Nsamples</span><span class="p">))</span>
@@ -436,8 +426,6 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
     <span class="n">V0</span> <span class="o">=</span> <span class="n">R</span><span class="o">**</span><span class="n">d</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">inside</span><span class="o">/</span><span class="n">Nsamples</span><span class="o">*</span><span class="n">V0</span><span class="p">)</span>
     
-    <span class="c1">#print( &quot;Result = &quot; + str(inside/Nsamples*V0) )</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="p">)</span> 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BSE = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">))</span> <span class="p">)</span>
 
@@ -450,8 +438,8 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.7850663587929372
-BSE = 0.00026645193167821723
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.7857092923494083
+BSE = 0.00016751888217729133
 Expected = 0.7853981633974483
 neval = 1888220
 </pre></div>
@@ -473,7 +461,7 @@ neval = 1888220
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2b73634520&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcad2524eb0&gt;]
 </pre></div>
 </div>
 <img alt="_images/MonteCarlo_6_1.png" src="_images/MonteCarlo_6_1.png" />
@@ -487,10 +475,10 @@ neval = 1888220
 <span class="n">Nsamples</span> <span class="o">=</span> <span class="mi">183995879</span>
 <span class="n">M</span><span class="o">=</span><span class="mi">10</span>
 
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+    
 <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 <span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
-
-    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
 
     <span class="c1">#generate random samples</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">Nsamples</span><span class="p">))</span>
@@ -500,8 +488,6 @@ neval = 1888220
     <span class="n">V0</span> <span class="o">=</span> <span class="n">R</span><span class="o">**</span><span class="n">d</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">inside</span><span class="o">/</span><span class="n">Nsamples</span><span class="o">*</span><span class="n">V0</span><span class="p">)</span>
     
-    <span class="c1">#print( &quot;Result = &quot; + str(inside/Nsamples*V0) )</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="p">)</span> 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BSE = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">))</span> <span class="p">)</span>
 
@@ -514,8 +500,8 @@ neval = 1888220
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.5235981105859443
-BSE = 8.05996232665892e-06
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.5236000046501041
+BSE = 1.139280597847283e-05
 Expected = 0.5235987755982989
 neval = 1839958790
 </pre></div>
@@ -557,13 +543,12 @@ A = \langle a \rangle_f = \int h(\textbf x) \, \frac{f(\textbf x)}{h(\textbf x)}
 \int_0^1 e^{-x} \, \mathrm{d}x = 1 - \frac{1}{e} = 0.632120558829.
 \]</div>
 <p>If we sample <span class="math notranslate nohighlight">\(x\)</span> uniformly, we get a good estimate of the mean after 1000 random samples.
-But the standard error is an order of magnitude smaller if we use importance sampling with</p>
+But the error is an order of magnitude smaller if we use importance sampling with</p>
 <div class="math notranslate nohighlight">
 \[
 h(x) = \frac{1 - ax}{1-\frac{a}{2}},
 \]</div>
-<p>while choosing <span class="math notranslate nohighlight">\(a\)</span> to have maximal overlap between <span class="math notranslate nohighlight">\(h(x)\)</span> and <span class="math notranslate nohighlight">\(e^{-x}\)</span>.
-This can be also seen from in final figure, showing the value of the estimator, <span class="math notranslate nohighlight">\(e^{-x}\)</span> or <span class="math notranslate nohighlight">\(e^{-x}/h(x)\)</span>, for the various random samples. It is clear that the standard deviation of the latter is much smaller. Note that if we would have chosen <span class="math notranslate nohighlight">\(a=1\)</span>, the sampling would actually be worse that for the case of uniform sampling.</p>
+<p>while choosing <span class="math notranslate nohighlight">\(a\)</span> to have the higest similarity between <span class="math notranslate nohighlight">\(h(x)\)</span> and <span class="math notranslate nohighlight">\(e^{-x}\)</span>. The similarity is measured using a function called the <a class="reference external" href="https://towardsdatascience.com/kl-divergence-python-example-b87069e4b810">Kullback-Leibler (KL) divergence</a>, the optimal value is found to be <span class="math notranslate nohighlight">\(a=0.64\)</span>.</p>
 <div class="tip admonition">
 <p class="admonition-title">Active learning</p>
 <p>Show that <span class="math notranslate nohighlight">\(h(x)\)</span> given above is a postive and normalized probability density in the range [0,1].</p>
@@ -575,6 +560,66 @@ This can be also seen from in final figure, showing the value of the estimator, 
 \int_0^1 \frac{1 - ax}{1-\frac{a}{2}} \, \mathrm{d}x = \frac{x - \frac{ax^2}{2}}{1-\frac{a}{2}} \bigg| _0^1 = 1
 \]</div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ng</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.64</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">xg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Ng</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span><span class="n">xg</span> <span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">trapz</span><span class="p">(</span> <span class="n">x</span><span class="o">=</span><span class="n">xg</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">xg</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">q</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="o">*</span><span class="n">xg</span> <span class="p">)</span><span class="o">/</span><span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> 
+<span class="n">q2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">Ng</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;KL divergence h(x) = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">special</span><span class="o">.</span><span class="n">rel_entr</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;KL divergence uniform = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">special</span><span class="o">.</span><span class="n">rel_entr</span><span class="p">(</span><span class="n">q2</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">xg</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$e^{-x}$&quot;</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">xg</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$h(x)$&quot;</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">xg</span><span class="p">,</span> <span class="n">q2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;uniform&quot;</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;f(x)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KL divergence h(x) = -0.011662666832944757
+KL divergence uniform = 4.133335709606822
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;f(x)&#39;)
+</pre></div>
+</div>
+<img alt="_images/MonteCarlo_9_2.png" src="_images/MonteCarlo_9_2.png" />
+</div>
+</div>
+<p>How do we sample from <span class="math notranslate nohighlight">\(h(x)\)</span>? If we have <span class="math notranslate nohighlight">\(\xi\)</span>, which is sampled from a uniform distribution between <span class="math notranslate nohighlight">\([0,1]\)</span>, other distributions <span class="math notranslate nohighlight">\(h(x)\)</span> in the same range can be obtained <em>if</em> we can solve the inverse equation</p>
+<div class="math notranslate nohighlight" id="equation-inverse">
+<span class="eqno">(68)<a class="headerlink" href="#equation-inverse" title="Permalink to this equation">¶</a></span>\[\int_0^x h(x') \, \mathrm{d} x' = \xi.\]</div>
+<p>The solution <span class="math notranslate nohighlight">\(x\)</span> will be then distributed according to <span class="math notranslate nohighlight">\(h(x)\)</span>. We see below that for a simple linear distribution this becomes a second-order root search problem. For more complicated distributions, the resulting equations are too difficult to solve.</p>
+<div class="tip admonition">
+<p class="admonition-title">Active learning</p>
+<p>Show that the solution of the above inverse equation is</p>
+<div class="math notranslate nohighlight">
+\[
+x = \frac{1 - \sqrt{1 - 2 a (1-\frac{a}{2}) \xi}}{a}
+\]</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The integral leads to</p>
+<div class="math notranslate nohighlight">
+\[
+\int_0^x \frac{1 - ax'}{1-\frac{a}{2}} \, \mathrm{d}x' = \frac{x - \frac{ax^2}{2}}{1-\frac{a}{2}} = \xi\]</div>
+<p>Which can be rearranged as a second order equation</p>
+<div class="math notranslate nohighlight">
+\[
+- \frac{ax^2}{2} + x - \xi (1-\frac{a}{2}) = 0,
+\]</div>
+<p>Whose solution is the expression given above. <strong>Bonus:</strong> What happened to the other root?</p>
+</div>
+<p>The advantage of importance sampling can be also seen from in figure below, showing the value of the estimator, <span class="math notranslate nohighlight">\(e^{-x}\)</span> or <span class="math notranslate nohighlight">\(e^{-x}/h(x)\)</span>, for the generated random samples. It is clear that the standard deviation of the latter is much smaller. Note that if we would have chosen <span class="math notranslate nohighlight">\(a=1\)</span>, the sampling would actually be worse that for the case of uniform sampling.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sampleh</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -597,12 +642,16 @@ This can be also seen from in final figure, showing the value of the estimator, 
     <span class="n">p</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="n">Nsamples</span><span class="p">)</span>
     <span class="n">expp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">p</span><span class="p">)</span>
     
-    <span class="c1">#count how many are inside the n-ball</span>
+    <span class="c1">#append result for this realization</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">expp</span><span class="p">))</span>
     
     <span class="c1">#Sample from h instead</span>
     <span class="n">newp</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">sampleh</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">0.64</span><span class="p">)</span>
+    
+    <span class="c1">#Evaluate new estimator e^-x/h(x)</span>
     <span class="n">expp_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">newp</span><span class="p">)</span><span class="o">/</span><span class="n">h</span>
+    
+    <span class="c1">#append result for this realization</span>
     <span class="n">res_IS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res_IS</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">expp_h</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;uniform mean = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="p">)</span> 
@@ -622,37 +671,17 @@ This can be also seen from in final figure, showing the value of the estimator, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uniform mean = 0.6321663494866864
-uniform BSE = 0.0002524226424338528
-IS mean = 0.6321550503536748
-IS BSE = 2.9095734783881982e-05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uniform mean = 0.6322484133201973
+uniform BSE = 0.0002341326057815266
+IS mean = 0.6321353195266276
+IS BSE = 2.5306811085860125e-05
 expected = 0.632120558829
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Estimator&#39;)
 </pre></div>
 </div>
-<img alt="_images/MonteCarlo_9_2.png" src="_images/MonteCarlo_9_2.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
-<span class="n">Ng</span><span class="o">=</span><span class="mi">100</span>
-<span class="n">xg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Ng</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xg</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">xg</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xg</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">a</span><span class="o">*</span><span class="n">xg</span> <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xg</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span> <span class="n">xg</span> <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;h(x)&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;h(x)&#39;)
-</pre></div>
-</div>
-<img alt="_images/MonteCarlo_10_1.png" src="_images/MonteCarlo_10_1.png" />
+<img alt="_images/MonteCarlo_12_2.png" src="_images/MonteCarlo_12_2.png" />
 </div>
 </div>
 <p>Finally, we note that importance sampling is useful not only when we do not know how to sample <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>. For example, when <span class="math notranslate nohighlight">\(a(\textbf x)\)</span> is highly oscillatory, with both negative and positive contributions, such that its expctation value results from the near-cancellation of the positive and negative terms. We do not go into detail here, but a judicious choice of <span class="math notranslate nohighlight">\(h(\textbf x)\)</span> could significantly improve convergence in such difficult cases.</p>
@@ -660,14 +689,15 @@ expected = 0.632120558829
 <div class="section" id="metropolis-monte-carlo-and-detailed-balance">
 <h2>Metropolis Monte Carlo and detailed balance<a class="headerlink" href="#metropolis-monte-carlo-and-detailed-balance" title="Permalink to this headline">¶</a></h2>
 <p>We already saw that if we have a way to sample <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, we can easily obtain expectation values using importance sampling MC. But it is an unfortunate fact that we have efficient algorithms to sample directly only relatively simple distributions, such as exponential, Gaussian, uniform etc.</p>
-<p>In a seminal paper in 1953, the Rosenbluths, Tellers and Metropolis (sans spouse) developed an algorithm that instead of obtaining random samples from <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> at once, creates a sequential samples <span class="math notranslate nohighlight">\(\textbf{x}_1, \textbf{x}_2, ...\)</span> that can be shown to converge to the correct <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, for an arbitrary distribution function! The importance of this result truly could not be overstated. It is perhaps one of the greatest results of the previous century.</p>
+<p>In a seminal paper in 1953, <a class="reference external" href="https://en.wikipedia.org/wiki/Arianna_W._Rosenbluth">Arianna</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Marshall_Rosenbluth">Marshall</a> Rosenbluth, <a class="reference external" href="https://en.wikipedia.org/wiki/Augusta_H._Teller">Augusta</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Edward_Teller">Edward</a> Teller, and <a class="reference external" href="https://en.wikipedia.org/wiki/Nicholas_Metropolis">Nicholas Metropolis</a> (sans spouse) developed an algorithm that, instead of obtaining random samples from <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> at once, creates a sequential samples <span class="math notranslate nohighlight">\(\textbf{x}_1, \textbf{x}_2, ...\)</span> that converge to the correct <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, for an arbitrary distribution function! The importance of this result truly could not be overstated. It is perhaps one of the greatest results of the previous century.</p>
 <p>The idea at the core of the algorithm is that we need to specify a rule to generate the next sample <span class="math notranslate nohighlight">\(\textbf{x}_{i+1}\)</span> from the current sample <span class="math notranslate nohighlight">\(\textbf{x}_i\)</span>. A sequence of samples that is generated based on information solely from the previous step is called a <strong>Markov chain</strong>. We denote the probability of obtaining a sample <span class="math notranslate nohighlight">\(\textbf x\)</span> from some other sample <span class="math notranslate nohighlight">\(\textbf y\)</span> as <span class="math notranslate nohighlight">\(R(\textbf x | \textbf y)\)</span>. For this probability to be a valid rule for generating a Markov chain, it must satisfy a condition called <strong>detailed balance</strong>,</p>
 <div class="math notranslate nohighlight" id="equation-detailed-balance">
-<span class="eqno">(68)<a class="headerlink" href="#equation-detailed-balance" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(69)<a class="headerlink" href="#equation-detailed-balance" title="Permalink to this equation">¶</a></span>\[
 R(\textbf x | \textbf y) f(\textbf y) = R(\textbf y | \textbf x) f(\textbf x)
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(R(\textbf x | \textbf y) f(\textbf y)\)</span> is called the <em>a priori</em> probability of moving from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span>, which is just the probability to move from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span>, given that the system was already in <span class="math notranslate nohighlight">\(\textbf y\)</span>. Detailed balance is important, because it guarantees that the Markov chain is microscopically reversible. Then, once a move is generated, we must decide whether to accept it or not.</p>
-<p>The Metropolis MC algorithm states a rule for proposing moves, which we denote as <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y)\)</span>, which has to be normalized,</p>
+<p>where <span class="math notranslate nohighlight">\(R(\textbf x | \textbf y) f(\textbf y)\)</span> is called the <em>a priori</em> probability of moving from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span>, which is just the probability to move from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span>, given that the system was already in <span class="math notranslate nohighlight">\(\textbf y\)</span>. Detailed balance is important, because it guarantees that the Markov chain is microscopically reversible, which can be shown to be an important property of thermodynamic equilibrium. It effectively ensures that if, during the Markov chain, we will reach the distribution <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, it will be stationary.</p>
+<p>After a move is generated, we must decide whether to accept it or not.</p>
+<p>The Metropolis MC algorithm states a rule for proposing <strong>moves</strong>, which we denote as <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y)\)</span>, which has to be normalized,</p>
 <div class="math notranslate nohighlight">
 \[
 \int T(\textbf x | \textbf y) \, \mathrm{d}x = 1,
@@ -677,30 +707,50 @@ R(\textbf x | \textbf y) f(\textbf y) = R(\textbf y | \textbf x) f(\textbf x)
 \[
 R(\textbf x | \textbf y) = T(\textbf x | \textbf y) A(\textbf x | \textbf y).
 \]</div>
-<p>Inserting this equation into the detailed balance conditions, Eq. <a class="reference internal" href="#equation-detailed-balance">(68)</a> we get</p>
+<p>Inserting this equation into the detailed balance conditions, Eq. <a class="reference internal" href="#equation-detailed-balance">(69)</a> we get</p>
 <div class="math notranslate nohighlight">
 \[
 A(\textbf x | \textbf y) = r(\textbf x | \textbf y) A(\textbf y | \textbf x),
 \]</div>
 <p>where</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-ratio">
+<span class="eqno">(70)<a class="headerlink" href="#equation-ratio" title="Permalink to this equation">¶</a></span>\[
 r(\textbf x | \textbf y) = \frac{T(\textbf y | \textbf x) f(\textbf x)}{T(\textbf x | \textbf y) f(\textbf y)}.
 \]</div>
 <p>Now, suppose <span class="math notranslate nohighlight">\(A(\textbf x | \textbf y)=1\)</span> and the move from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span> is favorable, then <span class="math notranslate nohighlight">\(A(\textbf y | \textbf x) &lt; 1\)</span> and therefore <span class="math notranslate nohighlight">\(r(\textbf x | \textbf y) &gt; 1\)</span>. However, if <span class="math notranslate nohighlight">\(A(\textbf x | \textbf y)&lt;1\)</span>, then <span class="math notranslate nohighlight">\(A(\textbf y | \textbf x) = 1\)</span> is favorable and so <span class="math notranslate nohighlight">\(r(\textbf x | \textbf y) &lt; 1\)</span>. We can summarize these findings as</p>
 <div class="math notranslate nohighlight" id="equation-acc-crit">
-<span class="eqno">(69)<a class="headerlink" href="#equation-acc-crit" title="Permalink to this equation">¶</a></span>\[
-A(\textbf x | \textbf y) = min[1,r(\textbf x | \textbf y)].
+<span class="eqno">(71)<a class="headerlink" href="#equation-acc-crit" title="Permalink to this equation">¶</a></span>\[
+A(\textbf x | \textbf y) = \min \left[ 1,r(\textbf x | \textbf y) \right] .
 \]</div>
-<p>Now all the ingredients for Metropolis MC are ready! We need to initialzie the system at some configuration, then define a probability to make a move <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y)\)</span>, and suggest a step. Next, based on <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y)\)</span> and the probability we want to sample, <span class="math notranslate nohighlight">\(f(\textbf)\)</span>, we evaluate the function <span class="math notranslate nohighlight">\(r(\textbf x | \textbf y)\)</span>. Finally, we accept or reject the move based on the criterion in Eq. <a class="reference internal" href="#equation-acc-crit">(69)</a>. The final step is done in practice in the following way: If <span class="math notranslate nohighlight">\(r(\textbf x | \textbf y) \le 1\)</span> the move is accepted. If it is smaller than 1, a random number is sampled from a uniform distribution between <span class="math notranslate nohighlight">\([0,1]\)</span>. If it is smaller than <span class="math notranslate nohighlight">\(r(\textbf x | \textbf y)\)</span>, the move is accepted. Otherwise, the move is rejected.</p>
+<p>Now all the ingredients for Metropolis MC are ready! Given that the system is at some configuration <span class="math notranslate nohighlight">\(\textbf{x}_k\)</span>, we define a probability <span class="math notranslate nohighlight">\(T(\textbf{x}_{k+1} | \textbf{x}_k)\)</span> and suggest a new trial configuration <span class="math notranslate nohighlight">\(\textbf{x}_{k+1}\)</span>. Next, based on <span class="math notranslate nohighlight">\(\textbf{x}_{k+1}\)</span> and <span class="math notranslate nohighlight">\(\textbf{x}_k)\)</span>, and the probability we want to sample, <span class="math notranslate nohighlight">\(f(\textbf{x}_k)\)</span>, we evaluate the ratio <span class="math notranslate nohighlight">\(r(\textbf{x}_{k+1} | \textbf{x}_k)\)</span> using Eq.<a class="reference internal" href="#equation-ratio">(70)</a>. Finally, we accept or reject the move based on the criterion in Eq. <a class="reference internal" href="#equation-acc-crit">(71)</a>. The final step is done in practice in the following way: If <span class="math notranslate nohighlight">\(r(\textbf{x}_{k+1} | \textbf{x}_k) \ge 1\)</span> the move is accepted. If it is smaller than 1, the step is accepted with probability <span class="math notranslate nohighlight">\(r(\textbf{x}_{k+1} | \textbf{x}_k)\)</span>, i.e., a random number <span class="math notranslate nohighlight">\(\xi\)</span> is sampled from a uniform distribution between <span class="math notranslate nohighlight">\([0,1]\)</span>. If <span class="math notranslate nohighlight">\(r(\textbf{x}_k | \textbf{x}_{k+1}) \gt \xi \)</span>, the move is accepted. Otherwise, the move is rejected.</p>
 </div>
 <div class="section" id="mc-moves-and-acceptance-ratio">
 <h2>MC moves and acceptance ratio<a class="headerlink" href="#mc-moves-and-acceptance-ratio" title="Permalink to this headline">¶</a></h2>
-<p>translation.</p>
-</div>
-<div class="section" id="sampling-other-ensembles">
-<h2>Sampling other ensembles<a class="headerlink" href="#sampling-other-ensembles" title="Permalink to this headline">¶</a></h2>
-<p>isothermal-isobaric, grand canonical?</p>
+<p>A simple, but rather useful, MC move is translation with uniform probability from <span class="math notranslate nohighlight">\(\textbf{y}\)</span> to any point <span class="math notranslate nohighlight">\(\textbf x\)</span> within a box of side length <span class="math notranslate nohighlight">\(2\Delta\)</span> centered around y. The volume of the box is denoted by <span class="math notranslate nohighlight">\(V_{\Delta}\)</span>. The trial probability, our rule for making moves, is then given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T(\textbf x | \textbf y) = 
+\begin{cases}
+    \frac{1}{V_{\Delta}},&amp; \text{if } x \in V_{\Delta} \\
+    0,              &amp; \text{otherwise}
+\end{cases}.
+\end{split}\]</div>
+<p>This probability is properly normalized, and it is also symmetric, i.e. <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y) = T(\textbf y | \textbf x) \)</span>. As a result, the acceptance criterion of Eq.<a class="reference internal" href="#equation-acc-crit">(71)</a> becomes</p>
+<div class="math notranslate nohighlight">
+\[
+A(\textbf x | \textbf y) = \min \left[ 1,\frac{f(\textbf x)}{f(\textbf y)} \right].
+\]</div>
+<p>Now, if we wish to sample the canonical ensemble, the probability is <span class="math notranslate nohighlight">\(f(\textbf{r}) = e^{- \beta V(\textbf{r}) }\)</span>, giving an acceptance probability</p>
+<div class="math notranslate nohighlight" id="equation-acc-canonical">
+<span class="eqno">(72)<a class="headerlink" href="#equation-acc-canonical" title="Permalink to this equation">¶</a></span>\[
+A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( V(\textbf x) - V(\textbf y) \right)} \right].
+\]</div>
+<p>This means that if the new proposed step has a lower potential energy, the move is accepted. If the potential energy of the new configuration is hight, though, it is accepted with a probability that is the ratio of Boltzmann factors.</p>
+<p>An point of emphasis here is that the probability to accept a new move in the canonical ensemble is that the new energy would not be very different than the previous energy. Since the energy is an extensive quantity, changing randomly the positions of all of the particles at once, would result in a massive energy change. Thus, we cannot move all particle together, like in MD simulations. The solution to this problem is to select randomly a single atom <span class="math notranslate nohighlight">\(i\)</span> to move, and change its coordinates in the following manner:</p>
+<div class="math notranslate nohighlight" id="equation-translation">
+<span class="eqno">(73)<a class="headerlink" href="#equation-translation" title="Permalink to this equation">¶</a></span>\[\textbf{r}_i^{k+1} = \textbf{r}_i^k + \zeta \Delta,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\zeta\)</span> is a vector of three independent uniform random numbers in the range <span class="math notranslate nohighlight">\([-1,1]\)</span>. Repeating this process <span class="math notranslate nohighlight">\(N\)</span> times, where <span class="math notranslate nohighlight">\(N\)</span> is the number of atoms in the system, is called a <strong>MC pass</strong>. Notice that this does not necessarily means that all atoms have been moved, since we choose the atoms randomly.</p>
+<p>Two final comments are in order: First, that when we need to evalute the difference in potential energies after moving a single particle at random, we do not need to compute all of the potential energy from scratch. That is very expensive, and we should update only the interactions of the chosen particle. Second, that the parameter <span class="math notranslate nohighlight">\(\Delta\)</span> has an important effect on the precentage of MC steps that will be accepted, which is called the <strong>acceptance ratio</strong>. If <span class="math notranslate nohighlight">\(\Delta\)</span> is too large, the change in potential energy will be large and many moves will be rejected. If it is too small, all moves might be accepted but we will not explore all of phase space efficiently. Therefore, a rule of thumb is to use an acceptance ratio between <span class="math notranslate nohighlight">\(20 \% - 50 \%\)</span>.</p>
 </div>
 </div>
 
