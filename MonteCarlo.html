@@ -746,11 +746,77 @@ A(\textbf x | \textbf y) = \min \left[ 1,\frac{f(\textbf x)}{f(\textbf y)} \righ
 A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( V(\textbf x) - V(\textbf y) \right)} \right].
 \]</div>
 <p>This means that if the new proposed step has a lower potential energy, the move is accepted. If the potential energy of the new configuration is hight, though, it is accepted with a probability that is the ratio of Boltzmann factors.</p>
-<p>An point of emphasis here is that the probability to accept a new move in the canonical ensemble is that the new energy would not be very different than the previous energy. Since the energy is an extensive quantity, changing randomly the positions of all of the particles at once, would result in a massive energy change. Thus, we cannot move all particle together, like in MD simulations. The solution to this problem is to select randomly a single atom <span class="math notranslate nohighlight">\(i\)</span> to move, and change its coordinates in the following manner:</p>
+<p>A point of emphasis here is that the probability to accept a new move in the canonical ensemble is that the new energy would not be very different than the previous energy. Since the energy is an extensive quantity, changing randomly the positions of all of the particles at once, would result in a massive energy change. Thus, we cannot move all particle together, like in MD simulations. The solution to this problem is to select randomly a single atom <span class="math notranslate nohighlight">\(i\)</span> to move, and change its coordinates in the following manner:</p>
 <div class="math notranslate nohighlight" id="equation-translation">
 <span class="eqno">(73)<a class="headerlink" href="#equation-translation" title="Permalink to this equation">¶</a></span>\[\textbf{r}_i^{k+1} = \textbf{r}_i^k + \zeta \Delta,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\zeta\)</span> is a vector of three independent uniform random numbers in the range <span class="math notranslate nohighlight">\([-1,1]\)</span>. Repeating this process <span class="math notranslate nohighlight">\(N\)</span> times, where <span class="math notranslate nohighlight">\(N\)</span> is the number of atoms in the system, is called a <strong>MC pass</strong>. Notice that this does not necessarily means that all atoms have been moved, since we choose the atoms randomly.</p>
 <p>Two final comments are in order: First, that when we need to evalute the difference in potential energies after moving a single particle at random, we do not need to compute all of the potential energy from scratch. That is very expensive, and we should update only the interactions of the chosen particle. Second, that the parameter <span class="math notranslate nohighlight">\(\Delta\)</span> has an important effect on the precentage of MC steps that will be accepted, which is called the <strong>acceptance ratio</strong>. If <span class="math notranslate nohighlight">\(\Delta\)</span> is too large, the change in potential energy will be large and many moves will be rejected. If it is too small, all moves might be accepted but we will not explore all of phase space efficiently. Therefore, a rule of thumb is to use an acceptance ratio between <span class="math notranslate nohighlight">\(20 \% - 50 \%\)</span>.</p>
+<p>In the demo below, we use Metropolis MC to sample from a bimodal probability distribution that would not have been simple to sample otherwise. Already in this 1D example, we see the utility of the MC approach!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Generic probability distribution</span>
+<span class="k">def</span> <span class="nf">evalf</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">mu1</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">sigma1</span> <span class="o">=</span> <span class="mf">0.1</span>
+    <span class="n">g1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">mu1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">sigma1</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="n">sigma1</span>
+    
+    <span class="n">mu2</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">sigma2</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">g2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">mu2</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="n">sigma2</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="n">sigma2</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">g1</span><span class="o">+</span><span class="n">g2</span><span class="p">)</span><span class="o">/</span><span class="mf">2.2162802142575204</span> <span class="c1">#evaluated normalizatio with trapz</span>
+    
+<span class="c1">#number of MC steps</span>
+<span class="n">Nsteps</span> <span class="o">=</span> <span class="mi">100000</span>
+
+<span class="c1">#maximal step size</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+<span class="c1">#initial position</span>
+<span class="n">xn</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xn</span><span class="p">)</span>
+
+<span class="c1">#for acceptance ratio</span>
+<span class="n">accept</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nsteps</span><span class="p">):</span>
+
+    <span class="n">xnp1</span> <span class="o">=</span> <span class="n">xn</span> <span class="o">+</span> <span class="n">delta</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="n">ratio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">evalf</span><span class="p">(</span><span class="n">xnp1</span><span class="p">),</span><span class="n">evalf</span><span class="p">(</span><span class="n">xn</span><span class="p">))</span>
+       
+    <span class="n">xsi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">ratio</span> <span class="o">&lt;</span> <span class="n">xsi</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xn</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xnp1</span><span class="p">)</span>
+        <span class="n">xn</span> <span class="o">=</span> <span class="n">xnp1</span>
+        <span class="n">accept</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">100</span><span class="p">:],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">xg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xg</span><span class="p">,</span> <span class="n">evalf</span><span class="p">(</span><span class="n">xg</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s1">&#39;.-&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">accept</span><span class="o">/</span><span class="n">Nsteps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.59865
+</pre></div>
+</div>
+<img alt="_images/MonteCarlo_16_1.png" src="_images/MonteCarlo_16_1.png" />
+<img alt="_images/MonteCarlo_16_2.png" src="_images/MonteCarlo_16_2.png" />
+</div>
+</div>
 </div>
 </div>
 
