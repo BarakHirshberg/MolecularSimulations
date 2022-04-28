@@ -265,6 +265,15 @@
    MC moves and acceptance ratio
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proof-that-f-x-is-a-stationary-point-of-metropolis-mc">
+   Proof that
+   <span class="math notranslate nohighlight">
+    \(f(x)\)
+   </span>
+   is a stationary point of Metropolis MC
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -313,6 +322,15 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mc-moves-and-acceptance-ratio">
    MC moves and acceptance ratio
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proof-that-f-x-is-a-stationary-point-of-metropolis-mc">
+   Proof that
+   <span class="math notranslate nohighlight">
+    \(f(x)\)
+   </span>
+   is a stationary point of Metropolis MC
   </a>
  </li>
 </ul>
@@ -817,6 +835,12 @@ A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( V(\textbf x) - V(\tex
 <img alt="_images/MonteCarlo_16_2.png" src="_images/MonteCarlo_16_2.png" />
 </div>
 </div>
+</div>
+<div class="section" id="proof-that-f-x-is-a-stationary-point-of-metropolis-mc">
+<h2>Proof that <span class="math notranslate nohighlight">\(f(x)\)</span> is a stationary point of Metropolis MC<a class="headerlink" href="#proof-that-f-x-is-a-stationary-point-of-metropolis-mc" title="Permalink to this headline">¶</a></h2>
+<p>We follow the proof that is presented in the Book by Tuckerman.
+At every iteration of the Markov chain/Metropolis algorithm, the points <span class="math notranslate nohighlight">\(\textbf{x}_k\)</span> are distributed according to some function <span class="math notranslate nohighlight">\(\pi_k(\textbf x)\)</span>. We wish to show that if the algorithm reached a point in which <span class="math notranslate nohighlight">\(\pi_k(\textbf x) = f(\textbf x)\)</span>, all following steps will be distributed according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>. In other words, we wish to show that <span class="math notranslate nohighlight">\(f(x)\)</span> is a stationary point of the Metropolis algorithm.</p>
+<p>We will use induction to prove that is the case. We will assume that at some <em>arbitrary</em> MC step <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(\pi_k(\textbf x) = f(\textbf x)\)</span>, then we will derive the expression for <span class="math notranslate nohighlight">\(\pi_{k+1}(\textbf x)\)</span>, the distribution in the next MC step, and we will show that it is also equal to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>.</p>
 </div>
 </div>
 
