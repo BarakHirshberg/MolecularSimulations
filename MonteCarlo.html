@@ -796,11 +796,11 @@ T(\textbf x | \textbf y) =
 <p>This probability is properly normalized, and it is also symmetric, i.e. <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y) = T(\textbf y | \textbf x) \)</span>. As a result, the acceptance criterion of Eq.<a class="reference internal" href="#equation-acc-crit">(71)</a> becomes</p>
 <div class="math notranslate nohighlight">
 \[
-A(\textbf x | \textbf y) = \min \left[ 1,\frac{f(\textbf x)}{f(\textbf y)} \right].
+A(\textbf x | \textbf y) = \min \left[ 1, \frac{f(\textbf x)}{f(\textbf y)} \right].
 \]</div>
 <p>Now, if we wish to sample the canonical ensemble, the probability is <span class="math notranslate nohighlight">\(f(\textbf{r}) \propto e^{- \beta U(\textbf{r}) }\)</span>, giving an acceptance probability</p>
 <div class="math notranslate nohighlight" id="equation-acc-canonical">
-<span class="eqno">(76)<a class="headerlink" href="#equation-acc-canonical" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(72)<a class="headerlink" href="#equation-acc-canonical" title="Permalink to this equation">¶</a></span>\[
 A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( U(\textbf x) - U(\textbf y) \right)} \right].
 \]</div>
 <p>This means that if the new proposed step has a lower potential energy, the move is accepted. If the potential energy of the new configuration is hight, though, it is accepted with a probability that is the ratio of Boltzmann factors.</p>
@@ -881,7 +881,7 @@ A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( U(\textbf x) - U(\tex
 </div>
 <div class="section" id="sampling-other-distributions">
 <h2>Sampling other distributions<a class="headerlink" href="#sampling-other-distributions" title="Permalink to this headline">¶</a></h2>
-<p>We have seen how to generate configurations according to an arbitrary probability density function using the Metropolis algorithm. We also saw in Eq.<a class="reference internal" href="#equation-acc-canonical">(76)</a> the expression for the acceptance probabilty for the canonical ensemble. But the great merit of MC simulations is that it is usually much easier to extend them to other ensembles than MD simulations (althoug that is also possible!).</p>
+<p>We have seen how to generate configurations according to an arbitrary probability density function using the Metropolis algorithm. We also saw in Eq.<a class="reference internal" href="#equation-acc-canonical">(72)</a> the expression for the acceptance probabilty for the canonical ensemble. But the great merit of MC simulations is that it is usually much easier to extend them to other ensembles than MD simulations (althoug that is also possible!).</p>
 <p>For example, if we are interested in the isothermal-isobaric ensemble, in which the number of particles <span class="math notranslate nohighlight">\(N\)</span>, the pressure <span class="math notranslate nohighlight">\(P\)</span> and the temperature <span class="math notranslate nohighlight">\(T\)</span> are fixed (the <span class="math notranslate nohighlight">\(NPT\)</span> ensemble), we can do so rather easily. There are only two changes that need to be made to the algorithm that samples from the canonical ensemble: First, we need a move to change the volume of the system,</p>
 <div class="math notranslate nohighlight" id="equation-volume">
 <span class="eqno">(74)<a class="headerlink" href="#equation-volume" title="Permalink to this equation">¶</a></span>\[V^{k+1} = V^k + \zeta \Delta_V,\]</div>
@@ -892,8 +892,8 @@ A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( U(\textbf x) - U(\tex
 \]</div>
 <p>and the potential energy needs to be re-evaluated.</p>
 <p>Finally, since in this ensemble <span class="math notranslate nohighlight">\(f(\textbf x,V) \propto V^N e^{-\beta ( U(\textbf x) + PV) }\)</span> the volume moves are accepted with probability</p>
-<div class="math notranslate nohighlight" id="equation-acc-canonical">
-<span class="eqno">(76)<a class="headerlink" href="#equation-acc-canonical" title="Permalink to this equation">¶</a></span>\[
+<div class="math notranslate nohighlight" id="equation-acc-npt">
+<span class="eqno">(76)<a class="headerlink" href="#equation-acc-npt" title="Permalink to this equation">¶</a></span>\[
 A(\textbf x, V' | \textbf y, V) = \min \left[ 1, e^{-\beta \left( H(\textbf x, V') - H(\textbf y, V) \right)} \right],
 \]</div>
 <p>where</p>
