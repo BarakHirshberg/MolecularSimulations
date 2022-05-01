@@ -266,12 +266,32 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-sampling-1d-arbitrary-distributions">
+   Demo - sampling 1D arbitrary distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sampling-other-distributions">
+   Sampling other distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#proof-that-f-x-is-a-stationary-point-of-metropolis-mc">
    Proof that
    <span class="math notranslate nohighlight">
     \(f(x)\)
    </span>
    is a stationary point of Metropolis MC
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combining-md-and-mc-for-canonical-time-correlation-functions">
+   Combining MD and MC for canonical time correlation functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#error-estimation">
+   Error estimation
   </a>
  </li>
 </ul>
@@ -325,12 +345,32 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-sampling-1d-arbitrary-distributions">
+   Demo - sampling 1D arbitrary distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sampling-other-distributions">
+   Sampling other distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#proof-that-f-x-is-a-stationary-point-of-metropolis-mc">
    Proof that
    <span class="math notranslate nohighlight">
     \(f(x)\)
    </span>
    is a stationary point of Metropolis MC
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combining-md-and-mc-for-canonical-time-correlation-functions">
+   Combining MD and MC for canonical time correlation functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#error-estimation">
+   Error estimation
   </a>
  </li>
 </ul>
@@ -349,7 +389,7 @@
 <h2>Evaluation of high-dimensional integrals<a class="headerlink" href="#evaluation-of-high-dimensional-integrals" title="Permalink to this headline">¶</a></h2>
 <p>As we have seen, the expectation values we encounter in statistical mechanics are of the form</p>
 <div class="math notranslate nohighlight" id="equation-expval">
-<span class="eqno">(61)<a class="headerlink" href="#equation-expval" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(60)<a class="headerlink" href="#equation-expval" title="Permalink to this equation">¶</a></span>\[
 A = \langle a \rangle_f = \int f(\textbf x) \, a(\textbf{x}) \, \mathrm{d} \textbf{x},
 \]</div>
 <p>where</p>
@@ -360,14 +400,14 @@ f(\textbf x) = \frac{1}{\mathcal Z} \mathcal{F}(\mathcal{H} (\textbf{x}))
 <p>is a positive, normalized phase space probability density. From now, we will consider the canonical ensemble, for which <span class="math notranslate nohighlight">\(\mathcal{F}(\mathcal{H} (\textbf{x})) = e^{-\beta \mathcal H (\textbf x)}\)</span>.</p>
 <p>How could we evaluate these expectation values in practice? One way is to sample <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span> on a multi dimensional grid, multiplying each one of the samples by its probability and doing the integration by quadrature,</p>
 <div class="math notranslate nohighlight" id="equation-quad">
-<span class="eqno">(62)<a class="headerlink" href="#equation-quad" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(61)<a class="headerlink" href="#equation-quad" title="Permalink to this equation">¶</a></span>\[
 A_M = \sum_{j=1}^{N_g} f(\textbf{x}_j) a(\textbf{x}_j) \Delta \textbf x = \frac{ \sum_{j=1}^{N_g} e^{-\beta \mathcal{H}(\textbf{x}_j)}\, a(\textbf{x}_j)}{ \sum_{j=1}^{N_g} e^{-\beta \mathcal{H} (\textbf{x}_j) }}.
 \]</div>
 <p>However, this is very, very expensive and the algorithm scales exponentially with the particles. Why? Because we need to evaluate a <span class="math notranslate nohighlight">\(6N\)</span> dimensional integral on a grid.</p>
 <p>Admittedly, if the property we are interested in does not depend on the momenta, i.e. <span class="math notranslate nohighlight">\(a(\textbf{x}_j) = a(\textbf{r}_j)\)</span>, then the integration over <span class="math notranslate nohighlight">\(\textbf p\)</span> can be done analytically to obtain,</p>
 <div class="math notranslate nohighlight" id="equation-config-part">
-<span class="eqno">(63)<a class="headerlink" href="#equation-config-part" title="Permalink to this equation">¶</a></span>\[
-A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j) }}.
+<span class="eqno">(62)<a class="headerlink" href="#equation-config-part" title="Permalink to this equation">¶</a></span>\[
+A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta U(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \sum_{j=1}^{N_g} e^{-\beta U(\textbf{r}_j) }}.
 \]</div>
 <p>Nevertheless, we remain with a <span class="math notranslate nohighlight">\(3N\)</span> dimensional integral. To evaluate it, even if we divide each spatial dimension for every particle into only 10 grid points, we would need to sum over <span class="math notranslate nohighlight">\(N_g = 10^{3N}\)</span> points to evaluate the integral. This is completey prohibitive already for a very small number of particles. Monte carlo is a clever way to evaluate such integrals without resorting to qudrature. Moreover, Monte Carlo is a conceptually-different approach for sampling equilibrium distribution functions that does not rely on the dynamics in time of the system to generate the configurations (like MD).</p>
 </div>
@@ -375,10 +415,10 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta V(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 <h2>Uniform random sampling<a class="headerlink" href="#uniform-random-sampling" title="Permalink to this headline">¶</a></h2>
 <p>A solution to this problem was invented by <a class="reference external" href="https://en.wikipedia.org/wiki/Stanislaw_Ulam">Ulam</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Nicholas_Metropolis">Metropolis</a> in 1949. Their ingenious idea was to use random numbers to evaluate multidimensional integrals instead of a quadrature on a grid. They showed that, using their approach, it is possible to evalaute integrals using a much smaller number of samples than the exponentially growing number of grid points. Their idea was to choose a known reference volume in space that bounds the (irregular volume) we wish to calculate. Then, we sample random points uniformly distributed in the reference volume. We count the number of samples that lie within the irregular volume we wish to calculate. The ratio of this number to the total number of samples, multiplied by the reference volume is an estimate of the irregular volume,</p>
 <div class="math notranslate nohighlight" id="equation-mcint">
-<span class="eqno">(64)<a class="headerlink" href="#equation-mcint" title="Permalink to this equation">¶</a></span>\[V = \frac{\tau_{in}}{\tau_{tot}} V_0\]</div>
+<span class="eqno">(63)<a class="headerlink" href="#equation-mcint" title="Permalink to this equation">¶</a></span>\[V = \frac{\tau_{in}}{\tau_{tot}} V_0\]</div>
 <p>For example, to evaluate the area of a two-dimensional disk with radius <span class="math notranslate nohighlight">\(R=1\)</span> in the first quadrant, we need to solve the integral</p>
 <div class="math notranslate nohighlight" id="equation-disk">
-<span class="eqno">(65)<a class="headerlink" href="#equation-disk" title="Permalink to this equation">¶</a></span>\[\int_0^1 \int_{\sqrt{1-x^2}}^1 \mathrm{d} x  \mathrm{d} y = \frac{\pi}{4}.\]</div>
+<span class="eqno">(64)<a class="headerlink" href="#equation-disk" title="Permalink to this equation">¶</a></span>\[\int_0^1 \int_{\sqrt{1-x^2}}^1 \mathrm{d} x  \mathrm{d} y = \frac{\pi}{4}.\]</div>
 <p>Instead, we choose a reference square of unit side length that bounds the unit circle and evaluate the integral numerically using MC uniform samling. Below we demonstrate this method and evaluate the area/volume of ball in two and three dimensions, using both quadrature and Monte Carlo uniform sampling. To treat the two methods on equal footing, we make sure to use the same number of function evaluations and compare the obtained accuracy. We show that for two dimensions, quadrature is more accurate than MC sampling. But already for three dimensions, MC is more accurate by an order of magnitude. MC is also much faster than quadrature for three dimensions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -535,7 +575,7 @@ neval = 1839958790
 <p>At this point, we will <em>assume</em> that we have an algorithm for obtaining a set of <span class="math notranslate nohighlight">\(M\)</span> <strong>independent</strong> samples (configurations of the system) <span class="math notranslate nohighlight">\(\textbf x_1 ,..., \textbf x_M\)</span> that are all <strong>identically distributed</strong> according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> with some mean <span class="math notranslate nohighlight">\(\langle a \rangle_f\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2 = \langle a^2 \rangle_f - \langle a \rangle_f^2\)</span>. This is by no means a trivial task. It is straightforward only for simple distributions and the form of Monte Carlo that we will study next was designed to address exactly this problem. But, for now, we will simply assume such an algorithm exists. If that is the case, we can then evaluate <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span> for each sample.</p>
 <p>The central limit theorem (CLT) ensures that if we consider the simple arithmetic mean of the samples as a random variable,</p>
 <div class="math notranslate nohighlight" id="equation-mean">
-<span class="eqno">(66)<a class="headerlink" href="#equation-mean" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(65)<a class="headerlink" href="#equation-mean" title="Permalink to this equation">¶</a></span>\[
 A_M = \frac{1}{M} \sum_{j=1}^{M} a(\textbf{x}_j).
 \]</div>
 <p>It will be normally distributed with the same mean <span class="math notranslate nohighlight">\( \langle a \rangle_f \)</span> as the samples <span class="math notranslate nohighlight">\( \textbf{x}_j \)</span> and a variance</p>
@@ -549,12 +589,12 @@ A_M = \frac{1}{M} \sum_{j=1}^{M} a(\textbf{x}_j).
 </div>
 <div class="section" id="importance-sampling">
 <h2>Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h2>
-<p>We can use the CLT even if we do not know how to sample from <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> directly, but know how to sample a different distribution, <span class="math notranslate nohighlight">\(h(\textbf x)\)</span>, that has much more substantial overlap with <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> than the uniform distribution. Since <span class="math notranslate nohighlight">\(h(\textbf x)\)</span> is a positive, normalized probability density, we rewrite Eq. <a class="reference internal" href="#equation-expval">(61)</a> as</p>
+<p>We can use the CLT even if we do not know how to sample from <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> directly, but know how to sample a different distribution, <span class="math notranslate nohighlight">\(h(\textbf x)\)</span>, that has much more substantial overlap with <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> than the uniform distribution. Since <span class="math notranslate nohighlight">\(h(\textbf x)\)</span> is a positive, normalized probability density, we rewrite Eq. <a class="reference internal" href="#equation-expval">(60)</a> as</p>
 <div class="math notranslate nohighlight" id="equation-reweight">
-<span class="eqno">(67)<a class="headerlink" href="#equation-reweight" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(66)<a class="headerlink" href="#equation-reweight" title="Permalink to this equation">¶</a></span>\[
 A = \langle a \rangle_f = \int h(\textbf x) \, \frac{f(\textbf x)}{h(\textbf x)} \, a(\textbf{x}) \, \mathrm{d} \textbf{x} = \langle a(\textbf x) w (\textbf x) \rangle_h,
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(w(\textbf x) = f(\textbf x) / h(\textbf x)\)</span> is the weight we need associate with every configuration sampled from <span class="math notranslate nohighlight">\(h(\textbf x)\)</span> to obtain the expectation value we are really interested in, Eq. <a class="reference internal" href="#equation-expval">(61)</a>. As a result, this procedure is also often called <strong>reweighting</strong>.</p>
+<p>where <span class="math notranslate nohighlight">\(w(\textbf x) = f(\textbf x) / h(\textbf x)\)</span> is the weight we need associate with every configuration sampled from <span class="math notranslate nohighlight">\(h(\textbf x)\)</span> to obtain the expectation value we are really interested in, Eq. <a class="reference internal" href="#equation-expval">(60)</a>. As a result, this procedure is also often called <strong>reweighting</strong>.</p>
 <p>Below we show an example from the book by Tuckerman that uses importance sampling to evaluate the integral</p>
 <div class="math notranslate nohighlight">
 \[
@@ -614,7 +654,7 @@ KL divergence uniform = 4.133335709606822
 </div>
 <p>How do we sample from <span class="math notranslate nohighlight">\(h(x)\)</span>? If we have <span class="math notranslate nohighlight">\(\xi\)</span>, which is sampled from a uniform distribution between <span class="math notranslate nohighlight">\([0,1]\)</span>, other distributions <span class="math notranslate nohighlight">\(h(x)\)</span> in the same range can be obtained <em>if</em> we can solve the inverse equation</p>
 <div class="math notranslate nohighlight" id="equation-inverse">
-<span class="eqno">(68)<a class="headerlink" href="#equation-inverse" title="Permalink to this equation">¶</a></span>\[\int_0^x h(x') \, \mathrm{d} x' = \xi.\]</div>
+<span class="eqno">(67)<a class="headerlink" href="#equation-inverse" title="Permalink to this equation">¶</a></span>\[\int_0^x h(x') \, \mathrm{d} x' = \xi.\]</div>
 <p>The solution <span class="math notranslate nohighlight">\(x\)</span> will be then distributed according to <span class="math notranslate nohighlight">\(h(x)\)</span>. We see below that for a simple linear distribution this becomes a second-order root search problem. For more complicated distributions, the resulting equations are too difficult to solve.</p>
 <div class="tip admonition">
 <p class="admonition-title">Active learning</p>
@@ -710,14 +750,14 @@ expected = 0.632120558829
 <p>In a seminal paper in 1953, <a class="reference external" href="https://en.wikipedia.org/wiki/Arianna_W._Rosenbluth">Arianna</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Marshall_Rosenbluth">Marshall</a> Rosenbluth, <a class="reference external" href="https://en.wikipedia.org/wiki/Augusta_H._Teller">Augusta</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Edward_Teller">Edward</a> Teller, and <a class="reference external" href="https://en.wikipedia.org/wiki/Nicholas_Metropolis">Nicholas Metropolis</a> (sans spouse) developed an algorithm that, instead of obtaining random samples from <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> at once, creates a sequential samples <span class="math notranslate nohighlight">\(\textbf{x}_1, \textbf{x}_2, ...\)</span> that converge to the correct <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, for an arbitrary distribution function! The importance of this result truly could not be overstated. It is perhaps one of the greatest results of the previous century.</p>
 <p>The idea at the core of the algorithm is that we need to specify a rule to generate the next sample <span class="math notranslate nohighlight">\(\textbf{x}_{i+1}\)</span> from the current sample <span class="math notranslate nohighlight">\(\textbf{x}_i\)</span>. A sequence of samples that is generated based on information solely from the previous step is called a <strong>Markov chain</strong>. We denote the probability of obtaining a sample <span class="math notranslate nohighlight">\(\textbf x\)</span> from some other sample <span class="math notranslate nohighlight">\(\textbf y\)</span> as <span class="math notranslate nohighlight">\(R(\textbf x | \textbf y)\)</span>. For this probability to be a valid rule for generating a Markov chain, it must satisfy a condition called <strong>detailed balance</strong>,</p>
 <div class="math notranslate nohighlight" id="equation-detailed-balance">
-<span class="eqno">(69)<a class="headerlink" href="#equation-detailed-balance" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(68)<a class="headerlink" href="#equation-detailed-balance" title="Permalink to this equation">¶</a></span>\[
 R(\textbf x | \textbf y) f(\textbf y) = R(\textbf y | \textbf x) f(\textbf x)
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(R(\textbf x | \textbf y) f(\textbf y)\)</span> is called the <em>a priori</em> probability of moving from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span>, which is just the probability to move from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span>, given that the system was already in <span class="math notranslate nohighlight">\(\textbf y\)</span>. Detailed balance is important, because it guarantees that the Markov chain is microscopically reversible, which can be shown to be an important property of thermodynamic equilibrium. It effectively ensures that if, during the Markov chain, we will reach the distribution <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, it will be stationary.</p>
 <p>After a move is generated, we must decide whether to accept it or not.</p>
 <p>The Metropolis MC algorithm states a rule for proposing <strong>moves</strong>, which we denote as <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y)\)</span>, which has to be normalized,</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-tnorm">
+<span class="eqno">(69)<a class="headerlink" href="#equation-tnorm" title="Permalink to this equation">¶</a></span>\[
 \int T(\textbf x | \textbf y) \, \mathrm{d}x = 1,
 \]</div>
 <p>and a probability that the move is accepted, which is denoted as <span class="math notranslate nohighlight">\(A(\textbf x | \textbf y)\)</span>. Then the probability to move from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span>, is given by the product of the probability of suggesting such a move, times the acceptance probability, i.e.</p>
@@ -725,7 +765,7 @@ R(\textbf x | \textbf y) f(\textbf y) = R(\textbf y | \textbf x) f(\textbf x)
 \[
 R(\textbf x | \textbf y) = T(\textbf x | \textbf y) A(\textbf x | \textbf y).
 \]</div>
-<p>Inserting this equation into the detailed balance conditions, Eq. <a class="reference internal" href="#equation-detailed-balance">(69)</a> we get</p>
+<p>Inserting this equation into the detailed balance conditions, Eq. <a class="reference internal" href="#equation-detailed-balance">(68)</a> we get</p>
 <div class="math notranslate nohighlight">
 \[
 A(\textbf x | \textbf y) = r(\textbf x | \textbf y) A(\textbf y | \textbf x),
@@ -758,10 +798,10 @@ T(\textbf x | \textbf y) =
 \[
 A(\textbf x | \textbf y) = \min \left[ 1,\frac{f(\textbf x)}{f(\textbf y)} \right].
 \]</div>
-<p>Now, if we wish to sample the canonical ensemble, the probability is <span class="math notranslate nohighlight">\(f(\textbf{r}) = e^{- \beta V(\textbf{r}) }\)</span>, giving an acceptance probability</p>
+<p>Now, if we wish to sample the canonical ensemble, the probability is <span class="math notranslate nohighlight">\(f(\textbf{r}) \propto e^{- \beta U(\textbf{r}) }\)</span>, giving an acceptance probability</p>
 <div class="math notranslate nohighlight" id="equation-acc-canonical">
-<span class="eqno">(72)<a class="headerlink" href="#equation-acc-canonical" title="Permalink to this equation">¶</a></span>\[
-A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( V(\textbf x) - V(\textbf y) \right)} \right].
+<span class="eqno">(76)<a class="headerlink" href="#equation-acc-canonical" title="Permalink to this equation">¶</a></span>\[
+A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( U(\textbf x) - U(\textbf y) \right)} \right].
 \]</div>
 <p>This means that if the new proposed step has a lower potential energy, the move is accepted. If the potential energy of the new configuration is hight, though, it is accepted with a probability that is the ratio of Boltzmann factors.</p>
 <p>A point of emphasis here is that the probability to accept a new move in the canonical ensemble is that the new energy would not be very different than the previous energy. Since the energy is an extensive quantity, changing randomly the positions of all of the particles at once, would result in a massive energy change. Thus, we cannot move all particle together, like in MD simulations. The solution to this problem is to select randomly a single atom <span class="math notranslate nohighlight">\(i\)</span> to move, and change its coordinates in the following manner:</p>
@@ -769,6 +809,9 @@ A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( V(\textbf x) - V(\tex
 <span class="eqno">(73)<a class="headerlink" href="#equation-translation" title="Permalink to this equation">¶</a></span>\[\textbf{r}_i^{k+1} = \textbf{r}_i^k + \zeta \Delta,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\zeta\)</span> is a vector of three independent uniform random numbers in the range <span class="math notranslate nohighlight">\([-1,1]\)</span>. Repeating this process <span class="math notranslate nohighlight">\(N\)</span> times, where <span class="math notranslate nohighlight">\(N\)</span> is the number of atoms in the system, is called a <strong>MC pass</strong>. Notice that this does not necessarily means that all atoms have been moved, since we choose the atoms randomly.</p>
 <p>Two final comments are in order: First, that when we need to evalute the difference in potential energies after moving a single particle at random, we do not need to compute all of the potential energy from scratch. That is very expensive, and we should update only the interactions of the chosen particle. Second, that the parameter <span class="math notranslate nohighlight">\(\Delta\)</span> has an important effect on the precentage of MC steps that will be accepted, which is called the <strong>acceptance ratio</strong>. If <span class="math notranslate nohighlight">\(\Delta\)</span> is too large, the change in potential energy will be large and many moves will be rejected. If it is too small, all moves might be accepted but we will not explore all of phase space efficiently. Therefore, a rule of thumb is to use an acceptance ratio between <span class="math notranslate nohighlight">\(20 \% - 50 \%\)</span>.</p>
+</div>
+<div class="section" id="demo-sampling-1d-arbitrary-distributions">
+<h2>Demo - sampling 1D arbitrary distributions<a class="headerlink" href="#demo-sampling-1d-arbitrary-distributions" title="Permalink to this headline">¶</a></h2>
 <p>In the demo below, we use Metropolis MC to sample from a bimodal probability distribution that would not have been simple to sample otherwise. Already in this 1D example, we see the utility of the MC approach!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -782,7 +825,7 @@ A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( V(\textbf x) - V(\tex
     <span class="n">sigma2</span> <span class="o">=</span> <span class="mf">0.5</span>
     <span class="n">g2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">mu2</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="n">sigma2</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">/</span><span class="n">sigma2</span>
     
-    <span class="k">return</span> <span class="p">(</span><span class="n">g1</span><span class="o">+</span><span class="n">g2</span><span class="p">)</span><span class="o">/</span><span class="mf">2.2162802142575204</span> <span class="c1">#evaluated normalizatio with trapz</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">g1</span><span class="o">+</span><span class="n">g2</span><span class="p">)</span><span class="o">/</span><span class="mf">2.2162802142575204</span> <span class="c1">#evaluated normalization with trapz</span>
     
 <span class="c1">#number of MC steps</span>
 <span class="n">Nsteps</span> <span class="o">=</span> <span class="mi">100000</span>
@@ -836,11 +879,97 @@ A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( V(\textbf x) - V(\tex
 </div>
 </div>
 </div>
+<div class="section" id="sampling-other-distributions">
+<h2>Sampling other distributions<a class="headerlink" href="#sampling-other-distributions" title="Permalink to this headline">¶</a></h2>
+<p>We have seen how to generate configurations according to an arbitrary probability density function using the Metropolis algorithm. We also saw in Eq.<a class="reference internal" href="#equation-acc-canonical">(76)</a> the expression for the acceptance probabilty for the canonical ensemble. But the great merit of MC simulations is that it is usually much easier to extend them to other ensembles than MD simulations (althoug that is also possible!).</p>
+<p>For example, if we are interested in the isothermal-isobaric ensemble, in which the number of particles <span class="math notranslate nohighlight">\(N\)</span>, the pressure <span class="math notranslate nohighlight">\(P\)</span> and the temperature <span class="math notranslate nohighlight">\(T\)</span> are fixed (the <span class="math notranslate nohighlight">\(NPT\)</span> ensemble), we can do so rather easily. There are only two changes that need to be made to the algorithm that samples from the canonical ensemble: First, we need a move to change the volume of the system,</p>
+<div class="math notranslate nohighlight" id="equation-volume">
+<span class="eqno">(74)<a class="headerlink" href="#equation-volume" title="Permalink to this equation">¶</a></span>\[V^{k+1} = V^k + \zeta \Delta_V,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\zeta\)</span> is a random variable just like in Eq.<a class="reference internal" href="#equation-translation">(73)</a>, and <span class="math notranslate nohighlight">\(\Delta_V\)</span> is the maximal allowed change in volume.</p>
+<p>Secondly, each time the volume changes, the particle coordinates must be scaled accordingly by</p>
+<div class="math notranslate nohighlight" id="equation-scale">
+<span class="eqno">(75)<a class="headerlink" href="#equation-scale" title="Permalink to this equation">¶</a></span>\[\textbf{r}_i^{k+1} = \textbf{r}_i^k \left( \frac{V^{k+1}}{V^k} \right)^{\frac{1}{3}},
+\]</div>
+<p>and the potential energy needs to be re-evaluated.</p>
+<p>Finally, since in this ensemble <span class="math notranslate nohighlight">\(f(\textbf x,V) \propto V^N e^{-\beta ( U(\textbf x) + PV) }\)</span> the volume moves are accepted with probability</p>
+<div class="math notranslate nohighlight" id="equation-acc-canonical">
+<span class="eqno">(76)<a class="headerlink" href="#equation-acc-canonical" title="Permalink to this equation">¶</a></span>\[
+A(\textbf x, V' | \textbf y, V) = \min \left[ 1, e^{-\beta \left( H(\textbf x, V') - H(\textbf y, V) \right)} \right],
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-enthalpy">
+<span class="eqno">(77)<a class="headerlink" href="#equation-enthalpy" title="Permalink to this equation">¶</a></span>\[
+H(\textbf x, V) = U(\textbf x) + P V - \frac{N}{\beta} \ln(V).
+\]</div>
+<p>Much more elaborate MC moves can be designed. As long as they obey detailed balance, they are legitimate and can be used to sample various distributions. One interesting example is the case where the potential energy have many local minima separated by high barriers. In that case, standard MC translation moves will not work anymore and the system will be trapped in one of the local minima. One solution to this problem is called <strong>parallel tempering</strong> or <strong>replica exchange</strong>, in which several replicas of the system are simulated using standard MC simulations but at increasing temperatures.</p>
+<p>We are interested in sampling the system at the lowest temperature but systems are higher temperatures will cross the energy barriers more easily. Therefore, every several MC passes, a pair of neighboring replicas are chosen and a move is attempted to switch their particle coordinates. For example, if before the move the system at temperature <span class="math notranslate nohighlight">\(\beta\)</span> was in configuration <span class="math notranslate nohighlight">\(\textbf x\)</span> while the system in temperature <span class="math notranslate nohighlight">\(\beta'\)</span> was in configuration <span class="math notranslate nohighlight">\(\textbf y\)</span>, one can show that in that the acceptance probability should be</p>
+<div class="math notranslate nohighlight" id="equation-acc-remc">
+<span class="eqno">(78)<a class="headerlink" href="#equation-acc-remc" title="Permalink to this equation">¶</a></span>\[
+A(\textbf x, \beta'; \textbf y, \beta | \textbf x, \beta; \textbf y, \beta') = \min \left[ 1, e^{\delta} \right],
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\delta = \left( \beta' - \beta \right) \left[ U(\textbf y) - U(\textbf x) \right]\)</span>.</p>
+<p>In one of the final projects, you will implement such a replica exchange MC simulation and compare it with alternative algorithms to overcome high energy barriers that are based on MD simulations.</p>
+</div>
 <div class="section" id="proof-that-f-x-is-a-stationary-point-of-metropolis-mc">
 <h2>Proof that <span class="math notranslate nohighlight">\(f(x)\)</span> is a stationary point of Metropolis MC<a class="headerlink" href="#proof-that-f-x-is-a-stationary-point-of-metropolis-mc" title="Permalink to this headline">¶</a></h2>
 <p>We follow the proof that is presented in the Book by Tuckerman.
 At every iteration of the Markov chain/Metropolis algorithm, the points <span class="math notranslate nohighlight">\(\textbf{x}_k\)</span> are distributed according to some function <span class="math notranslate nohighlight">\(\pi_k(\textbf x)\)</span>. We wish to show that if the algorithm reached a point in which <span class="math notranslate nohighlight">\(\pi_k(\textbf x) = f(\textbf x)\)</span>, all following steps will be distributed according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>. In other words, we wish to show that <span class="math notranslate nohighlight">\(f(x)\)</span> is a stationary point of the Metropolis algorithm.</p>
 <p>We will use induction to prove that is the case. We will assume that at some <em>arbitrary</em> MC step <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(\pi_k(\textbf x) = f(\textbf x)\)</span>, then we will derive the expression for <span class="math notranslate nohighlight">\(\pi_{k+1}(\textbf x)\)</span>, the distribution in the next MC step, and we will show that it is also equal to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>.</p>
+<p>The probability to be at point <span class="math notranslate nohighlight">\(\textbf x\)</span> at step <span class="math notranslate nohighlight">\(k+1\)</span>, <span class="math notranslate nohighlight">\(\pi_{k+1}(\textbf x)\)</span>, has two contributions: First, from moves that started in other points <span class="math notranslate nohighlight">\(\text bf y\)</span>, proposed <span class="math notranslate nohighlight">\(\textbf x\)</span> as a new configuration and were accepted. The term is given by the probability to be at <span class="math notranslate nohighlight">\(\textbf y\)</span> in the previous step, <span class="math notranslate nohighlight">\(\pi_{k}(\textbf y)\)</span>, times the probability that <span class="math notranslate nohighlight">\(\textbf x\)</span> will be proposed as the next move if we are at <span class="math notranslate nohighlight">\(\textbf y\)</span>, <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y)\)</span>, times the probability that the move will be accepted, <span class="math notranslate nohighlight">\(A(\textbf x | \textbf y)\)</span>. The final expression for this first contribution is then given by integrating over all the possible initial <span class="math notranslate nohighlight">\(\textbf y\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\int A(\textbf x | \textbf y) T(\textbf x | \textbf y) \pi_{k}(\textbf y) \mathrm{d} \textbf y.\]</div>
+<p>The second contribution includes moves that started at <span class="math notranslate nohighlight">\(\textbf x\)</span>, proposed some new step <span class="math notranslate nohighlight">\(\textbf y\)</span> and were rejected. This term is equal to the probability to be at <span class="math notranslate nohighlight">\(\textbf x\)</span> in the previous step, <span class="math notranslate nohighlight">\(\pi_{k}(\textbf x)\)</span>, time the probability that <span class="math notranslate nohighlight">\(\textbf y\)</span> will be proposed as the next step, <span class="math notranslate nohighlight">\(T(\textbf y | \textbf x)\)</span>, times the probability that the move will be rejected, <span class="math notranslate nohighlight">\(1 - A(\textbf y | \textbf x)\)</span>. The final expression is given by integrating over all possible moves <span class="math notranslate nohighlight">\(\textbf y\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\int \left( 1 - A(\textbf y | \textbf x) \right) T(\textbf y | \textbf x) \pi_{k}(\textbf x) \mathrm{d} \textbf y.\]</div>
+<p>Combining these two contributions, we get</p>
+<div class="math notranslate nohighlight" id="equation-prob-kp1">
+<span class="eqno">(79)<a class="headerlink" href="#equation-prob-kp1" title="Permalink to this equation">¶</a></span>\[
+\pi_{k+1}(\textbf x)=
+\int A(\textbf x | \textbf y) T(\textbf x | \textbf y) \pi_{k}(\textbf y) \mathrm{d} \textbf y + 
+\int \left( 1 - A(\textbf y | \textbf x) \right) T(\textbf y | \textbf x) \pi_{k}(\textbf x) \mathrm{d} \textbf y.
+\]</div>
+<p>Now, we assume that <span class="math notranslate nohighlight">\(\pi_k(\textbf x) = f(\textbf x)\)</span> and rearrange Eq.<a class="reference internal" href="#equation-prob-kp1">(79)</a> to get</p>
+<div class="math notranslate nohighlight">
+\[
+\pi_{k+1}(\textbf x)=
+\int \left( A(\textbf x | \textbf y) T(\textbf x | \textbf y) f(\textbf y) -  A(\textbf y | \textbf x) T(\textbf y | \textbf x) f(\textbf x) \right) \mathrm{d} \textbf y + 
+\int T(\textbf y | \textbf x) f(\textbf x) \mathrm{d} \textbf y.
+\]</div>
+<p>The first integral vanishes due to detailed balance, Eq.<a class="reference internal" href="#equation-detailed-balance">(68)</a>, and in the second term we can take <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> out of the integral. Finally, since <span class="math notranslate nohighlight">\(T(\textbf y | \textbf x)\)</span> is normalized (see Eq. <a class="reference internal" href="#equation-tnorm">(69)</a>), we get</p>
+<div class="math notranslate nohighlight">
+\[
+\pi_{k+1}(\textbf x)= f(\textbf x),
+\]</div>
+<p>which completes the proof.</p>
+</div>
+<div class="section" id="combining-md-and-mc-for-canonical-time-correlation-functions">
+<h2>Combining MD and MC for canonical time correlation functions<a class="headerlink" href="#combining-md-and-mc-for-canonical-time-correlation-functions" title="Permalink to this headline">¶</a></h2>
+<p>In the last section of the MD chapter, we discussed how to evaluate various observables.
+We looked at properties like the kinetic energy (Eq. <a class="reference internal" href="MolecularDynamics.html#equation-kinetic-p">(56)</a>), potential energy (e.g., Eq. <a class="reference internal" href="MolecularDynamics.html#equation-lj">(54)</a>), and also at structural properties like the density (see Eq.<a class="reference internal" href="MolecularDynamics.html#equation-density-est">(57)</a>). In your first numerical exercise you even evaluated spatial correlations by looking at the <a class="reference external" href="https://en.wikipedia.org/wiki/Radial_distribution_function">radial distribution function</a> (AKA pair correlation function).
+The same estimators can be used in MC simulations to evaluate expectation values in the canonical ensemble. You will do just that in your second numerical exercise!</p>
+<p>But we also mentioned special observables, called equilibrium time-correlation functions, that were defined in Eq.<a class="reference internal" href="MolecularDynamics.html#equation-t-corfun">(58)</a>. You might recall that their special importance came from the <a class="reference external" href="https://en.wikipedia.org/wiki/Fluctuation-dissipation_theorem">fluctuation dissipation theorem</a> which states that the response of a system to a small time-dependent perturbation, driving the system out of equilibrium, is determined by equilibrium time-correlation functions. In other words, the response, as measured by transport properties (diffusion, thermal/electric conductivity, reaction rate etc.), is determined by the fluctuations of equilibrium time correlation functions.</p>
+<p>Of the methods we have discussed in the course, time correlation functions can only be evaluted by doing MD simulations. The reason we cannot evalaute them using MC simulations is that the steps in the Metropolis algorithm are determined by a random process - they store no information about the dynamics in time of the system.</p>
+<p>On the other hand, our MD simulations only allowed us to evaluate expectation values in the microcanonical ensemble. But most transport properties are measured in experiments at constant temperature, not energy! To the rescue comes the combination of MC and MD.</p>
+<p>To evaluate time correlation functions in the canonical ensemble, we can perform one long MC simulation, which will converge to sampling configurations from the Boltzmann distribution. Once it is converged, we can take a sample every few hundred steps and, from each one, generate regular MD trajectories at constant energies to determine the time correlation function for this particular energy. Taking the average over all of the trajectories (initial conditions) will give the desired time correlation functions in the canonical ensemble. In your second exercise you will do this to evaluate the self-diffusion coefficient of Argon at various temperatures.</p>
+</div>
+<div class="section" id="error-estimation">
+<h2>Error estimation<a class="headerlink" href="#error-estimation" title="Permalink to this headline">¶</a></h2>
+<p>Finally, assuming we have managed to evaluate some expectation values, how accurate are they? What is the <strong>statistical uncertainty</strong> of our results? An estimate of the statistical error can be obtained by using <a class="reference external" href="https://en.wikipedia.org/wiki/Central_limit_theorem"><strong>the central limit theorem</strong></a> again. Loosely speaking, it states that, under certain conditions, the means of samples of independent random variables are normally distributed. This is true even if the original variables are not normally distributed.</p>
+<p>Practically, it means that if we have some property <span class="math notranslate nohighlight">\(A\)</span> which is not normally distributed, as is often the case in MD/MC simulations, if we sample it many times, divide the samples into <span class="math notranslate nohighlight">\(M\)</span> equal blocks, and then evaluate the mean for each block, <span class="math notranslate nohighlight">\(\langle A \rangle_m\)</span> where <span class="math notranslate nohighlight">\(m=1,...,M\)</span> - those means follow a normal distribution. Why is it important? Because if we know that the means are normally distributed, we can evaluate the <strong>standard error</strong> on the averages from,</p>
+<div class="math notranslate nohighlight" id="equation-error">
+<span class="eqno">(80)<a class="headerlink" href="#equation-error" title="Permalink to this equation">¶</a></span>\[
+\epsilon_A = \frac{\sigma_A}{\sqrt{M}},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma_A^2\)</span> is the variance between the means of the different blocks,</p>
+<div class="math notranslate nohighlight" id="equation-std">
+<span class="eqno">(81)<a class="headerlink" href="#equation-std" title="Permalink to this equation">¶</a></span>\[
+\sigma_A^2 = \frac{\sum_{m=1}^M \left[ \langle A \rangle_m - \langle A \rangle \right]^2 }{M-1},
+\]</div>
+<p>and <span class="math notranslate nohighlight">\(\langle A \rangle\)</span> is the average from the entire simulation data, as in Eq. <a class="reference internal" href="MolecularDynamics.html#equation-av-sim">(55)</a>. Like we said previously, this analysis ican be used in any ensemble, because the means always distribute normally.</p>
+<p>The only question that remains is - how do we choose the number of blocks <span class="math notranslate nohighlight">\(M\)</span>? In order for this analysis to be valid, the different blocks have to generate statistically independent samples of the means. How do we know that the  blocks are spaced enough so that this is the case? It turns out, that the autocorrelation function of the observable is the answer. The autocorrelation function starts from a value of <span class="math notranslate nohighlight">\(\langle A^2 \rangle\)</span> and decays towards zero. The time it takes to decay it called the <strong>autocorrelation time</strong> and it effectively determines how long it takes for the system to forget all past correlations, so that new samples are independent from the initial ones. Thus, we need to choose the block length to be larger that the autocorrelation time.</p>
+<p>Evaluating time correlation functions is quite expensive, so we do not want to do this for every property (although it is a more rigorous approacי).
+How do we evaluate if our sample are correlated or not in practice? We start with very small blocks (very large <span class="math notranslate nohighlight">\(M\)</span>), containing only a few steps each. In this case, many of our block means are highly correlated. Our estimate of the error on the average of the observable from Eq. <a class="reference internal" href="#equation-error">(80)</a> will be very small because we are assuming all of them are statistically independent, which is not true. Then, we increase the block size (decrease <span class="math notranslate nohighlight">\(M\)</span>) and re-calculate the error on the mean. It will increase a little. We repeat this procedure until our estimate of the error on the average has reached a plateau. Then, our estimate of the number of independent samples of the mean during the simulation is equal to the number of blocks we have used. The procedure to determine the statistical uncertainty according to Eq. <a class="reference internal" href="#equation-error">(80)</a> is then reliable.</p>
+<p>We note that this analysis is required if we want to evalaute the statistical error on expectation values that were evaluated in a single simulation. If we have enough time and computational power, we can always resort to doing several independent simulations, by sampling different initial conditions, and simply treat each simulation as an independent block in the error analysis.</p>
 </div>
 </div>
 
