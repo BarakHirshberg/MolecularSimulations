@@ -42,6 +42,8 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe,.cell"
@@ -283,7 +285,7 @@
 <h2>The project<a class="headerlink" href="#the-project" title="Permalink to this headline">¶</a></h2>
 <p>Now that you have mastered how to sample arbitrary distribution functions using the Metropolis algorithm, you are ready to tackle the second exercise.</p>
 <p>You will use the same repository as for the first exercise. Note that you will need your code to evaluate the LJ potential and a harmonic trap working also for the second exercise. If it did not work in the previous exercise, you have another shot at correcting it. But if you are truly stuck and it does not work, contact Barak for help as soon as possible.</p>
-<p>You goal is to implement a Metropolis MC simulations in the canonical ensemble. To do that, you will need to add two methods to your simulations class. The first, <code class="docutils literal notranslate"><span class="pre">MCstep</span></code>, performs a single translation move and decided whether to accept or reject it. The second, <code class="docutils literal notranslate"><span class="pre">runMC</span></code>, contains the instructions for performing an MC simulation, similarly to how <code class="docutils literal notranslate"><span class="pre">run</span></code> holds the instructions for an MD simulation. As usual, the docstring for each method contains all of the relevant information.</p>
+<p>You goal is to implement a Metropolis MC simulations in the canonical ensemble. To do that, you will need to add the following two methods to your simulations class. The first, <code class="docutils literal notranslate"><span class="pre">MCstep</span></code>, performs a single translation move and decided whether to accept or reject it. The second, <code class="docutils literal notranslate"><span class="pre">runMC</span></code>, contains the instructions for performing an MC simulation, similarly to how <code class="docutils literal notranslate"><span class="pre">run</span></code> holds the instructions for an MD simulation. As usual, the docstring for each method contains all of the relevant information.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">MCstep</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        THIS FUNCTIONS PERFORMS ONE METROPOLIS MC STEP IN THE NVT ENSEMBLE.</span>
@@ -320,7 +322,7 @@
 
 </pre></div>
 </div>
-<p>You will perform simulations for the two systems we have investigated before, a single Ar atom in a 1D harmonic trap and a system of 256 Ar atoms at three thermodynamics conditions. You will also need to implement <code class="docutils literal notranslate"><span class="pre">evalAnharm</span></code> and perform simulations for an Ar atom in an anharmonic trap, and compare it with the harmonic example.</p>
+<p>You will perform simulations for the two systems we have investigated before, a single Ar atom in a 1D harmonic trap and a system of 256 Ar atoms at three thermodynamic conditions. You will also need to implement a new method, <code class="docutils literal notranslate"><span class="pre">evalAnharm</span></code>, and perform simulations for an Ar atom in an anharmonic trap, and compare it with the harmonic example. Use <span class="math notranslate nohighlight">\(\lambda = 7.757 \cdot 10^{19)\)</span>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">evalAnharm</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">Lambda</span> <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        THIS FUNCTION EVALUATES THE POTENTIAL AND FORCE FOR AN ANHARMONIC TRAP.</span>
@@ -344,7 +346,7 @@
         <span class="c1">################################################################</span>
 </pre></div>
 </div>
-<p>As before, report your results in a file called <code class="docutils literal notranslate"><span class="pre">ReportProjII.ipynb</span></code>.</p>
+<p>As before, report your results in a file called <code class="docutils literal notranslate"><span class="pre">ReportProjII.ipynb</span></code>. Please note that while you will only need these three functions to have a working MC simulation, I assume here that you will re-evalaute the full potential after every MC step. This is OK for the single particle simulations. But, as we discussed in class, this is very wasteful for the case of 256 Ar atoms and I encourage you to come up with a solution to calculate efficiently the change in energy after randomly moving one atom at a time. This is, however, not madatory.</p>
 </div>
 </div>
 
