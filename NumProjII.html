@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; Molecular Simulations - 0351-4057</title>
+    <title>Numerical Project II - MC simulation (NVT) &#8212; Molecular Simulations - 0351-4057</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Classical mechanics" href="ClassicalMech.html" />
+    <link rel="prev" title="Monte Carlo" href="MonteCarlo.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -89,13 +89,13 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
    Introduction
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ClassicalMech.html">
    Classical mechanics
@@ -121,8 +121,8 @@
    Monte Carlo
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NumProjII.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Numerical Project II - MC simulation (NVT)
   </a>
  </li>
@@ -167,9 +167,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/NumProjII.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -187,7 +187,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/BarakHirshberg/book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/BarakHirshberg/book/issues/new?title=Issue%20on%20page%20%2FNumProjII.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -203,6 +203,31 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/BarakHirshberg/book/master/v2/gh/BarakHirshberg/book/master?urlpath=tree/NumProjII.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/BarakHirshberg/book/blob/master/NumProjII.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -214,13 +239,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+  <a class="reference internal nav-link" href="#the-project">
+   The project
   </a>
  </li>
 </ul>
@@ -233,7 +253,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction</h1>
+                <h1>Numerical Project II - MC simulation (NVT)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -244,13 +264,8 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+  <a class="reference internal nav-link" href="#the-project">
+   The project
   </a>
  </li>
 </ul>
@@ -262,54 +277,74 @@
             
               <div>
                 
-  <!-- #region -->
-<div class="tex2jax_ignore mathjax_ignore section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Molecular simulations have become an invaluable tool in
-scientific research in the last decades.
-They serve as a “virtual microscope” providing insight, with atomic
-resolution, into the dynamics of  important chemical, physical and
-biological processes ranging from atmospheric reactions to protein
-folding and crystal nucleation.</p>
-<p>In this course, you will learn the theory behind the two most important
-methods of our field - Molecular Dynamics (MD) and Monte Carlo (MC)
-simulations. You will also gain hands-on experience in implementing
-these algorithms in modern, open-source software using
-<a class="reference external" href="https://github.com/">GitHub</a> and the
-<a class="reference external" href="https://scipy-lectures.org/">Python</a> programming language. But first, we will go over the
-fundamentals of classical mechanics and statistical mechanics,
-which we will rely on during the course.
-These notes are based on the authoritative book by Professor Mark E.
-Tuckerman of New York University,
-<a class="reference external" href="https://tau-primo.hosted.exlibrisgroup.com/permalink/f/8560f2/972TAU_ALMA51249053460004146">Statistical Mechanics: Theory and Molecular Simulations</a>
-<span id="id1">[<a class="reference internal" href="#id4">1</a>]</span>.
-Additional reading material can be found in the course syllabus,
-such as <a class="reference external" href="https://tau-primo.hosted.exlibrisgroup.com/permalink/f/2v5hj1/TN_cdi_askewsholts_vlebooks_9780192524706">Computer Simulation of Liquids</a> <span id="id2">[<a class="reference internal" href="#id5">2</a>]</span> by Allen and Tildesley.</p>
-<div class="tip admonition">
-<p class="admonition-title">Bonus credit</p>
-<p>This course will also feature a competition, how exciting!
-While you read the notes, will undoubtedly find typos, errors and mistakes.
-You can submit corrections to the notes by opening a pull request on Github (more about this later).
-The person that will submit the most approved pull requests will get a 5-points bonus to the final grade.
-Hint: find one deliberate typo in this page to practice on.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="numerical-project-ii-mc-simulation-nvt">
+<h1>Numerical Project II - MC simulation (NVT)<a class="headerlink" href="#numerical-project-ii-mc-simulation-nvt" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-project">
+<h2>The project<a class="headerlink" href="#the-project" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have mastered how to sample arbitrary distribution functions using the Metropolis algorithm, you are ready to tackle the second exercise.</p>
+<p>You will use the same repository as for the first exercise. Note that you will need your code to evaluate the LJ potential and a harmonic trap working also for the second exercise. If it did not work in the previous exercise, you have another shot at correcting it. But if you are truly stuck and it does not work, contact Barak for help as soon as possible.</p>
+<p>You goal is to implement a Metropolis MC simulations in the canonical ensemble. To do that, you will need to add two methods to your simulations class. The first, <code class="docutils literal notranslate"><span class="pre">MCstep</span></code>, performs a single translation move and decided whether to accept or reject it. The second, <code class="docutils literal notranslate"><span class="pre">runMC</span></code>, contains the instructions for performing an MC simulation, similarly to how <code class="docutils literal notranslate"><span class="pre">run</span></code> holds the instructions for an MD simulation. As usual, the docstring for each method contains all of the relevant information.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">MCstep</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        THIS FUNCTIONS PERFORMS ONE METROPOLIS MC STEP IN THE NVT ENSEMBLE.</span>
+<span class="sd">        YOU WILL NEED TO PROPOSE TRANSLATION MOVES, APPLY  </span>
+<span class="sd">        PBC, CALCULATE THE CHANGE IN POTENTIAL ENERGY, ACCEPT OR REJECT, </span>
+<span class="sd">        AND CALCULATE THE ACCEPTANCE PROBABILITY.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None. Sets self.R.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1">################################################################</span>
+        <span class="c1">####################### YOUR CODE GOES HERE ####################</span>
+        <span class="c1">################################################################</span>
+</pre></div>
 </div>
-<!-- #endregion -->
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">runMC</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        THIS FUNCTION DEFINES AN MC SIMULATION DOES, GIVEN AN INSTANCE OF </span>
+<span class="sd">        THE SIMULATION CLASS. YOU WILL NEED TO LOOP OVER MC STEPS, </span>
+<span class="sd">        PRINT THE COORDINATES AND ENERGIES EVERY PRINTFREQ TIME STEPS </span>
+<span class="sd">        TO THEIR RESPECTIVE FILES, SIMILARLY TO YOUR MD CODE.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>   
+        
+        <span class="c1">################################################################</span>
+        <span class="c1">####################### YOUR CODE GOES HERE ####################</span>
+        <span class="c1">################################################################</span>
+
+</pre></div>
 </div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p id="id3"><dl class="citation">
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Mark Tuckerman. <em>Statistical Mechanics: Theory and Molecular Simulation</em>. Oxford Graduate Texts. Oxford University Press, Oxford, New York, February 2010. ISBN 978-0-19-852526-4.</p>
-</dd>
-<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Michael P. Allen and Dominic J. Tildesley. <em>Computer Simulation of Liquids: Second Edition</em>. Oxford University Press, Oxford, 2nd edition, 2017. ISBN 978-0-19-880319-5.</p>
-</dd>
-</dl>
-</p>
+<p>You will perform simulations for the two systems we have investigated before, a single Ar atom in a 1D harmonic trap and a system of 256 Ar atoms at three thermodynamics conditions. You will also need to implement <code class="docutils literal notranslate"><span class="pre">evalAnharm</span></code> and perform simulations for an Ar atom in an anharmonic trap, and compare it with the harmonic example.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">evalAnharm</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">Lambda</span> <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        THIS FUNCTION EVALUATES THE POTENTIAL AND FORCE FOR AN ANHARMONIC TRAP.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        Lambda : float</span>
+<span class="sd">            The parameter of the trap U = 0.25 * Lambda * x**4</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None. Sets the value of self.F and self.U.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+    
+        <span class="k">if</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Called evalAnharm with Lambda = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Lambda</span><span class="p">)</span> <span class="p">)</span> 
+            
+        <span class="c1">################################################################</span>
+        <span class="c1">####################### YOUR CODE GOES HERE ####################</span>
+        <span class="c1">################################################################</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
+<p>As before, report your results in a file called <code class="docutils literal notranslate"><span class="pre">ReportProjII.ipynb</span></code>.</p>
 </div>
 </div>
 
@@ -337,13 +372,13 @@ Hint: find one deliberate typo in this page to practice on.</p>
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="ClassicalMech.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Classical mechanics</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="MonteCarlo.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Monte Carlo</p>
+        </div>
     </a>
 </div>
             
