@@ -54,7 +54,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Numerical Project II - MC simulation (NVT)" href="NumProjII.html" />
-    <link rel="prev" title="Numerical project I - MD simulation" href="NumProjI.html" />
+    <link rel="prev" title="Numerical project I - MD simulation (NVE)" href="NumProjI.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -116,7 +116,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NumProjI.html">
-   Numerical project I - MD simulation
+   Numerical project I - MD simulation (NVE)
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -390,7 +390,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="monte-carlo">
 <h1>Monte Carlo<a class="headerlink" href="#monte-carlo" title="Permalink to this headline">¶</a></h1>
-<p>Now that you have written your own MD code, you have a recipe for evaluating thermodynamic properties of systems in the microcanonical ensemble. We used MD simulations to sample configurations from that ensemble and, since they all had the same probability, we took their arithmetic mean to calculate ensemble averages. But what would you do if you wanted to sample the canonical ensemble? You would have to evaluate Eq.<a class="reference internal" href="StatMech.html#equation-ensemble-av-nvt">(38)</a>, in which each configuration has a different weight. Effectively, this also means evaluating very <strong>high-dimensional integrals</strong>, since <span class="math notranslate nohighlight">\(\textbf x\)</span> is of dimension <span class="math notranslate nohighlight">\(6N\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number of atoms. Here, we will learn about the difficulties of calculating such integrals and of an ingenious alogrithm to overcome them.</p>
+<p>Now that you have written your own MD code, you have a recipe for evaluating thermodynamic properties of systems in the microcanonical ensemble. We used MD simulations to sample configurations from that ensemble and, since they all had the same probability, we took their arithmetic mean to calculate ensemble averages. But what would you do if you wanted to sample the canonical ensemble? You would have to evaluate Eq.<a class="reference internal" href="StatMech.html#equation-ensemble-av-nvt">(38)</a>, in which each configuration has a different weight. Effectively, this also means evaluating very <strong>high-dimensional integrals</strong>, since <span class="math notranslate nohighlight">\(\textbf x\)</span> is of dimension <span class="math notranslate nohighlight">\(6N\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number of atoms. Here, we will learn about the difficulties of calculating such integrals and of an ingenious algorithm to overcome them.</p>
 <div class="section" id="evaluation-of-high-dimensional-integrals">
 <h2>Evaluation of high-dimensional integrals<a class="headerlink" href="#evaluation-of-high-dimensional-integrals" title="Permalink to this headline">¶</a></h2>
 <p>As we have seen, the expectation values we encounter in statistical mechanics are of the form</p>
@@ -575,7 +575,7 @@ neval = 1839958790
 </div>
 <div class="section" id="the-central-limit-theorem">
 <h2>The Central Limit Theorem<a class="headerlink" href="#the-central-limit-theorem" title="Permalink to this headline">¶</a></h2>
-<p>We have just established that random (uniform) sampling could be very helpful for evaluating multi-dimensional integrals, in comparison to numerical quadrature. But there are situations in which uniform sampling could be highly wateful too. For example, when <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> is localized in a small volume in the <span class="math notranslate nohighlight">\(3N\)</span> dimensional space. In that case, many of our uniform samples will not be counted when evaluating the integral.</p>
+<p>We have just established that random (uniform) sampling could be very helpful for evaluating multi-dimensional integrals, in comparison to numerical quadrature. But there are situations in which uniform sampling could be highly wasteful too. For example, when <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> is localized in a small volume in the <span class="math notranslate nohighlight">\(3N\)</span> dimensional space. In that case, many of our uniform samples will not be counted when evaluating the integral.</p>
 <p>Note that this is not the case for the example of the n-ball above. For the n-ball, the volume grows like <span class="math notranslate nohighlight">\(\sim R^d\)</span> where <span class="math notranslate nohighlight">\(d\)</span> is the number of spatial dimensions. We sample uniformy in an <span class="math notranslate nohighlight">\(d\)</span>-dimensional cube, whose volume also scales the same. This means that the ratio of the two volumes does not depend on <span class="math notranslate nohighlight">\(d\)</span>.</p>
 <p>For the problematic, localized case, can we do better than uniform sampling? Yes! If we know how to generate samples that are already distributed according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>.</p>
 <p>At this point, we will <em>assume</em> that we have an algorithm for obtaining a set of <span class="math notranslate nohighlight">\(M\)</span> <strong>independent</strong> samples (configurations of the system) <span class="math notranslate nohighlight">\(\textbf x_1 ,..., \textbf x_M\)</span> that are all <strong>identically distributed</strong> according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> with some mean <span class="math notranslate nohighlight">\(\langle a \rangle_f\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2 = \langle a^2 \rangle_f - \langle a \rangle_f^2\)</span>. This is by no means a trivial task. It is straightforward only for simple distributions and the form of Monte Carlo that we will study next was designed to address exactly this problem. But, for now, we will simply assume such an algorithm exists. If that is the case, we can then evaluate <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span> for each sample.</p>
@@ -1008,7 +1008,7 @@ How do we evaluate if our sample are correlated or not in practice? We start wit
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Numerical project I - MD simulation</p>
+            <p class="prev-next-title">Numerical project I - MD simulation (NVE)</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="NumProjII.html" title="next page">

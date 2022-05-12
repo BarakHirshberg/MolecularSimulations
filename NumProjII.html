@@ -115,7 +115,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="NumProjI.html">
-   Numerical project I - MD simulation
+   Numerical project I - MD simulation (NVE)
   </a>
  </li>
  <li class="toctree-l1">
@@ -322,7 +322,7 @@
 
 </pre></div>
 </div>
-<p>You will perform simulations for the two systems we have investigated before, a single Ar atom in a 1D harmonic trap and a system of 256 Ar atoms at three thermodynamic conditions. You will also need to implement a new method, <code class="docutils literal notranslate"><span class="pre">evalAnharm</span></code>, and perform simulations for an Ar atom in an anharmonic trap, and compare it with the harmonic example. Use <span class="math notranslate nohighlight">\(\lambda = 7.757 \cdot 10^{19)\)</span>.</p>
+<p>You will perform simulations for the two systems we have investigated before, a single Ar atom in a 1D harmonic trap and a system of 256 Ar atoms at three thermodynamic conditions. You will also need to implement a new method, <code class="docutils literal notranslate"><span class="pre">evalAnharm</span></code>, and perform simulations for an Ar atom in an anharmonic trap, and compare it with the harmonic example. Use <span class="math notranslate nohighlight">\( \lambda = 7.757 \cdot 10^{23} J m^{-4} \)</span>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">evalAnharm</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">Lambda</span> <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        THIS FUNCTION EVALUATES THE POTENTIAL AND FORCE FOR AN ANHARMONIC TRAP.</span>
