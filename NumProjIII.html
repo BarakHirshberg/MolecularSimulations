@@ -255,11 +255,6 @@
    Option B - Metadynamics
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#option-c-time-correlation-functions-and-transport-properties">
-   Option C - Time correlation functions and transport properties
-  </a>
- </li>
 </ul>
 
             </nav>
@@ -288,11 +283,6 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#option-b-metadynamics">
    Option B - Metadynamics
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#option-c-time-correlation-functions-and-transport-properties">
-   Option C - Time correlation functions and transport properties
   </a>
  </li>
 </ul>
@@ -354,18 +344,6 @@ V(x) =
 \]</div>
 <p>Use the position of the particle as a collective variable. Compare the Metadynamics simulations with the unbiased simulations using the same potential. Obtain the unbiased free-energy surface of the system and compare it with your expectation based on the potential above. Evaluate the error on you free energy surface estimate by running several independent trajectories and evluating their standard deviation.</p>
 <p><em>Bonus:</em> Implement the well-tempered version of Metadynamics, and compare its performace against standard metadynamics.</p>
-</div>
-<div class="section" id="option-c-time-correlation-functions-and-transport-properties">
-<h2>Option C - Time correlation functions and transport properties<a class="headerlink" href="#option-c-time-correlation-functions-and-transport-properties" title="Permalink to this headline">¶</a></h2>
-<p><em>The gist:</em> In our course, we discussed the fact that the classical equations of motion naturally conserve the total energy, if the Hamiltonian of the system is time-independent. But we also said that the dynamics obtained from them can be thought of as a tool for sampling the equilibrium distribution function of the microcanonical ensemble. Then, we discussed MC simulations which allows us to sample any equilibrium distribution we want, in principle. We have used it to sample the canonical ensemble. The question arises - is there a way to obtain any kind of dynamical information in the canonical ensemble?</p>
-<p>It turns out that using linear response theory one can show that time-dependent properties can be evaluated using only equilibrium expectation values! This is due to an important result called the fluctuation-dissipation theorem that states that response properties are determined by equilibrium time-correlation functions. In this project, you will write a code to evaluate time correlation functions.</p>
-<p><em>Reading material:</em></p>
-<ol class="simple">
-<li><p>M.E. Tuckerman, <a class="reference external" href="https://tau-primo.hosted.exlibrisgroup.com/permalink/f/8560f2/972TAU_ALMA51249053460004146">Statistical Mechanics: Theory and Molecular Simulations</a> <span id="id4">[<a class="reference internal" href="intro.html#id4">1</a>]</span>, Chapter 13.</p></li>
-<li><p>M. Ceriotti, V, Kapil, Y. Litman, T. Markland and M. Rossi, Booklet of the CECAM Flagship School on Path Integral Quantum Mechanics. Sections 1-2, available on the moodle.</p></li>
-</ol>
-<p><em>Simulation details:</em> Evaluate the diffusion coefficient of liquid Ar at 298K. Compare your results obtained from the velocity autocorrelation function with the results from the mean square displacement. Also look for the expected value for the LJ potential in the literature and compare with your result.</p>
-<p><em>Bonus:</em> You can use MC to generate the initial samples out of the canonical ensemble and then propagate microcanonical trajectories for each configuration to evaluate the time correlation functions. But your bonus question is to modify the velocity Verlet equations of motion to implement the Langevin thermostat to generate the initial samples of the NVT ensemble.</p>
 </div>
 </div>
 
