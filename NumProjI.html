@@ -315,34 +315,34 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="numerical-project-i-md-simulation-nve">
 <h1>Numerical project I - MD simulation (NVE)<a class="headerlink" href="#numerical-project-i-md-simulation-nve" title="Permalink to this headline">¶</a></h1>
-<p>Congratulations! you have mastered important concepts in classical and statistical mechanics, and learned about the nuts and bolts of MD simulations.
+<p>Congratulations! You have mastered important concepts in classical and statistical mechanics, and learned about the nuts and bolts of MD simulations.
 You are now ready for your first project - writing your very own MD code. How exciting!
-The project will be written in Python, a highly popular coding language, extremely relevant for both scientific reserach and the current job market.
+The project will be written in Python, a highly popular coding language, extremely relevant for both scientific research and the current job market.
 To start, we need to set up our development environment. Please follow the instructions below.</p>
 <div class="section" id="installing-the-anaconda-python-distribution">
 <h2>Installing the Anaconda Python distribution<a class="headerlink" href="#installing-the-anaconda-python-distribution" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> is a very popular Python distribution, aimed for scientific computing. It bundles several useful packages, such as <a class="reference external" href="https://numpy.org/">Numpy</a>, <a class="reference external" href="https://scipy.org/">SciPy</a> and <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>. If you need to refresh your knowledge in Python, please see the <a class="reference external" href="https://scipy-lectures.org/">SciPy lecture notes</a>.</p>
-<p>Installing Anaconda is free, just follow these <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">instructions</a> for Linux, Mac or Windows operating systems. Anaconda also includes a light Integrated Development Environment (IDE) called <a class="reference external" href="https://www.spyder-ide.org/">Spyder</a>. If you already know and like <a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a> or <a class="reference external" href="https://code.visualstudio.com/">Vistual Studio code</a> instead, go ahead and use whatever IDE you like. I cannot, however, help you debug your setup unless you use Spyder and Anaconda. You can also use any text editor and just run your code through the terminal. But an IDE gives convenient access to powerful tools for modern programming including debugging, profiling, syntax highlighting and editing, etc.</p>
+<p><a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> is a very popular Python distribution, aimed for scientific computing. It bundles several useful packages, such as <a class="reference external" href="https://numpy.org/">Numpy</a>, <a class="reference external" href="https://scipy.org/">SciPy</a>, and <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>. If you need to refresh your knowledge in Python, please see the <a class="reference external" href="https://scipy-lectures.org/">SciPy lecture notes</a>.</p>
+<p>Installing Anaconda is free, just follow these <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">instructions</a> for Linux, Mac, or Windows operating systems. Anaconda also includes a light Integrated Development Environment (IDE) called <a class="reference external" href="https://www.spyder-ide.org/">Spyder</a>. If you already know and like <a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a> or <a class="reference external" href="https://code.visualstudio.com/">Vistual Studio code</a> instead, go ahead and use whatever IDE you like. I cannot, however, help you debug your setup unless you use Spyder and Anaconda. You can also use any text editor and just run your code through the terminal. But an IDE gives convenient access to powerful tools for modern programming including debugging, profiling, syntax highlighting and editing, etc.</p>
 </div>
 <div class="section" id="the-linux-terminal">
 <h2>The Linux terminal<a class="headerlink" href="#the-linux-terminal" title="Permalink to this headline">¶</a></h2>
 <p>If you have never used it, I highly recommend getting familiar with it. It was designed for programming.
-You can see for example this basic <a class="reference external" href="https://ubuntu.com/tutorials/command-line-for-beginners#1-overview">tutorial</a> by Ubuntu, one of the most popular Linux distribution.
+You can see for example this basic <a class="reference external" href="https://ubuntu.com/tutorials/command-line-for-beginners#1-overview">tutorial</a> by Ubuntu, one of the most popular Linux distributions.
 The operating system of your computer does not have to be Linux to use the Linux terminal.
 Mac OS has a terminal, and so does Windows. On Mac, just open the terminal. To enable the Windows Subsystem for Linux (WSL), see the following <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install">instructions</a>.
 You do not have to use the Linux terminal if you do not want to. All that is required to complete the project is an Anaconda installation and GitHub Desktop (see below).</p>
 </div>
 <div class="section" id="github-basics">
 <h2>GitHub basics<a class="headerlink" href="#github-basics" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/">GitHub</a> is a code hosting platform for software development. It relies on an open-source version control system called <a class="reference external" href="https://git-scm.com/">Git</a>. De facto, all software development projects today use some kind of version control. It allows us to develop the code together as a team, keep track of changes, suggest new features, and merge everything together in a simple workflow.</p>
+<p><a class="reference external" href="https://github.com/">GitHub</a> is a code hosting platform for software development. It relies on an open-source version control system called <a class="reference external" href="https://git-scm.com/">Git</a>. De facto, all software development projects today use some kind of version control. It allows us to develop the code together as a team, keep track of changes, suggest new features, and merge everything in a simple workflow.</p>
 <p>The basic object is a <em>repository</em> (“repo”), which stores all of the source code for the project.
-You can create your own repo, or <em>clone</em> (GitHub jargon for copying) an existing repo.
-You cal also <em>fork</em> a repo, which is similar to cloning, but you typically do it when you want to contribute your changes back to the original repo, and not just develop you own version of it.</p>
+You can create your repo, or <em>clone</em> (GitHub jargon for copying) an existing repo.
+You can also <em>fork</em> a repo, which is similar to cloning, but you typically do it when you want to contribute your changes back to the original repo, and not just develop your version of it.</p>
 <p>Each repository can have several <em>branches</em>. The default one is called <em>main</em>.
-When you want to implement a new feature, the typical workflow is to clone the repository and create a new branch dedicated to your feature. In this way, you will not change the main version of the code while you work. Next, you develop the new feature by adding or editing the source code. Every time you would like to save a checkpoint that you could return to if needed, you should <em>commit</em> your changes and <em>push</em> them to update the remote repositoy. When you want to discuss your changes and consult with your team, you can create a <em>pull request</em> on GitHub.
+When you want to implement a new feature, the typical workflow is to clone the repository and create a new branch dedicated to your feature. In this way, you will not change the main version of the code while you work. Next, you develop the new feature by adding or editing the source code. Every time you would like to save a checkpoint that you could return to if needed, you should <em>commit</em> your changes and <em>push</em> them to update the remote repository. When you want to discuss your changes and consult with your team, you can create a <em>pull request</em> on GitHub.
 Once you are done with all changes, you need to <em>merge</em> your branch back with the original main branch. This is done by closing the pull request and merging.</p>
-<p>The first “assignment” is an exercise, developed by GitHub, to let you practice this workflow. It will exaplin everything I mentioned in brief and more.
-To do it, first choose wether you will be working with the terminal or graphical user interface (GUI).</p>
+<p>The first “assignment” is an exercise, developed by GitHub, to let you practice this workflow. It will explain everything I mentioned in brief and more.
+To do it, first choose whether you will be working with the terminal or graphical user interface (GUI).</p>
 <p>Prerequisites for all:</p>
 <ul class="simple">
 <li><p>Create a free account on <a class="reference external" href="https://github.com/">GitHub</a>.</p></li>
@@ -355,7 +355,7 @@ To do it, first choose wether you will be working with the terminal or graphical
 <p>Prerequisites for terminal users:</p>
 <ul class="simple">
 <li><p>Windows: Install WSL. Follow these <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install">instructions</a>.</p></li>
-<li><p>All OS: Install Anaconda with Spyder through terminal, see instructions <a class="reference external" href="https://www.anaconda.com/products/individual">here</a>. You can use the following command to fetch the installer for Linux directly from the terminal:</p></li>
+<li><p>All OS: Install Anaconda with Spyder through the terminal, see instructions <a class="reference external" href="https://www.anaconda.com/products/individual">here</a>. You can use the following command to fetch the installer for Linux directly from the terminal:</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">anaconda</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">Anaconda3</span><span class="o">-</span><span class="mf">2021.11</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
 
@@ -363,15 +363,15 @@ To do it, first choose wether you will be working with the terminal or graphical
 </div>
 <p>Both:</p>
 <ul class="simple">
-<li><p>Click the invitation link from GitHub Classroom. This creates your personal Git &amp; GitHub Fundamentals repo. Currently it only has one text file <code class="docutils literal notranslate"><span class="pre">README.md</span></code> which explains the GitHub workflow. Read it carefully, follow the links as needed, and make sure your understand before proceeding.</p></li>
-<li><p>Clone the repo locally to your computer. The changes you will make on your local copy will not affect the remote one, until you push your changes (see last step below).</p></li>
+<li><p>Click the invitation link from GitHub Classroom. This creates your personal Git &amp; GitHub Fundamentals repo. Currently, it only has one text file <code class="docutils literal notranslate"><span class="pre">README.md</span></code> which explains the GitHub workflow. Read it carefully, follow the links as needed, and make sure your understand before proceeding.</p></li>
+<li><p>Clone the repo locally to your computer. The changes you will make on your local copy will not affect the remote one until you push your changes (see the last step below).</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span>  <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Molecular</span><span class="o">-</span><span class="n">Simulations</span><span class="o">-</span><span class="n">Course</span><span class="o">/</span><span class="n">git</span><span class="o">-</span><span class="n">github</span><span class="o">-</span><span class="n">fundamentals</span><span class="o">-</span><span class="n">YOURNAME</span><span class="o">.</span><span class="n">git</span>
 
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Create you own branch and switch to working in it using the command</p></li>
+<li><p>Create your branch and switch to working in it using the command</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">feature</span>
 
@@ -393,14 +393,14 @@ To do it, first choose wether you will be working with the terminal or graphical
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Go back to GitHub to your repo and open a pull request, assign Barak as reviewer. I will give you feedback and make comments. If you are done, I will close the pull request and merge your branch feature into your main branch. Then, I will also delete the feature branch, which is no longer needed.</p></li>
+<li><p>Go back to GitHub to your repo and open a pull request, assign Barak as a reviewer. I will give you feedback and make comments. If you are done, I will close the pull request and merge your branch feature into your main branch. Then, I will also delete the feature branch, which is no longer needed.</p></li>
 </ul>
 <p>All of the steps above can also be done using the GUI of GitHub desktop instead.</p>
 </div>
 <div class="section" id="the-project">
 <h2>The project<a class="headerlink" href="#the-project" title="Permalink to this headline">¶</a></h2>
 <p>Your first real assignment (i.e., one that will be graded) is now also available on the GitHub Classroom.
-Use the link to create your own repository. You do not need to edit the <code class="docutils literal notranslate"><span class="pre">Ar_init_super.xyz</span></code>, <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> or <code class="docutils literal notranslate"><span class="pre">README.md</span></code> files. You will only need to edit the <code class="docutils literal notranslate"><span class="pre">run.py</span></code> and <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> files. They both have very detailed instructions inside. For example, <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> reads:</p>
+Use the link to create your own repository. You do not need to edit the <code class="docutils literal notranslate"><span class="pre">Ar_init_super.xyz</span></code>, <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code>, or <code class="docutils literal notranslate"><span class="pre">README.md</span></code> files. You will only need to edit the <code class="docutils literal notranslate"><span class="pre">run.py</span></code> and <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> files. They both have very detailed instructions inside. For example, <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> reads:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#sim.py
 
 WELCOME TO YOU FIRST PROJECT! THIS BIT OF TEXT IS CALLED A DOCSTRING.
@@ -476,7 +476,7 @@ I have created a class called Simulation which defines the methods and data memb
 <li><p>Implement the methods for class Simulation, based on the material we have covered.</p></li>
 <li><p>Implement a several short scripts <code class="docutils literal notranslate"><span class="pre">run.py</span></code> to call the methods you have implemented and run a simulation.</p></li>
 </ul>
-<p>The methods you will have to implement include, for example, sampleMB() which samples initial positions from the Maxwell-Boltzmann distribution. How do I know? Because in <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> you will see its definition, with a description of what needs to be implemented and the place to write your own code:</p>
+<p>The methods you will have to implement include, for example, sampleMB() which samples initial positions from the Maxwell-Boltzmann distribution. How do I know? Because in <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> you will see its definition, with a description of what needs to be implemented and the place to write your code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">sampleMB</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">removeCM</span><span class="o">=</span><span class="kc">True</span> <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        THIS FUNCTIONS SAMPLES INITIAL MOMENTA FROM THE MB DISTRIBUTION.</span>
@@ -501,7 +501,7 @@ I have created a class called Simulation which defines the methods and data memb
 </pre></div>
 </div>
 <p>I highly recommend implementing one method at a time and testing that it works by running <code class="docutils literal notranslate"><span class="pre">run.py</span></code> that calls it, before moving on to the next method. Do not forget to commit and push along the way to create checkpoints you can go back to if something goes wrong.</p>
-<p>The repo also has a file called <code class="docutils literal notranslate"><span class="pre">ReportProjI.ipynb</span></code>. This is a Jupyter Notebook which you can open by running <a class="reference external" href="https://jupyter.org/">JupyterLab</a> or <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> from Anaconda. In it, you will find the definitions and details of the specific simulations you have to run. It also contains questions that you need to answer and figures you need to plot. Create a separate run script for each one of the sections in the notebook (<code class="docutils literal notranslate"><span class="pre">run_harmonic.py</span></code> and <code class="docutils literal notranslate"><span class="pre">run_Ar.py</span></code>), run the simulations, and answer the questions. Submit your report by commiting and pushing the file to your the repo.</p>
+<p>The repo also has a file called <code class="docutils literal notranslate"><span class="pre">ReportProjI.ipynb</span></code>. This is a Jupyter Notebook which you can open by running <a class="reference external" href="https://jupyter.org/">JupyterLab</a> or <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> from Anaconda. In it, you will find the definitions and details of the specific simulations you have to run. It also contains questions that you need to answer and figures you need to plot. Create a separate run script for each one of the sections in the notebook (<code class="docutils literal notranslate"><span class="pre">run_harmonic.py</span></code> and <code class="docutils literal notranslate"><span class="pre">run_Ar.py</span></code>), run the simulations, and answer the questions. Submit your report by commiting and pushing the file to your repo.</p>
 </div>
 </div>
 
