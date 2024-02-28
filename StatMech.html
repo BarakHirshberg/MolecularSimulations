@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Basic statistical mehcanics &#8212; Molecular Simulations - 0351-4057</title>
+    <title>Basic statistical mechanics &#8212; Molecular Simulations - 0351-4057</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -106,7 +106,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Basic statistical mehcanics
+   Basic statistical mechanics
   </a>
  </li>
  <li class="toctree-l1">
@@ -127,6 +127,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="NumProjII.html">
    Numerical Project II - MC simulation (NVT)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NumProjIII.html">
+   Final project
   </a>
  </li>
 </ul>
@@ -186,11 +191,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/BarakHirshberg/book"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/BarakHirshberg/MolecularSimulations/"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/BarakHirshberg/book/issues/new?title=Issue%20on%20page%20%2FStatMech.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/BarakHirshberg/MolecularSimulations//issues/new?title=Issue%20on%20page%20%2FStatMech.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -211,7 +216,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/BarakHirshberg/book/master/v2/gh/BarakHirshberg/book/master?urlpath=tree/StatMech.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/BarakHirshberg/book/master/v2/gh/BarakHirshberg/MolecularSimulations/master?urlpath=tree/StatMech.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -219,7 +224,7 @@
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/BarakHirshberg/book/blob/master/StatMech.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/BarakHirshberg/MolecularSimulations/blob/master/StatMech.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -271,7 +276,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Basic statistical mehcanics</h1>
+                <h1>Basic statistical mechanics</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -310,8 +315,8 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="basic-statistical-mehcanics">
-<h1>Basic statistical mehcanics<a class="headerlink" href="#basic-statistical-mehcanics" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="basic-statistical-mechanics">
+<h1>Basic statistical mechanics<a class="headerlink" href="#basic-statistical-mechanics" title="Permalink to this headline">¶</a></h1>
 <p>After deriving the equations of motion for a system of <span class="math notranslate nohighlight">\(N\)</span> classical particles, we would next like to solve for their trajectories and use them to evaluate thermodynamic properties of a macroscopic system, such as the temperature, energy, pressure etc. If we can connect an observable macroscopic property <span class="math notranslate nohighlight">\(A\)</span> to some function of the microstate of the system, <span class="math notranslate nohighlight">\(a(\textbf{x})\)</span>, we might associate the measured value of <span class="math notranslate nohighlight">\(A\)</span> with a <strong>time average</strong>, denoted by <span class="math notranslate nohighlight">\(\bar{a}_{\tau}\)</span> and defined as</p>
 <div class="math notranslate nohighlight" id="equation-time-av">
 <span class="eqno">(22)<a class="headerlink" href="#equation-time-av" title="Permalink to this equation">¶</a></span>\[
@@ -324,8 +329,8 @@ A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t
 <p>It was <a class="reference external" href="https://en.wikipedia.org/wiki/Josiah_Willard_Gibbs">J.W. Gibbs</a> that realized that thermodynamic macroscopic properties are not very sensitive to the details of the specific microscopic state of the system. Consider for example the temperature. You have learned in a preceding statistical thermodynamics course that each momentum degree of freedom contributes <span class="math notranslate nohighlight">\(\frac{1}{2} k_B T \)</span> to the average thermal kinetic energy (the <a class="reference external" href="https://en.wikipedia.org/wiki/Equipartition_theorem">equipartition theorem</a>). Thus, the temperature can be obtained from the average kinetic energy of the system. But there are many ways to choose the momenta of the particles such that the average kinetic energy is the same. In other words, the temperature is insensitive to the specific microstate of the system, as long as it gives the same average kinetic energy.</p>
 <p>Following this reasoning, and to make progress in connecting miscroscopic properties with thermodynamic observables, Gibbs introduced the concept of an <strong>ensemble</strong>. An ensemble is a collection of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> systems that obey the same microscopic interactions and are characterized by a common set of three thermodynamic properties, such as the number of particles <span class="math notranslate nohighlight">\(N\)</span>, the volume <span class="math notranslate nohighlight">\(V\)</span>, the total energy <span class="math notranslate nohighlight">\(E\)</span>, the temperature <span class="math notranslate nohighlight">\(T\)</span>, the pressure <span class="math notranslate nohighlight">\(P\)</span> or the chemical potential <span class="math notranslate nohighlight">\(\mu\)</span>. Each system in the ensemble evolves in time from different initial conditions and is characterized by a unique microscopic state defined by its path in phase space, <span class="math notranslate nohighlight">\(\textbf{x}(t)\)</span>, defined in Eq. <a class="reference internal" href="ClassicalMech.html#equation-x-phase-space">(7)</a>. The entire ensemble can then be represented as a “cloud” of points in phase space.</p>
 <p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfil the properties:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9f21496d-38f8-4fc0-b906-db25f72333f8">
-<span class="eqno">(23)<a class="headerlink" href="#equation-9f21496d-38f8-4fc0-b906-db25f72333f8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-35ba7bd6-8676-46ca-9165-0ec0024f2ae1">
+<span class="eqno">(23)<a class="headerlink" href="#equation-35ba7bd6-8676-46ca-9165-0ec0024f2ae1" title="Permalink to this equation">¶</a></span>\[\begin{align}
  \int f(\textbf{x},t) \, \mathrm{d} \textbf{x} &amp;= 1, &amp; f(\textbf{x},t) &amp; \ge 0.
 \end{align}\]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span> represents the probability that a system from the ensemble is in the volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> (or, alternatively, the fraction of systems therein).</p>
@@ -428,8 +433,8 @@ A(t) = \langle a \rangle_f = \int f(\textbf{x},t) a(\textbf{x}) \, \mathrm{d} \t
 \mathrm{d} \textbf{x}_t = \mathcal{J}(\textbf{x}_t; \textbf{x}_0) \mathrm{d} \textbf{x}_0,
 \]</div>
 <p>where the <strong>Jacobian</strong> <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> is defined as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e1be14ec-9e89-4458-9528-3473a30a6024">
-<span class="eqno">(33)<a class="headerlink" href="#equation-e1be14ec-9e89-4458-9528-3473a30a6024" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-87a52a01-e01b-4726-9494-21557e4cf63d">
+<span class="eqno">(33)<a class="headerlink" href="#equation-87a52a01-e01b-4726-9494-21557e4cf63d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathcal{J}(\textbf{x}_t; \textbf{x}_0) &amp;= \det{J}, &amp; J_{kl} &amp;= \frac{\partial x_t^k}{\partial x_0^l}.
 \end{align}\]</div>
 <p>Then, we use a property of the determinant</p>
@@ -443,8 +448,8 @@ A(t) = \langle a \rangle_f = \int f(\textbf{x},t) a(\textbf{x}) \, \mathrm{d} \t
 \frac{\mathrm{d}}{\mathrm{d}t} \mathcal{J}(\textbf{x}_t;\textbf{x}_0) = \frac{\mathrm{d}}{\mathrm{d}t} e^{\mathrm{Tr} \left[ \ln{J} \right] } = e^{\mathrm{Tr} \left[ \ln{J} \right]} \mathrm{Tr} [\frac{\mathrm{d J}}{\mathrm{d}t} J^{-1}] = \mathcal{J}(\textbf{x}_t;\textbf{x}_0) \sum_{k,l} \left( \frac{\mathrm{d}J}{\mathrm{d}t} \right)_{kl} \left( J^{-1} \right)_{lk}.
 \]</div>
 <p>The elements of the matrices <span class="math notranslate nohighlight">\(\frac{\mathrm{d}J}{\mathrm{d}t}\)</span> and <span class="math notranslate nohighlight">\(J^{-1}\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85e304bd-fac0-4ade-a399-a59647ceffbd">
-<span class="eqno">(34)<a class="headerlink" href="#equation-85e304bd-fac0-4ade-a399-a59647ceffbd" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5eb6e0b1-634b-40ad-a53a-0a18ad90392e">
+<span class="eqno">(34)<a class="headerlink" href="#equation-5eb6e0b1-634b-40ad-a53a-0a18ad90392e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 
 \left( \frac{\mathrm{d}J}{\mathrm{d}t} \right)_{kl} &amp;= \frac{\partial \dot{x}_t^k}{\partial x_0^l} &amp; \left( J^{-1} \right)_{lk} = \frac{\partial x_0^l}{\partial x_t^k},
 
@@ -539,7 +544,7 @@ A = \langle a \rangle_{\beta} = \frac{ \int e^{-\beta \mathcal{H} (\textbf{x})} 
     {
         requestKernel: true,
         binderOptions: {
-            repo: "BarakHirshberg/book",
+            repo: "BarakHirshberg/MolecularSimulations",
             ref: "master",
         },
         codeMirrorConfig: {
