@@ -317,7 +317,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="basic-statistical-mechanics">
 <h1>Basic statistical mechanics<a class="headerlink" href="#basic-statistical-mechanics" title="Permalink to this headline">¶</a></h1>
-<p>After deriving the equations of motion for a system of <span class="math notranslate nohighlight">\(N\)</span> classical particles, we would next like to solve for their trajectories and use them to evaluate thermodynamic properties of a macroscopic system, such as the temperature, energy, pressure etc. If we can connect an observable macroscopic property <span class="math notranslate nohighlight">\(A\)</span> to some function of the microstate of the system, <span class="math notranslate nohighlight">\(a(\textbf{x})\)</span>, we might associate the measured value of <span class="math notranslate nohighlight">\(A\)</span> with a <strong>time average</strong>, denoted by <span class="math notranslate nohighlight">\(\bar{a}_{\tau}\)</span> and defined as</p>
+<p>After deriving the equations of motion for a system of <span class="math notranslate nohighlight">\(N\)</span> classical particles, we would next like to solve for their trajectories and use them to evaluate thermodynamic properties of a macroscopic system, such as the temperature, energy, pressure, etc. If we can connect an observable macroscopic property <span class="math notranslate nohighlight">\(A\)</span> to some function of the microstate of the system, <span class="math notranslate nohighlight">\(a(\textbf{x})\)</span>, we might associate the measured value of <span class="math notranslate nohighlight">\(A\)</span> with a <strong>time average</strong>, denoted by <span class="math notranslate nohighlight">\(\bar{a}_{\tau}\)</span> and defined as</p>
 <div class="math notranslate nohighlight" id="equation-time-av">
 <span class="eqno">(22)<a class="headerlink" href="#equation-time-av" title="Permalink to this equation">¶</a></span>\[
 A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t,
@@ -327,14 +327,14 @@ A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t
 <div class="section" id="ensembles">
 <h2>Ensembles<a class="headerlink" href="#ensembles" title="Permalink to this headline">¶</a></h2>
 <p>It was <a class="reference external" href="https://en.wikipedia.org/wiki/Josiah_Willard_Gibbs">J.W. Gibbs</a> that realized that thermodynamic macroscopic properties are not very sensitive to the details of the specific microscopic state of the system. Consider for example the temperature. You have learned in a preceding statistical thermodynamics course that each momentum degree of freedom contributes <span class="math notranslate nohighlight">\(\frac{1}{2} k_B T \)</span> to the average thermal kinetic energy (the <a class="reference external" href="https://en.wikipedia.org/wiki/Equipartition_theorem">equipartition theorem</a>). Thus, the temperature can be obtained from the average kinetic energy of the system. But there are many ways to choose the momenta of the particles such that the average kinetic energy is the same. In other words, the temperature is insensitive to the specific microstate of the system, as long as it gives the same average kinetic energy.</p>
-<p>Following this reasoning, and to make progress in connecting miscroscopic properties with thermodynamic observables, Gibbs introduced the concept of an <strong>ensemble</strong>. An ensemble is a collection of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> systems that obey the same microscopic interactions and are characterized by a common set of three thermodynamic properties, such as the number of particles <span class="math notranslate nohighlight">\(N\)</span>, the volume <span class="math notranslate nohighlight">\(V\)</span>, the total energy <span class="math notranslate nohighlight">\(E\)</span>, the temperature <span class="math notranslate nohighlight">\(T\)</span>, the pressure <span class="math notranslate nohighlight">\(P\)</span> or the chemical potential <span class="math notranslate nohighlight">\(\mu\)</span>. Each system in the ensemble evolves in time from different initial conditions and is characterized by a unique microscopic state defined by its path in phase space, <span class="math notranslate nohighlight">\(\textbf{x}(t)\)</span>, defined in Eq. <a class="reference internal" href="ClassicalMech.html#equation-x-phase-space">(7)</a>. The entire ensemble can then be represented as a “cloud” of points in phase space.</p>
-<p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfil the properties:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-35ba7bd6-8676-46ca-9165-0ec0024f2ae1">
-<span class="eqno">(23)<a class="headerlink" href="#equation-35ba7bd6-8676-46ca-9165-0ec0024f2ae1" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<p>Following this reasoning, and to make progress in connecting microscopic properties with thermodynamic observables, Gibbs introduced the concept of an <strong>ensemble</strong>. An ensemble is a collection of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> systems that obey the same microscopic interactions and are characterized by a common set of three thermodynamic properties, such as the number of particles <span class="math notranslate nohighlight">\(N\)</span>, the volume <span class="math notranslate nohighlight">\(V\)</span>, the total energy <span class="math notranslate nohighlight">\(E\)</span>, the temperature <span class="math notranslate nohighlight">\(T\)</span>, the pressure <span class="math notranslate nohighlight">\(P\)</span> or the chemical potential <span class="math notranslate nohighlight">\(\mu\)</span>. Each system in the ensemble evolves in time from different initial conditions and is characterized by a unique microscopic state defined by its path in phase space, <span class="math notranslate nohighlight">\(\textbf{x}(t)\)</span>, defined in Eq. <a class="reference internal" href="ClassicalMech.html#equation-x-phase-space">(7)</a>. The entire ensemble can then be represented as a “cloud” of points in phase space.</p>
+<p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfill the properties:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-420ab046-7b3f-4b1c-89d0-917c0a66f7b6">
+<span class="eqno">(23)<a class="headerlink" href="#equation-420ab046-7b3f-4b1c-89d0-917c0a66f7b6" title="Permalink to this equation">¶</a></span>\[\begin{align}
  \int f(\textbf{x},t) \, \mathrm{d} \textbf{x} &amp;= 1, &amp; f(\textbf{x},t) &amp; \ge 0.
 \end{align}\]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span> represents the probability that a system from the ensemble is in the volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> (or, alternatively, the fraction of systems therein).</p>
-<p>Gibbs then postulated that, instead of using the time average of Eq. <a class="reference internal" href="#equation-time-av">(22)</a>, macroscopic properties can be obtained by freezing the ensemble at some time instance, and taking the average of the desired observable over all the systems, called an <strong>ensemble average</strong>. More formally, the ensemble average, denoted as <span class="math notranslate nohighlight">\(\langle a \rangle_f\)</span>, is defined as</p>
+<p>Gibbs then postulated that instead of using the time average of Eq. <a class="reference internal" href="#equation-time-av">(22)</a>, macroscopic properties can be obtained by freezing the ensemble at some time instance and taking the average of the desired observable over all the systems, called an <strong>ensemble average</strong>. More formally, the ensemble average, denoted as <span class="math notranslate nohighlight">\(\langle a \rangle_f\)</span>, is defined as</p>
 <div class="math notranslate nohighlight" id="equation-ensemble-av">
 <span class="eqno">(24)<a class="headerlink" href="#equation-ensemble-av" title="Permalink to this equation">¶</a></span>\[
 A(t) = \langle a \rangle_f = \int f(\textbf{x},t) a(\textbf{x}) \, \mathrm{d} \textbf{x}.
@@ -420,21 +420,21 @@ A(t) = \langle a \rangle_f = \int f(\textbf{x},t) a(\textbf{x}) \, \mathrm{d} \t
 \[
 \textbf{x}_t = g(\textbf{x}_0).
 \]</div>
-<p>Thus, we can consider the evolution of the trajectory as a cooordinate transformation. Assuming we know the function <span class="math notranslate nohighlight">\(g\)</span>, we need to evaluate how the volume elements changes when we transform from <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}_0\)</span> to <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}_t\)</span>. <a class="reference external" href="https://en.wikipedia.org/wiki/Joseph_Liouville">J. Liouville</a> proved that</p>
+<p>Thus, we can consider the evolution of the trajectory as a coordinate transformation. Assuming we know the function <span class="math notranslate nohighlight">\(g\)</span>, we need to evaluate how the volume elements change when we transform from <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}_0\)</span> to <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}_t\)</span>. <a class="reference external" href="https://en.wikipedia.org/wiki/Joseph_Liouville">J. Liouville</a> proved that</p>
 <div class="math notranslate nohighlight" id="equation-incompressibility">
 <span class="eqno">(31)<a class="headerlink" href="#equation-incompressibility" title="Permalink to this equation">¶</a></span>\[
 \mathrm{d} \textbf{x}_0 = \mathrm{d} \textbf{x}_t,
 \]</div>
 <p>i.e., that the phase space volume element is conserved along the trajectory. Its shape might change, but not the volume.</p>
-<p>Why is it important? Because, as we said, the fraction of systems in a volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span>. Since the phase space distribution is conserved along the trajectory, if the volume element is conserved too, so does the fraction of systems in it. This justifies the claim that ensemble averages can be performed at any time instance.</p>
+<p>Why is it important? Because, as we said, the fraction of systems in a volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span>. Since the phase space distribution is conserved along the trajectory, if the volume element is conserved too, so is the fraction of systems in it. This justifies the claim that ensemble averages can be performed at any time instance.</p>
 <p>To prove Eq. <a class="reference internal" href="#equation-incompressibility">(31)</a>, we remember that two volume elements of a coordinate transformation are connected through</p>
 <div class="math notranslate nohighlight" id="equation-coord-transform">
 <span class="eqno">(32)<a class="headerlink" href="#equation-coord-transform" title="Permalink to this equation">¶</a></span>\[
 \mathrm{d} \textbf{x}_t = \mathcal{J}(\textbf{x}_t; \textbf{x}_0) \mathrm{d} \textbf{x}_0,
 \]</div>
 <p>where the <strong>Jacobian</strong> <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> is defined as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87a52a01-e01b-4726-9494-21557e4cf63d">
-<span class="eqno">(33)<a class="headerlink" href="#equation-87a52a01-e01b-4726-9494-21557e4cf63d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-67e0cb62-f645-4884-b84e-f7538a26d7df">
+<span class="eqno">(33)<a class="headerlink" href="#equation-67e0cb62-f645-4884-b84e-f7538a26d7df" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathcal{J}(\textbf{x}_t; \textbf{x}_0) &amp;= \det{J}, &amp; J_{kl} &amp;= \frac{\partial x_t^k}{\partial x_0^l}.
 \end{align}\]</div>
 <p>Then, we use a property of the determinant</p>
@@ -448,8 +448,8 @@ A(t) = \langle a \rangle_f = \int f(\textbf{x},t) a(\textbf{x}) \, \mathrm{d} \t
 \frac{\mathrm{d}}{\mathrm{d}t} \mathcal{J}(\textbf{x}_t;\textbf{x}_0) = \frac{\mathrm{d}}{\mathrm{d}t} e^{\mathrm{Tr} \left[ \ln{J} \right] } = e^{\mathrm{Tr} \left[ \ln{J} \right]} \mathrm{Tr} [\frac{\mathrm{d J}}{\mathrm{d}t} J^{-1}] = \mathcal{J}(\textbf{x}_t;\textbf{x}_0) \sum_{k,l} \left( \frac{\mathrm{d}J}{\mathrm{d}t} \right)_{kl} \left( J^{-1} \right)_{lk}.
 \]</div>
 <p>The elements of the matrices <span class="math notranslate nohighlight">\(\frac{\mathrm{d}J}{\mathrm{d}t}\)</span> and <span class="math notranslate nohighlight">\(J^{-1}\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5eb6e0b1-634b-40ad-a53a-0a18ad90392e">
-<span class="eqno">(34)<a class="headerlink" href="#equation-5eb6e0b1-634b-40ad-a53a-0a18ad90392e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e5e6d602-028f-4389-99bd-657dddac85a8">
+<span class="eqno">(34)<a class="headerlink" href="#equation-e5e6d602-028f-4389-99bd-657dddac85a8" title="Permalink to this equation">¶</a></span>\[\begin{align}
 
 \left( \frac{\mathrm{d}J}{\mathrm{d}t} \right)_{kl} &amp;= \frac{\partial \dot{x}_t^k}{\partial x_0^l} &amp; \left( J^{-1} \right)_{lk} = \frac{\partial x_0^l}{\partial x_t^k},
 
@@ -463,7 +463,7 @@ A(t) = \langle a \rangle_f = \int f(\textbf{x},t) a(\textbf{x}) \, \mathrm{d} \t
 <div class="math notranslate nohighlight">
 \[\frac{\mathrm{d}}{\mathrm{d} t} \mathcal{J}(\textbf{x}_t;\textbf{x}_0) = 0, \]</div>
 <p>which means that since <span class="math notranslate nohighlight">\(\mathcal{J}=1\)</span> initially by definition, it will stay conserved along the trajectory, thus proving Eq. <a class="reference internal" href="#equation-incompressibility">(31)</a>.</p>
-<p>If you didn’t follow the derivation, do not worry! You will now demonstrate phase space incomressiblity for a simple example.</p>
+<p>If you didn’t follow the derivation, do not worry! You will now demonstrate phase space incompressibility for a simple example.</p>
 <div class="tip admonition">
 <p class="admonition-title">Active learning</p>
 <p>Show that the Eq. <a class="reference internal" href="#equation-incompressibility">(31)</a> is correct for the case of a single particle of mass <span class="math notranslate nohighlight">\(m\)</span> in a harmonic trap of frequency <span class="math notranslate nohighlight">\(w_0\)</span>. In this case, <span class="math notranslate nohighlight">\(\textbf{x} = [q,p]\)</span>. You can use the results of the previous chapter,</p>
@@ -475,7 +475,7 @@ A(t) = \langle a \rangle_f = \int f(\textbf{x},t) a(\textbf{x}) \, \mathrm{d} \t
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p>In the case of a single particle the Jacobian is a 2x2 matrix,</p>
+<p>In the case of a single particle, the Jacobian is a 2x2 matrix,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 J=
@@ -514,8 +514,8 @@ A = \langle a \rangle_f = \frac{1}{\mathcal{Z}} \int \mathcal{F}(\mathcal{H}(\te
 <span class="eqno">(36)<a class="headerlink" href="#equation-partition-func" title="Permalink to this equation">¶</a></span>\[
 \mathcal{Z} = \int \mathcal{F}(\mathcal{H}(\textbf{x})) \, \mathrm{d} \textbf{x}.
 \]</div>
-<p>To proceed and write specific expressions for <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, we invoke a second postulate, called <strong>the hypothesis of equal <em>a priori</em> probabilities</strong>. In simple terms, it says that for an ensemble of isolated systems, each characterized by the same number of particles, volume and total energy, all microstates have equal probability. That is, the phase space distribution is a constant when the energy is between <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(E + \delta E\)</span> and zero otherwise.</p>
-<p>We saw previously that the classical equations of motion for an isolated system under the influence of conservative forces ensure that the total energy is constant. An ensemble composed of such isolated systems is called the <strong>microcanonical ensemble</strong>. Since they are characterized by a constant number of particles, volume and total energy, the ensemble is often denoted by the letters NVE.</p>
+<p>To proceed and write specific expressions for <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, we invoke a second postulate, called <strong>the hypothesis of equal <em>a priori</em> probabilities</strong>. In simple terms, it says that for an ensemble of isolated systems, each characterized by the same number of particles, volume, and total energy, all microstates have equal probability. That is, the phase space distribution is a constant when the energy is between <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(E + \delta E\)</span> and zero otherwise.</p>
+<p>We saw previously that the classical equations of motion for an isolated system under the influence of conservative forces ensure that the total energy is constant. An ensemble composed of such isolated systems is called the <strong>microcanonical ensemble</strong>. Since they are characterized by a constant number of particles, volume, and total energy, the ensemble is often denoted by the letters NVE.</p>
 <p>According to our second postulate, the equilibrium distribution at the NVE ensemble can be written formally as</p>
 <div class="math notranslate nohighlight">
 \[
@@ -526,7 +526,7 @@ A = \langle a \rangle_f = \frac{1}{\mathcal{Z}} \int \mathcal{F}(\mathcal{H}(\te
 <span class="eqno">(37)<a class="headerlink" href="#equation-ensemble-av-nve" title="Permalink to this equation">¶</a></span>\[
 A = \langle a \rangle_E = \frac{ \int \delta (\mathcal{H}(\textbf{x}) - E) \, a(\textbf{x}) \, \mathrm{d} \textbf{x}} {\int \delta (\mathcal{H}(\textbf{x}) - E) \, \mathrm{d} \textbf{x}} .
 \]</div>
-<p>You have derived in previous courses <span class="math notranslate nohighlight">\(\mathcal{F}(\mathcal{H}(\textbf{x}))\)</span> for other emsembles. We will not repeat this derivation here, but just mention that all of them can be derived from our two postulates by considering the entire ensemble as an isolated system. For the an ensemble of systems with a fixed number of particles, volume and temperature, called the <strong>canonical ensemble</strong>, <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is the famous Boltzmann distribution,</p>
+<p>You have derived in previous courses <span class="math notranslate nohighlight">\(\mathcal{F}(\mathcal{H}(\textbf{x}))\)</span> for other emsembles. We will not repeat this derivation here, but just mention that all of them can be derived from our two postulates by considering the entire ensemble as an isolated system. For an ensemble of systems with a fixed number of particles, volume, and temperature, called the <strong>canonical ensemble</strong>, <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is the famous Boltzmann distribution,</p>
 <div class="math notranslate nohighlight">
 \[
 \mathcal{F}(\mathcal{H}(\textbf{x})) \propto e^{-\beta \mathcal{H} (\textbf{x})}.
