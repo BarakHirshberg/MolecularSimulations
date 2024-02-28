@@ -588,14 +588,14 @@ We now consider another formulation of classical mechanics, due to Hamilton, whi
 <div class="section" id="hamiltonian-mechanics">
 <span id="sec-hamilton"></span><h2>Hamiltonian mechanics<a class="headerlink" href="#hamiltonian-mechanics" title="Permalink to this headline">¶</a></h2>
 <p>While Lagrangian mechanics is based on a description of the dynamics of a system in terms of the positions and velocities, the Hamiltonian formulation is intimately connected to the phase space representation we introduced in Section <a class="reference internal" href="#sec-phase-space"><span class="std std-ref">Phase space</span></a>. We previously defined the Cartesian momentum, <span class="math notranslate nohighlight">\(\textbf{p}_j = m_j \dot{\textbf{r}}_j\)</span> in Eq. <a class="reference internal" href="#equation-momenta">(5)</a>. A wider definition is to consider a <strong>generalized momentum</strong>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-660ea4e4-5674-4f7d-8244-692d6ee61312">
-<span class="eqno">(11)<a class="headerlink" href="#equation-660ea4e4-5674-4f7d-8244-692d6ee61312" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ffae49c9-72ee-4f7d-a505-b6c31a5c3907">
+<span class="eqno">(11)<a class="headerlink" href="#equation-ffae49c9-72ee-4f7d-a505-b6c31a5c3907" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \textbf{p}_j = \frac{\partial \mathcal{L}}{\partial \dot{\textbf{q}}_j},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\textbf{q}_j\)</span> is some generalized coordinate. When we write the Lagrangian in Cartesian coordinates, <span class="math notranslate nohighlight">\(\textbf{r}_j\)</span>, this definition reduces to Eq. <a class="reference internal" href="#equation-momenta">(5)</a>, but it holds for any choice of coordinates! (Remember, this was a major strength also of the Lagrangian formulation).</p>
 <p>The <strong>Hamiltonian</strong> is then defined<a class="footnote-reference brackets" href="#footnote1" id="id1">1</a> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc37c04b-3e5c-4697-aa85-6e0fc4a11103">
-<span class="eqno">(12)<a class="headerlink" href="#equation-cc37c04b-3e5c-4697-aa85-6e0fc4a11103" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9f09693c-f58a-4a0f-bee3-769eac374604">
+<span class="eqno">(12)<a class="headerlink" href="#equation-9f09693c-f58a-4a0f-bee3-769eac374604" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \label{Hamiltonian_def}
     \mathcal{H}(\textbf{q}_1,...,\textbf{q}_N,\textbf{p}_1,...,\textbf{p}_N) = \sum_{j=1}^N \textbf{p}_j \cdot \dot{\textbf{q}}_j(\textbf{p}_j) - \mathcal{L} \left (\textbf{q}_1,...,\textbf{q}_N,\dot{\textbf{q}}_1(\textbf{p}_1),...,\dot{\textbf{q}}_N(\textbf{p}_N) \right ),
 \end{equation}\]</div>
@@ -610,8 +610,8 @@ We now consider another formulation of classical mechanics, due to Hamilton, whi
     \mathcal{H}(\textbf{r}_1,...,\textbf{r}_N,\textbf{p}_1,...,\textbf{p}_N) = \sum_{i=1}^N \frac{\textbf{p}_j^2}{2 m_j} + U(\textbf{r}_1,...,\textbf{r}_N),
 \]</div>
 <p>which shows that the Hamiltonian is just the total energy of the system in terms of the Cartesian positions and momenta,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ce7da2b6-5014-4dbc-9d1e-33c7a27ed4fe">
-<span class="eqno">(15)<a class="headerlink" href="#equation-ce7da2b6-5014-4dbc-9d1e-33c7a27ed4fe" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-19122b15-86e7-4e78-8425-2e07f42b8c77">
+<span class="eqno">(15)<a class="headerlink" href="#equation-19122b15-86e7-4e78-8425-2e07f42b8c77" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \mathcal{H}(\textbf{r}_1,...,\textbf{r}_N,\textbf{p}_1,...,\textbf{p}_N) = K(\dot{\textbf{r}}_1,...,\dot{\textbf{r}}_N) + U(\textbf{r}_1,...,\textbf{r}_N).
 \end{equation}\]</div>
 <p>Hamilton’s equations in this case also reduce to Newton’s equations of motion.</p>
@@ -646,9 +646,10 @@ We write the time derivative of <span class="math notranslate nohighlight">\(f\)
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p>The total momentum is <span class="math notranslate nohighlight">\(\textbf{P} = \sum_{j=1}^N \textbf{p}_j\)</span>.</p>
+<p>The total momentum is <span class="math notranslate nohighlight">\(\textbf{P} = \sum_{j=1}^N \textbf{p}_j\)</span>. Therefore,</p>
 <div class="math notranslate nohighlight">
-\[ \left \{ \textbf{P},\mathcal{H} \right \} = \sum_{j=1}^N \left \{ \textbf{p}_j,\mathcal{H} \right \} = \sum_{j=1}^N \left [ \frac{\partial \textbf{p}_j}{\partial \textbf{q}_j}  \cdot \frac{\partial \mathcal{H}}{\partial \textbf{p}_j} - \frac{\partial \textbf{p}_j }{\partial \textbf{p}_j}  \cdot \frac{\partial \mathcal{H}}{\partial \textbf{q}_j} \right ] \]</div>
+\[ \left \{ \textbf{P},\mathcal{H} \right \} = \sum_{j=1}^N \left \{ \textbf{p}_j,\mathcal{H} \right \} = \sum_{j=1}^N \left [ \frac{\partial \textbf{p}_j}{\partial \textbf{q}_j}  \cdot \frac{\partial \mathcal{H}}{\partial \textbf{p}_j} - \frac{\partial \textbf{p}_j }{\partial \textbf{p}_j}  \cdot \frac{\partial \mathcal{H}}{\partial \textbf{q}_j} \right ]. \]</div>
+<p>Since the momenta and coordinates are independent variables in the Hamiltonian formalism,</p>
 <div class="math notranslate nohighlight">
 \[  \left \{ \textbf{P},\mathcal{H} \right \} = - \sum_{j=1}^N \frac{\partial \mathcal{H}}{\partial \textbf{q}_j} = - \sum_{j=1}^N \frac{\partial U}{\partial \textbf{q}_j} = 0. \]</div>
 </div>
@@ -665,13 +666,13 @@ We write the time derivative of <span class="math notranslate nohighlight">\(f\)
 Note that while the Lagrangian and Hamiltonian are <strong>functions</strong> of the coordinates and velocities or momenta, the action is a <strong>functional</strong>. A functional is a mathematical object that takes a function as input and maps it uniquely to some number, similarly to how a function takes one number as input and maps it uniquely to another number. Every <span class="math notranslate nohighlight">\(N\)</span>-particles trajectory, <span class="math notranslate nohighlight">\(\textbf{Q}(t), \dot{\textbf{Q}}(t)\)</span>, that fulfills the boundary conditions, (i.e., starts from <span class="math notranslate nohighlight">\(\textbf{Q}(t_1)\)</span> with <span class="math notranslate nohighlight">\(\dot{\textbf{Q}}(t_1)\)</span> and ends at <span class="math notranslate nohighlight">\(\textbf{Q}(t_2)\)</span> with <span class="math notranslate nohighlight">\(\dot{\textbf{Q}}(t_2))\)</span>, uniquely defines the time evolution of the Lagrangian which in turn translates to a specific value of the action. Alternatively, the difference between a functional and a function is that the action depends on all values of the trajectory between two points while the Lagrangian and Hamiltonian depend only on the value of the trajectory in some specific instance in time.</p>
 <p>It turns out that the Euler-Lagrange equations can be derived by postulating that the classical trajectory makes the first variation of the action integral vanish. The first variation of a functional is an extension of the definition of derivatives to the world of functionals.
 We consider how the action changes when the trajectories undergo an arbitrary variation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8ad6a710-9960-43ce-a7d4-2853b5e3ec96">
-<span class="eqno">(18)<a class="headerlink" href="#equation-8ad6a710-9960-43ce-a7d4-2853b5e3ec96" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8681f64b-344f-494b-9c38-5ccaa649e163">
+<span class="eqno">(18)<a class="headerlink" href="#equation-8681f64b-344f-494b-9c38-5ccaa649e163" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \textbf{q}_j(t,\alpha) &amp;= \textbf{q}_j(t,0) + \alpha \textbf{n}_j(t), &amp; \dot{\textbf{q}}_j(t,\alpha) &amp;= \dot{\textbf{q}}_j(t,0) + \alpha \dot{\textbf{n}}_j(t),
 \end{align}\]</div>
 <p>and denote the action for such trajectories as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-048720b1-2751-4875-94bf-039aabfd40ee">
-<span class="eqno">(19)<a class="headerlink" href="#equation-048720b1-2751-4875-94bf-039aabfd40ee" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c98ef90d-1795-4ba5-9981-8a5850a63b25">
+<span class="eqno">(19)<a class="headerlink" href="#equation-c98ef90d-1795-4ba5-9981-8a5850a63b25" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 S(\alpha) = \int_{t_1}^{t_2} \mathcal{L} (\textbf{q}_1(t,\alpha),...,\textbf{q}_N(t,\alpha),  \dot{\textbf{q}}_1(t,\alpha),...,\dot{\textbf{q}}_N(t,\alpha)) \mathrm{d}t.
 \end{equation}\]</div>
 <p>The first variation of <span class="math notranslate nohighlight">\(S\)</span> is defined as</p>
