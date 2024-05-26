@@ -1,483 +1,406 @@
 
 <!DOCTYPE html>
 
-
-<html lang="en" data-content_root="./" >
-
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monte Carlo &#8212; Molecular Simulations - 0351-4057</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-  </script>
-  
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
-  
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-  
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+    
+      
 
-    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'MonteCarlo';</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Numerical Project II - MC simulation (NVT)" href="NumProjII.html" />
     <link rel="prev" title="Numerical project I - MD simulation (NVE)" href="NumProjI.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    
 
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-  
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
-    </header>
-  
-
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
       
-      
-      
-      <div class="bd-sidebar-primary bd-sidebar">
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-
-  
-
-<a class="navbar-brand logo" href="intro.html">
-  
-  
-  
-  
-  
-    
-    
       
-    
-    
-    <img src="_static/tau_logo.jpg" class="logo__image only-light" alt="Molecular Simulations - 0351-4057 - Home"/>
-    <script>document.write(`<img src="_static/tau_logo.jpg" class="logo__image only-dark" alt="Molecular Simulations - 0351-4057 - Home"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    Introduction
-                </a>
-            </li>
-        </ul>
-        <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ClassicalMech.html">Classical mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="StatMech.html">Basic statistical mechanics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MolecularDynamics.html">Molecular dynamics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NumProjI.html">Numerical project I - MD simulation (NVE)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Monte Carlo</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NumProjII.html">Numerical Project II - MC simulation (NVT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="NumProjIII.html">Final project</a></li>
+      
+      <img src="_static/tau_logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Molecular Simulations - 0351-4057</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ClassicalMech.html">
+   Classical mechanics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="StatMech.html">
+   Basic statistical mechanics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MolecularDynamics.html">
+   Molecular dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NumProjI.html">
+   Numerical project I - MD simulation (NVE)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Monte Carlo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NumProjII.html">
+   Numerical Project II - MC simulation (NVT)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NumProjIII.html">
+   Final project
+  </a>
+ </li>
 </ul>
 
     </div>
-</nav></div>
-    </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+</nav> <!-- To handle the deprecated key -->
 
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
-      </div>
-      
-      <main id="main-content" class="bd-main">
-        
-        
-
-<div class="sbt-scroll-pixel-helper"></div>
-
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
-    </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
-
-
-
-
-
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://mybinder.org/v2/gh/BarakHirshberg/book/master/v2/gh/BarakHirshberg/MolecularSimulations/master?urlpath=tree/MonteCarlo.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="btn__text-container">Binder</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/BarakHirshberg/MolecularSimulations/blob/master/MonteCarlo.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onColab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="initThebeSBT()"
-  class="btn btn-sm btn-launch-thebe dropdown-item"
-  title="Launch Thebe"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-play"></i>
-  </span>
-<span class="btn__text-container">Live Code</span>
-</button>
-</li>
-      
-  </ul>
 </div>
 
 
+          
 
 
-
-
-<div class="dropdown dropdown-source-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
-    <i class="fab fa-github"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://github.com/BarakHirshberg/MolecularSimulations" target="_blank"
-   class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="btn__text-container">Repository</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="https://github.com/BarakHirshberg/MolecularSimulations/issues/new?title=Issue%20on%20page%20%2FMonteCarlo.html&body=Your%20issue%20content%20here." target="_blank"
-   class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="btn__text-container">Open issue</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="_sources/MonteCarlo.ipynb" target="_blank"
-   class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li>
-<button onclick="window.print()"
-  class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
-  data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="btn__text-container">.pdf</span>
-</button>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-<button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
-</div></div>
-      
-    </div>
-  
-</div>
-</div>
-              
-              
-
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Monte Carlo</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
             
-            <div>
-                <h2> Contents </h2>
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/MonteCarlo.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/BarakHirshberg/MolecularSimulations/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/BarakHirshberg/MolecularSimulations//issues/new?title=Issue%20on%20page%20%2FMonteCarlo.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/BarakHirshberg/book/master/v2/gh/BarakHirshberg/MolecularSimulations/master?urlpath=tree/MonteCarlo.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/BarakHirshberg/MolecularSimulations/blob/master/MonteCarlo.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
             </div>
-            <nav aria-label="Page">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-high-dimensional-integrals">Evaluation of high-dimensional integrals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-random-sampling">Uniform random sampling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-central-limit-theorem">The Central Limit Theorem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-sampling">Importance Sampling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metropolis-monte-carlo-and-detailed-balance">Metropolis Monte Carlo and detailed balance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mc-moves-and-acceptance-ratio">MC moves and acceptance ratio</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-sampling-1d-arbitrary-distributions">Demo - sampling 1D arbitrary distributions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-other-distributions">Sampling other distributions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-that-f-x-is-a-stationary-point-of-metropolis-mc">Proof that <span class="math notranslate nohighlight">\(f(x)\)</span> is a stationary point of Metropolis MC</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-md-and-mc-for-canonical-time-correlation-functions">Combining MD and MC for canonical time correlation functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-estimation">Error estimation</a></li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation-of-high-dimensional-integrals">
+   Evaluation of high-dimensional integrals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uniform-random-sampling">
+   Uniform random sampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-central-limit-theorem">
+   The Central Limit Theorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importance-sampling">
+   Importance Sampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metropolis-monte-carlo-and-detailed-balance">
+   Metropolis Monte Carlo and detailed balance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mc-moves-and-acceptance-ratio">
+   MC moves and acceptance ratio
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-sampling-1d-arbitrary-distributions">
+   Demo - sampling 1D arbitrary distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sampling-other-distributions">
+   Sampling other distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proof-that-f-x-is-a-stationary-point-of-metropolis-mc">
+   Proof that
+   <span class="math notranslate nohighlight">
+    \(f(x)\)
+   </span>
+   is a stationary point of Metropolis MC
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combining-md-and-mc-for-canonical-time-correlation-functions">
+   Combining MD and MC for canonical time correlation functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#error-estimation">
+   Error estimation
+  </a>
+ </li>
 </ul>
+
             </nav>
         </div>
     </div>
 </div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Monte Carlo</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation-of-high-dimensional-integrals">
+   Evaluation of high-dimensional integrals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uniform-random-sampling">
+   Uniform random sampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-central-limit-theorem">
+   The Central Limit Theorem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importance-sampling">
+   Importance Sampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metropolis-monte-carlo-and-detailed-balance">
+   Metropolis Monte Carlo and detailed balance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mc-moves-and-acceptance-ratio">
+   MC moves and acceptance ratio
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-sampling-1d-arbitrary-distributions">
+   Demo - sampling 1D arbitrary distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sampling-other-distributions">
+   Sampling other distributions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proof-that-f-x-is-a-stationary-point-of-metropolis-mc">
+   Proof that
+   <span class="math notranslate nohighlight">
+    \(f(x)\)
+   </span>
+   is a stationary point of Metropolis MC
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combining-md-and-mc-for-canonical-time-correlation-functions">
+   Combining MD and MC for canonical time correlation functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#error-estimation">
+   Error estimation
+  </a>
+ </li>
+</ul>
 
-              
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
                 
-<div id="searchbox"></div>
-                <article class="bd-article">
-                  
-  <section class="tex2jax_ignore mathjax_ignore" id="monte-carlo">
-<h1>Monte Carlo<a class="headerlink" href="#monte-carlo" title="Link to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="monte-carlo">
+<h1>Monte Carlo<a class="headerlink" href="#monte-carlo" title="Permalink to this headline">¶</a></h1>
 <p>Now that you have written your own MD code, you have a recipe for evaluating thermodynamic properties of systems in the microcanonical ensemble. We used MD simulations to sample configurations from that ensemble and, since they all had the same probability, we took their arithmetic mean to calculate ensemble averages. But what would you do if you wanted to sample the canonical ensemble? You would have to evaluate Eq.<a class="reference internal" href="StatMech.html#equation-ensemble-av-nvt">(38)</a>, in which each configuration has a different weight. Effectively, this also means evaluating very <strong>high-dimensional integrals</strong>, since <span class="math notranslate nohighlight">\(\textbf x\)</span> is of dimension <span class="math notranslate nohighlight">\(6N\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number of atoms. Here, we will learn about the difficulties of calculating such integrals and of an ingenious algorithm to overcome them.</p>
-<section id="evaluation-of-high-dimensional-integrals">
-<h2>Evaluation of high-dimensional integrals<a class="headerlink" href="#evaluation-of-high-dimensional-integrals" title="Link to this heading">#</a></h2>
+<div class="section" id="evaluation-of-high-dimensional-integrals">
+<h2>Evaluation of high-dimensional integrals<a class="headerlink" href="#evaluation-of-high-dimensional-integrals" title="Permalink to this headline">¶</a></h2>
 <p>As we have seen, the expectation values we encounter in statistical mechanics are of the form</p>
 <div class="math notranslate nohighlight" id="equation-expval">
-<span class="eqno">(60)<a class="headerlink" href="#equation-expval" title="Link to this equation">#</a></span>\[
+<span class="eqno">(60)<a class="headerlink" href="#equation-expval" title="Permalink to this equation">¶</a></span>\[
 A = \langle a \rangle_f = \int f(\textbf x) \, a(\textbf{x}) \, \mathrm{d} \textbf{x},
 \]</div>
 <p>where</p>
@@ -488,25 +411,25 @@ f(\textbf x) = \frac{1}{\mathcal Z} \mathcal{F}(\mathcal{H} (\textbf{x}))
 <p>is a positive, normalized phase space probability density. From now, we will consider the canonical ensemble, for which <span class="math notranslate nohighlight">\(\mathcal{F}(\mathcal{H} (\textbf{x})) = e^{-\beta \mathcal H (\textbf x)}\)</span>.</p>
 <p>How could we evaluate these expectation values in practice? One way is to sample <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span> on a multi-dimensional grid, multiplying each one of the samples by its probability and doing the integration by quadrature,</p>
 <div class="math notranslate nohighlight" id="equation-quad">
-<span class="eqno">(61)<a class="headerlink" href="#equation-quad" title="Link to this equation">#</a></span>\[
+<span class="eqno">(61)<a class="headerlink" href="#equation-quad" title="Permalink to this equation">¶</a></span>\[
 A_M = \sum_{j=1}^{N_g} f(\textbf{x}_j) a(\textbf{x}_j) \Delta \textbf x = \frac{ \sum_{j=1}^{N_g} e^{-\beta \mathcal{H}(\textbf{x}_j)}\, a(\textbf{x}_j)}{ \sum_{j=1}^{N_g} e^{-\beta \mathcal{H} (\textbf{x}_j) }}.
 \]</div>
 <p>However, this is very, very expensive and the algorithm scales exponentially with the particles. Why? Because we need to evaluate a <span class="math notranslate nohighlight">\(6N\)</span> dimensional integral on a grid.</p>
 <p>Admittedly, if the property we are interested in does not depend on the momenta, i.e. <span class="math notranslate nohighlight">\(a(\textbf{x}_j) = a(\textbf{r}_j)\)</span>, then the integration over <span class="math notranslate nohighlight">\(\textbf p\)</span> can be done analytically to obtain,</p>
 <div class="math notranslate nohighlight" id="equation-config-part">
-<span class="eqno">(62)<a class="headerlink" href="#equation-config-part" title="Link to this equation">#</a></span>\[
+<span class="eqno">(62)<a class="headerlink" href="#equation-config-part" title="Permalink to this equation">¶</a></span>\[
 A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta U(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \sum_{j=1}^{N_g} e^{-\beta U(\textbf{r}_j) }}.
 \]</div>
 <p>Nevertheless, we remain with a <span class="math notranslate nohighlight">\(3N\)</span> dimensional integral. To evaluate it, even if we divide each spatial dimension for every particle into only 10 grid points, we would need to sum over <span class="math notranslate nohighlight">\(N_g = 10^{3N}\)</span> points to evaluate the integral. This is completely prohibitive already for a very small number of particles. Monte Carlo is a clever way to evaluate such integrals without resorting to quadrature. Moreover, Monte Carlo is a conceptually different approach for sampling equilibrium distribution functions that does not rely on the dynamics in time of the system to generate the configurations (like MD).</p>
-</section>
-<section id="uniform-random-sampling">
-<h2>Uniform random sampling<a class="headerlink" href="#uniform-random-sampling" title="Link to this heading">#</a></h2>
+</div>
+<div class="section" id="uniform-random-sampling">
+<h2>Uniform random sampling<a class="headerlink" href="#uniform-random-sampling" title="Permalink to this headline">¶</a></h2>
 <p>A solution to this problem was invented by <a class="reference external" href="https://en.wikipedia.org/wiki/Stanislaw_Ulam">Ulam</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Nicholas_Metropolis">Metropolis</a> in 1949. Their ingenious idea was to use random numbers to evaluate multidimensional integrals instead of a quadrature on a grid. They showed that using their approach, it is possible to evaluate integrals using a much smaller number of samples than the exponentially growing number of grid points. Their idea was to choose a known reference volume in space that bounds the (irregular volume) we wish to calculate. Then, we sample random points uniformly distributed in the reference volume. We count the number of samples that lie within the irregular volume we wish to calculate. The ratio of this number to the total number of samples, multiplied by the reference volume is an estimate of the irregular volume,</p>
 <div class="math notranslate nohighlight" id="equation-mcint">
-<span class="eqno">(63)<a class="headerlink" href="#equation-mcint" title="Link to this equation">#</a></span>\[V = \frac{\tau_{in}}{\tau_{tot}} V_0\]</div>
+<span class="eqno">(63)<a class="headerlink" href="#equation-mcint" title="Permalink to this equation">¶</a></span>\[V = \frac{\tau_{in}}{\tau_{tot}} V_0\]</div>
 <p>For example, to evaluate the area of a two-dimensional disk with radius <span class="math notranslate nohighlight">\(R=1\)</span> in the first quadrant, we need to solve the integral</p>
 <div class="math notranslate nohighlight" id="equation-disk">
-<span class="eqno">(64)<a class="headerlink" href="#equation-disk" title="Link to this equation">#</a></span>\[\int_0^1 \int_{\sqrt{1-x^2}}^1 \mathrm{d} x  \mathrm{d} y = \frac{\pi}{4}.\]</div>
+<span class="eqno">(64)<a class="headerlink" href="#equation-disk" title="Permalink to this equation">¶</a></span>\[\int_0^1 \int_{\sqrt{1-x^2}}^1 \mathrm{d} x  \mathrm{d} y = \frac{\pi}{4}.\]</div>
 <p>Instead, we choose a reference square of unit side length that bounds the unit circle and evaluate the integral numerically using MC uniform sampling. Below we demonstrate this method and evaluate the area/volume of a ball in two and three dimensions, using both quadrature and Monte Carlo uniform sampling. To treat the two methods on equal footing, we make sure to use the same number of function evaluations and compare the obtained accuracy. We show that for two dimensions, quadrature is more accurate than MC sampling. But already for three dimensions, MC is more accurate by an order of magnitude. MC is also much faster than quadrature for three dimensions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -519,20 +442,6 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta U(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 
 <span class="c1">#Radius of unit sphere</span>
 <span class="n">R</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">math</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">time</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span><span class="p">,</span> <span class="n">special</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
 </pre></div>
 </div>
 </div>
@@ -598,8 +507,8 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta U(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.7857092923494083
-BSE = 0.00016751888217729133
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.784957261336073
+BSE = 0.0002500805827338224
 Expected = 0.7853981633974483
 neval = 1888220
 </pre></div>
@@ -621,10 +530,10 @@ neval = 1888220
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fcad2524eb0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4ab6a9ac70&gt;]
 </pre></div>
 </div>
-<img alt="_images/9787f6811293ceefb89ba65f74204c0bbf1ba2f632f7adeb547546fd0e3dc13a.png" src="_images/9787f6811293ceefb89ba65f74204c0bbf1ba2f632f7adeb547546fd0e3dc13a.png" />
+<img alt="_images/MonteCarlo_6_1.png" src="_images/MonteCarlo_6_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -660,24 +569,24 @@ neval = 1888220
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.5236000046501041
-BSE = 1.139280597847283e-05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.5236101065067875
+BSE = 7.53302463057064e-06
 Expected = 0.5235987755982989
 neval = 1839958790
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="the-central-limit-theorem">
-<h2>The Central Limit Theorem<a class="headerlink" href="#the-central-limit-theorem" title="Link to this heading">#</a></h2>
+</div>
+<div class="section" id="the-central-limit-theorem">
+<h2>The Central Limit Theorem<a class="headerlink" href="#the-central-limit-theorem" title="Permalink to this headline">¶</a></h2>
 <p>We have just established that random (uniform) sampling could be very helpful for evaluating multi-dimensional integrals, in comparison to numerical quadrature. But there are situations in which uniform sampling could be highly wasteful too. For example, when <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> is localized in a small volume in the <span class="math notranslate nohighlight">\(3N\)</span> dimensional space. In that case, many of our uniform samples will not be counted when evaluating the integral.</p>
 <p>Note that this is not the case for the example of the n-ball above. For the n-ball, the volume grows like <span class="math notranslate nohighlight">\(\sim R^d\)</span> where <span class="math notranslate nohighlight">\(d\)</span> is the number of spatial dimensions. We sample uniformly in an <span class="math notranslate nohighlight">\(d\)</span>-dimensional cube, whose volume also scales the same. This means that the ratio of the two volumes does not depend on <span class="math notranslate nohighlight">\(d\)</span>.</p>
 <p>For the problematic, localized case, can we do better than uniform sampling? Yes! If we know how to generate samples that are already distributed according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>.</p>
 <p>At this point, we will <em>assume</em> that we have an algorithm for obtaining a set of <span class="math notranslate nohighlight">\(M\)</span> <strong>independent</strong> samples (configurations of the system) <span class="math notranslate nohighlight">\(\textbf x_1 ,..., \textbf x_M\)</span> that are all <strong>identically distributed</strong> according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> with some mean <span class="math notranslate nohighlight">\(\langle a \rangle_f\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2 = \langle a^2 \rangle_f - \langle a \rangle_f^2\)</span>. This is by no means a trivial task. It is straightforward only for simple distributions and the form of Monte Carlo that we will study next was designed to address exactly this problem. But, for now, we will simply assume such an algorithm exists. If that is the case, we can then evaluate <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span> for each sample.</p>
 <p>The central limit theorem (CLT) ensures that if we consider the simple arithmetic mean of the samples as a random variable,</p>
 <div class="math notranslate nohighlight" id="equation-mean">
-<span class="eqno">(65)<a class="headerlink" href="#equation-mean" title="Link to this equation">#</a></span>\[
+<span class="eqno">(65)<a class="headerlink" href="#equation-mean" title="Permalink to this equation">¶</a></span>\[
 A_M = \frac{1}{M} \sum_{j=1}^{M} a(\textbf{x}_j).
 \]</div>
 <p>It will be normally distributed with the same mean <span class="math notranslate nohighlight">\( \langle a \rangle_f \)</span> as the samples <span class="math notranslate nohighlight">\( \textbf{x}_j \)</span> and a variance</p>
@@ -688,12 +597,12 @@ A_M = \frac{1}{M} \sum_{j=1}^{M} a(\textbf{x}_j).
 <p>In other words, the CLT guarantees that the arithmetic mean of the samples converges to the ensemble average of <span class="math notranslate nohighlight">\(A\)</span> in the limit <span class="math notranslate nohighlight">\(M \to \infty\)</span>, because its variance from the mean decays like <span class="math notranslate nohighlight">\(M^{-1}\)</span>. Note that the CLT does not assume a specific form of the distribution <span class="math notranslate nohighlight">\(f(\textbf{x})\)</span>. This is very powerful, it means that even when our sampling algorithm (dynamic or not) provides samples from a nonuniform distribution, the arithmetic mean will still converge to the true expectation value. An important outcome is that we can use the simple arithmetic mean of the samples to calculate expectation values for the canonical ensemble, just like in the NVE ensemble, as long as we can generate samples from the desired distribution.</p>
 <p>However, that is exactly where things get tricky! We know how to generate random samples only from relatively simple probability distributions (Gaussian, uniform, exponential, see others <a class="reference external" href="https://numpy.org/doc/1.16/reference/routines.random.html">here</a>).</p>
 <p>There are two solutions to this problem: 1) Use a different distribution, <span class="math notranslate nohighlight">\(h(\textbf x)\)</span>, that is simple enough to be sampled directly and resembles <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> better than a uniform distribution. 2) Generate samples consecutively (and not altogether at random as we did above) in a process that is sure to converge to the distribution <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>. The first solution is called <strong>importance sampling</strong>, which we describe first. The second solution, called the <strong>Metropolis Monte Carlo</strong> or <strong>Markov Chain Monte Carlo</strong>, will be discussed in the next section.</p>
-</section>
-<section id="importance-sampling">
-<h2>Importance Sampling<a class="headerlink" href="#importance-sampling" title="Link to this heading">#</a></h2>
+</div>
+<div class="section" id="importance-sampling">
+<h2>Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h2>
 <p>We can use the CLT even if we do not know how to sample from <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> directly, but know how to sample a different distribution, <span class="math notranslate nohighlight">\(h(\textbf x)\)</span>, that has much more substantial overlap with <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> than the uniform distribution. Since <span class="math notranslate nohighlight">\(h(\textbf x)\)</span> is a positive, normalized probability density, we rewrite Eq. <a class="reference internal" href="#equation-expval">(60)</a> as</p>
 <div class="math notranslate nohighlight" id="equation-reweight">
-<span class="eqno">(66)<a class="headerlink" href="#equation-reweight" title="Link to this equation">#</a></span>\[
+<span class="eqno">(66)<a class="headerlink" href="#equation-reweight" title="Permalink to this equation">¶</a></span>\[
 A = \langle a \rangle_f = \int h(\textbf x) \, \frac{f(\textbf x)}{h(\textbf x)} \, a(\textbf{x}) \, \mathrm{d} \textbf{x} = \langle a(\textbf x) w (\textbf x) \rangle_h,
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(w(\textbf x) = f(\textbf x) / h(\textbf x)\)</span> is the weight we need associate with every configuration sampled from <span class="math notranslate nohighlight">\(h(\textbf x)\)</span> to obtain the expectation value we are really interested in, Eq. <a class="reference internal" href="#equation-expval">(60)</a>. As a result, this procedure is also often called <strong>reweighting</strong>.</p>
@@ -751,12 +660,12 @@ KL divergence uniform = 4.133335709606822
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;f(x)&#39;)
 </pre></div>
 </div>
-<img alt="_images/a2fe802b773c5f07a117883e7235c97d68eba9b6df887823354b5faa93bedb4a.png" src="_images/a2fe802b773c5f07a117883e7235c97d68eba9b6df887823354b5faa93bedb4a.png" />
+<img alt="_images/MonteCarlo_9_2.png" src="_images/MonteCarlo_9_2.png" />
 </div>
 </div>
 <p>How do we sample from <span class="math notranslate nohighlight">\(h(x)\)</span>? If we have <span class="math notranslate nohighlight">\(\xi\)</span>, which is sampled from a uniform distribution between <span class="math notranslate nohighlight">\([0,1]\)</span>, other distributions <span class="math notranslate nohighlight">\(h(x)\)</span> in the same range can be obtained <em>if</em> we can solve the inverse equation</p>
 <div class="math notranslate nohighlight" id="equation-inverse">
-<span class="eqno">(67)<a class="headerlink" href="#equation-inverse" title="Link to this equation">#</a></span>\[\int_0^x h(x') \, \mathrm{d} x' = \xi.\]</div>
+<span class="eqno">(67)<a class="headerlink" href="#equation-inverse" title="Permalink to this equation">¶</a></span>\[\int_0^x h(x') \, \mathrm{d} x' = \xi.\]</div>
 <p>The solution <span class="math notranslate nohighlight">\(x\)</span> will be then distributed according to <span class="math notranslate nohighlight">\(h(x)\)</span>. We see below that for a simple linear distribution this becomes a second-order root search problem. For more complicated distributions, the resulting equations are too difficult to solve.</p>
 <div class="tip admonition">
 <p class="admonition-title">Active learning</p>
@@ -831,35 +740,35 @@ x = \frac{1 - \sqrt{1 - 2 a (1-\frac{a}{2}) \xi}}{a}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uniform mean = 0.6322484133201973
-uniform BSE = 0.0002341326057815266
-IS mean = 0.6321353195266276
-IS BSE = 2.5306811085860125e-05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uniform mean = 0.6320376369385804
+uniform BSE = 0.00015082040897480438
+IS mean = 0.6321297734243099
+IS BSE = 2.56291599579943e-05
 expected = 0.632120558829
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Estimator&#39;)
 </pre></div>
 </div>
-<img alt="_images/016183cff1bd5306612c2e8397eb708797bd4e33bb93f4a004ddfb29ee16d212.png" src="_images/016183cff1bd5306612c2e8397eb708797bd4e33bb93f4a004ddfb29ee16d212.png" />
+<img alt="_images/MonteCarlo_12_2.png" src="_images/MonteCarlo_12_2.png" />
 </div>
 </div>
 <p>Finally, we note that importance sampling is useful not only when we do not know how to sample <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>. For example, when <span class="math notranslate nohighlight">\(a(\textbf x)\)</span> is highly oscillatory, with both negative and positive contributions, such that its expectation value results from the near-cancellation of the positive and negative terms. We do not go into detail here, but a judicious choice of <span class="math notranslate nohighlight">\(h(\textbf x)\)</span> could significantly improve convergence in such difficult cases.</p>
-</section>
-<section id="metropolis-monte-carlo-and-detailed-balance">
-<h2>Metropolis Monte Carlo and detailed balance<a class="headerlink" href="#metropolis-monte-carlo-and-detailed-balance" title="Link to this heading">#</a></h2>
+</div>
+<div class="section" id="metropolis-monte-carlo-and-detailed-balance">
+<h2>Metropolis Monte Carlo and detailed balance<a class="headerlink" href="#metropolis-monte-carlo-and-detailed-balance" title="Permalink to this headline">¶</a></h2>
 <p>We already saw that if we have a way to sample <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, we can easily obtain expectation values using importance sampling MC. But it is an unfortunate fact that we have efficient algorithms to sample directly only relatively simple distributions, such as exponential, Gaussian, uniform, etc.</p>
 <p>In a seminal paper in 1953, <a class="reference external" href="https://en.wikipedia.org/wiki/Arianna_W._Rosenbluth">Arianna</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Marshall_Rosenbluth">Marshall</a> Rosenbluth, <a class="reference external" href="https://en.wikipedia.org/wiki/Augusta_H._Teller">Augusta</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Edward_Teller">Edward</a> Teller, and <a class="reference external" href="https://en.wikipedia.org/wiki/Nicholas_Metropolis">Nicholas Metropolis</a> (sans spouse) developed an algorithm that, instead of obtaining random samples from <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> at once, creates a sequential samples <span class="math notranslate nohighlight">\(\textbf{x}_1, \textbf{x}_2, ...\)</span> that converge to the correct <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, for an arbitrary distribution function! The importance of this result truly could not be overstated. It is perhaps one of the greatest results of the previous century.</p>
 <p>The idea at the core of the algorithm is that we need to specify a rule to generate the next sample <span class="math notranslate nohighlight">\(\textbf{x}_{i+1}\)</span> from the current sample <span class="math notranslate nohighlight">\(\textbf{x}_i\)</span>. A sequence of samples that is generated based on information solely from the previous step is called a <strong>Markov chain</strong>. We denote the probability of obtaining a sample <span class="math notranslate nohighlight">\(\textbf x\)</span> from some other sample <span class="math notranslate nohighlight">\(\textbf y\)</span> as <span class="math notranslate nohighlight">\(R(\textbf x | \textbf y)\)</span>. For this probability to be a valid rule for generating a Markov chain, it must satisfy a condition called <strong>detailed balance</strong>,</p>
 <div class="math notranslate nohighlight" id="equation-detailed-balance">
-<span class="eqno">(68)<a class="headerlink" href="#equation-detailed-balance" title="Link to this equation">#</a></span>\[
+<span class="eqno">(68)<a class="headerlink" href="#equation-detailed-balance" title="Permalink to this equation">¶</a></span>\[
 R(\textbf x | \textbf y) f(\textbf y) = R(\textbf y | \textbf x) f(\textbf x)
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(R(\textbf x | \textbf y) f(\textbf y)\)</span> is called the <em>a priori</em> probability of moving from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span>, which is just the probability to move from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span>, given that the system was already in <span class="math notranslate nohighlight">\(\textbf y\)</span>. Detailed balance is important, because it guarantees that the Markov chain is microscopically reversible, which can be shown to be an important property of thermodynamic equilibrium. It effectively ensures that if, during the Markov chain, we reach the distribution <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>, it will be stationary.</p>
 <p>After a move is generated, we must decide whether to accept it or not.</p>
 <p>The Metropolis MC algorithm states a rule for proposing <strong>moves</strong>, which we denote as <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y)\)</span>, which has to be normalized,</p>
 <div class="math notranslate nohighlight" id="equation-tnorm">
-<span class="eqno">(69)<a class="headerlink" href="#equation-tnorm" title="Link to this equation">#</a></span>\[
+<span class="eqno">(69)<a class="headerlink" href="#equation-tnorm" title="Permalink to this equation">¶</a></span>\[
 \int T(\textbf x | \textbf y) \, \mathrm{d}x = 1,
 \]</div>
 <p>and a probability that the move is accepted, which is denoted as <span class="math notranslate nohighlight">\(A(\textbf x | \textbf y)\)</span>. Then the probability to move from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span> is given by the product of the probability of suggesting such a move, times the acceptance probability, i.e.</p>
@@ -874,18 +783,18 @@ A(\textbf x | \textbf y) = r(\textbf x | \textbf y) A(\textbf y | \textbf x),
 \]</div>
 <p>where</p>
 <div class="math notranslate nohighlight" id="equation-ratio">
-<span class="eqno">(70)<a class="headerlink" href="#equation-ratio" title="Link to this equation">#</a></span>\[
+<span class="eqno">(70)<a class="headerlink" href="#equation-ratio" title="Permalink to this equation">¶</a></span>\[
 r(\textbf x | \textbf y) = \frac{T(\textbf y | \textbf x) f(\textbf x)}{T(\textbf x | \textbf y) f(\textbf y)}.
 \]</div>
 <p>Now, suppose <span class="math notranslate nohighlight">\(A(\textbf x | \textbf y)=1\)</span> and the move from <span class="math notranslate nohighlight">\(\textbf y\)</span> to <span class="math notranslate nohighlight">\(\textbf x\)</span> is favorable, then <span class="math notranslate nohighlight">\(A(\textbf y | \textbf x) &lt; 1\)</span> and therefore <span class="math notranslate nohighlight">\(r(\textbf x | \textbf y) &gt; 1\)</span>. However, if <span class="math notranslate nohighlight">\(A(\textbf x | \textbf y)&lt;1\)</span>, then <span class="math notranslate nohighlight">\(A(\textbf y | \textbf x) = 1\)</span> is favorable and so <span class="math notranslate nohighlight">\(r(\textbf x | \textbf y) &lt; 1\)</span>. We can summarize these findings as</p>
 <div class="math notranslate nohighlight" id="equation-acc-crit">
-<span class="eqno">(71)<a class="headerlink" href="#equation-acc-crit" title="Link to this equation">#</a></span>\[
+<span class="eqno">(71)<a class="headerlink" href="#equation-acc-crit" title="Permalink to this equation">¶</a></span>\[
 A(\textbf x | \textbf y) = \min \left[ 1,r(\textbf x | \textbf y) \right] .
 \]</div>
 <p>Now all the ingredients for Metropolis MC are ready! Given that the system is at some configuration <span class="math notranslate nohighlight">\(\textbf{x}_k\)</span>, we define a probability <span class="math notranslate nohighlight">\(T(\textbf{x}_{k+1} | \textbf{x}_k)\)</span> and suggest a new trial configuration <span class="math notranslate nohighlight">\(\textbf{x}_{k+1}\)</span>. Next, based on <span class="math notranslate nohighlight">\(\textbf{x}_{k+1}\)</span> and <span class="math notranslate nohighlight">\(\textbf{x}_k)\)</span>, and the probability we want to sample, <span class="math notranslate nohighlight">\(f(\textbf{x}_k)\)</span>, we evaluate the ratio <span class="math notranslate nohighlight">\(r(\textbf{x}_{k+1} | \textbf{x}_k)\)</span> using Eq.<a class="reference internal" href="#equation-ratio">(70)</a>. Finally, we accept or reject the move based on the criterion in Eq. <a class="reference internal" href="#equation-acc-crit">(71)</a>. The final step is done in practice in the following way: If <span class="math notranslate nohighlight">\(r(\textbf{x}_{k+1} | \textbf{x}_k) \ge 1\)</span> the move is accepted. If it is smaller than 1, the step is accepted with probability <span class="math notranslate nohighlight">\(r(\textbf{x}_{k+1} | \textbf{x}_k)\)</span>, i.e., a random number <span class="math notranslate nohighlight">\(\xi\)</span> is sampled from a uniform distribution between <span class="math notranslate nohighlight">\([0,1]\)</span>. If <span class="math notranslate nohighlight">\(r(\textbf{x}_k | \textbf{x}_{k+1}) \gt \xi \)</span>, the move is accepted. Otherwise, the move is rejected.</p>
-</section>
-<section id="mc-moves-and-acceptance-ratio">
-<h2>MC moves and acceptance ratio<a class="headerlink" href="#mc-moves-and-acceptance-ratio" title="Link to this heading">#</a></h2>
+</div>
+<div class="section" id="mc-moves-and-acceptance-ratio">
+<h2>MC moves and acceptance ratio<a class="headerlink" href="#mc-moves-and-acceptance-ratio" title="Permalink to this headline">¶</a></h2>
 <p>A simple, but rather useful, MC move is a translation with uniform probability from <span class="math notranslate nohighlight">\(\textbf{y}\)</span> to any point <span class="math notranslate nohighlight">\(\textbf x\)</span> within a box of side length <span class="math notranslate nohighlight">\(2\Delta\)</span> centered around y. The volume of the box is denoted by <span class="math notranslate nohighlight">\(V_{\Delta}\)</span>. The trial probability, our rule for making moves, is then given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -902,18 +811,18 @@ A(\textbf x | \textbf y) = \min \left[ 1, \frac{f(\textbf x)}{f(\textbf y)} \rig
 \]</div>
 <p>Now, if we wish to sample the canonical ensemble, the probability is <span class="math notranslate nohighlight">\(f(\textbf{r}) \propto e^{- \beta U(\textbf{r}) }\)</span>, giving an acceptance probability</p>
 <div class="math notranslate nohighlight" id="equation-acc-canonical">
-<span class="eqno">(72)<a class="headerlink" href="#equation-acc-canonical" title="Link to this equation">#</a></span>\[
+<span class="eqno">(72)<a class="headerlink" href="#equation-acc-canonical" title="Permalink to this equation">¶</a></span>\[
 A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( U(\textbf x) - U(\textbf y) \right)} \right].
 \]</div>
 <p>This means that if the new proposed step has a lower potential energy, the move is accepted. If the potential energy of the new configuration is high, though, it is accepted with a probability that is the ratio of Boltzmann factors.</p>
 <p>A point of emphasis here is that the probability of accepting a new move in the canonical ensemble is that the new energy would not be very different than the previous energy. Since the energy is an extensive quantity, changing randomly the positions of all of the particles at once, would result in a massive energy change. Thus, we cannot move all particles together, like in MD simulations. The solution to this problem is to select randomly a single atom <span class="math notranslate nohighlight">\(i\)</span> to move, and change its coordinates in the following manner:</p>
 <div class="math notranslate nohighlight" id="equation-translation">
-<span class="eqno">(73)<a class="headerlink" href="#equation-translation" title="Link to this equation">#</a></span>\[\textbf{r}_i^{k+1} = \textbf{r}_i^k + \zeta \Delta,\]</div>
+<span class="eqno">(73)<a class="headerlink" href="#equation-translation" title="Permalink to this equation">¶</a></span>\[\textbf{r}_i^{k+1} = \textbf{r}_i^k + \zeta \Delta,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\zeta\)</span> is a vector of three independent uniform random numbers in the range <span class="math notranslate nohighlight">\([-1,1]\)</span>. Repeating this process <span class="math notranslate nohighlight">\(N\)</span> times, where <span class="math notranslate nohighlight">\(N\)</span> is the number of atoms in the system, is called a <strong>MC pass</strong>. Notice that this does not necessarily mean that all atoms have been moved since we choose the atoms randomly.</p>
 <p>Two final comments are in order: First, when we need to evaluate the difference in potential energies after moving a single particle at random, we do not need to compute all of the potential energy from scratch. That is very expensive, and we should update only the interactions of the chosen particle. Second, that the parameter <span class="math notranslate nohighlight">\(\Delta\)</span> has an important effect on the percentage of MC steps that will be accepted, which is called the <strong>acceptance ratio</strong>. If <span class="math notranslate nohighlight">\(\Delta\)</span> is too large, the change in potential energy will be large, and many moves will be rejected. If it is too small, all moves might be accepted but we will not explore all of phase space efficiently. Therefore, a rule of thumb is to use an acceptance ratio between <span class="math notranslate nohighlight">\(20 \% - 50 \%\)</span>.</p>
-</section>
-<section id="demo-sampling-1d-arbitrary-distributions">
-<h2>Demo - sampling 1D arbitrary distributions<a class="headerlink" href="#demo-sampling-1d-arbitrary-distributions" title="Link to this heading">#</a></h2>
+</div>
+<div class="section" id="demo-sampling-1d-arbitrary-distributions">
+<h2>Demo - sampling 1D arbitrary distributions<a class="headerlink" href="#demo-sampling-1d-arbitrary-distributions" title="Permalink to this headline">¶</a></h2>
 <p>In the demo below, we use Metropolis MC to sample from a bimodal probability distribution that would not have been simple to sample otherwise. Already in this 1D example, we see the utility of the MC approach!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -973,47 +882,47 @@ A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( U(\textbf x) - U(\tex
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.59865
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.53473
 </pre></div>
 </div>
-<img alt="_images/b3e08aab0f67585ebbc15cf766ff80ff29c48b5bae7608944cb9b9de779fdd76.png" src="_images/b3e08aab0f67585ebbc15cf766ff80ff29c48b5bae7608944cb9b9de779fdd76.png" />
-<img alt="_images/b3cb952d01faa66209b53d65309e7666cfca0d81f051a8f3abec78586df09c90.png" src="_images/b3cb952d01faa66209b53d65309e7666cfca0d81f051a8f3abec78586df09c90.png" />
+<img alt="_images/MonteCarlo_16_1.png" src="_images/MonteCarlo_16_1.png" />
+<img alt="_images/MonteCarlo_16_2.png" src="_images/MonteCarlo_16_2.png" />
 </div>
 </div>
-</section>
-<section id="sampling-other-distributions">
-<h2>Sampling other distributions<a class="headerlink" href="#sampling-other-distributions" title="Link to this heading">#</a></h2>
+</div>
+<div class="section" id="sampling-other-distributions">
+<h2>Sampling other distributions<a class="headerlink" href="#sampling-other-distributions" title="Permalink to this headline">¶</a></h2>
 <p>We have seen how to generate configurations according to an arbitrary probability density function using the Metropolis algorithm. We also saw in Eq.<a class="reference internal" href="#equation-acc-canonical">(72)</a> the expression for the acceptance probability for the canonical ensemble. But the great merit of MC simulations is that it is usually much easier to extend them to other ensembles than MD simulations (although that is also possible!).</p>
 <p>For example, if we are interested in the isothermal-isobaric ensemble, in which the number of particles <span class="math notranslate nohighlight">\(N\)</span>, the pressure <span class="math notranslate nohighlight">\(P\)</span>, and the temperature <span class="math notranslate nohighlight">\(T\)</span> are fixed (the <span class="math notranslate nohighlight">\(NPT\)</span> ensemble), we can do so rather easily. There are only two changes that need to be made to the algorithm that samples from the canonical ensemble: First, we need a move to change the volume of the system,</p>
 <div class="math notranslate nohighlight" id="equation-volume">
-<span class="eqno">(74)<a class="headerlink" href="#equation-volume" title="Link to this equation">#</a></span>\[V^{k+1} = V^k + \zeta \Delta_V,\]</div>
+<span class="eqno">(74)<a class="headerlink" href="#equation-volume" title="Permalink to this equation">¶</a></span>\[V^{k+1} = V^k + \zeta \Delta_V,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\zeta\)</span> is a random variable just like in Eq.<a class="reference internal" href="#equation-translation">(73)</a>, and <span class="math notranslate nohighlight">\(\Delta_V\)</span> is the maximal allowed change in volume.</p>
 <p>Secondly, each time the volume changes, the particle coordinates must be scaled accordingly by</p>
 <div class="math notranslate nohighlight" id="equation-scale">
-<span class="eqno">(75)<a class="headerlink" href="#equation-scale" title="Link to this equation">#</a></span>\[\textbf{r}_i^{k+1} = \textbf{r}_i^k \left( \frac{V^{k+1}}{V^k} \right)^{\frac{1}{3}},
+<span class="eqno">(75)<a class="headerlink" href="#equation-scale" title="Permalink to this equation">¶</a></span>\[\textbf{r}_i^{k+1} = \textbf{r}_i^k \left( \frac{V^{k+1}}{V^k} \right)^{\frac{1}{3}},
 \]</div>
 <p>and the potential energy needs to be re-evaluated.</p>
 <p>Finally, since in this ensemble <span class="math notranslate nohighlight">\(f(\textbf x,V) \propto V^N e^{-\beta ( U(\textbf x) + PV) }\)</span> the volume moves are accepted with probability</p>
 <div class="math notranslate nohighlight" id="equation-acc-npt">
-<span class="eqno">(76)<a class="headerlink" href="#equation-acc-npt" title="Link to this equation">#</a></span>\[
+<span class="eqno">(76)<a class="headerlink" href="#equation-acc-npt" title="Permalink to this equation">¶</a></span>\[
 A(\textbf x, V' | \textbf y, V) = \min \left[ 1, e^{-\beta \left( H(\textbf x, V') - H(\textbf y, V) \right)} \right],
 \]</div>
 <p>where</p>
 <div class="math notranslate nohighlight" id="equation-enthalpy">
-<span class="eqno">(77)<a class="headerlink" href="#equation-enthalpy" title="Link to this equation">#</a></span>\[
+<span class="eqno">(77)<a class="headerlink" href="#equation-enthalpy" title="Permalink to this equation">¶</a></span>\[
 H(\textbf x, V) = U(\textbf x) + P V - \frac{N}{\beta} \ln(V).
 \]</div>
 <p>Much more elaborate MC moves can be designed. As long as they obey detailed balance, they are legitimate and can be used to sample various distributions. One interesting example is the case where the potential energy has many local minima separated by high barriers. In that case, standard MC translation moves will not work anymore and the system will be trapped in one of the local minima. One solution to this problem is called <strong>parallel tempering</strong> or <strong>replica exchange</strong>, in which several replicas of the system are simulated using standard MC simulations but at increasing temperatures.</p>
 <p>We are interested in sampling the system at the lowest temperature but systems are higher temperatures will cross the energy barriers more easily. Therefore, every several MC passes, a pair of neighboring replicas are chosen and a move is attempted to switch their particle coordinates. For example, if before the move the system at temperature <span class="math notranslate nohighlight">\(\beta\)</span> was in configuration <span class="math notranslate nohighlight">\(\textbf x\)</span> while the system in temperature <span class="math notranslate nohighlight">\(\beta'\)</span> was in configuration <span class="math notranslate nohighlight">\(\textbf y\)</span>, one can show that in that the acceptance probability should be</p>
 <div class="math notranslate nohighlight" id="equation-acc-remc">
-<span class="eqno">(78)<a class="headerlink" href="#equation-acc-remc" title="Link to this equation">#</a></span>\[
+<span class="eqno">(78)<a class="headerlink" href="#equation-acc-remc" title="Permalink to this equation">¶</a></span>\[
 A(\textbf x, \beta'; \textbf y, \beta | \textbf x, \beta; \textbf y, \beta') = \min \left[ 1, e^{\delta} \right],
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\delta = \left( \beta' - \beta \right) \left[ U(\textbf y) - U(\textbf x) \right]\)</span>.</p>
 <p>In one of the final projects, you will implement such a replica exchange MC simulation and compare it with alternative algorithms to overcome high energy barriers that are based on MD simulations.</p>
-</section>
-<section id="proof-that-f-x-is-a-stationary-point-of-metropolis-mc">
-<h2>Proof that <span class="math notranslate nohighlight">\(f(x)\)</span> is a stationary point of Metropolis MC<a class="headerlink" href="#proof-that-f-x-is-a-stationary-point-of-metropolis-mc" title="Link to this heading">#</a></h2>
+</div>
+<div class="section" id="proof-that-f-x-is-a-stationary-point-of-metropolis-mc">
+<h2>Proof that <span class="math notranslate nohighlight">\(f(x)\)</span> is a stationary point of Metropolis MC<a class="headerlink" href="#proof-that-f-x-is-a-stationary-point-of-metropolis-mc" title="Permalink to this headline">¶</a></h2>
 <p>We follow the proof that is presented in the Book by Tuckerman.
 At every iteration of the Markov chain/Metropolis algorithm, the points <span class="math notranslate nohighlight">\(\textbf{x}_k\)</span> are distributed according to some function <span class="math notranslate nohighlight">\(\pi_k(\textbf x)\)</span>. We wish to show that if the algorithm reached a point in which <span class="math notranslate nohighlight">\(\pi_k(\textbf x) = f(\textbf x)\)</span>, all following steps will be distributed according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>. In other words, we wish to show that <span class="math notranslate nohighlight">\(f(x)\)</span> is a stationary point of the Metropolis algorithm.</p>
 <p>We will use induction to prove that is the case. We will assume that at some <em>arbitrary</em> MC step <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(\pi_k(\textbf x) = f(\textbf x)\)</span>, then we will derive the expression for <span class="math notranslate nohighlight">\(\pi_{k+1}(\textbf x)\)</span>, the distribution in the next MC step, and we will show that it is also equal to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>.</p>
@@ -1025,7 +934,7 @@ At every iteration of the Markov chain/Metropolis algorithm, the points <span cl
 \[\int \left( 1 - A(\textbf y | \textbf x) \right) T(\textbf y | \textbf x) \pi_{k}(\textbf x) \mathrm{d} \textbf y.\]</div>
 <p>Combining these two contributions, we get</p>
 <div class="math notranslate nohighlight" id="equation-prob-kp1">
-<span class="eqno">(79)<a class="headerlink" href="#equation-prob-kp1" title="Link to this equation">#</a></span>\[
+<span class="eqno">(79)<a class="headerlink" href="#equation-prob-kp1" title="Permalink to this equation">¶</a></span>\[
 \pi_{k+1}(\textbf x)=
 \int A(\textbf x | \textbf y) T(\textbf x | \textbf y) \pi_{k}(\textbf y) \mathrm{d} \textbf y + 
 \int \left( 1 - A(\textbf y | \textbf x) \right) T(\textbf y | \textbf x) \pi_{k}(\textbf x) \mathrm{d} \textbf y.
@@ -1043,9 +952,9 @@ At every iteration of the Markov chain/Metropolis algorithm, the points <span cl
 \pi_{k+1}(\textbf x)= f(\textbf x),
 \]</div>
 <p>which completes the proof.</p>
-</section>
-<section id="combining-md-and-mc-for-canonical-time-correlation-functions">
-<h2>Combining MD and MC for canonical time correlation functions<a class="headerlink" href="#combining-md-and-mc-for-canonical-time-correlation-functions" title="Link to this heading">#</a></h2>
+</div>
+<div class="section" id="combining-md-and-mc-for-canonical-time-correlation-functions">
+<h2>Combining MD and MC for canonical time correlation functions<a class="headerlink" href="#combining-md-and-mc-for-canonical-time-correlation-functions" title="Permalink to this headline">¶</a></h2>
 <p>In the last section of the MD chapter, we discussed how to evaluate various observables.
 We looked at properties like the kinetic energy (Eq. <a class="reference internal" href="MolecularDynamics.html#equation-kinetic-p">(56)</a>), potential energy (e.g., Eq. <a class="reference internal" href="MolecularDynamics.html#equation-lj">(54)</a>), and also at structural properties like the density (see Eq.<a class="reference internal" href="MolecularDynamics.html#equation-density-est">(57)</a>). In your first numerical exercise, you even evaluated spatial correlations by looking at the <a class="reference external" href="https://en.wikipedia.org/wiki/Radial_distribution_function">radial distribution function</a> (AKA pair correlation function).
 The same estimators can be used in MC simulations to evaluate expectation values in the canonical ensemble. You will do just that in your second numerical exercise!</p>
@@ -1053,18 +962,18 @@ The same estimators can be used in MC simulations to evaluate expectation values
 <p>Of the methods we have discussed in the course, time correlation functions can only be evaluated by doing MD simulations. The reason we cannot evaluate them using MC simulations is that the steps in the Metropolis algorithm are determined by a random process - they store no information about the dynamics in time of the system.</p>
 <p>On the other hand, our MD simulations only allowed us to evaluate expectation values in the microcanonical ensemble. But most transport properties are measured in experiments at constant temperature, not energy! To the rescue comes the combination of MC and MD.</p>
 <p>To evaluate time correlation functions in the canonical ensemble, we can perform one long MC simulation, which will converge to sampling configurations from the Boltzmann distribution. Once it is converged, we can take a sample every few hundred steps and, from each one, generate regular MD trajectories at constant energies to determine the time correlation function for this particular energy. Taking the average over all of the trajectories (initial conditions) will give the desired time correlation functions in the canonical ensemble. In your second exercise you will do this to evaluate the self-diffusion coefficient of Argon at various temperatures.</p>
-</section>
-<section id="error-estimation">
-<h2>Error estimation<a class="headerlink" href="#error-estimation" title="Link to this heading">#</a></h2>
+</div>
+<div class="section" id="error-estimation">
+<h2>Error estimation<a class="headerlink" href="#error-estimation" title="Permalink to this headline">¶</a></h2>
 <p>Finally, assuming we have managed to evaluate some expectation values, how accurate are they? What is the <strong>statistical uncertainty</strong> of our results? An estimate of the statistical error can be obtained by using <a class="reference external" href="https://en.wikipedia.org/wiki/Central_limit_theorem"><strong>the central limit theorem</strong></a> again. Loosely speaking, it states that, under certain conditions, the means of samples of independent random variables are normally distributed. This is true even if the original variables are not normally distributed.</p>
 <p>Practically, it means that if we have some property <span class="math notranslate nohighlight">\(A\)</span> which is not normally distributed, as is often the case in MD/MC simulations, if we sample it many times, divide the samples into <span class="math notranslate nohighlight">\(M\)</span> equal blocks, and then evaluate the mean for each block, <span class="math notranslate nohighlight">\(\langle A \rangle_m\)</span> where <span class="math notranslate nohighlight">\(m=1,...,M\)</span> - those means follow a normal distribution. Why is it important? Because if we know that the means are normally distributed, we can evaluate the <strong>standard error</strong> on the averages from,</p>
 <div class="math notranslate nohighlight" id="equation-error">
-<span class="eqno">(80)<a class="headerlink" href="#equation-error" title="Link to this equation">#</a></span>\[
+<span class="eqno">(80)<a class="headerlink" href="#equation-error" title="Permalink to this equation">¶</a></span>\[
 \epsilon_A = \frac{\sigma_A}{\sqrt{M}},
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\sigma_A^2\)</span> is the variance between the means of the different blocks,</p>
 <div class="math notranslate nohighlight" id="equation-std">
-<span class="eqno">(81)<a class="headerlink" href="#equation-std" title="Link to this equation">#</a></span>\[
+<span class="eqno">(81)<a class="headerlink" href="#equation-std" title="Permalink to this equation">¶</a></span>\[
 \sigma_A^2 = \frac{\sum_{m=1}^M \left[ \langle A \rangle_m - \langle A \rangle \right]^2 }{M-1},
 \]</div>
 <p>and <span class="math notranslate nohighlight">\(\langle A \rangle\)</span> is the average from the entire simulation data, as in Eq. <a class="reference internal" href="MolecularDynamics.html#equation-av-sim">(55)</a>. As we said previously, this analysis can be used in any ensemble, because the means always distribute normally.</p>
@@ -1072,8 +981,8 @@ The same estimators can be used in MC simulations to evaluate expectation values
 <p>Evaluating time correlation functions is quite expensive, so we do not want to do this for every property (although it is a more rigorous approach).
 How do we evaluate if our samples are correlated or not in practice? We start with very small blocks (very large <span class="math notranslate nohighlight">\(M\)</span>), containing only a few steps each. In this case, many of our block means are highly correlated. Our estimate of the error on the average of the observable from Eq. <a class="reference internal" href="#equation-error">(80)</a> will be very small because we are assuming all of them are statistically independent, which is not true. Then, we increase the block size (decrease <span class="math notranslate nohighlight">\(M\)</span>) and re-calculate the error on the mean. It will increase a little. We repeat this procedure until our estimate of the error on the average has reached a plateau. Then, our estimate of the number of independent samples of the mean during the simulation is equal to the number of blocks we have used. The procedure to determine the statistical uncertainty according to Eq. <a class="reference internal" href="#equation-error">(80)</a> is then reliable.</p>
 <p>We note that this analysis is required if we want to evaluate the statistical error on expectation values that were evaluated in a single simulation. If we have enough time and computational power, we can always resort to doing several independent simulations, by sampling different initial conditions, and simply treat each simulation as an independent block in the error analysis.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1087,7 +996,7 @@ How do we evaluate if our samples are correlated or not in practice? We start wi
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1095,113 +1004,44 @@ How do we evaluate if our samples are correlated or not in practice? We start wi
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-              
-              
-                <footer class="prev-next-footer">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="NumProjI.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Numerical project I - MD simulation (NVE)</p>
-      </div>
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="NumProjI.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Numerical project I - MD simulation (NVE)</p>
+        </div>
     </a>
-    <a class="right-next"
-       href="NumProjII.html"
-       title="next page">
-      <div class="prev-next-info">
+    <a class='right-next' id="next-link" href="NumProjII.html" title="next page">
+    <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Numerical Project II - MC simulation (NVT)</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
-                </footer>
-              
-            </div>
             
-            
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-high-dimensional-integrals">Evaluation of high-dimensional integrals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-random-sampling">Uniform random sampling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-central-limit-theorem">The Central Limit Theorem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importance-sampling">Importance Sampling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metropolis-monte-carlo-and-detailed-balance">Metropolis Monte Carlo and detailed balance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mc-moves-and-acceptance-ratio">MC moves and acceptance ratio</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-sampling-1d-arbitrary-distributions">Demo - sampling 1D arbitrary distributions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-other-distributions">Sampling other distributions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-that-f-x-is-a-stationary-point-of-metropolis-mc">Proof that <span class="math notranslate nohighlight">\(f(x)\)</span> is a stationary point of Metropolis MC</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-md-and-mc-for-canonical-time-correlation-functions">Combining MD and MC for canonical time correlation functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-estimation">Error estimation</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-By Dr. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 6997801, Israel.
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-
-  <p class="copyright">
-    
-      © Copyright 2023.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
+        </div>
     </div>
-  </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+    <footer class="footer">
+  <p>
+    
+      By Dr. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 6997801, Israel.<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
-  <footer class="bd-footer">
-  </footer>
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
   </body>
 </html>
