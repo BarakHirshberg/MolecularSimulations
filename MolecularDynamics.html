@@ -342,7 +342,7 @@
 <p>In contrast, MC simulations generate samples from the equilibrium phase space distribution of various ensembles through a random process. In this chapter, we first discuss <span class="math notranslate nohighlight">\(NVE\)</span> MD in detail. Then, you will write the code for the first numerical project implementing your very own MD simulation. Then, we will do the same for MC simulations in the canonical ensemble.</p>
 <div class="section" id="propagating-in-time">
 <h2>Propagating in time<a class="headerlink" href="#propagating-in-time" title="Permalink to this headline">¶</a></h2>
-<p>The heart of an MD simulation is the algorithm that propagates the classical equations of motion. There are quite a few different algorithms, and we present only one in detail. All of them, however, divide the total duration of the simulations into <span class="math notranslate nohighlight">\(N_s\)</span> time steps of length <span class="math notranslate nohighlight">\(\Delta t\)</span> and propagate the positions and velocities or momenta step by step in small increments. How small? We will see later.</p>
+<p>The heart of an MD simulation is the algorithm that propagates the classical equations of motion. There are quite a few different algorithms, and we present only one in detail. All of them, however, divide the total duration of the simulations into <span class="math notranslate nohighlight">\(P\)</span> time steps of length <span class="math notranslate nohighlight">\(\Delta t\)</span> and propagate the positions and velocities or momenta step by step in small increments. How small? We will see later.</p>
 <p>One of the most most popular algorithms is called <strong>velocity Verlet</strong>. It is derived by expanding <span class="math notranslate nohighlight">\(\textbf{r}(t+\Delta t)\)</span> in a Taylor series around <span class="math notranslate nohighlight">\(\Delta t = 0\)</span> up to second order,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -418,8 +418,8 @@ g(\textbf{x}_t) = e^{i\hat{L} t} g(\textbf{x}_0),
 i \hat{L} = \dot{q} \frac{\partial }{\partial q} + \dot{p} \frac{\partial }{\partial p}  = \frac{p}{m} \frac{\partial }{\partial q} + F(q) \frac{\partial }{\partial p}.
 \]</div>
 <p>This classical propagator can be divided into two contributions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-571b8a52-c35c-4645-b640-0e536d69b6a2">
-<span class="eqno">(47)<a class="headerlink" href="#equation-571b8a52-c35c-4645-b640-0e536d69b6a2" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b07ae9d2-6a97-4c3c-808a-e110af1b700e">
+<span class="eqno">(47)<a class="headerlink" href="#equation-b07ae9d2-6a97-4c3c-808a-e110af1b700e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 
 i\hat{L}_1 &amp;= \frac{p}{m} \frac{\partial }{\partial q}, &amp; i\hat{L}_2 = F(q) \frac{\partial }{\partial p}.
 
