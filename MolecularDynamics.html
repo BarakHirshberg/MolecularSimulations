@@ -395,15 +395,15 @@ Plugging this expression in Eq. <a class="reference internal" href="#equation-vv
 <span class="eqno">(44)<a class="headerlink" href="#equation-propagator" title="Permalink to this equation">¶</a></span>\[
 i\hat{L} =  \left \{\, ,\mathcal{H} \right \} = \sum_{j=1}^N \left[ \frac{\partial }{\partial \textbf{q}_j}  \cdot \frac{\partial \mathcal{H}}{\partial \textbf{p}_j} - \frac{\partial }{\partial \textbf{p}_j}  \cdot \frac{\partial \mathcal{H}}{\partial \textbf{q}_j} \right] = \sum_{j=1}^N \left[ \frac{\partial }{\partial \textbf{q}_j}  \cdot \dot{\textbf{q}}_j + \frac{\partial }{\partial \textbf{p}_j}  \cdot \dot{\textbf{p}}_j \right].
 \]</div>
-<p>Using this definition, the time derivative of any function of phase space coordinates <span class="math notranslate nohighlight">\(f(\textbf{x}) = f(\textbf{q}_1,...,\textbf{q}_N,\textbf{p}_1,...,\textbf{p}_N)\)</span>, can be written as</p>
+<p>Using this definition, the time derivative of any function of phase space coordinates <span class="math notranslate nohighlight">\(g(\textbf{x}) = g(\textbf{q}_1,...,\textbf{q}_N,\textbf{p}_1,...,\textbf{p}_N)\)</span>, can be written as</p>
 <div class="math notranslate nohighlight" id="equation-deriv-prop">
 <span class="eqno">(45)<a class="headerlink" href="#equation-deriv-prop" title="Permalink to this equation">¶</a></span>\[
-\frac{\mathrm{d} f}{\mathrm{d} t} = \left \{ f ,\mathcal{H} \right \} = i\hat{L} f
+\frac{\mathrm{d} g}{\mathrm{d} t} = \left \{ g ,\mathcal{H} \right \} = i\hat{L} g
 \]</div>
 <p>Eq. <a class="reference internal" href="#equation-deriv-prop">(45)</a> can be formally solved to get</p>
 <div class="math notranslate nohighlight">
 \[
-f(\textbf{x}_t) = e^{i\hat{L} t} f(\textbf{x}_0),
+g(\textbf{x}_t) = e^{i\hat{L} t} g(\textbf{x}_0),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(e^{i\hat{L} t}\)</span> is called the <strong>classical propagator</strong>. This solution equally applies to the trajectory itself, giving</p>
 <div class="math notranslate nohighlight" id="equation-traj-sol">
@@ -418,8 +418,8 @@ f(\textbf{x}_t) = e^{i\hat{L} t} f(\textbf{x}_0),
 i \hat{L} = \dot{q} \frac{\partial }{\partial q} + \dot{p} \frac{\partial }{\partial p}  = \frac{p}{m} \frac{\partial }{\partial q} + F(q) \frac{\partial }{\partial p}.
 \]</div>
 <p>This classical propagator can be divided into two contributions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3f3dd1a7-b11b-4e72-aaef-ee39ecf3fe7c">
-<span class="eqno">(47)<a class="headerlink" href="#equation-3f3dd1a7-b11b-4e72-aaef-ee39ecf3fe7c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-571b8a52-c35c-4645-b640-0e536d69b6a2">
+<span class="eqno">(47)<a class="headerlink" href="#equation-571b8a52-c35c-4645-b640-0e536d69b6a2" title="Permalink to this equation">¶</a></span>\[\begin{align}
 
 i\hat{L}_1 &amp;= \frac{p}{m} \frac{\partial }{\partial q}, &amp; i\hat{L}_2 = F(q) \frac{\partial }{\partial p}.
 
@@ -589,9 +589,9 @@ p(t +  \Delta t)\\
 <p>and the phase space distribution function is</p>
 <div class="math notranslate nohighlight" id="equation-mb">
 <span class="eqno">(52)<a class="headerlink" href="#equation-mb" title="Permalink to this equation">¶</a></span>\[
-f(\textbf{x}) = f(\textbf{p}_1,...,\textbf{p}_N) = \left( \frac{\beta m}{2 \pi} \right) ^{\frac{3N}{2}} e^{- \frac{\beta}{2m} \sum_{j=1}^N \textbf{p}_j^2}. 
+f(\textbf{x}) = f(\textbf{p}_1,...,\textbf{p}_N) = \left( \frac{\beta}{2 \pi m} \right) ^{\frac{3N}{2}} e^{- \frac{\beta}{2m} \sum_{j=1}^N \textbf{p}_j^2}. 
 \]</div>
-<p>Eq. <a class="reference internal" href="#equation-mb">(52)</a> shows that the total probability density is just a multiplication of independent Gaussian probability densities for each momentum degree of freedom of each particle. Every Gaussian has zero mean and standard deviation <span class="math notranslate nohighlight">\(\sigma = \sqrt{1/\beta m}\)</span>.</p>
+<p>Eq. <a class="reference internal" href="#equation-mb">(52)</a> shows that the total probability density is just a multiplication of independent Gaussian probability densities for each momentum degree of freedom of each particle. Every Gaussian has zero mean and standard deviation <span class="math notranslate nohighlight">\(\sigma = \sqrt{m/\beta}\)</span>.</p>
 <div class="tip admonition">
 <p class="admonition-title">Active learning</p>
 <p>Show that the probability in Eq. <a class="reference internal" href="#equation-mb">(52)</a> is normalized.</p>
