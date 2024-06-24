@@ -418,8 +418,8 @@ g(\textbf{x}_t) = e^{i\hat{L} t} g(\textbf{x}_0),
 i \hat{L} = \dot{q} \frac{\partial }{\partial q} + \dot{p} \frac{\partial }{\partial p}  = \frac{p}{m} \frac{\partial }{\partial q} + F(q) \frac{\partial }{\partial p}.
 \]</div>
 <p>This classical propagator can be divided into two contributions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8f5e06fa-5bf9-447a-89e6-c2fad77d59c6">
-<span class="eqno">(47)<a class="headerlink" href="#equation-8f5e06fa-5bf9-447a-89e6-c2fad77d59c6" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1c7452ac-1be4-41c4-b777-ae50652d8fe5">
+<span class="eqno">(47)<a class="headerlink" href="#equation-1c7452ac-1be4-41c4-b777-ae50652d8fe5" title="Permalink to this equation">¶</a></span>\[\begin{align}
 
 i\hat{L}_1 &amp;= \frac{p}{m} \frac{\partial }{\partial q}, &amp; i\hat{L}_2 = F(q) \frac{\partial }{\partial p}.
 
@@ -636,7 +636,7 @@ V_{LJ}(r) = 4 \varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - \left( \
 <p>This force acts between every pair of particles, so that for the entire system we get</p>
 <div class="math notranslate nohighlight" id="equation-lj">
 <span class="eqno">(54)<a class="headerlink" href="#equation-lj" title="Permalink to this equation">¶</a></span>\[
-V_{LJ}(r) = 4 \varepsilon \sum_{i=1}^{N-1} \sum_{j&gt;i}^N \left[ \left( \frac{\sigma}{r_{ij}} \right)^{12} - \left( \frac{\sigma}{r_{ij}} \right)^6 \right],
+V_{LJ}(\textbf{r}_1,...,\textbf{r}_N) = 4 \varepsilon \sum_{i=1}^{N-1} \sum_{j&gt;i}^N \left[ \left( \frac{\sigma}{r_{ij}} \right)^{12} - \left( \frac{\sigma}{r_{ij}} \right)^6 \right],
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(r_{ij} = | \textbf{r}_i - \textbf{r}_j |\)</span> is the distance between particles <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>.</p>
 <div class="tip admonition">
