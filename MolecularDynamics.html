@@ -418,8 +418,8 @@ g(\textbf{x}_t) = e^{i\hat{L} t} g(\textbf{x}_0),
 i \hat{L} = \dot{q} \frac{\partial }{\partial q} + \dot{p} \frac{\partial }{\partial p}  = \frac{p}{m} \frac{\partial }{\partial q} + F(q) \frac{\partial }{\partial p}.
 \]</div>
 <p>This classical propagator can be divided into two contributions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c8553aae-4745-4f63-80cf-6afc1dcdbf9e">
-<span class="eqno">(47)<a class="headerlink" href="#equation-c8553aae-4745-4f63-80cf-6afc1dcdbf9e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d4cea0f2-c593-495a-b93d-99ce5925306c">
+<span class="eqno">(47)<a class="headerlink" href="#equation-d4cea0f2-c593-495a-b93d-99ce5925306c" title="Permalink to this equation">¶</a></span>\[\begin{align}
 
 i\hat{L}_1 &amp;= \frac{p}{m} \frac{\partial }{\partial q}, &amp; i\hat{L}_2 = F(q) \frac{\partial }{\partial p}.
 
@@ -749,11 +749,11 @@ r_0 = 2^{1/6} \sigma.
 <div class="section" id="observables">
 <h2>Observables<a class="headerlink" href="#observables" title="Permalink to this headline">¶</a></h2>
 <p>In <a class="reference internal" href="StatMech.html#chap-eq"><span class="std std-ref">the previous chapter</span></a>, we showed how to calculate thermodynamic properties using ensemble averages. In this chapter, we discussed how to use MD simulations to sample the microcanonical ensemble in particular. Now, the question is - how do we use the trajectories to evaluate ensemble averages, such as in Eq. <a class="reference internal" href="StatMech.html#equation-ensemble-av-nve">(37)</a>?</p>
-<p>The numerical solution of the classical equations of motion generates a set of configurations at different time steps, denoted by <span class="math notranslate nohighlight">\(\textbf{x}_j\)</span>, where <span class="math notranslate nohighlight">\(t_j=j \Delta t\)</span> and <span class="math notranslate nohighlight">\(j=1,...,N_s\)</span>. For each sample, the desired thermodynamic property can be evaluated using expressions such as Eq. <a class="reference internal" href="ClassicalMech.html#equation-kinetic">(9)</a> for the kinetic energy or Eq. <a class="reference internal" href="#equation-harm">(53)</a> for a harmonic external trap. These expression are called estimators, and we denote their values as <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span>.
+<p>The numerical solution of the classical equations of motion generates a set of configurations at different time steps, denoted by <span class="math notranslate nohighlight">\(\textbf{x}_j\)</span>, where <span class="math notranslate nohighlight">\(t_j=j \Delta t\)</span> and <span class="math notranslate nohighlight">\(j=1,...,P\)</span>. For each sample, the desired thermodynamic property can be evaluated using expressions such as Eq. <a class="reference internal" href="ClassicalMech.html#equation-kinetic">(9)</a> for the kinetic energy or Eq. <a class="reference internal" href="#equation-harm">(53)</a> for a harmonic external trap. These expression are called estimators, and we denote their values as <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span>.
 Since the classical trajectories naturally sample the <span class="math notranslate nohighlight">\(NVE\)</span> ensemble, all configurations have the same energy and thus the same probability. The microcanonical expectation values are then obtained from a simple arithmetic mean of the estimators,</p>
 <div class="math notranslate nohighlight" id="equation-av-sim">
 <span class="eqno">(55)<a class="headerlink" href="#equation-av-sim" title="Permalink to this equation">¶</a></span>\[
-\langle a \rangle_E = \frac{1}{N_s} \sum_{j=1}^{N_s} a(\textbf{x}_j).
+\langle a \rangle_E = \frac{1}{P} \sum_{j=1}^{P} a(\textbf{x}_j).
 \]</div>
 <p>If we could generate MD simulations that naturally sample the canonical ensemble, we could evaluate expectation values also at constant temperature using Eq. <a class="reference internal" href="#equation-av-sim">(55)</a>. We will elaborate on this later.</p>
 <p>The most common thermodynamic observables that are evaluated in molecular dynamics simulations are the kinetic, potential, and total energies. The instantaneous value of the kinetic energy is given by Eq. <a class="reference internal" href="ClassicalMech.html#equation-kinetic">(9)</a>, or in terms of the momenta,</p>
