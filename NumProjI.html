@@ -362,7 +362,11 @@ I have created a class called Simulation which defines the methods and data memb
 <span class="sd">        -------</span>
 <span class="sd">        None. Sets the value of self.p.</span>
 
-<span class="sd">        Example: # The mean momentum of each coordinate should be very close to zero</span>
+<span class="sd">        # THE MEAN MOMENTUM OF EACH COORDINATE SHOULD BE VERY CLOSE TO ZERO</span>
+<span class="sd">        # THE STD SHOULD BE CLOSE TO SQRT(m*Kb*T)</span>
+<span class="sd">        # NOTE: WE GIVE EXAMPLES FOR THE MEAN, WRITE THE OTHERS YOURSELF.</span>
+<span class="sd">        </span>
+<span class="sd">        Example: </span>
 <span class="sd">        &gt;&gt;&gt; temp = 300  # temperature in K, using default values for mass and Natoms. </span>
 <span class="sd">        &gt;&gt;&gt; mysim = Simulation( dt=0.1E-15, L=11.3E-10, ftype=&quot;LJ&quot; )</span>
 <span class="sd">        &gt;&gt;&gt; mysim.sampleMB(temp)</span>
@@ -380,7 +384,6 @@ I have created a class called Simulation which defines the methods and data memb
         <span class="c1">################################################################</span>
 </pre></div>
 </div>
-<p>Some functions get the **kwargs argument input, which allows you to pass a variable number of keyword arguments to a function. kwargs stands for “keyword arguments” and is used when you want to handle named arguments that you have not defined in advance. **kwargs collects extra keyword arguments as a dictionary and allows you to call a function with an arbitrary number of keyword arguments. It is used to make functions more flexible and adaptable to different sets of inputs.</p>
 <p>I highly recommend implementing one method at a time and testing that it works by running <code class="docutils literal notranslate"><span class="pre">run.py</span></code> that calls it, before moving on to the next method. Do not forget to commit and push along the way to create checkpoints you can go back to if something goes wrong.</p>
 <p>The repo also has a file called <code class="docutils literal notranslate"><span class="pre">ReportProjI.ipynb</span></code>. This is a Jupyter Notebook which you can open by running <a class="reference external" href="https://jupyter.org/">JupyterLab</a> or <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> from Anaconda. In it, you will find the definitions and details of the specific simulations you have to run. It also contains questions that you need to answer and figures you need to plot. Create a separate run script for each one of the sections in the notebook (<code class="docutils literal notranslate"><span class="pre">run_harmonic.py</span></code> and <code class="docutils literal notranslate"><span class="pre">run_Ar.py</span></code>), run the simulations, and answer the questions. Submit your report by commiting and pushing the file to your repo.</p>
 </div>
