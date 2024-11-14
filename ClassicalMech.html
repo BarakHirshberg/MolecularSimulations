@@ -593,14 +593,14 @@ We now consider another formulation of classical mechanics, due to Hamilton, whi
 <div class="section" id="hamiltonian-mechanics">
 <span id="sec-hamilton"></span><h2>Hamiltonian mechanics<a class="headerlink" href="#hamiltonian-mechanics" title="Permalink to this headline">¶</a></h2>
 <p>While Lagrangian mechanics is based on a description of the dynamics of a system in terms of the positions and velocities, the Hamiltonian formulation is intimately connected to the phase space representation we introduced in Section <a class="reference internal" href="#sec-phase-space"><span class="std std-ref">Phase space</span></a>. We previously defined the Cartesian momentum, <span class="math notranslate nohighlight">\(\textbf{p}_j = m_j \dot{\textbf{r}}_j\)</span> in Eq. <a class="reference internal" href="#equation-momenta">(5)</a>. A wider definition is to consider a <strong>generalized momentum</strong>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2cbaf4bc-db74-4b51-a460-3ea32767a31a">
-<span class="eqno">(11)<a class="headerlink" href="#equation-2cbaf4bc-db74-4b51-a460-3ea32767a31a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9f3a3c10-15c0-4ba4-8d36-09bcfe1136e0">
+<span class="eqno">(11)<a class="headerlink" href="#equation-9f3a3c10-15c0-4ba4-8d36-09bcfe1136e0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \textbf{p}_j = \frac{\partial \mathcal{L}}{\partial \dot{\textbf{q}}_j},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\textbf{q}_j\)</span> is some generalized coordinate. When we write the Lagrangian in Cartesian coordinates, <span class="math notranslate nohighlight">\(\textbf{r}_j\)</span>, this definition reduces to Eq. <a class="reference internal" href="#equation-momenta">(5)</a>, but it holds for any choice of coordinates! (Remember, this was a major strength also of the Lagrangian formulation). For example, in the case of the pendulum we considered above, <span class="math notranslate nohighlight">\(p_\phi = m l^2 \dot{\phi}\)</span>.</p>
 <p>The <strong>Hamiltonian</strong> is then defined<a class="footnote-reference brackets" href="#footnote1" id="id1">1</a> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-950ca13c-717d-475a-9154-69342ab5ce72">
-<span class="eqno">(12)<a class="headerlink" href="#equation-950ca13c-717d-475a-9154-69342ab5ce72" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-60a3a458-306c-4dcb-ac30-6453dd091904">
+<span class="eqno">(12)<a class="headerlink" href="#equation-60a3a458-306c-4dcb-ac30-6453dd091904" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \label{Hamiltonian_def}
     \mathcal{H}(\textbf{q}_1,...,\textbf{q}_N,\textbf{p}_1,...,\textbf{p}_N) = \sum_{j=1}^N \textbf{p}_j \cdot \dot{\textbf{q}}_j(\textbf{p}_j) - \mathcal{L} \left (\textbf{q}_1,...,\textbf{q}_N,\dot{\textbf{q}}_1(\textbf{p}_1),...,\dot{\textbf{q}}_N(\textbf{p}_N) \right ),
 \end{equation}\]</div>
@@ -639,8 +639,8 @@ We now consider another formulation of classical mechanics, due to Hamilton, whi
     \mathcal{H}(\textbf{r}_1,...,\textbf{r}_N,\textbf{p}_1,...,\textbf{p}_N) = \sum_{i=1}^N \frac{\textbf{p}_j^2}{2 m_j} + U(\textbf{r}_1,...,\textbf{r}_N),
 \]</div>
 <p>which shows that the Hamiltonian is just the total energy of the system in terms of the Cartesian positions and momenta,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-76dec2e0-e4ab-48ab-8eac-777d21b63b38">
-<span class="eqno">(15)<a class="headerlink" href="#equation-76dec2e0-e4ab-48ab-8eac-777d21b63b38" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2b72f5ba-d1b0-4516-b44b-284be3dd757f">
+<span class="eqno">(15)<a class="headerlink" href="#equation-2b72f5ba-d1b0-4516-b44b-284be3dd757f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
     \mathcal{H}(\textbf{r}_1,...,\textbf{r}_N,\textbf{p}_1,...,\textbf{p}_N) = K(\dot{\textbf{r}}_1,...,\dot{\textbf{r}}_N) + U(\textbf{r}_1,...,\textbf{r}_N).
 \end{equation}\]</div>
 <p>Hamilton’s equations in this case also reduce to Newton’s equations of motion.</p>
@@ -657,7 +657,7 @@ We now consider another formulation of classical mechanics, due to Hamilton, whi
 \end{align*}\]</div>
 <p>If we take the derivative of the left equation and substitute it into the right one, we get Newton’s equations of motion, Eq. <a class="reference internal" href="#equation-newton2nd-n">(3)</a>.</p>
 </div>
-<p>We are now in a position to appreciate a very beautiful result of the Hamiltonian formalism. It allows us to write a specific condition for when some quantity, <span class="math notranslate nohighlight">\(g(\textbf{q}_1,...,\textbf{q}_N,\textbf{p}_1,...,\textbf{p}_N)\)</span>, a function of the phase space variables, is conserved.
+<p>We are now in a position to appreciate a result of the Hamiltonian formalism which may ring a bell. It allows us to write a specific condition for when some quantity, <span class="math notranslate nohighlight">\(g(\textbf{q}_1,...,\textbf{q}_N,\textbf{p}_1,...,\textbf{p}_N)\)</span>, a function of the phase space variables, is conserved.
 We write the time derivative of <span class="math notranslate nohighlight">\(g\)</span> using the chain rule as</p>
 <div class="math notranslate nohighlight">
 \[
@@ -702,13 +702,13 @@ Note that while the Lagrangian and Hamiltonian are <strong>functions</strong> of
 ``` -->
 <p>It turns out that the Euler-Lagrange equations can be derived by postulating that the classical trajectory makes the first variation of the action integral vanish. The first variation of a functional is an extension of the definition of derivatives to the world of functionals.
 We consider how the action changes when the trajectories undergo an arbitrary variation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e15730af-2eee-4ffa-8e52-7b2b3d7245f3">
-<span class="eqno">(18)<a class="headerlink" href="#equation-e15730af-2eee-4ffa-8e52-7b2b3d7245f3" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0ad9296f-ff1d-4654-b827-9c5ce5c0b739">
+<span class="eqno">(18)<a class="headerlink" href="#equation-0ad9296f-ff1d-4654-b827-9c5ce5c0b739" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \textbf{q}_j(t,\alpha) &amp;= \textbf{q}_j(t,0) + \alpha \textbf{n}_j(t), &amp; \dot{\textbf{q}}_j(t,\alpha) &amp;= \dot{\textbf{q}}_j(t,0) + \alpha \dot{\textbf{n}}_j(t),
 \end{align}\]</div>
 <p>and denote the action for such trajectories as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-971484ff-4a25-4fb0-98d1-aaa74104be25">
-<span class="eqno">(19)<a class="headerlink" href="#equation-971484ff-4a25-4fb0-98d1-aaa74104be25" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7b8ba1ac-164a-46d4-ac44-195cb74ce521">
+<span class="eqno">(19)<a class="headerlink" href="#equation-7b8ba1ac-164a-46d4-ac44-195cb74ce521" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 S(\alpha) = \int_{t_1}^{t_2} \mathcal{L} (\textbf{q}_1(t,\alpha),...,\textbf{q}_N(t,\alpha),  \dot{\textbf{q}}_1(t,\alpha),...,\dot{\textbf{q}}_N(t,\alpha)) \mathrm{d}t.
 \end{equation}\]</div>
 <p>The first variation of <span class="math notranslate nohighlight">\(S\)</span> is defined as</p>
