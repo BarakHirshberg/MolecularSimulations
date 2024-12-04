@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -182,6 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ClassicalMech.html">Classical mechanics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Basic statistical mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MolecularDynamics.html">Molecular dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjPrerequisites.html">Prerequisites for numerical projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="NumProjI.html">Numerical project I - MD simulation (NVE)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MonteCarlo.html">Monte Carlo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="NumProjII.html">Numerical Project II - MC simulation (NVT)</a></li>
@@ -477,8 +478,8 @@ A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t
 <p>It was <a class="reference external" href="https://en.wikipedia.org/wiki/Josiah_Willard_Gibbs">J.W. Gibbs</a> that realized that thermodynamic macroscopic properties are not very sensitive to the details of the specific microscopic state of the system. Consider for example the temperature. You have learned in a preceding statistical thermodynamics course that each momentum degree of freedom contributes <span class="math notranslate nohighlight">\(\frac{1}{2} k_B T \)</span> to the average thermal kinetic energy (the <a class="reference external" href="https://en.wikipedia.org/wiki/Equipartition_theorem">equipartition theorem</a>). Thus, the temperature can be obtained from the average kinetic energy of the system. But there are many ways to choose the momenta of the particles such that the average kinetic energy is the same. In other words, the temperature is insensitive to the specific microstate of the system, as long as it gives the same average kinetic energy.</p>
 <p>Following this reasoning, and to make progress in connecting microscopic properties with thermodynamic observables, Gibbs introduced the concept of an <strong>ensemble</strong>. An ensemble is a collection of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> systems that obey the same microscopic interactions and are characterized by a common set of three thermodynamic properties, such as the number of particles <span class="math notranslate nohighlight">\(N\)</span>, the volume <span class="math notranslate nohighlight">\(V\)</span>, the total energy <span class="math notranslate nohighlight">\(E\)</span>, the temperature <span class="math notranslate nohighlight">\(T\)</span>, the pressure <span class="math notranslate nohighlight">\(P\)</span> or the chemical potential <span class="math notranslate nohighlight">\(\mu\)</span>. Each system in the ensemble evolves in time from different initial conditions and is characterized by a unique microscopic state defined by its path in phase space, <span class="math notranslate nohighlight">\(\textbf{x}(t)\)</span>, defined in Eq. <a class="reference internal" href="ClassicalMech.html#equation-x-phase-space">(7)</a>. The entire ensemble can then be represented as a “cloud” of points in phase space.</p>
 <p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfill the properties:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4c0e8c67-e46d-4b3e-99db-d587a97d8322">
-<span class="eqno">(23)<a class="headerlink" href="#equation-4c0e8c67-e46d-4b3e-99db-d587a97d8322" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e16c89f4-e014-47a0-b497-41d2721b0b75">
+<span class="eqno">(23)<a class="headerlink" href="#equation-e16c89f4-e014-47a0-b497-41d2721b0b75" title="Permalink to this equation">#</a></span>\[\begin{align}
  \int f(\textbf{x},t) \, \mathrm{d} \textbf{x} &amp;= 1, &amp; f(\textbf{x},t) &amp; \ge 0.
 \end{align}\]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span> represents the probability that a system from the ensemble is in the volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> (or, alternatively, the fraction of systems therein).</p>
@@ -581,8 +582,8 @@ A(t) = \langle a \rangle_f = \int f(\textbf{x},t) a(\textbf{x}) \, \mathrm{d} \t
 \mathrm{d} \textbf{x}_t = \mathcal{J}(\textbf{x}_t; \textbf{x}_0) \mathrm{d} \textbf{x}_0,
 \]</div>
 <p>where the <strong>Jacobian</strong> <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> is defined as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-29b75717-06cb-40f1-ad1f-2cbbcad0834b">
-<span class="eqno">(33)<a class="headerlink" href="#equation-29b75717-06cb-40f1-ad1f-2cbbcad0834b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-516c273f-d926-49df-941f-b16dd12914b7">
+<span class="eqno">(33)<a class="headerlink" href="#equation-516c273f-d926-49df-941f-b16dd12914b7" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathcal{J}(\textbf{x}_t; \textbf{x}_0) &amp;= \det{J}, &amp; J_{kl} &amp;= \frac{\partial x_t^k}{\partial x_0^l}.
 \end{align}\]</div>
 <p>Then, we use a property of the determinant</p>
@@ -596,8 +597,8 @@ A(t) = \langle a \rangle_f = \int f(\textbf{x},t) a(\textbf{x}) \, \mathrm{d} \t
 \frac{\mathrm{d}}{\mathrm{d}t} \mathcal{J}(\textbf{x}_t;\textbf{x}_0) = \frac{\mathrm{d}}{\mathrm{d}t} e^{\mathrm{Tr} \left[ \ln{J} \right] } = e^{\mathrm{Tr} \left[ \ln{J} \right]} \mathrm{Tr} [\frac{\mathrm{d J}}{\mathrm{d}t} J^{-1}] = \mathcal{J}(\textbf{x}_t;\textbf{x}_0) \sum_{k,l} \left( \frac{\mathrm{d}J}{\mathrm{d}t} \right)_{kl} \left( J^{-1} \right)_{lk}.
 \]</div>
 <p>The elements of the matrices <span class="math notranslate nohighlight">\(\frac{\mathrm{d}J}{\mathrm{d}t}\)</span> and <span class="math notranslate nohighlight">\(J^{-1}\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc7214cc-7955-4e3d-9b53-c36c9034723e">
-<span class="eqno">(34)<a class="headerlink" href="#equation-cc7214cc-7955-4e3d-9b53-c36c9034723e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1066f9e9-2356-4010-87dd-bd1b05febd67">
+<span class="eqno">(34)<a class="headerlink" href="#equation-1066f9e9-2356-4010-87dd-bd1b05febd67" title="Permalink to this equation">#</a></span>\[\begin{align}
 
 \left( \frac{\mathrm{d}J}{\mathrm{d}t} \right)_{kl} &amp;= \frac{\partial \dot{x}_t^k}{\partial x_0^l} &amp; \left( J^{-1} \right)_{lk} = \frac{\partial x_0^l}{\partial x_t^k},
 
@@ -639,6 +640,9 @@ J=
 \end{split}\]</div>
 <p>whose determinant is <span class="math notranslate nohighlight">\(\det{J} = \cos^2{\omega_0 t} + \sin^2(\omega_0 t ) = 1\)</span>.</p>
 </div>
+<p>Below is a gif (credit: TheOneandBubsly/Wikimedia Commons) showing how the phase space distribution function of a
+1D harmonic oscilator evolves in time, if we start from initial conditions within a square.</p>
+<p><img alt="SHO_gif" src="https://upload.wikimedia.org/wikipedia/commons/3/32/SHOPhaseSpaceUpdate.gif" /></p>
 </section>
 <section id="equilibrium">
 <span id="chap-eq"></span><h2>Equilibrium<a class="headerlink" href="#equilibrium" title="Link to this heading">#</a></h2>

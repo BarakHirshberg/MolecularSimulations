@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'MolecularDynamics';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Numerical project I - MD simulation (NVE)" href="NumProjI.html" />
+    <link rel="next" title="Prerequisites for numerical projects" href="ProjPrerequisites.html" />
     <link rel="prev" title="Basic statistical mechanics" href="StatMech.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -182,6 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ClassicalMech.html">Classical mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StatMech.html">Basic statistical mechanics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Molecular dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjPrerequisites.html">Prerequisites for numerical projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="NumProjI.html">Numerical project I - MD simulation (NVE)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MonteCarlo.html">Monte Carlo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="NumProjII.html">Numerical Project II - MC simulation (NVT)</a></li>
@@ -472,7 +473,7 @@ document.write(`
 <p>In contrast, MC simulations generate samples from the equilibrium phase space distribution of various ensembles through a random process. In this chapter, we first discuss <span class="math notranslate nohighlight">\(NVE\)</span> MD in detail. Then, you will write the code for the first numerical project implementing your very own MD simulation. Then, we will do the same for MC simulations in the canonical ensemble.</p>
 <section id="propagating-in-time">
 <h2>Propagating in time<a class="headerlink" href="#propagating-in-time" title="Link to this heading">#</a></h2>
-<p>The heart of an MD simulation is the algorithm that propagates the classical equations of motion. There are quite a few different algorithms, and we present only one in detail. All of them, however, divide the total duration of the simulations into <span class="math notranslate nohighlight">\(N_s\)</span> time steps of length <span class="math notranslate nohighlight">\(\Delta t\)</span> and propagate the positions and velocities or momenta step by step in small increments. How small? We will see later.</p>
+<p>The heart of an MD simulation is the algorithm that propagates the classical equations of motion. There are quite a few different algorithms, and we present only one in detail. All of them, however, divide the total duration of the simulations into <span class="math notranslate nohighlight">\(P\)</span> time steps of length <span class="math notranslate nohighlight">\(\Delta t\)</span> and propagate the positions and velocities or momenta step by step in small increments. How small? We will see later.</p>
 <p>One of the most most popular algorithms is called <strong>velocity Verlet</strong>. It is derived by expanding <span class="math notranslate nohighlight">\(\textbf{r}(t+\Delta t)\)</span> in a Taylor series around <span class="math notranslate nohighlight">\(\Delta t = 0\)</span> up to second order,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -525,15 +526,15 @@ Plugging this expression in Eq. <a class="reference internal" href="#equation-vv
 <span class="eqno">(44)<a class="headerlink" href="#equation-propagator" title="Link to this equation">#</a></span>\[
 i\hat{L} =  \left \{\, ,\mathcal{H} \right \} = \sum_{j=1}^N \left[ \frac{\partial }{\partial \textbf{q}_j}  \cdot \frac{\partial \mathcal{H}}{\partial \textbf{p}_j} - \frac{\partial }{\partial \textbf{p}_j}  \cdot \frac{\partial \mathcal{H}}{\partial \textbf{q}_j} \right] = \sum_{j=1}^N \left[ \frac{\partial }{\partial \textbf{q}_j}  \cdot \dot{\textbf{q}}_j + \frac{\partial }{\partial \textbf{p}_j}  \cdot \dot{\textbf{p}}_j \right].
 \]</div>
-<p>Using this definition, the time derivative of any function of phase space coordinates <span class="math notranslate nohighlight">\(f(\textbf{x}) = f(\textbf{q}_1,...,\textbf{q}_N,\textbf{p}_1,...,\textbf{p}_N)\)</span>, can be written as</p>
+<p>Using this definition, the time derivative of any function of phase space coordinates <span class="math notranslate nohighlight">\(g(\textbf{x}) = g(\textbf{q}_1,...,\textbf{q}_N,\textbf{p}_1,...,\textbf{p}_N)\)</span>, can be written as</p>
 <div class="math notranslate nohighlight" id="equation-deriv-prop">
 <span class="eqno">(45)<a class="headerlink" href="#equation-deriv-prop" title="Link to this equation">#</a></span>\[
-\frac{\mathrm{d} f}{\mathrm{d} t} = \left \{ f ,\mathcal{H} \right \} = i\hat{L} f
+\frac{\mathrm{d} g}{\mathrm{d} t} = \left \{ g ,\mathcal{H} \right \} = i\hat{L} g
 \]</div>
 <p>Eq. <a class="reference internal" href="#equation-deriv-prop">(45)</a> can be formally solved to get</p>
 <div class="math notranslate nohighlight">
 \[
-f(\textbf{x}_t) = e^{i\hat{L} t} f(\textbf{x}_0),
+g(\textbf{x}_t) = e^{i\hat{L} t} g(\textbf{x}_0),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(e^{i\hat{L} t}\)</span> is called the <strong>classical propagator</strong>. This solution equally applies to the trajectory itself, giving</p>
 <div class="math notranslate nohighlight" id="equation-traj-sol">
@@ -548,8 +549,8 @@ f(\textbf{x}_t) = e^{i\hat{L} t} f(\textbf{x}_0),
 i \hat{L} = \dot{q} \frac{\partial }{\partial q} + \dot{p} \frac{\partial }{\partial p}  = \frac{p}{m} \frac{\partial }{\partial q} + F(q) \frac{\partial }{\partial p}.
 \]</div>
 <p>This classical propagator can be divided into two contributions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d63465a0-855e-474b-872f-c8041c6642d2">
-<span class="eqno">(47)<a class="headerlink" href="#equation-d63465a0-855e-474b-872f-c8041c6642d2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4f8ff7a5-da7a-404f-8a38-8bba9081e4af">
+<span class="eqno">(47)<a class="headerlink" href="#equation-4f8ff7a5-da7a-404f-8a38-8bba9081e4af" title="Permalink to this equation">#</a></span>\[\begin{align}
 
 i\hat{L}_1 &amp;= \frac{p}{m} \frac{\partial }{\partial q}, &amp; i\hat{L}_2 = F(q) \frac{\partial }{\partial p}.
 
@@ -592,7 +593,7 @@ e^{i\hat{L}t} = \lim_{P \to \infty} \left[ e^{i\hat{L}_2 t/2P} e^{i \hat{L}_1 t/
 <div class="math notranslate nohighlight" id="equation-discrete-prop">
 <span class="eqno">(50)<a class="headerlink" href="#equation-discrete-prop" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{align}
-e^{i\hat{L} \Delta t} \approx &amp; e^{i\hat{L}_2 \frac{\Delta t}{2}} e^{i \hat{L}_1 \Delta t} e^{i \hat{L}_2 \frac{\Delta t}{2}} = \\
+e^{i\hat{L} \Delta t} \equiv &amp; e^{i\hat{L}_2 \frac{\Delta t}{2}} e^{i \hat{L}_1 \Delta t} e^{i \hat{L}_2 \frac{\Delta t}{2}} = \\
 &amp; \exp \left( \frac{\Delta t}{2} F(q) \frac{\partial }{\partial p} \right) \exp \left( \Delta t \frac{p}{m} \frac{\partial }{\partial q} \right) \exp \left( \frac{\Delta t}{2} F(q) \frac{\partial }{\partial p} \right),
 \end{align}
 \end{split}\]</div>
@@ -766,7 +767,7 @@ V_{LJ}(r) = 4 \varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - \left( \
 <p>This force acts between every pair of particles, so that for the entire system we get</p>
 <div class="math notranslate nohighlight" id="equation-lj">
 <span class="eqno">(54)<a class="headerlink" href="#equation-lj" title="Link to this equation">#</a></span>\[
-V_{LJ}(r) = 4 \varepsilon \sum_{i=1}^{N-1} \sum_{j&gt;i}^N \left[ \left( \frac{\sigma}{r_{ij}} \right)^{12} - \left( \frac{\sigma}{r_{ij}} \right)^6 \right],
+V_{LJ}(\textbf{r}_1,...,\textbf{r}_N) = 4 \varepsilon \sum_{i=1}^{N-1} \sum_{j&gt;i}^N \left[ \left( \frac{\sigma}{r_{ij}} \right)^{12} - \left( \frac{\sigma}{r_{ij}} \right)^6 \right],
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(r_{ij} = | \textbf{r}_i - \textbf{r}_j |\)</span> is the distance between particles <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>.</p>
 <div class="tip admonition">
@@ -800,13 +801,12 @@ r_0 = 2^{1/6} \sigma.
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
 </pre></div>
 </div>
 </div>
@@ -831,16 +831,16 @@ r_0 = 2^{1/6} \sigma.
 <p>Just kidding, you can still use if statements <em>if</em> you want to.</p>
 </div>
 <p>How large should be the main box so that the properties of the simulated system resemble the properties of a bulk liquid or solid? It depends on the interactions. If they are relatively short-ranged, then a small box may suffice. For the LJ potential, a box of side length <span class="math notranslate nohighlight">\(L=6\sigma\)</span> is usually sufficient. But for very long-range interaction, this is not the case, and more sophisticated methods are needed, of which we will not elaborate. In addition, this approach works when the fluctuations of the system in space are much smaller than the size of the box. So for the case of a gas-liquid phase transition, where the fluctuations are macroscopic (you can see the bubbles form!), this approach will not work. However, for systems far away from phase transitions and with short-range interactions, it is found to be highly successful.</p>
-<p>Finally, while periodic boundary conditions are great, they seem to have created a new problem. Now that we have infinitely many images of every particle, how are we to calculate the interaction between all of them? The practice is to overcome this problem by defining a spherical cutoff for the interaction of short-ranged potentials. One way to do it is by implementing the <strong>minimum image convention</strong>. The minimum image convention states that for each particle <span class="math notranslate nohighlight">\(i\)</span>, you calculate the interaction only with the closest image of particle <span class="math notranslate nohighlight">\(j\)</span>. This is done similarly for testing for periodic boundary conditions, but instead of applying it to the position vector of each particle, you use the distances between the particles. The minimum image convention effectively introduces a spherical cutoff to the potential at a distance of half the box length.</p>
+<p>Finally, while periodic boundary conditions are great, they seem to have created a new problem. Now that we have infinitely many images of every particle, how are we to calculate the interaction between all of them? The practice is to overcome this problem by defining a spherical cutoff for the interaction of short-ranged potentials. One way to do it is by implementing the <strong>minimum image convention</strong>. The minimum image convention states that for each particle <span class="math notranslate nohighlight">\(i\)</span>, you calculate the interaction only with the closest image of particle <span class="math notranslate nohighlight">\(j\)</span>. This is done similarly for testing for periodic boundary conditions, but instead of applying it to the position vector of each particle, you use the distance vector between two particles. The minimum image convention effectively introduces a spherical cutoff to the potential at a distance of half the box length.</p>
 </section>
 <section id="observables">
 <h2>Observables<a class="headerlink" href="#observables" title="Link to this heading">#</a></h2>
 <p>In <a class="reference internal" href="StatMech.html#chap-eq"><span class="std std-ref">the previous chapter</span></a>, we showed how to calculate thermodynamic properties using ensemble averages. In this chapter, we discussed how to use MD simulations to sample the microcanonical ensemble in particular. Now, the question is - how do we use the trajectories to evaluate ensemble averages, such as in Eq. <a class="reference internal" href="StatMech.html#equation-ensemble-av-nve">(37)</a>?</p>
-<p>The numerical solution of the classical equations of motion generates a set of configurations at different time steps, denoted by <span class="math notranslate nohighlight">\(\textbf{x}_j\)</span>, where <span class="math notranslate nohighlight">\(t_j=j \Delta t\)</span> and <span class="math notranslate nohighlight">\(j=1,...,N_s\)</span>. For each sample, the desired thermodynamic property can be evaluated using expressions such as Eq. <a class="reference internal" href="ClassicalMech.html#equation-kinetic">(9)</a> for the kinetic energy or Eq. <a class="reference internal" href="#equation-harm">(53)</a> for a harmonic external trap. These expression are called estimators, and we denote their values as <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span>.
+<p>The numerical solution of the classical equations of motion generates a set of configurations at different time steps, denoted by <span class="math notranslate nohighlight">\(\textbf{x}_j\)</span>, where <span class="math notranslate nohighlight">\(t_j=j \Delta t\)</span> and <span class="math notranslate nohighlight">\(j=1,...,P\)</span>. For each sample, the desired thermodynamic property can be evaluated using expressions such as Eq. <a class="reference internal" href="ClassicalMech.html#equation-kinetic">(9)</a> for the kinetic energy or Eq. <a class="reference internal" href="#equation-harm">(53)</a> for a harmonic external trap. These expression are called estimators, and we denote their values as <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span>.
 Since the classical trajectories naturally sample the <span class="math notranslate nohighlight">\(NVE\)</span> ensemble, all configurations have the same energy and thus the same probability. The microcanonical expectation values are then obtained from a simple arithmetic mean of the estimators,</p>
 <div class="math notranslate nohighlight" id="equation-av-sim">
 <span class="eqno">(55)<a class="headerlink" href="#equation-av-sim" title="Link to this equation">#</a></span>\[
-\langle a \rangle_E = \frac{1}{N_s} \sum_{j=1}^{N_s} a(\textbf{x}_j).
+\langle a \rangle_E = \frac{1}{P} \sum_{j=1}^{P} a(\textbf{x}_j).
 \]</div>
 <p>If we could generate MD simulations that naturally sample the canonical ensemble, we could evaluate expectation values also at constant temperature using Eq. <a class="reference internal" href="#equation-av-sim">(55)</a>. We will elaborate on this later.</p>
 <p>The most common thermodynamic observables that are evaluated in molecular dynamics simulations are the kinetic, potential, and total energies. The instantaneous value of the kinetic energy is given by Eq. <a class="reference internal" href="ClassicalMech.html#equation-kinetic">(9)</a>, or in terms of the momenta,</p>
@@ -922,11 +922,11 @@ D = \frac{1}{3} \int_0^{\infty} C_{vv}(\tau) \mathrm{d} \tau.
       </div>
     </a>
     <a class="right-next"
-       href="NumProjI.html"
+       href="ProjPrerequisites.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Numerical project I - MD simulation (NVE)</p>
+        <p class="prev-next-title">Prerequisites for numerical projects</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

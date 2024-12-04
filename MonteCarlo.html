@@ -32,9 +32,9 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -182,6 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ClassicalMech.html">Classical mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StatMech.html">Basic statistical mechanics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MolecularDynamics.html">Molecular dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProjPrerequisites.html">Prerequisites for numerical projects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="NumProjI.html">Numerical project I - MD simulation (NVE)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Monte Carlo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="NumProjII.html">Numerical Project II - MC simulation (NVT)</a></li>
@@ -506,7 +507,7 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta U(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 <span class="eqno">(63)<a class="headerlink" href="#equation-mcint" title="Link to this equation">#</a></span>\[V = \frac{\tau_{in}}{\tau_{tot}} V_0\]</div>
 <p>For example, to evaluate the area of a two-dimensional disk with radius <span class="math notranslate nohighlight">\(R=1\)</span> in the first quadrant, we need to solve the integral</p>
 <div class="math notranslate nohighlight" id="equation-disk">
-<span class="eqno">(64)<a class="headerlink" href="#equation-disk" title="Link to this equation">#</a></span>\[\int_0^1 \int_{\sqrt{1-x^2}}^1 \mathrm{d} x  \mathrm{d} y = \frac{\pi}{4}.\]</div>
+<span class="eqno">(64)<a class="headerlink" href="#equation-disk" title="Link to this equation">#</a></span>\[\int_0^1 \int_0^{\sqrt{1-x^2}} \mathrm{d} x  \mathrm{d} y = \frac{\pi}{4}.\]</div>
 <p>Instead, we choose a reference square of unit side length that bounds the unit circle and evaluate the integral numerically using MC uniform sampling. Below we demonstrate this method and evaluate the area/volume of a ball in two and three dimensions, using both quadrature and Monte Carlo uniform sampling. To treat the two methods on equal footing, we make sure to use the same number of function evaluations and compare the obtained accuracy. We show that for two dimensions, quadrature is more accurate than MC sampling. But already for three dimensions, MC is more accurate by an order of magnitude. MC is also much faster than quadrature for three dimensions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -525,14 +526,13 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta U(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#imports </span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">math</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">time</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span><span class="p">,</span> <span class="n">special</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
 </pre></div>
 </div>
 </div>
@@ -1017,7 +1017,7 @@ A(\textbf x, \beta'; \textbf y, \beta | \textbf x, \beta; \textbf y, \beta') = \
 <p>We follow the proof that is presented in the Book by Tuckerman.
 At every iteration of the Markov chain/Metropolis algorithm, the points <span class="math notranslate nohighlight">\(\textbf{x}_k\)</span> are distributed according to some function <span class="math notranslate nohighlight">\(\pi_k(\textbf x)\)</span>. We wish to show that if the algorithm reached a point in which <span class="math notranslate nohighlight">\(\pi_k(\textbf x) = f(\textbf x)\)</span>, all following steps will be distributed according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>. In other words, we wish to show that <span class="math notranslate nohighlight">\(f(x)\)</span> is a stationary point of the Metropolis algorithm.</p>
 <p>We will use induction to prove that is the case. We will assume that at some <em>arbitrary</em> MC step <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(\pi_k(\textbf x) = f(\textbf x)\)</span>, then we will derive the expression for <span class="math notranslate nohighlight">\(\pi_{k+1}(\textbf x)\)</span>, the distribution in the next MC step, and we will show that it is also equal to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>.</p>
-<p>The probability to be at point <span class="math notranslate nohighlight">\(\textbf x\)</span> at step <span class="math notranslate nohighlight">\(k+1\)</span>, <span class="math notranslate nohighlight">\(\pi_{k+1}(\textbf x)\)</span>, has two contributions: First, from moves that started in other points <span class="math notranslate nohighlight">\(\text bf y\)</span>, proposed <span class="math notranslate nohighlight">\(\textbf x\)</span> as a new configuration and were accepted. The term is given by the probability to be at <span class="math notranslate nohighlight">\(\textbf y\)</span> in the previous step, <span class="math notranslate nohighlight">\(\pi_{k}(\textbf y)\)</span>, times the probability that <span class="math notranslate nohighlight">\(\textbf x\)</span> will be proposed as the next move if we are at <span class="math notranslate nohighlight">\(\textbf y\)</span>, <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y)\)</span>, times the probability that the move will be accepted, <span class="math notranslate nohighlight">\(A(\textbf x | \textbf y)\)</span>. The final expression for this first contribution is then given by integrating over all the possible initial <span class="math notranslate nohighlight">\(\textbf y\)</span>,</p>
+<p>The probability to be at point <span class="math notranslate nohighlight">\(\textbf x\)</span> at step <span class="math notranslate nohighlight">\(k+1\)</span>, <span class="math notranslate nohighlight">\(\pi_{k+1}(\textbf x)\)</span>, has two contributions: First, from moves that started in other points <span class="math notranslate nohighlight">\(\textbf y\)</span>, proposed <span class="math notranslate nohighlight">\(\textbf x\)</span> as a new configuration and were accepted. The term is given by the probability to be at <span class="math notranslate nohighlight">\(\textbf y\)</span> in the previous step, <span class="math notranslate nohighlight">\(\pi_{k}(\textbf y)\)</span>, times the probability that <span class="math notranslate nohighlight">\(\textbf x\)</span> will be proposed as the next move if we are at <span class="math notranslate nohighlight">\(\textbf y\)</span>, <span class="math notranslate nohighlight">\(T(\textbf x | \textbf y)\)</span>, times the probability that the move will be accepted, <span class="math notranslate nohighlight">\(A(\textbf x | \textbf y)\)</span>. The final expression for this first contribution is then given by integrating over all the possible initial <span class="math notranslate nohighlight">\(\textbf y\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\int A(\textbf x | \textbf y) T(\textbf x | \textbf y) \pi_{k}(\textbf y) \mathrm{d} \textbf y.\]</div>
 <p>The second contribution includes moves that started at <span class="math notranslate nohighlight">\(\textbf x\)</span>, proposed some new step <span class="math notranslate nohighlight">\(\textbf y\)</span>, and were rejected. This term is equal to the probability to be at <span class="math notranslate nohighlight">\(\textbf x\)</span> in the previous step, <span class="math notranslate nohighlight">\(\pi_{k}(\textbf x)\)</span>, time the probability that <span class="math notranslate nohighlight">\(\textbf y\)</span> will be proposed as the next step, <span class="math notranslate nohighlight">\(T(\textbf y | \textbf x)\)</span>, times the probability that the move will be rejected, <span class="math notranslate nohighlight">\(1 - A(\textbf y | \textbf x)\)</span>. The final expression is given by integrating over all possible moves <span class="math notranslate nohighlight">\(\textbf y\)</span>,</p>
