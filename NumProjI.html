@@ -1,274 +1,554 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Numerical project I - MD simulation (NVE) &#8212; Molecular Simulations - 0351-4057</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'NumProjI';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Monte Carlo" href="MonteCarlo.html" />
-    <link rel="prev" title="Prerequisites for numerical projects" href="ProjPrerequisites.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+    <link rel="prev" title="Molecular dynamics" href="MolecularDynamics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/tau_logo.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Molecular Simulations - 0351-4057</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Introduction
-  </a>
- </li>
+    
+    
+    <img src="_static/tau_logo.jpg" class="logo__image only-light" alt="Molecular Simulations - 0351-4057 - Home"/>
+    <script>document.write(`<img src="_static/tau_logo.jpg" class="logo__image only-dark" alt="Molecular Simulations - 0351-4057 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ClassicalMech.html">Classical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StatMech.html">Basic statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MolecularDynamics.html">Molecular dynamics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Numerical project I - MD simulation (NVE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MonteCarlo.html">Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NumProjII.html">Numerical Project II - MC simulation (NVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NumProjIII.html">Final project</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ClassicalMech.html">
-   Classical mechanics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="StatMech.html">
-   Basic statistical mechanics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MolecularDynamics.html">
-   Molecular dynamics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ProjPrerequisites.html">
-   Prerequisites for numerical projects
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Numerical project I - MD simulation (NVE)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MonteCarlo.html">
-   Monte Carlo
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NumProjII.html">
-   Numerical Project II - MC simulation (NVT)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="NumProjIII.html">
-   Final project
-  </a>
- </li>
-</ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/BarakHirshberg/book/master/v2/gh/BarakHirshberg/MolecularSimulations/master?urlpath=tree/NumProjI.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/BarakHirshberg/MolecularSimulations/blob/master/NumProjI.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/BarakHirshberg/MolecularSimulations" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/BarakHirshberg/MolecularSimulations/issues/new?title=Issue%20on%20page%20%2FNumProjI.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
 
-          
 
 
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/NumProjI.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Numerical project I - MD simulation (NVE)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/NumProjI.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/BarakHirshberg/MolecularSimulations/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/BarakHirshberg/MolecularSimulations//issues/new?title=Issue%20on%20page%20%2FNumProjI.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/BarakHirshberg/book/master/v2/gh/BarakHirshberg/MolecularSimulations/master?urlpath=tree/NumProjI.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/BarakHirshberg/MolecularSimulations/blob/master/NumProjI.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-        </div>
-    </div>
-</div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Numerical project I - MD simulation (NVE)</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                    </div>
-                </div>
+            <div>
+                <h2> Contents </h2>
             </div>
-            
-              <div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-anaconda-python-distribution">Installing the Anaconda Python distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linux-terminal">The Linux terminal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-basics">GitHub basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-project">The project</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="numerical-project-i-md-simulation-nve">
-<h1>Numerical project I - MD simulation (NVE)<a class="headerlink" href="#numerical-project-i-md-simulation-nve" title="Permalink to this headline">¶</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="numerical-project-i-md-simulation-nve">
+<h1>Numerical project I - MD simulation (NVE)<a class="headerlink" href="#numerical-project-i-md-simulation-nve" title="Link to this heading">#</a></h1>
 <p>Congratulations! You have mastered important concepts in classical and statistical mechanics, and learned about the nuts and bolts of MD simulations.
 You are now ready for your first project - writing your very own MD code. How exciting!
-The project will be written in Python, a highly popular coding language, extremely relevant for both scientific research and the current job market.</p>
-<p>If you followed correctly the Prerequisites instructions, your first assignment repository should be cloned ub your personal GitHub.
-You do not need to edit the <code class="docutils literal notranslate"><span class="pre">Ar_init_super.xyz</span></code>, <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code>, or <code class="docutils literal notranslate"><span class="pre">README.md</span></code> files. You will only need to edit the <code class="docutils literal notranslate"><span class="pre">run.py</span></code> and <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> files. They both have very detailed instructions inside. For example, <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> reads:</p>
+The project will be written in Python, a highly popular coding language, extremely relevant for both scientific research and the current job market.
+To start, we need to set up our development environment. Please follow the instructions below.</p>
+<section id="installing-the-anaconda-python-distribution">
+<h2>Installing the Anaconda Python distribution<a class="headerlink" href="#installing-the-anaconda-python-distribution" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> is a very popular Python distribution, aimed for scientific computing. It bundles several useful packages, such as <a class="reference external" href="https://numpy.org/">Numpy</a>, <a class="reference external" href="https://scipy.org/">SciPy</a>, and <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>. If you need to refresh your knowledge in Python, please see the <a class="reference external" href="https://scipy-lectures.org/">SciPy lecture notes</a>.</p>
+<p>Installing Anaconda is free, just follow these <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">instructions</a> for Linux, Mac, or Windows operating systems. Anaconda also includes a light Integrated Development Environment (IDE) called <a class="reference external" href="https://www.spyder-ide.org/">Spyder</a>. If you already know and like <a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a> or <a class="reference external" href="https://code.visualstudio.com/">Vistual Studio code</a> instead, go ahead and use whatever IDE you like. I cannot, however, help you debug your setup unless you use Spyder and Anaconda. You can also use any text editor and just run your code through the terminal. But an IDE gives convenient access to powerful tools for modern programming including debugging, profiling, syntax highlighting and editing, etc.</p>
+</section>
+<section id="the-linux-terminal">
+<h2>The Linux terminal<a class="headerlink" href="#the-linux-terminal" title="Link to this heading">#</a></h2>
+<p>If you have never used it, I highly recommend getting familiar with it. It was designed for programming.
+You can see for example this basic <a class="reference external" href="https://ubuntu.com/tutorials/command-line-for-beginners#1-overview">tutorial</a> by Ubuntu, one of the most popular Linux distributions.
+The operating system of your computer does not have to be Linux to use the Linux terminal.
+Mac OS has a terminal, and so does Windows. On Mac, just open the terminal. To enable the Windows Subsystem for Linux (WSL), see the following <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install">instructions</a>.
+You do not have to use the Linux terminal if you do not want to. All that is required to complete the project is an Anaconda installation and GitHub Desktop (see below).</p>
+</section>
+<section id="github-basics">
+<h2>GitHub basics<a class="headerlink" href="#github-basics" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/">GitHub</a> is a code hosting platform for software development. It relies on an open-source version control system called <a class="reference external" href="https://git-scm.com/">Git</a>. De facto, all software development projects today use some kind of version control. It allows us to develop the code together as a team, keep track of changes, suggest new features, and merge everything in a simple workflow.</p>
+<p>The basic object is a <em>repository</em> (“repo”), which stores all of the source code for the project.
+You can create your repo, or <em>clone</em> (GitHub jargon for copying) an existing repo.
+You can also <em>fork</em> a repo, which is similar to cloning, but you typically do it when you want to contribute your changes back to the original repo, and not just develop your version of it.</p>
+<p>Each repository can have several <em>branches</em>. The default one is called <em>main</em>.
+When you want to implement a new feature, the typical workflow is to clone the repository and create a new branch dedicated to your feature. In this way, you will not change the main version of the code while you work. Next, you develop the new feature by adding or editing the source code. Every time you would like to save a checkpoint that you could return to if needed, you should <em>commit</em> your changes and <em>push</em> them to update the remote repository. When you want to discuss your changes and consult with your team, you can create a <em>pull request</em> on GitHub.
+Once you are done with all changes, you need to <em>merge</em> your branch back with the original main branch. This is done by closing the pull request and merging.</p>
+<p>The first “assignment” is an exercise, developed by GitHub, to let you practice this workflow. It will explain everything I mentioned in brief and more.
+To do it, first choose whether you will be working with the terminal or graphical user interface (GUI).</p>
+<p>Prerequisites for all:</p>
+<ul class="simple">
+<li><p>Create a free account on <a class="reference external" href="https://github.com/">GitHub</a>.</p></li>
+</ul>
+<p>Prerequisites for GUI users:</p>
+<ul class="simple">
+<li><p>Install <a class="reference external" href="https://desktop.github.com/">GitHub Desktop</a> to clone, commit and push to repo.</p></li>
+<li><p>Install <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> and work with Spyder to edit files.</p></li>
+</ul>
+<p>Prerequisites for terminal users:</p>
+<ul class="simple">
+<li><p>Windows: Install WSL. Follow these <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install">instructions</a>.</p></li>
+<li><p>All OS: Install Anaconda with Spyder through the terminal, see instructions <a class="reference external" href="https://www.anaconda.com/products/individual">here</a>. You can use the following command to fetch the installer for Linux directly from the terminal:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">repo</span><span class="o">.</span><span class="n">anaconda</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">archive</span><span class="o">/</span><span class="n">Anaconda3</span><span class="o">-</span><span class="mf">2021.11</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">.</span><span class="n">sh</span>
+
+</pre></div>
+</div>
+<p>Both:</p>
+<ul class="simple">
+<li><p>Click the invitation link from GitHub Classroom. This creates your personal Git &amp; GitHub Fundamentals repo. Currently, it only has one text file <code class="docutils literal notranslate"><span class="pre">README.md</span></code> which explains the GitHub workflow. Read it carefully, follow the links as needed, and make sure your understand before proceeding.</p></li>
+<li><p>Clone the repo locally to your computer. The changes you will make on your local copy will not affect the remote one until you push your changes (see the last step below).</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span>  <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Molecular</span><span class="o">-</span><span class="n">Simulations</span><span class="o">-</span><span class="n">Course</span><span class="o">/</span><span class="n">git</span><span class="o">-</span><span class="n">github</span><span class="o">-</span><span class="n">fundamentals</span><span class="o">-</span><span class="n">YOURNAME</span><span class="o">.</span><span class="n">git</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Create your branch and switch to working in it using the command</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">feature</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Create a new Markdown file <code class="docutils literal notranslate"><span class="pre">Hello_world.md</span></code> using Spyder and add to it some text.</p></li>
+<li><p>Commit your changes.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="n">Hello_world</span><span class="o">.</span><span class="n">md</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Push your changes to the remote repo.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Go back to GitHub to your repo and open a pull request, assign Barak as a reviewer. I will give you feedback and make comments. If you are done, I will close the pull request and merge your branch feature into your main branch. Then, I will also delete the feature branch, which is no longer needed.</p></li>
+</ul>
+<p>All of the steps above can also be done using the GUI of GitHub desktop instead.</p>
+</section>
+<section id="the-project">
+<h2>The project<a class="headerlink" href="#the-project" title="Link to this heading">#</a></h2>
+<p>Your first real assignment (i.e., one that will be graded) is now also available on the GitHub Classroom.
+Use the link to create your own repository. You do not need to edit the <code class="docutils literal notranslate"><span class="pre">Ar_init_super.xyz</span></code>, <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code>, or <code class="docutils literal notranslate"><span class="pre">README.md</span></code> files. You will only need to edit the <code class="docutils literal notranslate"><span class="pre">run.py</span></code> and <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> files. They both have very detailed instructions inside. For example, <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> reads:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#sim.py
 
 WELCOME TO YOU FIRST PROJECT! THIS BIT OF TEXT IS CALLED A DOCSTRING.
@@ -343,11 +623,10 @@ I have created a class called Simulation which defines the methods and data memb
 <ul class="simple">
 <li><p>Implement the methods for class Simulation, based on the material we have covered.</p></li>
 <li><p>Implement a several short scripts <code class="docutils literal notranslate"><span class="pre">run.py</span></code> to call the methods you have implemented and run a simulation.</p></li>
-<li><p>In methods containing the keyword <code class="docutils literal notranslate"><span class="pre">Example</span></code>, write doctest examples proving your methods are correct and well implemented.</p></li>
 </ul>
 <p>The methods you will have to implement include, for example, sampleMB() which samples initial positions from the Maxwell-Boltzmann distribution. How do I know? Because in <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> you will see its definition, with a description of what needs to be implemented and the place to write your code:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">sampleMB</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">removeCM</span><span class="o">=</span><span class="kc">True</span> <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        THIS FUNCTIONS SAMPLES INITIAL MOMENTA FROM THE MB DISTRIBUTION.</span>
 <span class="sd">        IT ALSO REMOVES THE COM MOMENTA, IF REQUESTED.</span>
 
@@ -362,26 +641,6 @@ I have created a class called Simulation which defines the methods and data memb
 <span class="sd">        -------</span>
 <span class="sd">        None. Sets the value of self.p.</span>
 
-<span class="sd">        Tests</span>
-<span class="sd">        -----</span>
-
-<span class="sd">        IMPLEMENT THE FOLLOWING TESTS BELOW THE WORD Example:</span>
-
-<span class="sd">        1. THE MEAN MOMENTUM OF EACH COORDINATE SHOULD BE VERY CLOSE TO ZERO</span>
-<span class="sd">        2. THE STD SHOULD BE CLOSE TO SQRT(m*Kb*T)</span>
-<span class="sd">        NOTE: IN THIS CASE, WE SHOW A TEST FOR THE MEAN, WRITE THE OTHERS YOURSELF.</span>
-<span class="sd">        </span>
-<span class="sd">        Example: </span>
-<span class="sd">        &gt;&gt;&gt; temp = 300  # temperature in K, using default values for mass and Natoms. </span>
-<span class="sd">        &gt;&gt;&gt; mysim = Simulation( dt=0.1E-15, L=11.3E-10, ftype=&quot;LJ&quot; )</span>
-<span class="sd">        &gt;&gt;&gt; mysim.sampleMB(temp)</span>
-<span class="sd">        &gt;&gt;&gt; mean_momentum = np.mean(mysim.p, axis=0)</span>
-<span class="sd">        &gt;&gt;&gt; np.linalg.norm(mean_momentum[0]) &lt; 1e-20  </span>
-<span class="sd">        True</span>
-<span class="sd">        &gt;&gt;&gt; np.linalg.norm(mean_momentum[1]) &lt; 1e-20</span>
-<span class="sd">        True</span>
-<span class="sd">        &gt;&gt;&gt; np.linalg.norm(mean_momentum[2]) &lt; 1e-20</span>
-<span class="sd">        True</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         
         <span class="c1">################################################################</span>
@@ -391,7 +650,8 @@ I have created a class called Simulation which defines the methods and data memb
 </div>
 <p>I highly recommend implementing one method at a time and testing that it works by running <code class="docutils literal notranslate"><span class="pre">run.py</span></code> that calls it, before moving on to the next method. Do not forget to commit and push along the way to create checkpoints you can go back to if something goes wrong.</p>
 <p>The repo also has a file called <code class="docutils literal notranslate"><span class="pre">ReportProjI.ipynb</span></code>. This is a Jupyter Notebook which you can open by running <a class="reference external" href="https://jupyter.org/">JupyterLab</a> or <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> from Anaconda. In it, you will find the definitions and details of the specific simulations you have to run. It also contains questions that you need to answer and figures you need to plot. Create a separate run script for each one of the sections in the notebook (<code class="docutils literal notranslate"><span class="pre">run_harmonic.py</span></code> and <code class="docutils literal notranslate"><span class="pre">run_Ar.py</span></code>), run the simulations, and answer the questions. Submit your report by commiting and pushing the file to your repo.</p>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -405,7 +665,7 @@ I have created a class called Simulation which defines the methods and data memb
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -413,44 +673,106 @@ I have created a class called Simulation which defines the methods and data memb
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="ProjPrerequisites.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Prerequisites for numerical projects</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="MolecularDynamics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Molecular dynamics</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="MonteCarlo.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="MonteCarlo.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Monte Carlo</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By Dr. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 6997801, Israel.<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-anaconda-python-distribution">Installing the Anaconda Python distribution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linux-terminal">The Linux terminal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-basics">GitHub basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-project">The project</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Dr. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 6997801, Israel.
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
