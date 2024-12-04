@@ -334,8 +334,8 @@ A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t
 <p>It was <a class="reference external" href="https://en.wikipedia.org/wiki/Josiah_Willard_Gibbs">J.W. Gibbs</a> that realized that thermodynamic macroscopic properties are not very sensitive to the details of the specific microscopic state of the system. Consider for example the temperature. You have learned in a preceding statistical thermodynamics course that each momentum degree of freedom contributes <span class="math notranslate nohighlight">\(\frac{1}{2} k_B T \)</span> to the average thermal kinetic energy (the <a class="reference external" href="https://en.wikipedia.org/wiki/Equipartition_theorem">equipartition theorem</a>). Thus, the temperature can be obtained from the average kinetic energy of the system. But there are many ways to choose the momenta of the particles such that the average kinetic energy is the same. In other words, the temperature is insensitive to the specific microstate of the system, as long as it gives the same average kinetic energy.</p>
 <p>Following this reasoning, and to make progress in connecting microscopic properties with thermodynamic observables, Gibbs introduced the concept of an <strong>ensemble</strong>. An ensemble is a collection of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> systems that obey the same microscopic interactions and are characterized by a common set of three thermodynamic properties, such as the number of particles <span class="math notranslate nohighlight">\(N\)</span>, the volume <span class="math notranslate nohighlight">\(V\)</span>, the total energy <span class="math notranslate nohighlight">\(E\)</span>, the temperature <span class="math notranslate nohighlight">\(T\)</span>, the pressure <span class="math notranslate nohighlight">\(P\)</span> or the chemical potential <span class="math notranslate nohighlight">\(\mu\)</span>. Each system in the ensemble evolves in time from different initial conditions and is characterized by a unique microscopic state defined by its path in phase space, <span class="math notranslate nohighlight">\(\textbf{x}(t)\)</span>, defined in Eq. <a class="reference internal" href="ClassicalMech.html#equation-x-phase-space">(7)</a>. The entire ensemble can then be represented as a “cloud” of points in phase space.</p>
 <p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfill the properties:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cd2d26b2-aae2-4eb7-af9e-a4e373fb281b">
-<span class="eqno">(23)<a class="headerlink" href="#equation-cd2d26b2-aae2-4eb7-af9e-a4e373fb281b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f1c1ee83-2792-4e2d-b0e2-db47558c9b95">
+<span class="eqno">(23)<a class="headerlink" href="#equation-f1c1ee83-2792-4e2d-b0e2-db47558c9b95" title="Permalink to this equation">¶</a></span>\[\begin{align}
  \int f(\textbf{x},t) \, \mathrm{d} \textbf{x} &amp;= 1, &amp; f(\textbf{x},t) &amp; \ge 0.
 \end{align}\]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span> represents the probability that a system from the ensemble is in the volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> (or, alternatively, the fraction of systems therein).</p>
@@ -362,7 +362,8 @@ total energy in the canonical ensemble.</p>
 <div class="math notranslate nohighlight">
 \[ \mathcal{H} = \frac{p^2}{2m} + \frac{1}{2} m \omega_0^2 q^2 \]</div>
 <p>After doing some Gaussian integrals, we get:</p>
-<p>\langle \mathcal{H} \rangle = \beta^{-1}.</p>
+<div class="math notranslate nohighlight">
+\[ \langle \mathcal{H} \rangle = \beta^{-1} \]</div>
 </div>
 </div>
 <div class="section" id="liouville-equation">
@@ -457,8 +458,8 @@ total energy in the canonical ensemble.</p>
 \mathrm{d} \textbf{x}_t = \mathcal{J}(\textbf{x}_t; \textbf{x}_0) \mathrm{d} \textbf{x}_0,
 \]</div>
 <p>where the <strong>Jacobian</strong> <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> is defined as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c0e6e2f-4f29-4167-9a3b-86e2a1321ce3">
-<span class="eqno">(33)<a class="headerlink" href="#equation-0c0e6e2f-4f29-4167-9a3b-86e2a1321ce3" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a4ecb7ae-36d2-4808-b261-da7298ca36d4">
+<span class="eqno">(33)<a class="headerlink" href="#equation-a4ecb7ae-36d2-4808-b261-da7298ca36d4" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mathcal{J}(\textbf{x}_t; \textbf{x}_0) &amp;= \det{J}, &amp; J_{kl} &amp;= \frac{\partial x_t^k}{\partial x_0^l}.
 \end{align}\]</div>
 <p>Then, we use a property of the determinant</p>
@@ -472,8 +473,8 @@ total energy in the canonical ensemble.</p>
 \frac{\mathrm{d}}{\mathrm{d}t} \mathcal{J}(\textbf{x}_t;\textbf{x}_0) = \frac{\mathrm{d}}{\mathrm{d}t} e^{\mathrm{Tr} \left[ \ln{J} \right] } = e^{\mathrm{Tr} \left[ \ln{J} \right]} \mathrm{Tr} [\frac{\mathrm{d J}}{\mathrm{d}t} J^{-1}] = \mathcal{J}(\textbf{x}_t;\textbf{x}_0) \sum_{k,l} \left( \frac{\mathrm{d}J}{\mathrm{d}t} \right)_{kl} \left( J^{-1} \right)_{lk}.
 \]</div>
 <p>The elements of the matrices <span class="math notranslate nohighlight">\(\frac{\mathrm{d}J}{\mathrm{d}t}\)</span> and <span class="math notranslate nohighlight">\(J^{-1}\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-41c180ba-7101-4917-bc37-14c1c43010a1">
-<span class="eqno">(34)<a class="headerlink" href="#equation-41c180ba-7101-4917-bc37-14c1c43010a1" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fa3fc03b-0145-4137-a923-ce32540f3a30">
+<span class="eqno">(34)<a class="headerlink" href="#equation-fa3fc03b-0145-4137-a923-ce32540f3a30" title="Permalink to this equation">¶</a></span>\[\begin{align}
 
 \left( \frac{\mathrm{d}J}{\mathrm{d}t} \right)_{kl} &amp;= \frac{\partial \dot{x}_t^k}{\partial x_0^l} &amp; \left( J^{-1} \right)_{lk} = \frac{\partial x_0^l}{\partial x_t^k},
 
