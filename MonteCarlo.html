@@ -455,12 +455,17 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta U(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#2D quadrature</span>
 <span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">integrate</span><span class="o">.</span><span class="n">nquad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">]],</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tstart</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">nquad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">]],</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tend</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time in seconds: &quot;</span><span class="p">,</span> <span class="n">tend</span><span class="o">-</span><span class="n">tstart</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.7854453780175082, 6.043574189984469e-06, {&#39;neval&#39;: 1888215})
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.7854453780175082, 6.043574189984469e-06, {&#39;neval&#39;: 1888215})
+Time in seconds:  0.7256650924682617
 </pre></div>
 </div>
 </div>
@@ -489,18 +494,23 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta U(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 
 <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
 
+<span class="n">tstart</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
 <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 <span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
 
     <span class="c1">#generate random samples</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">Nsamples</span><span class="p">))</span>
-    
+
     <span class="c1">#count how many are inside the n-ball</span>
     <span class="n">inside</span> <span class="o">=</span> <span class="p">((</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="n">V0</span> <span class="o">=</span> <span class="n">R</span><span class="o">**</span><span class="n">d</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">inside</span><span class="o">/</span><span class="n">Nsamples</span><span class="o">*</span><span class="n">V0</span><span class="p">)</span>
-    
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="p">)</span> 
+
+<span class="n">tend</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time in seconds: &quot;</span><span class="p">,</span> <span class="n">tend</span><span class="o">-</span><span class="n">tstart</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BSE = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">))</span> <span class="p">)</span>
 
 <span class="c1">#volume of d-ball in first quadrant</span>
@@ -512,8 +522,9 @@ A_M = \frac{ \sum_{j=1}^{N_g} e^{-\beta U(\textbf{r}_j)}\, a(\textbf{r}_j)}{ \su
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.7857092923494083
-BSE = 0.00016751888217729133
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time in seconds:  0.025859832763671875
+Mean = 0.7857426571056338
+BSE = 0.00031912324390748957
 Expected = 0.7853981633974483
 neval = 1888220
 </pre></div>
@@ -550,19 +561,24 @@ neval = 1888220
 <span class="n">M</span><span class="o">=</span><span class="mi">10</span>
 
 <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
-    
+
+<span class="n">tstart</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
 <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
 <span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
 
     <span class="c1">#generate random samples</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">R</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">Nsamples</span><span class="p">))</span>
-    
+
     <span class="c1">#count how many are inside the n-ball</span>
     <span class="n">inside</span> <span class="o">=</span> <span class="p">((</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">R</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="n">V0</span> <span class="o">=</span> <span class="n">R</span><span class="o">**</span><span class="n">d</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">inside</span><span class="o">/</span><span class="n">Nsamples</span><span class="o">*</span><span class="n">V0</span><span class="p">)</span>
-    
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="p">)</span> 
+
+<span class="n">tend</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time in seconds: &quot;</span><span class="p">,</span> <span class="n">tend</span><span class="o">-</span><span class="n">tstart</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;BSE = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">))</span> <span class="p">)</span>
 
 <span class="c1">#volume of d-ball in first quadrant</span>
@@ -574,8 +590,9 @@ neval = 1888220
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 0.5236000046501041
-BSE = 1.139280597847283e-05
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time in seconds:  47.41565942764282
+Mean = 0.5236229513596877
+BSE = 5.98265909179028e-06
 Expected = 0.5235987755982989
 neval = 1839958790
 </pre></div>
@@ -602,6 +619,62 @@ A_M = \frac{1}{M} \sum_{j=1}^{M} a(\textbf{x}_j).
 <p>In other words, the CLT guarantees that the arithmetic mean of the samples converges to the ensemble average of <span class="math notranslate nohighlight">\(A\)</span> in the limit <span class="math notranslate nohighlight">\(M \to \infty\)</span>, because its variance from the mean decays like <span class="math notranslate nohighlight">\(M^{-1}\)</span>. Note that the CLT does not assume a specific form of the distribution <span class="math notranslate nohighlight">\(f(\textbf{x})\)</span>. This is very powerful, it means that even when our sampling algorithm (dynamic or not) provides samples from a nonuniform distribution, the arithmetic mean will still converge to the true expectation value. An important outcome is that we can use the simple arithmetic mean of the samples to calculate expectation values for the canonical ensemble, just like in the NVE ensemble, as long as we can generate samples from the desired distribution.</p>
 <p>However, that is exactly where things get tricky! We know how to generate random samples only from relatively simple probability distributions (Gaussian, uniform, exponential, see others <a class="reference external" href="https://numpy.org/doc/1.16/reference/routines.random.html">here</a>).</p>
 <p>There are two solutions to this problem: 1) Use a different distribution, <span class="math notranslate nohighlight">\(h(\textbf x)\)</span>, that is simple enough to be sampled directly and resembles <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> better than a uniform distribution. 2) Generate samples consecutively (and not altogether at random as we did above) in a process that is sure to converge to the distribution <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>. The first solution is called <strong>importance sampling</strong>, which we describe first. The second solution, called the <strong>Metropolis Monte Carlo</strong> or <strong>Markov Chain Monte Carlo</strong>, will be discussed in the next section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters</span>
+<span class="n">num_samples</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]</span>
+<span class="n">num_experiments</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="c1"># Distribution to sample from (e.g., exponential)</span>
+<span class="n">distribution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span>
+
+<span class="c1"># Calculate the true mean of the distribution</span>
+<span class="n">true_mean</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># For exponential distribution with lambda=1</span>
+
+<span class="c1"># Store means for each experiment and sample size</span>
+<span class="n">means</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">num_samples</span><span class="p">}</span>
+
+<span class="c1"># Perform experiments</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">num_samples</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_experiments</span><span class="p">):</span>
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">distribution</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">means</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">samples</span><span class="p">))</span>
+
+<span class="c1"># Plot histograms of means</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">num_samples</span><span class="p">:</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">means</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;N = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean for N = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">means</span><span class="p">[</span><span class="n">n</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BSE for N = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">means</span><span class="p">[</span><span class="n">n</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expected BSE for N = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">true_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;True Mean&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sample Mean&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Central Limit Theorem Demonstration&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean for N = 10: 1.006096186836684
+BSE for N = 10: 0.3148699260865794
+Expected BSE for N = 10: 0.31622776601683794
+Mean for N = 100: 1.0013512354176881
+BSE for N = 100: 0.10088396181511493
+Expected BSE for N = 100: 0.1
+Mean for N = 1000: 0.9992558310443068
+BSE for N = 1000: 0.03202516565645727
+Expected BSE for N = 1000: 0.03162277660168379
+Mean for N = 10000: 0.999843513639235
+BSE for N = 10000: 0.01032490997442112
+Expected BSE for N = 10000: 0.01
+</pre></div>
+</div>
+<img alt="_images/MonteCarlo_9_1.png" src="_images/MonteCarlo_9_1.png" />
+</div>
+</div>
 </div>
 <div class="section" id="importance-sampling">
 <h2>Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h2>
@@ -665,7 +738,7 @@ KL divergence uniform = 4.133335709606822
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;f(x)&#39;)
 </pre></div>
 </div>
-<img alt="_images/MonteCarlo_9_2.png" src="_images/MonteCarlo_9_2.png" />
+<img alt="_images/MonteCarlo_11_2.png" src="_images/MonteCarlo_11_2.png" />
 </div>
 </div>
 <p>How do we sample from <span class="math notranslate nohighlight">\(h(x)\)</span>? If we have <span class="math notranslate nohighlight">\(\xi\)</span>, which is sampled from a uniform distribution between <span class="math notranslate nohighlight">\([0,1]\)</span>, other distributions <span class="math notranslate nohighlight">\(h(x)\)</span> in the same range can be obtained <em>if</em> we can solve the inverse equation</p>
@@ -755,7 +828,7 @@ expected = 0.632120558829
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Estimator&#39;)
 </pre></div>
 </div>
-<img alt="_images/MonteCarlo_12_2.png" src="_images/MonteCarlo_12_2.png" />
+<img alt="_images/MonteCarlo_14_2.png" src="_images/MonteCarlo_14_2.png" />
 </div>
 </div>
 <p>Finally, we note that importance sampling is useful not only when we do not know how to sample <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>. For example, when <span class="math notranslate nohighlight">\(a(\textbf x)\)</span> is highly oscillatory, with both negative and positive contributions, such that its expectation value results from the near-cancellation of the positive and negative terms. We do not go into detail here, but a judicious choice of <span class="math notranslate nohighlight">\(h(\textbf x)\)</span> could significantly improve convergence in such difficult cases.</p>
@@ -890,8 +963,8 @@ A(\textbf x | \textbf y) = \min \left[ 1, e^{-\beta \left( U(\textbf x) - U(\tex
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.59865
 </pre></div>
 </div>
-<img alt="_images/MonteCarlo_16_1.png" src="_images/MonteCarlo_16_1.png" />
-<img alt="_images/MonteCarlo_16_2.png" src="_images/MonteCarlo_16_2.png" />
+<img alt="_images/MonteCarlo_18_1.png" src="_images/MonteCarlo_18_1.png" />
+<img alt="_images/MonteCarlo_18_2.png" src="_images/MonteCarlo_18_2.png" />
 </div>
 </div>
 </div>
