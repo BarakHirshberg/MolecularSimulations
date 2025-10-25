@@ -29,7 +29,7 @@ These notes are based on the authoritative book by Professor Mark E.
 ```{admonition} Bonus credit
 :class: tip
 This course will also feature a competition, how exciting!
-While you read the notes, will undoubtedly find typos, errors and mistakes.
+While you read the notes, you will undoubtedly find typos, errors and mistakes.
 You can submit corrections to the notes by opening a pull request on Github (more about this later).
 The person that will submit the most approved pull requests will get a 5-points bonus to the final grade.
 Hint: find one deliberate typo in this page to practice on.
