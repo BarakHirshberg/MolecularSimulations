@@ -36,6 +36,5 @@ Hint: find one deliberate typo in this page to practice on.
 ## References
 
 ```{bibliography}
-:filter: docname in docnames
 :style: unsrt
 ```
