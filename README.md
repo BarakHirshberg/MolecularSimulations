@@ -22,10 +22,6 @@ The materials are based on the authoritative book by Professor Mark E. Tuckerman
 
 We welcome contributions from students! This is a great way to improve the course materials and earn bonus credit.
 
-### Bonus Credit Opportunity
-
-The student who submits the most approved pull requests will receive a **5-point bonus** to their final grade!
-
 ### What to Look For
 
 While reading the notes, look for:
