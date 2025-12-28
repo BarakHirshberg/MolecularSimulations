@@ -5,48 +5,61 @@ title: Molecular Simulations - 0351-4057
 author: Dr. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 6997801, Israel.
 logo: tau_logo.jpg
 
-# Force re-execution of notebooks on each build.
+# Do not execute notebooks - use existing outputs from saved notebooks.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  timeout: 1000
-  execute_notebooks: cache
+  execute_notebooks: "off"
 
 # Define the name of the latex output file for PDF builds
 latex:
-  latex_documents:
-    targetname: book.tex
+    latex_documents:
+        targetname: book.tex
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
-  - references.bib
+    - references.bib
 
 # Information about where the book exists on the web
 repository:
   url: https://github.com/BarakHirshberg/MolecularSimulations/  # Online location of your book
-  branch: master  # Which branch of the repository should be used when creating links (optional)
-  
+  branch: main  # Which branch of the repository should be used when creating links (optional)
+
 #Launch on colab
 launch_buttons:
-  notebook_interface: "classic" #"jupyterlab"  # or "classic"
-  colab_url: "https://colab.research.google.com"
-  binderhub_url: "https://mybinder.org/v2/gh/BarakHirshberg/book/master"  # The URL for your BinderHub (e.g., https://mybinder.org)
-  thebe: true
+    notebook_interface: "classic" #"jupyterlab"  # or "classic"
+    colab_url: "https://colab.research.google.com"
+    binderhub_url: "https://mybinder.org/v2/gh/BarakHirshberg/MolecularSimulations/main"  # The URL for your BinderHub (e.g., https://mybinder.org)
+    thebe: true
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  use_issues_button: true
-  use_repository_button: true
+    use_issues_button: true
+    use_repository_button: true
 
-#use MathJax 3
+#use MathJax 3 and configure Sphinx extensions
 sphinx:
   config:   
     mathjax_path: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    
+    # Exclude virtual environment and other build artifacts
+    exclude_patterns:
+      - "jupyterbook-env/**"
+      - "venv/**"
+      - "env/**"
+      - ".venv/**"
+      - "**/__pycache__/**"
+    # Suppress warnings about duplicate labels (equations/sections defined multiple times)
+    suppress_warnings:
+      - "myst.duplicate_label"
+      - "myst.header"
+      - "image.not_readable"
+    # Suppress warnings about documents not in toctree (intermediate build files)
+    nitpicky: false
+
 #use Latex-style math with the amsmath MyST extension
 parse:
-  myst_enable_extensions:
-    # don't forget to list any other extensions you want enabled,
-    # including those that are enabled by default!
-    - amsmath
-    - dollarmath
+    myst_enable_extensions:
+        # don't forget to list any other extensions you want enabled,
+        # including those that are enabled by default!
+        - amsmath
+        - dollarmath

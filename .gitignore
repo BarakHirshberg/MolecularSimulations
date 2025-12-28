@@ -1,3 +1,10 @@
 _build/*
 .ipynb_checkpoints/*
 *__pycache*
+
+# Virtual environments
+jupyterbook-env/
+venv/
+env/
+ENV/
+.venv/

@@ -4,12 +4,11 @@
 format: jb-book
 root: intro
 chapters:
-- file: ClassicalMech
-- file: StatMech
-- file: MolecularDynamics
-- file: ProjPrerequisites
-- file: NumProjI
-- file: MonteCarlo
-- file: NumProjII
-- file: NumProjIII
-
+    - file: ClassicalMech
+    - file: StatMech
+    - file: MolecularDynamics
+    - file: ProjPrerequisites
+    - file: NumProjI
+    - file: MonteCarlo
+    - file: NumProjII
+    - file: NumProjIII
