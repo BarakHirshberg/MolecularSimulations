@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Molecular Simulations - 0351-4057
-author: Dr. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 6997801, Israel.
+author: Prof. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 6997801, Israel.
 logo: tau_logo.jpg
 
 # Do not execute notebooks - use existing outputs from saved notebooks.
