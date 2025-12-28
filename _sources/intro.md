@@ -1,4 +1,3 @@
-<!-- #region -->
 # Introduction
 
 ## Overview
@@ -34,7 +33,6 @@ You can submit corrections to the notes by opening a pull request on Github (mor
 The person that will submit the most approved pull requests will get a 5-points bonus to the final grade.
 Hint: find one deliberate typo in this page to practice on.
 ```
-<!-- #endregion -->
 
 ## References
 
