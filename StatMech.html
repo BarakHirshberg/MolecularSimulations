@@ -464,23 +464,23 @@ document.write(`
 A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t,
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\tau\)</span> is some long time scale compared to the molecular or atomic motion.</p>
-<p>But now we find ourselves at an impasse. It is entirely clear what rules determine the evolution of the system in time, but solving the equations analytically is impossible. A numerical solution is similarly unfeasible for <span class="math notranslate nohighlight">\(\sim 10^{23}\)</span> particles, as we discussed in <a class="reference internal" href="ClassicalMech.html#discussion"><span class="std std-ref">the previous chapter</span></a>.  The core idea of statistical mechanics is to provide an alternative approach to obtain macroscopic thermodynamic observables.</p>
+<p>But now we find ourselves at an impasse. It is entirely clear what rules determine the evolution of the system in time, but solving the equations analytically is impossible. A numerical solution is similarly unfeasible for <span class="math notranslate nohighlight">\(\sim 10^{23}\)</span> particles, as we discussed in <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/ClassicalMech.html#discussion"><span class="std std-ref">the previous chapter</span></a>.  The core idea of statistical mechanics is to provide an alternative approach to obtain macroscopic thermodynamic observables.</p>
 <section id="ensembles">
 <h2>Ensembles<a class="headerlink" href="#ensembles" title="Permalink to this heading">#</a></h2>
 <p>It was <a class="reference external" href="https://en.wikipedia.org/wiki/Josiah_Willard_Gibbs">J.W. Gibbs</a> that realized that thermodynamic macroscopic properties are not very sensitive to the details of the specific microscopic state of the system. Consider for example the temperature. You have learned in a preceding statistical thermodynamics course that each momentum degree of freedom contributes <span class="math notranslate nohighlight">\(\frac{1}{2} k_B T \)</span> to the average thermal kinetic energy (the <a class="reference external" href="https://en.wikipedia.org/wiki/Equipartition_theorem">equipartition theorem</a>). Thus, the temperature can be obtained from the average kinetic energy of the system. But there are many ways to choose the momenta of the particles such that the average kinetic energy is the same. In other words, the temperature is insensitive to the specific microstate of the system, as long as it gives the same average kinetic energy.</p>
-<p>Following this reasoning, and to make progress in connecting microscopic properties with thermodynamic observables, Gibbs introduced the concept of an <strong>ensemble</strong>. An ensemble is a collection of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> systems that obey the same microscopic interactions and are characterized by a common set of three thermodynamic properties, such as the number of particles <span class="math notranslate nohighlight">\(N\)</span>, the volume <span class="math notranslate nohighlight">\(V\)</span>, the total energy <span class="math notranslate nohighlight">\(E\)</span>, the temperature <span class="math notranslate nohighlight">\(T\)</span>, the pressure <span class="math notranslate nohighlight">\(P\)</span> or the chemical potential <span class="math notranslate nohighlight">\(\mu\)</span>. Each system in the ensemble evolves in time from different initial conditions and is characterized by a unique microscopic state defined by its path in phase space, <span class="math notranslate nohighlight">\(\textbf{x}(t)\)</span>, defined in Eq. <a class="reference internal" href="ClassicalMech.html#equation-x-phase-space">(7)</a>. The entire ensemble can then be represented as a “cloud” of points in phase space.</p>
+<p>Following this reasoning, and to make progress in connecting microscopic properties with thermodynamic observables, Gibbs introduced the concept of an <strong>ensemble</strong>. An ensemble is a collection of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> systems that obey the same microscopic interactions and are characterized by a common set of three thermodynamic properties, such as the number of particles <span class="math notranslate nohighlight">\(N\)</span>, the volume <span class="math notranslate nohighlight">\(V\)</span>, the total energy <span class="math notranslate nohighlight">\(E\)</span>, the temperature <span class="math notranslate nohighlight">\(T\)</span>, the pressure <span class="math notranslate nohighlight">\(P\)</span> or the chemical potential <span class="math notranslate nohighlight">\(\mu\)</span>. Each system in the ensemble evolves in time from different initial conditions and is characterized by a unique microscopic state defined by its path in phase space, <span class="math notranslate nohighlight">\(\textbf{x}(t)\)</span>, defined in Eq. <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/ClassicalMech.html#equation-x-phase-space">()</a>. The entire ensemble can then be represented as a “cloud” of points in phase space.</p>
 <p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfill the properties:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a4753251-9aff-42ef-b002-6c4232b4e8bf">
-<span class="eqno">(23)<a class="headerlink" href="#equation-a4753251-9aff-42ef-b002-6c4232b4e8bf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a2488168-6d45-4bb7-99f1-345ac3a9cc6d">
+<span class="eqno">(23)<a class="headerlink" href="#equation-a2488168-6d45-4bb7-99f1-345ac3a9cc6d" title="Permalink to this equation">#</a></span>\[\begin{align}
  \int f(\textbf{x},t) \, \mathrm{d} \textbf{x} &amp;= 1, &amp; f(\textbf{x},t) &amp; \ge 0.
 \end{align}\]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span> represents the probability that a system from the ensemble is in the volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> (or, alternatively, the fraction of systems therein).</p>
-<p>Gibbs then postulated that instead of using the time average of Eq. <a class="reference internal" href="#equation-time-av">(22)</a>, macroscopic properties can be obtained by freezing the ensemble at some time instance and taking the average of the desired observable over all the systems, called an <strong>ensemble average</strong>. More formally, the ensemble average, denoted as <span class="math notranslate nohighlight">\(\langle a \rangle_f\)</span>, is defined as</p>
+<p>Gibbs then postulated that instead of using the time average of Eq. <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html#equation-time-av">()</a>, macroscopic properties can be obtained by freezing the ensemble at some time instance and taking the average of the desired observable over all the systems, called an <strong>ensemble average</strong>. More formally, the ensemble average, denoted as <span class="math notranslate nohighlight">\(\langle a \rangle_f\)</span>, is defined as</p>
 <div class="math notranslate nohighlight" id="equation-ensemble-av">
 <span class="eqno">(24)<a class="headerlink" href="#equation-ensemble-av" title="Permalink to this equation">#</a></span>\[
 A(t) = \langle a \rangle_f = \int f(\textbf{x},t) a(\textbf{x}) \, \mathrm{d} \textbf{x}.
 \]</div>
-<p>Note the difference between Eqs. <a class="reference internal" href="#equation-time-av">(22)</a> and <a class="reference internal" href="#equation-ensemble-av">(24)</a>, the former is an integral over time while the latter is an integral over phase space. This distinction is important enough that we have used a bar to denote the time average but brackets to denote the ensemble average. Before moving forward, and discussing what we can do with ensemble averages, we will briefly investigate an important property of the phase space distribution function, described by the <strong>Liouville equation</strong>.</p>
+<p>Note the difference between Eqs. <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html#equation-time-av">()</a> and <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html#equation-ensemble-av">()</a>, the former is an integral over time while the latter is an integral over phase space. This distinction is important enough that we have used a bar to denote the time average but brackets to denote the ensemble average. Before moving forward, and discussing what we can do with ensemble averages, we will briefly investigate an important property of the phase space distribution function, described by the <strong>Liouville equation</strong>.</p>
 <div class="tip admonition">
 <p class="admonition-title">Active learning</p>
 <p>For a single particle of mass <span class="math notranslate nohighlight">\(m\)</span> in a harmonic trap of frequency <span class="math notranslate nohighlight">\(w_0\)</span>, calculate the equilibrium average of the
@@ -530,7 +530,7 @@ total energy in the canonical ensemble.</p>
 <span class="eqno">(27)<a class="headerlink" href="#equation-rate2" title="Permalink to this equation">#</a></span>\[
 \frac{\mathrm{d} \mathcal{N}_{\Omega}}{\mathrm{d} t} = - \mathcal{N} \int_{\Omega} \nabla \cdot ( f \dot{\textbf{x}} ) \, \mathrm{d} \Omega =  - \mathcal{N} \int_{\Omega}  \left[ \frac{\partial (f \dot{q})}{\partial q} + \frac{\partial (f \dot{p})}{\partial p} \right] \, \mathrm{d} q \, \mathrm{d} p.
 \]</div>
-<p>Eq.<a class="reference internal" href="#equation-rate2">(27)</a> and Eq. <a class="reference internal" href="#equation-rate1">(26)</a> should be equal for every volume element <span class="math notranslate nohighlight">\(\mathrm{d} q \, \mathrm{d} p \)</span>, giving</p>
+<p>Eq.<a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html#equation-rate2">()</a> and Eq. <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html#equation-rate1">()</a> should be equal for every volume element <span class="math notranslate nohighlight">\(\mathrm{d} q \, \mathrm{d} p \)</span>, giving</p>
 <div class="math notranslate nohighlight" id="equation-pre-liouville">
 <span class="eqno">(28)<a class="headerlink" href="#equation-pre-liouville" title="Permalink to this equation">#</a></span>\[
 \frac{\partial f}{\partial t} + \left[ \frac{\partial (f \dot{q})}{\partial q} + \frac{\partial (f \dot{p})}{\partial p} \right] = 0.
@@ -551,19 +551,19 @@ total energy in the canonical ensemble.</p>
 \[
 \frac{\partial (f \dot{q})}{\partial q} + \frac{\partial (f \dot{p})}{\partial p} =  f \left( \frac{\partial \dot{q}}{\partial q} + \frac{\partial \dot{p}}{\partial p} \right) + \frac{\partial f }{\partial q} \dot{q} + \frac{\partial f }{\partial p} \dot{p}.
 \]</div>
-<p>But using Hamilton’s equations, Eq. <a class="reference internal" href="ClassicalMech.html#equation-hamilton-eq">(13)</a>, the first term is zero since</p>
+<p>But using Hamilton’s equations, Eq. <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/ClassicalMech.html#equation-hamilton-eq">()</a>, the first term is zero since</p>
 <div class="math notranslate nohighlight" id="equation-pre-incomp">
 <span class="eqno">(29)<a class="headerlink" href="#equation-pre-incomp" title="Permalink to this equation">#</a></span>\[
 \frac{\partial \dot{q}}{\partial q} + \frac{\partial \dot{p}}{\partial p} = \frac{ \partial ^2 \mathcal{H}}{\partial q \partial p} - \frac{ \partial ^2 \mathcal{H}}{\partial p \partial q} = 0.
 \]</div>
 </div>
-<p>Based on the solution of the above exercise, Eq. <a class="reference internal" href="#equation-pre-liouville">(28)</a> can be written as</p>
+<p>Based on the solution of the above exercise, Eq. <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html#equation-pre-liouville">()</a> can be written as</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial f}{\partial t} + \frac{\partial f }{\partial q} \dot{q} + \frac{\partial f }{\partial p} \dot{p} = 0,
 \]</div>
 <p>which completes the proof of the Liouville equation.</p>
-<p>Using the definition of the Poisson bracket between <span class="math notranslate nohighlight">\(f\)</span> and the Hamiltonian, Eq. <a class="reference internal" href="ClassicalMech.html#equation-poisson">(16)</a>, we can write</p>
+<p>Using the definition of the Poisson bracket between <span class="math notranslate nohighlight">\(f\)</span> and the Hamiltonian, Eq. <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/ClassicalMech.html#equation-poisson">()</a>, we can write</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial f }{\partial q} \dot{q} + \frac{\partial f }{\partial p} \dot{p} = \frac{\partial f }{\partial q} \frac{\partial \mathcal{H}}{\partial p} - \frac{\partial f }{\partial p} \frac{\partial \mathcal{H}}{\partial q} = \{ f, \mathcal{H} \},
@@ -588,14 +588,14 @@ total energy in the canonical ensemble.</p>
 \]</div>
 <p>i.e., that the phase space volume element is conserved along the trajectory. Its shape might change, but not the volume.</p>
 <p>Why is it important? Because, as we said, the fraction of systems in a volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span>. Since the phase space distribution is conserved along the trajectory, if the volume element is conserved too, so is the fraction of systems in it. This justifies the claim that ensemble averages can be performed at any time instance.</p>
-<p>To prove Eq. <a class="reference internal" href="#equation-incompressibility">(31)</a>, we remember that two volume elements of a coordinate transformation are connected through</p>
+<p>To prove Eq. <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html#equation-incompressibility">()</a>, we remember that two volume elements of a coordinate transformation are connected through</p>
 <div class="math notranslate nohighlight" id="equation-coord-transform">
 <span class="eqno">(32)<a class="headerlink" href="#equation-coord-transform" title="Permalink to this equation">#</a></span>\[
 \mathrm{d} \textbf{x}_t = \mathcal{J}(\textbf{x}_t; \textbf{x}_0) \mathrm{d} \textbf{x}_0,
 \]</div>
 <p>where the <strong>Jacobian</strong> <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> is defined as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b8be0764-87a5-4e53-8a54-45a211aad289">
-<span class="eqno">(33)<a class="headerlink" href="#equation-b8be0764-87a5-4e53-8a54-45a211aad289" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-47f5f202-ae15-4695-be1c-d2c59dbd9b75">
+<span class="eqno">(33)<a class="headerlink" href="#equation-47f5f202-ae15-4695-be1c-d2c59dbd9b75" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathcal{J}(\textbf{x}_t; \textbf{x}_0) &amp;= \det{J}, &amp; J_{kl} &amp;= \frac{\partial x_t^k}{\partial x_0^l}.
 \end{align}\]</div>
 <p>Then, we use a property of the determinant</p>
@@ -609,8 +609,8 @@ total energy in the canonical ensemble.</p>
 \frac{\mathrm{d}}{\mathrm{d}t} \mathcal{J}(\textbf{x}_t;\textbf{x}_0) = \frac{\mathrm{d}}{\mathrm{d}t} e^{\mathrm{Tr} \left[ \ln{J} \right] } = e^{\mathrm{Tr} \left[ \ln{J} \right]} \mathrm{Tr} [\frac{\mathrm{d J}}{\mathrm{d}t} J^{-1}] = \mathcal{J}(\textbf{x}_t;\textbf{x}_0) \sum_{k,l} \left( \frac{\mathrm{d}J}{\mathrm{d}t} \right)_{kl} \left( J^{-1} \right)_{lk}.
 \]</div>
 <p>The elements of the matrices <span class="math notranslate nohighlight">\(\frac{\mathrm{d}J}{\mathrm{d}t}\)</span> and <span class="math notranslate nohighlight">\(J^{-1}\)</span> are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1652f118-6c40-4a2e-b6b3-430f37152cbc">
-<span class="eqno">(34)<a class="headerlink" href="#equation-1652f118-6c40-4a2e-b6b3-430f37152cbc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9197030b-d0cf-4f5e-9e89-fcc370c610c7">
+<span class="eqno">(34)<a class="headerlink" href="#equation-9197030b-d0cf-4f5e-9e89-fcc370c610c7" title="Permalink to this equation">#</a></span>\[\begin{align}
 
 \left( \frac{\mathrm{d}J}{\mathrm{d}t} \right)_{kl} &amp;= \frac{\partial \dot{x}_t^k}{\partial x_0^l} &amp; \left( J^{-1} \right)_{lk} = \frac{\partial x_0^l}{\partial x_t^k},
 
@@ -620,14 +620,14 @@ total energy in the canonical ensemble.</p>
 \[
 \frac{\mathrm{d}}{\mathrm{d}t} \mathcal{J}(\textbf{x}_t;\textbf{x}_0) = \mathcal{J}(\textbf{x}_t;\textbf{x}_0) \sum_k \frac{\partial \dot{x}_t^k}{\partial x_t^k}.
 \]</div>
-<p>For a single particle, the sum over <span class="math notranslate nohighlight">\(k\)</span> gives Eq. <a class="reference internal" href="#equation-pre-incomp">(29)</a>, which we already showed was equal to zero. Alternatively, for every coordinate <span class="math notranslate nohighlight">\(q_t\)</span> in <span class="math notranslate nohighlight">\(\textbf{x}_t\)</span> the term in the sum gives <span class="math notranslate nohighlight">\(\frac{\partial^2 \mathcal{H}}{\partial q_t \partial p_t}\)</span> while for every momentum <span class="math notranslate nohighlight">\(p_t\)</span> we get <span class="math notranslate nohighlight">\(- \frac{\partial^2 \mathcal{H}}{\partial p_t \partial q_t}\)</span> which cancel out to give zero. This concludes the proof that</p>
+<p>For a single particle, the sum over <span class="math notranslate nohighlight">\(k\)</span> gives Eq. <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html#equation-pre-incomp">()</a>, which we already showed was equal to zero. Alternatively, for every coordinate <span class="math notranslate nohighlight">\(q_t\)</span> in <span class="math notranslate nohighlight">\(\textbf{x}_t\)</span> the term in the sum gives <span class="math notranslate nohighlight">\(\frac{\partial^2 \mathcal{H}}{\partial q_t \partial p_t}\)</span> while for every momentum <span class="math notranslate nohighlight">\(p_t\)</span> we get <span class="math notranslate nohighlight">\(- \frac{\partial^2 \mathcal{H}}{\partial p_t \partial q_t}\)</span> which cancel out to give zero. This concludes the proof that</p>
 <div class="math notranslate nohighlight">
 \[\frac{\mathrm{d}}{\mathrm{d} t} \mathcal{J}(\textbf{x}_t;\textbf{x}_0) = 0, \]</div>
-<p>which means that since <span class="math notranslate nohighlight">\(\mathcal{J}=1\)</span> initially by definition, it will stay conserved along the trajectory, thus proving Eq. <a class="reference internal" href="#equation-incompressibility">(31)</a>.</p>
+<p>which means that since <span class="math notranslate nohighlight">\(\mathcal{J}=1\)</span> initially by definition, it will stay conserved along the trajectory, thus proving Eq. <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html#equation-incompressibility">()</a>.</p>
 <p>If you didn’t follow the derivation, do not worry! You will now demonstrate phase space incompressibility for a simple example.</p>
 <div class="tip admonition">
 <p class="admonition-title">Active learning</p>
-<p>Show that the Eq. <a class="reference internal" href="#equation-incompressibility">(31)</a> is correct for the case of a single particle of mass <span class="math notranslate nohighlight">\(m\)</span> in a harmonic trap of frequency <span class="math notranslate nohighlight">\(w_0\)</span>. In this case, <span class="math notranslate nohighlight">\(\textbf{x} = [q,p]\)</span>. You can use the results of the previous chapter,</p>
+<p>Show that the Eq. <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html#equation-incompressibility">()</a> is correct for the case of a single particle of mass <span class="math notranslate nohighlight">\(m\)</span> in a harmonic trap of frequency <span class="math notranslate nohighlight">\(w_0\)</span>. In this case, <span class="math notranslate nohighlight">\(\textbf{x} = [q,p]\)</span>. You can use the results of the previous chapter,</p>
 <div class="math notranslate nohighlight">
 \[ q(t) = q_0 \cos{\omega_0 t} + \frac{p_0}{m \omega_0} \sin{\omega_0 t} \]</div>
 <div class="math notranslate nohighlight">
@@ -658,7 +658,7 @@ J=
 </section>
 <section id="equilibrium">
 <span id="chap-eq"></span><h2>Equilibrium<a class="headerlink" href="#equilibrium" title="Permalink to this heading">#</a></h2>
-<p>Now we go back to the connection we established between the Poisson bracket of the phase space distribution function with the Hamiltonian, through Eq. <a class="reference internal" href="#equation-liouville2">(30)</a>. We define <strong>thermodynamic equilibrium</strong> as the case when the distribution <span class="math notranslate nohighlight">\(f(\textbf{x})\)</span> does not depend explicitly on time. Eq.<a class="reference internal" href="#equation-liouville2">(30)</a> then reads</p>
+<p>Now we go back to the connection we established between the Poisson bracket of the phase space distribution function with the Hamiltonian, through Eq. <a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html#equation-liouville2">()</a>. We define <strong>thermodynamic equilibrium</strong> as the case when the distribution <span class="math notranslate nohighlight">\(f(\textbf{x})\)</span> does not depend explicitly on time. Eq.<a class="reference internal" href="_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html#equation-liouville2">()</a> then reads</p>
 <div class="math notranslate nohighlight">
 \[
 \{ f, \mathcal{H} \}  = 0.
