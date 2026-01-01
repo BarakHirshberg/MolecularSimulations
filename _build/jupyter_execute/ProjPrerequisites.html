@@ -1,0 +1,889 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Prerequisites for numerical projects &#8212; Molecular Simulations - 0351-4057</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_build/jupyter_execute/ProjPrerequisites';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/tau_logo.jpg" class="logo__image only-light" alt="Molecular Simulations - 0351-4057 - Home"/>
+    <script>document.write(`<img src="../../_static/tau_logo.jpg" class="logo__image only-dark" alt="Molecular Simulations - 0351-4057 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ClassicalMech.html">Classical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../StatMech.html">Basic statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MolecularDynamics.html">Molecular dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ProjPrerequisites.html">Prerequisites for numerical projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NumProjI.html">Numerical project I - MD simulation (NVE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MonteCarlo.html">Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NumProjII.html">Numerical Project II - MC simulation (NVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NumProjIII.html">Final project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/BarakHirshberg/MolecularSimulations/main/v2/gh/BarakHirshberg/MolecularSimulations/main?urlpath=tree/_build/jupyter_execute/ProjPrerequisites.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/BarakHirshberg/MolecularSimulations/blob/main/_build/jupyter_execute/ProjPrerequisites.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/BarakHirshberg/MolecularSimulations" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/BarakHirshberg/MolecularSimulations/issues/new?title=Issue%20on%20page%20%2F_build/jupyter_execute/ProjPrerequisites.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/_build/jupyter_execute/ProjPrerequisites.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Prerequisites for numerical projects</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linux-terminal">The Linux terminal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-basics">GitHub basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-classroom-assignments">GitHub Classroom Assignments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-codespaces">1. Github Codespaces:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#save-sync">Save &amp; Sync</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#codespaces-access">Codespaces Access</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-git-development">2. Local Git Development:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-driven-development">Test Driven Development</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doctest">Doctest</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-doctest-work">How does Doctest work?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-of-thumb-for-testing">Rules of Thumb for Testing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-doctest-to-your-code">Adding doctest to your code:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-class-methods">Testing Class Methods</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="prerequisites-for-numerical-projects">
+<h1>Prerequisites for numerical projects<a class="headerlink" href="#prerequisites-for-numerical-projects" title="Permalink to this heading">#</a></h1>
+<p>Before you start your first project, here are some instructions and prerequisites for setting up your development environment.</p>
+<section id="the-linux-terminal">
+<h2>The Linux terminal<a class="headerlink" href="#the-linux-terminal" title="Permalink to this heading">#</a></h2>
+<p>Linux terminals are command-line interfaces that allow users to interact with the operating system through text-based commands.
+These terminals provide powerful tools for managing files, processes, and system resources, enabling users to execute commands, write scripts, and automate tasks efficiently.</p>
+<p>If you have never used it, I highly recommend knowing it.
+You can see, for example, this basic <a class="reference external" href="https://ubuntu.com/tutorials/command-line-for-beginners#1-overview">tutorial</a> by Ubuntu, one of the most popular Linux distributions.
+The operating system of your computer does not have to be Linux to use the Linux terminal.
+Mac OS has a terminal, and so does Windows. On Mac, just open the terminal. To enable the Windows Subsystem for Linux (WSL), see the following <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install">instructions</a>.
+You do not have to use the Linux terminal if you do not want to. To complete the project, you can either use Codespaces (see below) or have a local Anaconda installation and GitHub Desktop (see below).</p>
+</section>
+<section id="github-basics">
+<h2>GitHub basics<a class="headerlink" href="#github-basics" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/">GitHub</a> is a code hosting platform for software development. It relies on an open-source version control system called <a class="reference external" href="https://git-scm.com/">Git</a>. De facto, all software development projects today use some kind of version control. It allows us to develop the code together as a team, keep track of changes, suggest new features, and merge everything in a simple workflow.</p>
+<p>The basic object is a <em>repository</em> (“repo”), which stores all of the source code for the project.
+You can create your repo or <em>clone</em> (GitHub jargon for copying) an existing repo.
+You can also <em>fork</em> a repo, which is similar to cloning, but you typically do it when you want to contribute your changes back to the original repo and not just develop your version.</p>
+<p>Each repository can have several <em>branches</em>. The default one is called <em>main</em>.
+When you want to implement a new feature, the typical workflow is to clone the repository and create a new branch dedicated to your feature. In this way, you will not change the main version of the code while you work. Next, you develop the new feature by adding or editing the source code. Every time you would like to save a checkpoint that you could return to if needed, you should <em>commit</em> your changes and <em>push</em> them to update the remote repository. When you want to discuss your changes and consult with your team, you can create a <em>pull request</em> on GitHub.
+Once you are done with all changes, you must <em>merge</em> your branch back with the original main branch. This is done by closing the pull request and merging.</p>
+<p>Let’s open an account:</p>
+<ul class="simple">
+<li><p>Create a free account on <a class="reference external" href="https://github.com/">GitHub</a>.</p></li>
+<li><p>Free upgrade to Pro with <a class="reference external" href="https://education.github.com/pack">GitHub Student Developer Pack</a>.</p></li>
+</ul>
+</section>
+<section id="github-classroom-assignments">
+<h2>GitHub Classroom Assignments<a class="headerlink" href="#github-classroom-assignments" title="Permalink to this heading">#</a></h2>
+<p>The course assignments will be handled through GitHub Classroom, which simplifies the management of programming assignments by using GitHub’s repository and version control features. It allows teachers to distribute tasks and review student submissions efficiently, enhancing collaboration and feedback in computer science education.</p>
+<p>The first “assignment” is an exercise developed by GitHub to let you practice this workflow. It will explain everything I mentioned in brief and more.
+This and all next assignments can be done using the GitHub Codespaces environment (recommended) or a local development environment (for more advanced users who are at ease with Linux and Anaconda).</p>
+<p>You will need to accept each assignment. For example, accept the first “assignment”: Git and GitHub fundamentals. You can find a link to this “assignment” in the course’s moodle.
+Click the green <code class="docutils literal notranslate"><span class="pre">Autorize</span> <span class="pre">GitHub</span> <span class="pre">Classroom</span></code> button and then click <code class="docutils literal notranslate"><span class="pre">Accept</span> <span class="pre">this</span> <span class="pre">assignment</span></code>. This will create your assignment’s remote repository.</p>
+<p><img alt="Codespaces" src="_build/jupyter_execute/codespace1.jpeg" /></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">git-and-github-fundamentals</span></code> has one <code class="docutils literal notranslate"><span class="pre">README.md</span></code> text file which explains the GitHub workflow. Read it carefully, follow the links as needed, and ensure you understand GitHub’s workflow.</p>
+<p>Selecting a working environment, you may choose between the following two options:</p>
+<section id="github-codespaces">
+<h3>1. Github Codespaces:<a class="headerlink" href="#github-codespaces" title="Permalink to this heading">#</a></h3>
+<p>GitHub Codespaces is a cloud-based platform provided by GitHub, offering a fully configured and customizable development environment directly within the browser. It enables developers to create, edit, and run code without setting up anything on your local machine. This service supports Visual Studio Code, allowing for a seamless and familiar coding experience. Additionally, it allows multiple developers to work in the same environment.</p>
+<p>Click the black button <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">in</span> <span class="pre">GitHub</span> <span class="pre">Codespaces</span></code> to open a new window with the Codespaces environment. As you may see, this environment allows you to edit the GitHub fundamentals repository in your browser, offering full GitHub functionallity using the icons on the left of your screen.</p>
+<section id="save-sync">
+<h4>Save &amp; Sync<a class="headerlink" href="#save-sync" title="Permalink to this heading">#</a></h4>
+<p><img alt="sync" src="_build/jupyter_execute/sync.jpeg" /></p>
+<p>To save and sync changes, click on the source control button on the left of the screen, add a short message describing the changes you have made in the message line, then push the green <code class="docutils literal notranslate"><span class="pre">Commit</span></code> button. On the message prompt click <code class="docutils literal notranslate"><span class="pre">Yes</span></code>, then push the new green button <code class="docutils literal notranslate"><span class="pre">Sync</span> <span class="pre">Changes</span></code> to update your remote repository.</p>
+</section>
+<section id="codespaces-access">
+<h4>Codespaces Access<a class="headerlink" href="#codespaces-access" title="Permalink to this heading">#</a></h4>
+<p>After you saved your work, you can exit codespaces by simply closing its tab. Anytime you wish to re-access it, open <a class="reference external" href="https://github.com">GitHub</a> and click your <code class="docutils literal notranslate"><span class="pre">git-and-github-fundamentals-YOURNAME</span></code> repository. Click the green button <code class="docutils literal notranslate"><span class="pre">Code</span></code> and select the <code class="docutils literal notranslate"><span class="pre">Codespaces</span></code> tab. This should feature the last codespaces environment you opened and allow you to access it.</p>
+<p><img alt="Codespaces2" src="_build/jupyter_execute/codespace2.jpeg" /></p>
+</section>
+</section>
+<section id="local-git-development">
+<h3>2. Local Git Development:<a class="headerlink" href="#local-git-development" title="Permalink to this heading">#</a></h3>
+<p>Alternatively, you may use Git on your local machine to manage and track changes in the code. This method offers the flexibility to work offline and experiment with different features in isolated branches but requires more advanced configuration management skills.</p>
+<p>To do it, first choose whether you will be working with a graphical user interface (GUI) or through the terminal:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>For GUI users</p></th>
+<th class="head"><p>For terminal users</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Install <a class="reference external" href="https://desktop.github.com/">GitHub Desktop</a> to clone, commit and push to repo.</p></td>
+<td><p>Windows: Install WSL. Follow these <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install">instructions</a>. In other OS, terminals are already built in.</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Install <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> and work with Spyder to edit files. You can also use <a class="reference external" href="https://www.jetbrains.com/pycharm/">Pycharm</a> if you prefer, but it is not installed by default with Anaconda.</p></li>
+<li><p>Clone the first assignment’s repository locally to your computer using the GitHub classroom link (edit YOURNAME): <code class="docutils literal notranslate"><span class="pre">https://github.com/Molecular-Simulations-Course/git-and-github-fundamentals-YOURNAME</span></code> . The changes you will make on your local copy will not affect the remote one until you push your changes.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Molecular</span><span class="o">-</span><span class="n">Simulations</span><span class="o">-</span><span class="n">Course</span><span class="o">/</span><span class="n">git</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">github</span><span class="o">-</span><span class="n">fundamentals</span><span class="o">-</span><span class="n">YOURNAME</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Create your branch and switch to working in it using the command</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">myBranch</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Create a new Markdown file <code class="docutils literal notranslate"><span class="pre">Hello_world.md</span></code> using Spyder and add to it some text.</p></li>
+<li><p>Commit your changes.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="n">Hello_world</span><span class="o">.</span><span class="n">md</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Push your changes to the remote repo.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span>
+
+</pre></div>
+</div>
+<p>All of the steps above can also be done using the GUI of GitHub desktop instead.</p>
+</section>
+</section>
+<section id="test-driven-development">
+<h2>Test Driven Development<a class="headerlink" href="#test-driven-development" title="Permalink to this heading">#</a></h2>
+<p>Test Driven Development (TDD) is a software development approach where tests are written before the actual code. The process involves writing a test for a specific functionality, running the test to see it fail (since the feature is not yet implemented), and then writing the minimum amount of code required to pass the test. After the code passes the test, it is refactored to improve its structure while ensuring that all tests still pass. TDD promotes better design, higher code quality, and ensures that the software is thoroughly tested from the outset, leading to fewer bugs and more maintainable code.</p>
+<section id="doctest">
+<h3>Doctest<a class="headerlink" href="#doctest" title="Permalink to this heading">#</a></h3>
+<p>Under TDD guidelines, you will work with Python’s doctest module. It allows you to embed test cases directly in your docstrings and run them as part of your documentation. By writing tests within the docstrings of your functions, classes, or modules, doctest can execute these snippets of code to verify that they produce the expected output. This approach is useful for ensuring that your code examples in documentation are accurate and up-to-date. It also serves as a lightweight testing framework, making it easy to validate small units of code without needing a separate test script. Doctest promotes writing clear and executable documentation, which can improve code reliability and maintainability.</p>
+<section id="how-does-doctest-work">
+<h4>How does Doctest work?<a class="headerlink" href="#how-does-doctest-work" title="Permalink to this heading">#</a></h4>
+<p>To find and run your test cases, doctest follows a few steps:</p>
+<ul class="simple">
+<li><p>Searches for text that looks like Python interactive sessions in your documentation and docstrings</p></li>
+<li><p>Parses those pieces of text to distinguish between executable code and expected results</p></li>
+<li><p>Runs the executable code like regular Python code</p></li>
+<li><p>Compares the execution result with the expected result</p></li>
+</ul>
+<p>In the following section, you’ll learn how to check the return values the printed outputs of a given piece of code. You’ll also learn how to create test cases for code that must raise exceptions and how to run preparation steps before executing your test cases.</p>
+</section>
+<section id="rules-of-thumb-for-testing">
+<h4>Rules of Thumb for Testing<a class="headerlink" href="#rules-of-thumb-for-testing" title="Permalink to this heading">#</a></h4>
+<p>Writing tests for code is crucial for ensuring its reliability and robustness, especially when considering extreme cases:</p>
+<ul class="simple">
+<li><p>Very Large or Small Numbers: Test with the maximum and minimum values the data type can hold.</p></li>
+<li><p>Zero and Negative Numbers: Include tests for zero and various negative numbers.</p></li>
+<li><p>Empty Strings: Ensure the function handles empty string inputs appropriately.</p></li>
+<li><p>Null Values: Verify that the code gracefully handles null or undefined inputs.</p></li>
+<li><p>Invalid Data Types: Test the function with unexpected data types to check for robustness.</p></li>
+</ul>
+<p>By rigorously testing these extremes, developers can uncover potential issues and ensure their code handles all possible scenarios gracefully, resulting in more stable and dependable software.</p>
+</section>
+<section id="adding-doctest-to-your-code">
+<h4>Adding doctest to your code:<a class="headerlink" href="#adding-doctest-to-your-code" title="Permalink to this heading">#</a></h4>
+<p>To add <code class="docutils literal notranslate"><span class="pre">doctest</span></code> testing to your code, in the documentaion of your function <code class="docutils literal notranslate"><span class="pre">func()</span></code>, add the following statements with test input and expected output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Example:</span>
+<span class="sd">    &gt;&gt;&gt; func(test_input)</span>
+<span class="sd">    expected output</span>
+<span class="sd">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nExample:\n    &gt;&gt;&gt; func(test_input)\n    expected output\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the tests are in comments, they will be ignored by the interpreter. To enable them, add the following to your code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
+<span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestResults(failed=0, attempted=3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This will call the <code class="docutils literal notranslate"><span class="pre">doctest</span></code> module and run the tests.</p>
+</section>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
+<p>In the following example we demonstrate how to add doctest to your code, while testing extreme cases:</p>
+<p>Example 1: Calculating a Numerical Value
+Let’s write a function to calculate the factorial of a number and add <code class="docutils literal notranslate"><span class="pre">doctest</span></code> examples to its docstring.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the factorial of a non-negative integer n.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    n (int): A non-negative integer.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    int: The factorial of the given number.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    &gt;&gt;&gt; factorial(5)</span>
+<span class="sd">    120</span>
+<span class="sd">    &gt;&gt;&gt; factorial(0)</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; factorial(3)</span>
+<span class="sd">    6</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n must be a non-negative integer.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">*=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
+<span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestResults(failed=0, attempted=3)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see, our function passes the tests in various cases. Let’s modify the factorial function to introduce an error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the factorial of a non-negative integer n.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    n (int): A non-negative integer.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    int: The factorial of the given number.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    &gt;&gt;&gt; factorial(5)</span>
+<span class="sd">    120</span>
+<span class="sd">    &gt;&gt;&gt; factorial(0)</span>
+<span class="sd">    1</span>
+<span class="sd">    &gt;&gt;&gt; factorial(3)</span>
+<span class="sd">    6</span>
+<span class="sd">    &gt;&gt;&gt; factorial(4)</span>
+<span class="sd">    24</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n must be a non-negative integer.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>  <span class="c1"># Introduced error: should be range(1, n + 1)</span>
+        <span class="n">result</span> <span class="o">*=</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
+<span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>**********************************************************************
+File &quot;__main__&quot;, line 12, in __main__.factorial
+Failed example:
+    factorial(5)
+Expected:
+    120
+Got:
+    24
+**********************************************************************
+File &quot;__main__&quot;, line 16, in __main__.factorial
+Failed example:
+    factorial(3)
+Expected:
+    6
+Got:
+    2
+**********************************************************************
+File &quot;__main__&quot;, line 18, in __main__.factorial
+Failed example:
+    factorial(4)
+Expected:
+    24
+Got:
+    6
+**********************************************************************
+1 items had failures:
+   3 of   4 in __main__.factorial
+***Test Failed*** 3 failures.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestResults(failed=3, attempted=4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>the <code class="docutils literal notranslate"><span class="pre">doctest</span></code> result summary indicates all tests have failed. This indicates an error in our code (in this case we missed the last product).</p>
+</section>
+<section id="testing-class-methods">
+<h3>Testing Class Methods<a class="headerlink" href="#testing-class-methods" title="Permalink to this heading">#</a></h3>
+<p>Using doctest to test class methods follows the same principles as testing standalone functions. You include example inputs and expected outputs within the docstring of the class methods. This ensures that the methods behave as expected when given specific inputs. It usually require initializing a class instance within the doctest testing. An example can be found in the first project’s documentation.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "BarakHirshberg/MolecularSimulations",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./_build/jupyter_execute"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linux-terminal">The Linux terminal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-basics">GitHub basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-classroom-assignments">GitHub Classroom Assignments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-codespaces">1. Github Codespaces:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#save-sync">Save &amp; Sync</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#codespaces-access">Codespaces Access</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-git-development">2. Local Git Development:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-driven-development">Test Driven Development</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doctest">Doctest</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-doctest-work">How does Doctest work?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rules-of-thumb-for-testing">Rules of Thumb for Testing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-doctest-to-your-code">Adding doctest to your code:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-class-methods">Testing Class Methods</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 6997801, Israel.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
