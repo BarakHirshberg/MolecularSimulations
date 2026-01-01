@@ -1,0 +1,808 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Basic statistical mechanics &#8212; Molecular Simulations - 0351-4057</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../../../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech';</script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../_static/tau_logo.jpg" class="logo__image only-light" alt="Molecular Simulations - 0351-4057 - Home"/>
+    <script>document.write(`<img src="../../../../../../_static/tau_logo.jpg" class="logo__image only-dark" alt="Molecular Simulations - 0351-4057 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../ClassicalMech.html">Classical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../StatMech.html">Basic statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../MolecularDynamics.html">Molecular dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../ProjPrerequisites.html">Prerequisites for numerical projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../NumProjI.html">Numerical project I - MD simulation (NVE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../MonteCarlo.html">Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../NumProjII.html">Numerical Project II - MC simulation (NVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../NumProjIII.html">Final project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/BarakHirshberg/MolecularSimulations/main/v2/gh/BarakHirshberg/MolecularSimulations/main?urlpath=tree/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/BarakHirshberg/MolecularSimulations/blob/main/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/BarakHirshberg/MolecularSimulations" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/BarakHirshberg/MolecularSimulations/issues/new?title=Issue%20on%20page%20%2F_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../../../_sources/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/StatMech.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Basic statistical mechanics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensembles">Ensembles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liouville-equation">Liouville equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-space-incompressibility">Phase space incompressibility</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium">Equilibrium</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-statistical-mechanics">
+<h1>Basic statistical mechanics<a class="headerlink" href="#basic-statistical-mechanics" title="Permalink to this heading">#</a></h1>
+<p>After deriving the equations of motion for a system of <span class="math notranslate nohighlight">\(N\)</span> classical particles, we would next like to solve for their trajectories and use them to evaluate thermodynamic properties of a macroscopic system, such as the temperature, energy, pressure, etc. If we can connect an observable macroscopic property <span class="math notranslate nohighlight">\(A\)</span> to some function of the microstate of the system, <span class="math notranslate nohighlight">\(a(\textbf{x})\)</span>, we might associate the measured value of <span class="math notranslate nohighlight">\(A\)</span> with a <strong>time average</strong>, denoted by <span class="math notranslate nohighlight">\(\bar{a}_{\tau}\)</span> and defined as</p>
+<div class="math notranslate nohighlight" id="equation-time-av">
+<span class="eqno">()<a class="headerlink" href="#equation-time-av" title="Permalink to this equation">#</a></span>\[
+A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\tau\)</span> is some long time scale compared to the molecular or atomic motion.</p>
+<p>But now we find ourselves at an impasse. It is entirely clear what rules determine the evolution of the system in time, but solving the equations analytically is impossible. A numerical solution is similarly unfeasible for <span class="math notranslate nohighlight">\(\sim 10^{23}\)</span> particles, as we discussed in <a class="reference internal" href="ClassicalMech.html#discussion"><span class="std std-ref">the previous chapter</span></a>.  The core idea of statistical mechanics is to provide an alternative approach to obtain macroscopic thermodynamic observables.</p>
+<section id="ensembles">
+<h2>Ensembles<a class="headerlink" href="#ensembles" title="Permalink to this heading">#</a></h2>
+<p>It was <a class="reference external" href="https://en.wikipedia.org/wiki/Josiah_Willard_Gibbs">J.W. Gibbs</a> that realized that thermodynamic macroscopic properties are not very sensitive to the details of the specific microscopic state of the system. Consider for example the temperature. You have learned in a preceding statistical thermodynamics course that each momentum degree of freedom contributes <span class="math notranslate nohighlight">\(\frac{1}{2} k_B T \)</span> to the average thermal kinetic energy (the <a class="reference external" href="https://en.wikipedia.org/wiki/Equipartition_theorem">equipartition theorem</a>). Thus, the temperature can be obtained from the average kinetic energy of the system. But there are many ways to choose the momenta of the particles such that the average kinetic energy is the same. In other words, the temperature is insensitive to the specific microstate of the system, as long as it gives the same average kinetic energy.</p>
+<p>Following this reasoning, and to make progress in connecting microscopic properties with thermodynamic observables, Gibbs introduced the concept of an <strong>ensemble</strong>. An ensemble is a collection of <span class="math notranslate nohighlight">\(\mathcal{N}\)</span> systems that obey the same microscopic interactions and are characterized by a common set of three thermodynamic properties, such as the number of particles <span class="math notranslate nohighlight">\(N\)</span>, the volume <span class="math notranslate nohighlight">\(V\)</span>, the total energy <span class="math notranslate nohighlight">\(E\)</span>, the temperature <span class="math notranslate nohighlight">\(T\)</span>, the pressure <span class="math notranslate nohighlight">\(P\)</span> or the chemical potential <span class="math notranslate nohighlight">\(\mu\)</span>. Each system in the ensemble evolves in time from different initial conditions and is characterized by a unique microscopic state defined by its path in phase space, <span class="math notranslate nohighlight">\(\textbf{x}(t)\)</span>, defined in Eq. <a class="reference internal" href="ClassicalMech.html#equation-x-phase-space">()</a>. The entire ensemble can then be represented as a “cloud” of points in phase space.</p>
+<p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfill the properties:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-056b6ee0-d22f-4492-b831-28bb6cf2c9fc">
+<span class="eqno">()<a class="headerlink" href="#equation-056b6ee0-d22f-4492-b831-28bb6cf2c9fc" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \int f(\textbf{x},t) \, \mathrm{d} \textbf{x} &amp;= 1, &amp; f(\textbf{x},t) &amp; \ge 0.
+\end{align}\]</div>
+<p>In other words, <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span> represents the probability that a system from the ensemble is in the volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> (or, alternatively, the fraction of systems therein).</p>
+<p>Gibbs then postulated that instead of using the time average of Eq. <a class="reference internal" href="#equation-time-av">()</a>, macroscopic properties can be obtained by freezing the ensemble at some time instance and taking the average of the desired observable over all the systems, called an <strong>ensemble average</strong>. More formally, the ensemble average, denoted as <span class="math notranslate nohighlight">\(\langle a \rangle_f\)</span>, is defined as</p>
+<div class="math notranslate nohighlight" id="equation-ensemble-av">
+<span class="eqno">()<a class="headerlink" href="#equation-ensemble-av" title="Permalink to this equation">#</a></span>\[
+A(t) = \langle a \rangle_f = \int f(\textbf{x},t) a(\textbf{x}) \, \mathrm{d} \textbf{x}.
+\]</div>
+<p>Note the difference between Eqs. <a class="reference internal" href="#equation-time-av">()</a> and <a class="reference internal" href="#equation-ensemble-av">()</a>, the former is an integral over time while the latter is an integral over phase space. This distinction is important enough that we have used a bar to denote the time average but brackets to denote the ensemble average. Before moving forward, and discussing what we can do with ensemble averages, we will briefly investigate an important property of the phase space distribution function, described by the <strong>Liouville equation</strong>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Active learning</p>
+<p>For a single particle of mass <span class="math notranslate nohighlight">\(m\)</span> in a harmonic trap of frequency <span class="math notranslate nohighlight">\(w_0\)</span>, calculate the equilibrium average of the
+total energy in the canonical ensemble.</p>
+<p>Hint: In that case,</p>
+<div class="math notranslate nohighlight">
+\[f(q,p) = \frac{e^{-\beta \mathcal{H}(q,p)}}{\mathcal{Z}} \]</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The ensemble average is</p>
+<div class="math notranslate nohighlight">
+\[ \langle \mathcal{H} \rangle = \int{ \mathcal{H}(q,p) \, e^{-\beta \mathcal{H}(q,p)} \, \mathrm{d}q \, \mathrm{d}p} \]</div>
+<p>The Hamiltonian is</p>
+<div class="math notranslate nohighlight">
+\[ \mathcal{H} = \frac{p^2}{2m} + \frac{1}{2} m \omega_0^2 q^2 \]</div>
+<p>After doing some Gaussian integrals, we get:</p>
+<div class="math notranslate nohighlight">
+\[ \langle \mathcal{H} \rangle = \beta^{-1} \]</div>
+</div>
+</section>
+<section id="liouville-equation">
+<h2>Liouville equation<a class="headerlink" href="#liouville-equation" title="Permalink to this heading">#</a></h2>
+<p>For clarity, we will prove the Liouville equation for a single particle, but it can be generalized to <span class="math notranslate nohighlight">\(N\)</span> particles. In this case, <span class="math notranslate nohighlight">\( f(\textbf{x},t) = f(q,p,t) \)</span>.  The theorem states that the phase space distribution function is conserved along the trajectory, i.e., that</p>
+<div class="math notranslate nohighlight" id="equation-liouville1">
+<span class="eqno">()<a class="headerlink" href="#equation-liouville1" title="Permalink to this equation">#</a></span>\[
+\frac{\mathrm{d} f}{\mathrm{d} t} = \frac{\partial f}{\partial t} + \frac{\partial f }{\partial q} \dot{q} + \frac{\partial f }{\partial p} \dot{p} = 0. 
+\]</div>
+<p>We now consider some volume in phase space <span class="math notranslate nohighlight">\(\Omega\)</span> and define the number of systems in the ensemble whose microstate is in this volume as</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{N}_{\Omega} = \mathcal{N} \int_{\Omega} f(\textbf{x},t) \, \mathrm{d} \textbf{x} =  \mathcal{N} \int_{\Omega} f(q,p,t) \, \mathrm{d} q \, \mathrm{d} p.
+\]</div>
+<p>The rate of change of the number of systems in <span class="math notranslate nohighlight">\(\Omega\)</span> is given by</p>
+<div class="math notranslate nohighlight" id="equation-rate1">
+<span class="eqno">()<a class="headerlink" href="#equation-rate1" title="Permalink to this equation">#</a></span>\[
+\frac{\mathrm{d} \mathcal{N}_{\Omega}}{\mathrm{d} t} = \mathcal{N} \int_{\Omega} \frac{\partial f}{\partial t} \, \mathrm{d} q \, \mathrm{d} p.
+\]</div>
+<p>But, equivalently, the flux of molecules leaving the volume through a surface element <span class="math notranslate nohighlight">\(\mathrm{d} \mathcal{A}\)</span> can be integrated to give the rate,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathrm{d} \mathcal{N}_{\Omega}}{\mathrm{d} t} = - \mathcal{N} \int_{\mathcal{A}} f \dot{\textbf{x}} \cdot \textbf{n} \, \mathrm{d} \mathcal{A},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\textbf{n}\)</span> is a vector normal to the surface element, and <span class="math notranslate nohighlight">\(\dot{\textbf{x}}=[\dot{q},\dot{p}]\)</span>.</p>
+<p>We can now use the <a class="reference external" href="https://en.wikipedia.org/wiki/Divergence_theorem">divergence theorem</a> to get</p>
+<div class="math notranslate nohighlight" id="equation-rate2">
+<span class="eqno">()<a class="headerlink" href="#equation-rate2" title="Permalink to this equation">#</a></span>\[
+\frac{\mathrm{d} \mathcal{N}_{\Omega}}{\mathrm{d} t} = - \mathcal{N} \int_{\Omega} \nabla \cdot ( f \dot{\textbf{x}} ) \, \mathrm{d} \Omega =  - \mathcal{N} \int_{\Omega}  \left[ \frac{\partial (f \dot{q})}{\partial q} + \frac{\partial (f \dot{p})}{\partial p} \right] \, \mathrm{d} q \, \mathrm{d} p.
+\]</div>
+<p>Eq.<a class="reference internal" href="#equation-rate2">()</a> and Eq. <a class="reference internal" href="#equation-rate1">()</a> should be equal for every volume element <span class="math notranslate nohighlight">\(\mathrm{d} q \, \mathrm{d} p \)</span>, giving</p>
+<div class="math notranslate nohighlight" id="equation-pre-liouville">
+<span class="eqno">()<a class="headerlink" href="#equation-pre-liouville" title="Permalink to this equation">#</a></span>\[
+\frac{\partial f}{\partial t} + \left[ \frac{\partial (f \dot{q})}{\partial q} + \frac{\partial (f \dot{p})}{\partial p} \right] = 0.
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Active learning</p>
+<p>Show that the term in square brackets can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial (f \dot{q})}{\partial q} + \frac{\partial (f \dot{p})}{\partial p} =  \frac{\partial f }{\partial q} \dot{q} + \frac{\partial f }{\partial p} \dot{p}.
+\]</div>
+<p>Hint: Use Hamilton’s equations.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The term in square brackets can be rearranged</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial (f \dot{q})}{\partial q} + \frac{\partial (f \dot{p})}{\partial p} =  f \left( \frac{\partial \dot{q}}{\partial q} + \frac{\partial \dot{p}}{\partial p} \right) + \frac{\partial f }{\partial q} \dot{q} + \frac{\partial f }{\partial p} \dot{p}.
+\]</div>
+<p>But using Hamilton’s equations, Eq. <a class="reference internal" href="ClassicalMech.html#equation-hamilton-eq">()</a>, the first term is zero since</p>
+<div class="math notranslate nohighlight" id="equation-pre-incomp">
+<span class="eqno">()<a class="headerlink" href="#equation-pre-incomp" title="Permalink to this equation">#</a></span>\[
+\frac{\partial \dot{q}}{\partial q} + \frac{\partial \dot{p}}{\partial p} = \frac{ \partial ^2 \mathcal{H}}{\partial q \partial p} - \frac{ \partial ^2 \mathcal{H}}{\partial p \partial q} = 0.
+\]</div>
+</div>
+<p>Based on the solution of the above exercise, Eq. <a class="reference internal" href="#equation-pre-liouville">()</a> can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial f}{\partial t} + \frac{\partial f }{\partial q} \dot{q} + \frac{\partial f }{\partial p} \dot{p} = 0,
+\]</div>
+<p>which completes the proof of the Liouville equation.</p>
+<p>Using the definition of the Poisson bracket between <span class="math notranslate nohighlight">\(f\)</span> and the Hamiltonian, Eq. <a class="reference internal" href="ClassicalMech.html#equation-poisson">()</a>, we can write</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial f }{\partial q} \dot{q} + \frac{\partial f }{\partial p} \dot{p} = \frac{\partial f }{\partial q} \frac{\partial \mathcal{H}}{\partial p} - \frac{\partial f }{\partial p} \frac{\partial \mathcal{H}}{\partial q} = \{ f, \mathcal{H} \},
+\]</div>
+<p>which leads to another useful form of the Liouville equation,</p>
+<div class="math notranslate nohighlight" id="equation-liouville2">
+<span class="eqno">()<a class="headerlink" href="#equation-liouville2" title="Permalink to this equation">#</a></span>\[
+\frac{\partial f}{\partial t} + \{ f, \mathcal{H} \}  = 0.
+\]</div>
+</section>
+<section id="phase-space-incompressibility">
+<h2>Phase space incompressibility<a class="headerlink" href="#phase-space-incompressibility" title="Permalink to this heading">#</a></h2>
+<p>An important consequence of the Liouville equation is that of <strong>phase space incompressibility</strong>. We denote an initial point in phase space as <span class="math notranslate nohighlight">\(\textbf{x}_0 = [q_0,p_0]\)</span>. The point in phase space that results from the dynamics starting from <span class="math notranslate nohighlight">\(\textbf{x}(0)\)</span> after time <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(\textbf{x}_t = [q_t,p_t]\)</span>. In the previous chapter, we learned that the trajectory is uniquely defined by the initial conditions, meaning that <span class="math notranslate nohighlight">\(\textbf{x}_t\)</span> can be written as a function of the initial conditions,</p>
+<div class="math notranslate nohighlight">
+\[
+\textbf{x}_t = g(\textbf{x}_0).
+\]</div>
+<p>Thus, we can consider the evolution of the trajectory as a coordinate transformation. Assuming we know the function <span class="math notranslate nohighlight">\(g\)</span>, we need to evaluate how the volume elements change when we transform from <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}_0\)</span> to <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}_t\)</span>. <a class="reference external" href="https://en.wikipedia.org/wiki/Joseph_Liouville">J. Liouville</a> proved that</p>
+<div class="math notranslate nohighlight" id="equation-incompressibility">
+<span class="eqno">()<a class="headerlink" href="#equation-incompressibility" title="Permalink to this equation">#</a></span>\[
+\mathrm{d} \textbf{x}_0 = \mathrm{d} \textbf{x}_t,
+\]</div>
+<p>i.e., that the phase space volume element is conserved along the trajectory. Its shape might change, but not the volume.</p>
+<p>Why is it important? Because, as we said, the fraction of systems in a volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{d} \textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span>. Since the phase space distribution is conserved along the trajectory, if the volume element is conserved too, so is the fraction of systems in it. This justifies the claim that ensemble averages can be performed at any time instance.</p>
+<p>To prove Eq. <a class="reference internal" href="#equation-incompressibility">()</a>, we remember that two volume elements of a coordinate transformation are connected through</p>
+<div class="math notranslate nohighlight" id="equation-coord-transform">
+<span class="eqno">()<a class="headerlink" href="#equation-coord-transform" title="Permalink to this equation">#</a></span>\[
+\mathrm{d} \textbf{x}_t = \mathcal{J}(\textbf{x}_t; \textbf{x}_0) \mathrm{d} \textbf{x}_0,
+\]</div>
+<p>where the <strong>Jacobian</strong> <span class="math notranslate nohighlight">\(\mathcal{J}\)</span> is defined as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ed597d28-6b92-4381-abf6-da2e8bdc7a3b">
+<span class="eqno">()<a class="headerlink" href="#equation-ed597d28-6b92-4381-abf6-da2e8bdc7a3b" title="Permalink to this equation">#</a></span>\[\begin{align}
+\mathcal{J}(\textbf{x}_t; \textbf{x}_0) &amp;= \det{J}, &amp; J_{kl} &amp;= \frac{\partial x_t^k}{\partial x_0^l}.
+\end{align}\]</div>
+<p>Then, we use a property of the determinant</p>
+<div class="math notranslate nohighlight">
+\[
+\det{J} = e^{\mathrm{Tr} \left[ \ln{J} \right]},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{Tr}[J] = \sum_k J_{kk} \)</span>. Taking the derivative, we get</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathrm{d}}{\mathrm{d}t} \mathcal{J}(\textbf{x}_t;\textbf{x}_0) = \frac{\mathrm{d}}{\mathrm{d}t} e^{\mathrm{Tr} \left[ \ln{J} \right] } = e^{\mathrm{Tr} \left[ \ln{J} \right]} \mathrm{Tr} [\frac{\mathrm{d J}}{\mathrm{d}t} J^{-1}] = \mathcal{J}(\textbf{x}_t;\textbf{x}_0) \sum_{k,l} \left( \frac{\mathrm{d}J}{\mathrm{d}t} \right)_{kl} \left( J^{-1} \right)_{lk}.
+\]</div>
+<p>The elements of the matrices <span class="math notranslate nohighlight">\(\frac{\mathrm{d}J}{\mathrm{d}t}\)</span> and <span class="math notranslate nohighlight">\(J^{-1}\)</span> are given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b61aa0f9-a23e-4ef8-99b9-8b7edbabab03">
+<span class="eqno">()<a class="headerlink" href="#equation-b61aa0f9-a23e-4ef8-99b9-8b7edbabab03" title="Permalink to this equation">#</a></span>\[\begin{align}
+
+\left( \frac{\mathrm{d}J}{\mathrm{d}t} \right)_{kl} &amp;= \frac{\partial \dot{x}_t^k}{\partial x_0^l} &amp; \left( J^{-1} \right)_{lk} = \frac{\partial x_0^l}{\partial x_t^k},
+
+\end{align}\]</div>
+<p>so multiplying them and summing over <span class="math notranslate nohighlight">\(l\)</span> is just the chain rule for <span class="math notranslate nohighlight">\(\frac{\partial \dot{x}_t^k}{\partial x_t^k}\)</span>, leading to</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathrm{d}}{\mathrm{d}t} \mathcal{J}(\textbf{x}_t;\textbf{x}_0) = \mathcal{J}(\textbf{x}_t;\textbf{x}_0) \sum_k \frac{\partial \dot{x}_t^k}{\partial x_t^k}.
+\]</div>
+<p>For a single particle, the sum over <span class="math notranslate nohighlight">\(k\)</span> gives Eq. <a class="reference internal" href="#equation-pre-incomp">()</a>, which we already showed was equal to zero. Alternatively, for every coordinate <span class="math notranslate nohighlight">\(q_t\)</span> in <span class="math notranslate nohighlight">\(\textbf{x}_t\)</span> the term in the sum gives <span class="math notranslate nohighlight">\(\frac{\partial^2 \mathcal{H}}{\partial q_t \partial p_t}\)</span> while for every momentum <span class="math notranslate nohighlight">\(p_t\)</span> we get <span class="math notranslate nohighlight">\(- \frac{\partial^2 \mathcal{H}}{\partial p_t \partial q_t}\)</span> which cancel out to give zero. This concludes the proof that</p>
+<div class="math notranslate nohighlight">
+\[\frac{\mathrm{d}}{\mathrm{d} t} \mathcal{J}(\textbf{x}_t;\textbf{x}_0) = 0, \]</div>
+<p>which means that since <span class="math notranslate nohighlight">\(\mathcal{J}=1\)</span> initially by definition, it will stay conserved along the trajectory, thus proving Eq. <a class="reference internal" href="#equation-incompressibility">()</a>.</p>
+<p>If you didn’t follow the derivation, do not worry! You will now demonstrate phase space incompressibility for a simple example.</p>
+<div class="tip admonition">
+<p class="admonition-title">Active learning</p>
+<p>Show that the Eq. <a class="reference internal" href="#equation-incompressibility">()</a> is correct for the case of a single particle of mass <span class="math notranslate nohighlight">\(m\)</span> in a harmonic trap of frequency <span class="math notranslate nohighlight">\(w_0\)</span>. In this case, <span class="math notranslate nohighlight">\(\textbf{x} = [q,p]\)</span>. You can use the results of the previous chapter,</p>
+<div class="math notranslate nohighlight">
+\[ q(t) = q_0 \cos{\omega_0 t} + \frac{p_0}{m \omega_0} \sin{\omega_0 t} \]</div>
+<div class="math notranslate nohighlight">
+\[ p(t) = p_0 \cos{\omega_0 t} - m \omega_0 q_0 \sin{\omega_0 t} \]</div>
+<p>Hint: Compute the Jacobian of the coordinate transformation and show that it is unity.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>In the case of a single particle, the Jacobian is a 2x2 matrix,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J=
+\begin{pmatrix}
+\frac{\partial q_t}{\partial q_0} &amp; \frac{\partial q_t}{\partial p_0} \\
+\frac{\partial p_t}{\partial q_0} &amp; \frac{\partial p_t}{\partial p_0} 
+\end{pmatrix}
+=
+\begin{pmatrix}
+\cos{\omega_0 t} &amp; \sin(\omega_0 t) / m \omega_0 \\
+- m \omega_0 \sin(\omega_0 t )  &amp; \cos{\omega_0 t}
+\end{pmatrix}
+\end{split}\]</div>
+<p>whose determinant is <span class="math notranslate nohighlight">\(\det{J} = \cos^2{\omega_0 t} + \sin^2(\omega_0 t ) = 1\)</span>.</p>
+</div>
+<p>Below is a gif (credit: TheOneandBubsly/Wikimedia Commons) showing how the phase space distribution function of a
+1D harmonic oscilator evolves in time, if we start from initial conditions within a square.</p>
+<p><img alt="SHO_gif" src="https://upload.wikimedia.org/wikipedia/commons/3/32/SHOPhaseSpaceUpdate.gif" /></p>
+</section>
+<section id="equilibrium">
+<span id="chap-eq"></span><h2>Equilibrium<a class="headerlink" href="#equilibrium" title="Permalink to this heading">#</a></h2>
+<p>Now we go back to the connection we established between the Poisson bracket of the phase space distribution function with the Hamiltonian, through Eq. <a class="reference internal" href="#equation-liouville2">()</a>. We define <strong>thermodynamic equilibrium</strong> as the case when the distribution <span class="math notranslate nohighlight">\(f(\textbf{x})\)</span> does not depend explicitly on time. Eq.<a class="reference internal" href="#equation-liouville2">()</a> then reads</p>
+<div class="math notranslate nohighlight">
+\[
+\{ f, \mathcal{H} \}  = 0.
+\]</div>
+<p>This equation can be solved for <span class="math notranslate nohighlight">\(f(\textbf{x})\)</span> as a function of the Hamiltonian, which we formally denote as</p>
+<div class="math notranslate nohighlight">
+\[
+f(\textbf{x}) = \frac{1}{\mathcal{Z}} \mathcal{F}(\mathcal{H}(\textbf{x})).
+\]</div>
+<p>The averages of macroscopic observables will then also be time-independent (you might remember this definition from earlier classes for thermodynamic equilibrium), given by</p>
+<div class="math notranslate nohighlight" id="equation-ensemble-av-eq">
+<span class="eqno">()<a class="headerlink" href="#equation-ensemble-av-eq" title="Permalink to this equation">#</a></span>\[
+A = \langle a \rangle_f = \frac{1}{\mathcal{Z}} \int \mathcal{F}(\mathcal{H}(\textbf{x})) \, a(\textbf{x}) \, \mathrm{d} \textbf{x}.
+\]</div>
+<p>The denominator <span class="math notranslate nohighlight">\(\mathcal{Z}\)</span> is called the <strong>partition function</strong>, which is used to normalize the function <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, defined as</p>
+<div class="math notranslate nohighlight" id="equation-partition-func">
+<span class="eqno">()<a class="headerlink" href="#equation-partition-func" title="Permalink to this equation">#</a></span>\[
+\mathcal{Z} = \int \mathcal{F}(\mathcal{H}(\textbf{x})) \, \mathrm{d} \textbf{x}.
+\]</div>
+<p>To proceed and write specific expressions for <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, we invoke a second postulate, called <strong>the hypothesis of equal <em>a priori</em> probabilities</strong>. In simple terms, it says that for an ensemble of isolated systems, each characterized by the same number of particles, volume, and total energy, all microstates have equal probability. That is, the phase space distribution is a constant when the energy is between <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(E + \delta E\)</span> and zero otherwise.</p>
+<p>We saw previously that the classical equations of motion for an isolated system under the influence of conservative forces ensure that the total energy is constant. An ensemble composed of such isolated systems is called the <strong>microcanonical ensemble</strong>. Since they are characterized by a constant number of particles, volume, and total energy, the ensemble is often denoted by the letters NVE.</p>
+<p>According to our second postulate, the equilibrium distribution at the NVE ensemble can be written formally as</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{F}(\mathcal{H}(\textbf{x})) \propto \delta (\mathcal{H}(\textbf{x}) - E),
+\]</div>
+<p>and expectation values are obtained through</p>
+<div class="math notranslate nohighlight" id="equation-ensemble-av-nve">
+<span class="eqno">()<a class="headerlink" href="#equation-ensemble-av-nve" title="Permalink to this equation">#</a></span>\[
+A = \langle a \rangle_E = \frac{ \int \delta (\mathcal{H}(\textbf{x}) - E) \, a(\textbf{x}) \, \mathrm{d} \textbf{x}} {\int \delta (\mathcal{H}(\textbf{x}) - E) \, \mathrm{d} \textbf{x}} .
+\]</div>
+<p>You have derived in previous courses <span class="math notranslate nohighlight">\(\mathcal{F}(\mathcal{H}(\textbf{x}))\)</span> for other emsembles. We will not repeat this derivation here, but just mention that all of them can be derived from our two postulates by considering the entire ensemble as an isolated system. For an ensemble of systems with a fixed number of particles, volume, and temperature, called the <strong>canonical ensemble</strong>, <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is the famous Boltzmann distribution,</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{F}(\mathcal{H}(\textbf{x})) \propto e^{-\beta \mathcal{H} (\textbf{x})}.
+\]</div>
+<p>and the observables are given by</p>
+<div class="math notranslate nohighlight" id="equation-ensemble-av-nvt">
+<span class="eqno">()<a class="headerlink" href="#equation-ensemble-av-nvt" title="Permalink to this equation">#</a></span>\[
+A = \langle a \rangle_{\beta} = \frac{ \int e^{-\beta \mathcal{H} (\textbf{x})} \, a(\textbf{x}) \, \mathrm{d} \textbf{x}} {\int e^{-\beta \mathcal{H} (\textbf{x})} \, \mathrm{d} \textbf{x}} .
+\]</div>
+<p>The canonical ensemble is usually denoted by the letters NVT.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "BarakHirshberg/MolecularSimulations",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ensembles">Ensembles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#liouville-equation">Liouville equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-space-incompressibility">Phase space incompressibility</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibrium">Equilibrium</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 6997801, Israel.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

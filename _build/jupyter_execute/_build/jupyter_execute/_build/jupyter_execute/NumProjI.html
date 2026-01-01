@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Numerical project I - MD simulation (NVE) &#8212; Molecular Simulations - 0351-4057</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../../../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../../../../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../../../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/NumProjI';</script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../../../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../../../_static/tau_logo.jpg" class="logo__image only-light" alt="Molecular Simulations - 0351-4057 - Home"/>
+    <script>document.write(`<img src="../../../../../../_static/tau_logo.jpg" class="logo__image only-dark" alt="Molecular Simulations - 0351-4057 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../../../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../ClassicalMech.html">Classical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../StatMech.html">Basic statistical mechanics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../MolecularDynamics.html">Molecular dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../ProjPrerequisites.html">Prerequisites for numerical projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../NumProjI.html">Numerical project I - MD simulation (NVE)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../MonteCarlo.html">Monte Carlo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../NumProjII.html">Numerical Project II - MC simulation (NVT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../NumProjIII.html">Final project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/BarakHirshberg/MolecularSimulations/main/v2/gh/BarakHirshberg/MolecularSimulations/main?urlpath=tree/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/NumProjI.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../../../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/BarakHirshberg/MolecularSimulations/blob/main/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/NumProjI.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../../../../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/BarakHirshberg/MolecularSimulations" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/BarakHirshberg/MolecularSimulations/issues/new?title=Issue%20on%20page%20%2F_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/NumProjI.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../../../../_sources/_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute/NumProjI.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Numerical project I - MD simulation (NVE)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="numerical-project-i-md-simulation-nve">
+<h1>Numerical project I - MD simulation (NVE)<a class="headerlink" href="#numerical-project-i-md-simulation-nve" title="Permalink to this heading">#</a></h1>
+<p>Congratulations! You have mastered important concepts in classical and statistical mechanics, and learned about the nuts and bolts of MD simulations.
+You are now ready for your first project - writing your very own MD code. How exciting!
+The project will be written in Python, a highly popular coding language, extremely relevant for both scientific research and the current job market.</p>
+<p>You can find the link for the first project in the course’s moodle.</p>
+<p>If you followed correctly the Prerequisites instructions, your first assignment repository should be cloned to your personal GitHub.
+You do not need to edit the <code class="docutils literal notranslate"><span class="pre">Ar_init_super.xyz</span></code>, <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code>, or <code class="docutils literal notranslate"><span class="pre">README.md</span></code> files. You will only need to edit the <code class="docutils literal notranslate"><span class="pre">run.py</span></code> and <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> files. They both have very detailed instructions inside. For example, <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> reads:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#sim.py
+
+WELCOME TO YOUR FIRST PROJECT! THIS BIT OF TEXT IS CALLED A DOCSTRING.
+BELOW, I HAVE CREATED A CLASS CALLED &quot;SIMULATION&quot; FOR YOUR CONVENIENCE.
+I HAVE ALSO IMPLEMENTED A CONSTRUCTOR, WHICH IS A METHOD THAT IS CALLED 
+EVERY TIME YOU CREATE AN OBJECT OF THE CLASS USING, FOR EXAMPLE, 
+    
+    &gt;&gt;&gt; mysim = Simulation( dt=0.1E-15, L=11.3E-10, ftype=&quot;LJ&quot; )
+    
+I HAVE ALSO IMPLEMENTED SEVERAL USEFUL METHODS THAT YOU CAN CALL AND USE, 
+BUT DO NOT EDIT THEM. THEY ARE: evalForce, dumpXYZ, dumpThermo and readXYZ.
+
+YOU DO NOT NEED TO EDIT THE CLASS ITSELF.
+
+YOUR JOB IS TO IMPLEMENT THE LIST OF CLASS METHODS DEFINED BELOW. 
+ENTER YOUR COE WHERE YOU WILL SEE THE FOLLOWING TEXT:    
+
+        ################################################################
+        ####################### YOUR CODE GOES HERE ####################
+        ################################################################
+        
+YOU ARE, HOWEVER, EXPECTED TO UNDERSTAND WHAT ARE THE MEMBERS OF THE CLASS
+AND USE THEM IN YOUR IMPLEMENTATION. THEY ARE ALL EXPLAINED IN THE 
+DOCSTRING OF THE CONSTRUCTOR BELOW. FOR EXAMPLE, WHENEVER YOU WISH 
+TO USE/UPDATE THE MOMENTA OF THE PARTICLES IN ONE OF YOUR METHODS, YOU CAN
+ACCESS IT BY USING self.p. 
+
+    &gt;&gt;&gt; self.p = np.zeros( (self.Natoms,3) )
+        
+FINALLY, YOU WILL NEED TO EDIT THE run.py FILE WHICH RUNS THE SIMULATION.
+SEE MORE INSTRUCTIONS THERE.
+
+</pre></div>
+</div>
+<p>And the instructions in <code class="docutils literal notranslate"><span class="pre">run.py</span></code> are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HERE</span><span class="p">,</span> <span class="n">TO</span> <span class="n">RUN</span> <span class="n">THE</span> <span class="n">SIMULATION</span><span class="p">,</span> <span class="n">YOU</span> <span class="n">WILL</span> <span class="n">NEED</span> <span class="n">TO</span> <span class="n">DO</span> <span class="n">THE</span> <span class="n">FOLLOWING</span> <span class="n">THINGS</span><span class="p">:</span>
+
+    <span class="mf">1.</span> <span class="n">CREATE</span> <span class="n">AN</span> <span class="n">OBJECT</span> <span class="n">OF</span> <span class="n">THE</span> <span class="n">SIMULATION</span> <span class="n">CLASS</span><span class="o">.</span> <span class="n">A</span> <span class="n">MINIMAL</span> <span class="n">EXAMPLE</span> <span class="n">IS</span>
+    
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">mysim</span> <span class="o">=</span> <span class="n">Simulation</span><span class="p">(</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.1E-15</span><span class="p">,</span> <span class="n">L</span><span class="o">=</span><span class="mf">11.3E-10</span><span class="p">,</span> <span class="n">ftype</span><span class="o">=</span><span class="s2">&quot;LJ&quot;</span> <span class="p">)</span>
+    
+    <span class="mf">2.</span> <span class="n">DEFINE</span> <span class="n">THE</span> <span class="n">PARAMETERS</span> <span class="n">FOR</span> <span class="n">THE</span> <span class="n">POTENTIAL</span><span class="o">.</span> 
+    <span class="n">USE</span> <span class="n">A</span> <span class="n">DICTIONARY</span><span class="p">,</span> <span class="n">FOR</span> <span class="n">EXAMPLE</span> <span class="n">FOR</span> <span class="n">LJ</span> <span class="n">MODEL</span> <span class="n">OF</span> <span class="n">ARGON</span><span class="p">,</span> <span class="n">IN</span> <span class="n">SI</span> <span class="n">UNITS</span>
+    
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;eps&quot;</span><span class="p">:</span>  <span class="mf">1.656778224E-21</span><span class="p">,</span> <span class="s2">&quot;sig&quot;</span><span class="p">:</span> <span class="mf">3.4E-10</span> <span class="p">}</span>
+    
+<span class="n">THEN</span><span class="p">,</span> <span class="n">CALLING</span> <span class="n">THE</span> <span class="n">METHODS</span> <span class="n">YOU</span> <span class="n">IMPLEMENTED</span> <span class="n">IN</span> <span class="n">sim</span><span class="o">.</span><span class="n">py</span><span class="p">,</span> <span class="n">YOU</span> <span class="n">NEED</span> <span class="n">TO</span>
+
+    <span class="mf">3.</span> <span class="n">READ</span> <span class="n">THE</span> <span class="n">INITIAL</span> <span class="n">XYZ</span> <span class="n">FILE</span> <span class="n">PROVIDED</span> <span class="n">OR</span> <span class="n">SAMPLE</span> <span class="n">INITIAL</span> <span class="n">COORDINATES</span><span class="o">.</span>
+    <span class="mf">4.</span> <span class="n">SAMPLE</span> <span class="n">INITIAL</span> <span class="n">MOMENTA</span> <span class="n">FROM</span> <span class="n">MB</span> <span class="n">DISTRIBUTION</span><span class="o">.</span>
+    <span class="mf">5.</span> <span class="n">REMOVE</span> <span class="n">COM</span> <span class="n">MOTION</span><span class="o">.</span>
+    <span class="mf">6.</span> <span class="n">RUN</span> <span class="n">THE</span> <span class="n">SIMULATION</span><span class="p">,</span> <span class="n">INCLUDING</span> <span class="n">PRINTING</span> <span class="n">XYZ</span> <span class="n">AND</span> <span class="n">ENERGIES</span> <span class="n">TO</span> <span class="n">FILES</span><span class="o">.</span>
+    
+<span class="n">NOTE</span> <span class="n">THAT</span> <span class="n">TO</span> <span class="n">CALL</span> <span class="n">A</span> <span class="n">METHOD</span> <span class="n">OF</span> <span class="n">A</span> <span class="n">CLASS</span> <span class="n">FOR</span> <span class="n">A</span> <span class="n">SPECIFIC</span> <span class="n">OBJECT</span><span class="p">,</span> <span class="n">THE</span> <span class="n">SYNTAX</span> <span class="n">IS</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">mysim</span><span class="o">.</span><span class="n">funcName</span><span class="p">(</span> <span class="n">args</span> <span class="p">)</span>
+    
+<span class="n">FINALLY</span><span class="p">,</span> <span class="n">YOU</span> <span class="n">SHOULD</span>
+
+    <span class="mf">7.</span> <span class="n">ANALYZE</span> <span class="n">YOUR</span> <span class="n">RESULTS</span><span class="o">.</span> <span class="n">PLOT</span> <span class="n">THE</span> <span class="n">KINETIC</span> <span class="n">AND</span> <span class="n">POTENTIAL</span> <span class="n">ENERGIES</span><span class="p">,</span> 
+    <span class="n">AND</span> <span class="n">SEPARATE</span> <span class="n">FIGURE</span> <span class="n">WITH</span> <span class="n">THE</span> <span class="n">CHANGE</span> <span class="n">IN</span> <span class="o">%</span> <span class="n">OF</span> <span class="n">THE</span> <span class="n">TOTAL</span> <span class="n">ENERGY</span>
+    <span class="n">WITH</span> <span class="n">RESPECT</span> <span class="n">TO</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.</span>
+    
+<span class="n">NOTE</span><span class="p">:</span> <span class="n">THE</span> <span class="n">INPUT</span> <span class="n">FILE</span> <span class="n">GIVEN</span> <span class="n">HAS</span> <span class="n">THE</span> <span class="n">COORDINATES</span> <span class="n">IN</span> <span class="n">ANGSTROM</span><span class="o">.</span>
+<span class="o">*</span><span class="n">YOUR</span> <span class="n">OUTPUT</span> <span class="n">XYZ</span> <span class="n">FILE</span> <span class="n">SHOULD</span> <span class="n">BE</span> <span class="n">PRINTED</span> <span class="n">IN</span> <span class="n">ANGSTROM</span> <span class="n">TOO</span><span class="o">*</span><span class="p">,</span> <span class="n">BUT</span> <span class="n">YOU</span> <span class="n">CAN</span> <span class="n">USE</span>
+<span class="n">ANY</span> <span class="n">UNITS</span> <span class="n">YOU</span> <span class="n">WANT</span> <span class="n">IN</span> <span class="n">BETWEEN</span><span class="p">,</span> <span class="n">I</span> <span class="n">SUGGEST</span> <span class="n">USING</span> <span class="n">SI</span> <span class="n">UNITS</span><span class="o">.</span>
+
+</pre></div>
+</div>
+<p>As you can see, most of your coding will be done in the <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> file.
+I have created a class called Simulation which defines the methods and data members that you can use in your implementation. Your job is twofold:</p>
+<ul class="simple">
+<li><p>Implement the methods for class Simulation, based on the material we have covered.</p></li>
+<li><p>Implement a several short scripts <code class="docutils literal notranslate"><span class="pre">run.py</span></code> to call the methods you have implemented and run a simulation.</p></li>
+<li><p>In methods containing the keyword <code class="docutils literal notranslate"><span class="pre">Example</span></code>, write doctest examples proving your methods are correct and well implemented.</p></li>
+</ul>
+<p>The methods you will have to implement include, for example, sampleMB() which samples initial positions from the Maxwell-Boltzmann distribution. How do I know? Because in <code class="docutils literal notranslate"><span class="pre">sim.py</span></code> you will see its definition, with a description of what needs to be implemented and the place to write your code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">sampleMB</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">removeCM</span><span class="o">=</span><span class="kc">True</span> <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        THIS FUNCTION SAMPLES INITIAL MOMENTA FROM THE MB DISTRIBUTION.</span>
+<span class="sd">        IT ALSO REMOVES THE COM MOMENTA, IF REQUESTED.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        temp : float</span>
+<span class="sd">            The temperature to sample from.</span>
+<span class="sd">        removeCM : bool, optional</span>
+<span class="sd">            Remove COM velocity or not. The default is True.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None. Sets the value of self.p.</span>
+
+<span class="sd">        Tests</span>
+<span class="sd">        -----</span>
+
+<span class="sd">        IMPLEMENT THE FOLLOWING TESTS BELOW THE WORD Example:</span>
+
+<span class="sd">        1. THE MEAN MOMENTUM OF EACH COORDINATE SHOULD BE VERY CLOSE TO ZERO</span>
+<span class="sd">        2. THE STD SHOULD BE CLOSE TO SQRT(m*Kb*T)</span>
+<span class="sd">        NOTE: IN THIS CASE, WE SHOW A TEST FOR THE MEAN, WRITE THE OTHERS YOURSELF.</span>
+<span class="sd">        </span>
+<span class="sd">        Example: </span>
+<span class="sd">        &gt;&gt;&gt; temp = 300  # temperature in K, using default values for mass and Natoms. </span>
+<span class="sd">        &gt;&gt;&gt; mysim = Simulation( dt=0.1E-15, L=11.3E-10, ftype=&quot;LJ&quot; )</span>
+<span class="sd">        &gt;&gt;&gt; mysim.sampleMB(temp)</span>
+<span class="sd">        &gt;&gt;&gt; mean_momentum = np.mean(mysim.p, axis=0)</span>
+<span class="sd">        &gt;&gt;&gt; np.linalg.norm(mean_momentum[0]) &lt; 1e-20  </span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; np.linalg.norm(mean_momentum[1]) &lt; 1e-20</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; np.linalg.norm(mean_momentum[2]) &lt; 1e-20</span>
+<span class="sd">        True</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        
+        <span class="c1">################################################################</span>
+        <span class="c1">####################### YOUR CODE GOES HERE ####################</span>
+        <span class="c1">################################################################</span>
+</pre></div>
+</div>
+<p>I highly recommend implementing one method at a time and testing that it works by running <code class="docutils literal notranslate"><span class="pre">run.py</span></code> that calls it, before moving on to the next method. Do not forget to commit and push along the way to create checkpoints you can go back to if something goes wrong.</p>
+<p>The repo also has a file called <code class="docutils literal notranslate"><span class="pre">ReportProjI.ipynb</span></code>. This is a Jupyter Notebook which you can open by running <a class="reference external" href="https://jupyter.org/">JupyterLab</a> or <a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> from Anaconda. In it, you will find the definitions and details of the specific simulations you have to run. It also contains questions that you need to answer and figures you need to plot. Create a separate run script for each one of the sections in the notebook (<code class="docutils literal notranslate"><span class="pre">run_harmonic.py</span></code> and <code class="docutils literal notranslate"><span class="pre">run_Ar.py</span></code>), run the simulations, and answer the questions. Submit your report by commiting and pushing the file to your repo.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "BarakHirshberg/MolecularSimulations",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./_build/jupyter_execute/_build/jupyter_execute/_build/jupyter_execute"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Prof. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 6997801, Israel.
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../../../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
