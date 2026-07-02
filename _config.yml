@@ -48,6 +48,9 @@ sphinx:
       - "env/**"
       - ".venv/**"
       - "**/__pycache__/**"
+      # Repo docs that aren't book pages (avoid orphan-page warnings)
+      - "README.md"
+      - "CLAUDE.md"
     # Suppress warnings about duplicate labels (equations/sections defined multiple times)
     suppress_warnings:
       - "myst.duplicate_label"
