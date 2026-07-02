@@ -107,23 +107,20 @@ While reading the notes, look for:
 
 ### Prerequisites
 
--   Python 3.9 or higher
+-   Python 3.11 or higher
 -   Git
 -   (Optional) Conda for environment management
 
 ### Option 1: Using Conda (Recommended)
 
-1. **Create the conda environment**
+`environment.yml` installs the full stack — the Jupyter Book toolchain **and**
+the scientific libraries used by the notebooks — so this single step is all you
+need:
 
-    ```bash
-    conda env create -f environment.yml
-    conda activate book
-    ```
-
-2. **Install Jupyter Book dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+conda env create -f environment.yml
+conda activate book
+```
 
 ### Option 2: Using pip only
 

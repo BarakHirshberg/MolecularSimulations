@@ -2,9 +2,23 @@ name: book
 channels:
   - conda-forge
 dependencies:
-  - numpy
-  - scipy
-  - pandas
-  - matplotlib
-  - altair
+  - python=3.11
+
+  # --- Build toolchain -------------------------------------------------------
+  # Jupyter Book 1.0.x (Sphinx-based line). Pinning only jupyter-book lets its
+  # own metadata resolve compatible Sphinx / MyST-Parser / MyST-NB / theme
+  # versions -- do NOT hand-pin those (over-pinning is what froze this repo).
+  # Do NOT move to Jupyter Book 2.x: it uses a different (MyST-MD) engine that
+  # is incompatible with this _config.yml / _toc.yml.
+  - jupyter-book=1.0.*
+  - ghp-import                 # used to publish _build/html to gh-pages
+
+  # --- Scientific stack (demo + project notebooks) ---------------------------
+  # Notebook outputs are committed and NOT re-executed at build time
+  # (execute_notebooks: "off"), so these matter only when cells are re-run.
+  - numpy=1.26.*
+  - scipy=1.13.*
+  - matplotlib=3.8.*
+  - pandas=2.2.*
+  - altair=4.2.*               # kept on the v4 API; v5 changes the API
   - vega_datasets
