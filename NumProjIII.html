@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Final project &#8212; Molecular Simulations - 0351-4057</title>
   
@@ -15,94 +14,85 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'NumProjIII';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Numerical Project II - MC simulation (NVT)" href="NumProjII.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -110,7 +100,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -118,16 +107,69 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
   
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -142,6 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -155,11 +199,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/tau_logo.jpg" class="logo__image only-light" alt="Molecular Simulations - 0351-4057 - Home"/>
-    <script>document.write(`<img src="_static/tau_logo.jpg" class="logo__image only-dark" alt="Molecular Simulations - 0351-4057 - Home"/>`);</script>
+    <img src="_static/tau_logo.jpg" class="logo__image only-dark pst-js-only" alt="Molecular Simulations - 0351-4057 - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -186,14 +237,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -202,14 +258,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -234,14 +290,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/BarakHirshberg/MolecularSimulations/main/v2/gh/BarakHirshberg/MolecularSimulations/main?urlpath=tree/NumProjIII.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -252,14 +308,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/BarakHirshberg/MolecularSimulations/blob/main/NumProjIII.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_colab.png">
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -399,27 +455,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -439,7 +487,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-a-path-integral-molecular-dynamics-monte-carlo">Option A - Path Integral Molecular Dynamics / Monte Carlo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-b-metadynamics">Option B - Metadynamics</a></li>
 </ul>
@@ -451,10 +499,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="final-project">
-<h1>Final project<a class="headerlink" href="#final-project" title="Permalink to this heading">#</a></h1>
+<h1>Final project<a class="headerlink" href="#final-project" title="Link to this heading">#</a></h1>
 <p>Congratulations! You have successfully finished your first two projects, implementing your very own MD and Metropolis MC codes.
 You have also learned some of the theory underlying both methods, including analytical mechanics, statistical mechanics, and random processes. This is a highly non-trivial achievement.</p>
 <p>Now, to the final project that will determine <span class="math notranslate nohighlight">\(50\%\)</span> of your grade. This time, I will not teach you the theory myself. Instead, I will briefly describe two advanced simulation methods that you can choose from, and refer you to the relevant reading material. Your job is to read the material and prepare a short summary, no longer than 5 pages, explaining what you have learned. Focus on the following guiding principles:</p>
@@ -469,7 +517,7 @@ You have also learned some of the theory underlying both methods, including anal
 You need to create a repository with the source code of your simulation. The summary should be submitted in .ipynb format.
 I recommend using some of the code we developed in class, and the repository, but you don’t have to.</p>
 <section id="option-a-path-integral-molecular-dynamics-monte-carlo">
-<h2>Option A - Path Integral Molecular Dynamics / Monte Carlo<a class="headerlink" href="#option-a-path-integral-molecular-dynamics-monte-carlo" title="Permalink to this heading">#</a></h2>
+<h2>Option A - Path Integral Molecular Dynamics / Monte Carlo<a class="headerlink" href="#option-a-path-integral-molecular-dynamics-monte-carlo" title="Link to this heading">#</a></h2>
 <p><em>The gist:</em> Throughout this class, we have only discussed classical dynamics and classical statistical mehcanics.
 What about quantum mechanics? Can any of the methods we learned be utilized for quantum systems?
 The answer came from the work of the famous physicist <a class="reference external" href="https://en.wikipedia.org/wiki/Richard_Feynman">Richard P. Feynman</a>.</p>
@@ -480,21 +528,21 @@ But, more concretely to our purposes, it also shows how one can use classical MD
 <p>This is possible because there is a mapping of each quantum system to a larger system of classical particles which has the same partition function. This is achieved by replacing every quantum particle with a classical <strong>ring polymer</strong> composed of <span class="math notranslate nohighlight">\(P\)</span> beads which are copies of the original particle that are connected with harmonic springs. Use the following two sources to read all about it:</p>
 <p><em>Reading material:</em></p>
 <ol class="arabic simple">
-<li><p>M.E. Tuckerman, <a class="reference external" href="https://tau-primo.hosted.exlibrisgroup.com/permalink/f/8560f2/972TAU_ALMA51249053460004146">Statistical Mechanics: Theory and Molecular Simulations</a> <span id="id1">[<a class="reference internal" href="intro.html#id4" title="Mark Tuckerman. Statistical Mechanics: Theory and Molecular Simulation. Oxford Graduate Texts. Oxford University Press, Oxford, New York, February 2010. ISBN 978-0-19-852526-4.">1</a>]</span>, Chapter 12.</p></li>
+<li><p>M.E. Tuckerman, <a class="reference external" href="https://tau-primo.hosted.exlibrisgroup.com/permalink/f/8560f2/972TAU_ALMA51249053460004146">Statistical Mechanics: Theory and Molecular Simulations</a> <span class="bibtex-citation" id="id1">[<a class="reference internal" href="intro.html#id4" title="Mark Tuckerman. Statistical Mechanics: Theory and Molecular Simulation. Oxford Graduate Texts. Oxford University Press, Oxford, New York, February 2010. ISBN 978-0-19-852526-4.">1</a>]</span>, Chapter 12.</p></li>
 <li><p>M. Ceriotti, V, Kapil, Y. Litman, T. Markland and M. Rossi, Booklet of the CECAM Flagship School on Path Integral Quantum Mechanics. Sections 1-2, available on the moodle.</p></li>
 </ol>
 <p><em>Simulation details:</em> Evaluate the average total energy of a quantum particle (Ar atom) in a one-dimensional Harmonic trap of frequency <span class="math notranslate nohighlight">\(\omega_0 = 50 meV\)</span> as a function of inverse temperature <span class="math notranslate nohighlight">\(\beta=(k_BT)^{-1}\)</span>. Use values of <span class="math notranslate nohighlight">\(\beta \hbar \omega_0 = 1,2,3,4,5,6\)</span>. To estimate the statistical uncertainty of your results run several independent simulations at every temperature. Show that the energy converges to the correct ground state energy as you decrease the temperature (increase <span class="math notranslate nohighlight">\(\beta\)</span>). Compare the results at all temperatures with the analytical results that can be derived from the exact expression for the partition function.  Don’t forget to show the convergence of your simulation with respect to the number of beads. You can do this only for the lowest temperature and then just scale the number of beads with temperature (i.e., decreasing the temperature by a factor of two leads to the same decrease in the number of beads).</p>
 <p><em>Bonus:</em> You can use either MD or MC simulations but PIMD is described in more detail in Tuckerman. You will get bonus points if you do both!</p>
 </section>
 <section id="option-b-metadynamics">
-<h2>Option B - Metadynamics<a class="headerlink" href="#option-b-metadynamics" title="Permalink to this heading">#</a></h2>
+<h2>Option B - Metadynamics<a class="headerlink" href="#option-b-metadynamics" title="Link to this heading">#</a></h2>
 <p><em>The gist:</em> MD simulations are an extremely powerful tool that can be thought of as a virtual microscope capturing the motion of every atom in a solid, liquid, gas, etc. The temporal resolution is determined by the time step such that the total energy is conserved. A typical time step is of the order of <span class="math notranslate nohighlight">\(1 fs\)</span>, which is limited by the highest frequency normal modes of the system. The algorithms for time propagation accumulate a numerical error, which depends on the time step. Therefore, MD simulations are usually stable up to about <span class="math notranslate nohighlight">\(10^9\)</span> steps. This results in a total simulation time of the order of <span class="math notranslate nohighlight">\(\sim 1 \mu s\)</span>.</p>
 <p>Many fascinating chemical, physical, and biological processes occur on a much longer time scale. Important examples include protein folding, crystal nucleation, and growth, or chemical reactions with a high energy barrier. Standard MD simulations cannot describe such processes, which we call <strong>rare events</strong>.</p>
 <p><strong>Metadynamics</strong> is an algorithm that allows for <strong>enhanced sampling</strong> of such rare events by adding a bias potential to the system, which is built as the simulation progresses, pushing it from one state to another. It also provides a way of evaluating the free energy surface of the process without the added bias. This is achieved in practice by depositing a Gaussian every 100-500 steps during the simulation. You can read all about it in the following two review papers:</p>
 <p><em>Reading material:</em></p>
 <ol class="arabic simple">
-<li><p>G. Bussi, A. Laio, <a class="reference external" href="https://doi.org/10.1038/s42254-020-0153-0">Using metadynamics to explore complex free-energy landscapes</a> <span id="id2">[<a class="reference internal" href="intro.html#id6" title="Giovanni Bussi and Alessandro Laio. Using metadynamics to explore complex free-energy landscapes. Nature Reviews Physics, 2(4):200–212, April 2020. URL: https://doi.org/10.1038/s42254-020-0153-0, doi:10.1038/s42254-020-0153-0.">3</a>]</span>.</p></li>
-<li><p>A. Valsson, P. Tiwary, and M. Parrinello, <a class="reference external" href="https://doi.org/10.1146/annurev-physchem-040215-112229">Enhancing Important Fluctuations: Rare Events and Metadynamics from a Conceptual Viewpoint</a> <span id="id3">[<a class="reference internal" href="intro.html#id7" title="Omar Valsson, Pratyush Tiwary, and Michele Parrinello. Enhancing Important Fluctuations: Rare Events and Metadynamics from a Conceptual Viewpoint. Annual Review of Physical Chemistry, 67(1):159–184, 2016. _eprint: https://doi.org/10.1146/annurev-physchem-040215-112229. URL: https://doi.org/10.1146/annurev-physchem-040215-112229, doi:10.1146/annurev-physchem-040215-112229.">4</a>]</span>.</p></li>
+<li><p>G. Bussi, A. Laio, <a class="reference external" href="https://doi.org/10.1038/s42254-020-0153-0">Using metadynamics to explore complex free-energy landscapes</a> <span class="bibtex-citation" id="id2">[<a class="reference internal" href="intro.html#id6" title="Giovanni Bussi and Alessandro Laio. Using metadynamics to explore complex free-energy landscapes. Nature Reviews Physics, 2(4):200–212, April 2020. URL: https://doi.org/10.1038/s42254-020-0153-0, doi:10.1038/s42254-020-0153-0.">3</a>]</span>.</p></li>
+<li><p>A. Valsson, P. Tiwary, and M. Parrinello, <a class="reference external" href="https://doi.org/10.1146/annurev-physchem-040215-112229">Enhancing Important Fluctuations: Rare Events and Metadynamics from a Conceptual Viewpoint</a> <span class="bibtex-citation" id="id3">[<a class="reference internal" href="intro.html#id7" title="Omar Valsson, Pratyush Tiwary, and Michele Parrinello. Enhancing Important Fluctuations: Rare Events and Metadynamics from a Conceptual Viewpoint. Annual Review of Physical Chemistry, 67(1):159–184, 2016. _eprint: https://doi.org/10.1146/annurev-physchem-040215-112229. URL: https://doi.org/10.1146/annurev-physchem-040215-112229, doi:10.1146/annurev-physchem-040215-112229.">4</a>]</span>.</p></li>
 </ol>
 <p><em>Simulation details:</em> Perform Metadynamics simulations at <span class="math notranslate nohighlight">\(298 K\)</span> for a Ar atom in the double well potential energy surface:</p>
 <div class="math notranslate nohighlight">
@@ -534,7 +582,7 @@ V(x) = A x^4 - Bx^2,
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -553,14 +601,16 @@ V(x) = A x^4 - Bx^2,
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-a-path-integral-molecular-dynamics-monte-carlo">Option A - Path Integral Molecular Dynamics / Monte Carlo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-b-metadynamics">Option B - Metadynamics</a></li>
 </ul>
@@ -587,7 +637,7 @@ By Prof. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 699
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -611,8 +661,8 @@ By Prof. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 699
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

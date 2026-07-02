@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Classical mechanics &#8212; Molecular Simulations - 0351-4057</title>
   
@@ -15,95 +14,86 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ClassicalMech';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Basic statistical mechanics" href="StatMech.html" />
     <link rel="prev" title="Introduction" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -111,7 +101,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -119,16 +108,69 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
   
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -143,6 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -156,11 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/tau_logo.jpg" class="logo__image only-light" alt="Molecular Simulations - 0351-4057 - Home"/>
-    <script>document.write(`<img src="_static/tau_logo.jpg" class="logo__image only-dark" alt="Molecular Simulations - 0351-4057 - Home"/>`);</script>
+    <img src="_static/tau_logo.jpg" class="logo__image only-dark pst-js-only" alt="Molecular Simulations - 0351-4057 - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -187,14 +238,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -203,14 +259,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -235,14 +291,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/BarakHirshberg/MolecularSimulations/main/v2/gh/BarakHirshberg/MolecularSimulations/main?urlpath=tree/ClassicalMech.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -253,14 +309,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/BarakHirshberg/MolecularSimulations/blob/main/ClassicalMech.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_colab.png">
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -400,27 +456,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -440,7 +488,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-equations">Newton’s equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-space">Phase space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrangian-mechanics">Lagrangian mechanics</a></li>
@@ -455,19 +503,19 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="classical-mechanics">
-<span id="chap-classmech"></span><h1>Classical mechanics<a class="headerlink" href="#classical-mechanics" title="Permalink to this heading">#</a></h1>
+<span id="chap-classmech"></span><h1>Classical mechanics<a class="headerlink" href="#classical-mechanics" title="Link to this heading">#</a></h1>
 <section id="newton-s-equations">
-<span id="sec-newton"></span><h2>Newton’s equations<a class="headerlink" href="#newton-s-equations" title="Permalink to this heading">#</a></h2>
+<span id="sec-newton"></span><h2>Newton’s equations<a class="headerlink" href="#newton-s-equations" title="Link to this heading">#</a></h2>
 <p>You are all familiar with this formulation of classical mechanics,
 so we will go over it very briefly.
 In his masterpiece “Principia”, first published in 1687(!),
 Newton formulated his three celebrated laws of motion.
 The first two can be succinctly summarized in the equation,</p>
 <div class="math notranslate nohighlight" id="equation-newton2nd">
-<span class="eqno">(1)<a class="headerlink" href="#equation-newton2nd" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(1)<a class="headerlink" href="#equation-newton2nd" title="Link to this equation">#</a></span>\[
 m \ddot{ \textbf{r} } = \textbf{F},
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\( \textbf{r}(t) = [x(t), y(t), z(t)] \)</span> are the mass and
@@ -494,7 +542,7 @@ that “for every action, there is an equal and opposite reaction”,
 i.e., that if <span class="math notranslate nohighlight">\(\textbf{F}_{12}\)</span> is the force that particle 1 exerts
 on particle 2, then</p>
 <div class="math notranslate nohighlight" id="equation-newton3rd">
-<span class="eqno">(2)<a class="headerlink" href="#equation-newton3rd" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(2)<a class="headerlink" href="#equation-newton3rd" title="Link to this equation">#</a></span>\[
       \textbf{F}_{21} = -\textbf{F}_{12}.
 \]</div>
 <div class="tip admonition">
@@ -526,12 +574,12 @@ on particle 2, then</p>
 </div>
 <p>For a collection for <span class="math notranslate nohighlight">\(N\)</span> particles, Newton’s equations of motion are</p>
 <div class="math notranslate nohighlight" id="equation-newton2nd-n">
-<span class="eqno">(3)<a class="headerlink" href="#equation-newton2nd-n" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(3)<a class="headerlink" href="#equation-newton2nd-n" title="Link to this equation">#</a></span>\[
       m \ddot{\textbf{r}}_j = \textbf{F}_j,
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(j=1,...,N\)</span> and the force acting on particle <span class="math notranslate nohighlight">\(j\)</span> depends on the coordinates of all particles, <span class="math notranslate nohighlight">\(\textbf{F}_j(\textbf{r}_1,...,\textbf{r}_N)\)</span>. We define <strong>conservative forces</strong> as those that are the gradient some potential energy,</p>
 <div class="math notranslate nohighlight" id="equation-f-cons">
-<span class="eqno">(4)<a class="headerlink" href="#equation-f-cons" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(4)<a class="headerlink" href="#equation-f-cons" title="Link to this equation">#</a></span>\[
       \textbf{F}_j = -\nabla_j U(\textbf{r}_1,...,\textbf{r}_N).
 \]</div>
 <p>The gradient <span class="math notranslate nohighlight">\(\nabla_j = [\frac{\partial}{\partial x_j}, \frac{\partial}{\partial y_j}, \frac{\partial}{\partial z_j}]\)</span> is sometimes also denoted as <span class="math notranslate nohighlight">\(\frac{\partial}{\partial \textbf{r}_j}\)</span>.
@@ -556,21 +604,21 @@ The name conservative forces comes from the fact that the total energy is conser
 <p id="discussion">We require the initial positions and velocities of all <span class="math notranslate nohighlight">\(N\)</span> particles to solve Eq. <a class="reference internal" href="#equation-newton2nd-n">(3)</a>. In practice, however, the exact many-body forces are  complicated, nonlinear functions and the resulting dynamics are highly complex. Any attempt to find an analytic solution to the equations of motion of a many-body system is therefore futile. Moreover, if we give up trying to obtain an analytic solution and are content with solving Eq. <a class="reference internal" href="#equation-newton2nd-n">(3)</a> numerically for a macroscopic system with <span class="math notranslate nohighlight">\(\sim 10^{23}\)</span> particles, it would require more computational resources than are currently (or in the foreseeable future) available. This infamous problem is called the “n-body problem” when the interaction between the particles is gravitational and it is still an area of active research in <a class="reference external" href="https://www.americanscientist.org/article/the-100-billion-body-problem">Astronomy</a>. So, is all hope lost? No! The essence of MD simulations is to instead solve Eq. <a class="reference internal" href="#equation-newton2nd-n">(3)</a> numerically for a large, but much smaller, number of particles, typically ranging between <span class="math notranslate nohighlight">\(100-10^6\)</span>, typically in a box of given volume under some specified boundary conditions (representing a solid, for example, more about this later). It turns out that this approach works remarkably well, and many properties converge to their bulk values for this much smaller number of particles. Before describing MD simulations in detail, we first introduce the concept of phase space, and then look into alternative formulations of classical mechanics which will be of use in the following lessons.</p>
 </section>
 <section id="phase-space">
-<span id="sec-phase-space"></span><h2>Phase space<a class="headerlink" href="#phase-space" title="Permalink to this heading">#</a></h2>
+<span id="sec-phase-space"></span><h2>Phase space<a class="headerlink" href="#phase-space" title="Link to this heading">#</a></h2>
 <p>The solution to Newton’s equations of motion specify the positions <span class="math notranslate nohighlight">\(\textbf{r}(t)\)</span> and velocities <span class="math notranslate nohighlight">\(\textbf{v}(t)\)</span> of the particles at every time, given we know their value at some instance (usually, <span class="math notranslate nohighlight">\(t=0\)</span>). In statistical mechanics and quantum mechanics it turns out to be more convenient to work with the momenta,</p>
 <div class="math notranslate nohighlight" id="equation-momenta">
-<span class="eqno">(5)<a class="headerlink" href="#equation-momenta" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(5)<a class="headerlink" href="#equation-momenta" title="Link to this equation">#</a></span>\[
 \textbf{p}_j(t) = m_j \textbf{v}_j(t) = m_j \dot{\textbf{r}}_j(t).    
 \]</div>
 <p>Eq. <a class="reference internal" href="#equation-newton2nd-n">(3)</a> can be written in terms of the momenta as well,</p>
 <div class="math notranslate nohighlight" id="equation-newton2nd-n-p">
-<span class="eqno">(6)<a class="headerlink" href="#equation-newton2nd-n-p" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(6)<a class="headerlink" href="#equation-newton2nd-n-p" title="Link to this equation">#</a></span>\[
       \dot{\textbf{p}}_j = \textbf{F}_j.
 \]</div>
 <p>This equation already tells us something very interesting. When there is no total force acting on the particles,<span class="math notranslate nohighlight">\(\sum_{j=1}^N \dot{\textbf{p}}_j =  \sum_{j=1}^N \textbf{F}_j = 0\)</span> and the total linear momentum <span class="math notranslate nohighlight">\(\textbf{P} = \sum_{j=1}^N \textbf{p}_j\)</span> is conserved.</p>
 <p>At any moment in time, the <strong>microscopic state</strong> (“microstate”) of the system is specified by <span class="math notranslate nohighlight">\(6N\)</span> numbers - the components of the position and momentum vectors of all particles. These numbers can be considered as a point in a <span class="math notranslate nohighlight">\(6N\)</span> dimensional space, called <strong>phase space</strong>. We will denote a point in phase space as</p>
 <div class="math notranslate nohighlight" id="equation-x-phase-space">
-<span class="eqno">(7)<a class="headerlink" href="#equation-x-phase-space" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(7)<a class="headerlink" href="#equation-x-phase-space" title="Link to this equation">#</a></span>\[
     \textbf{x}(t) = [\textbf{r}_1(t), ..., \textbf{r}_N(t),\textbf{p}_1(t),...,\textbf{p}_N(t)].
 \]</div>
 <p>A trajectory obtained from the solution of Newton’s equations of motion defines a parametric path in phase space. Visualizing it in a <span class="math notranslate nohighlight">\(6N\)</span> dimensional space is inconvenient, but we can do it for a single particle moving in one dimension. Let us look at the phase space path for a single particle of mass <span class="math notranslate nohighlight">\(m\)</span> in a one-dimensional harmonic trap with frequency <span class="math notranslate nohighlight">\(\omega_0\)</span>. We will show that the phase space trajectory is an ellipse, whose size is determined by the initial conditions which define the conserved energy. The shape of the ellipse is determined by the mass of the particle and the trap frequency.</p>
@@ -657,23 +705,23 @@ The name conservative forces comes from the fact that the total energy is conser
 <p>Now that we have mastered Newtonian Mechanics and the phase space representation of trajectories, we will move on to two equivalent formulations of classical mechanics which are more convenient for molecular simulations.</p>
 </section>
 <section id="lagrangian-mechanics">
-<span id="sec-lagrange"></span><h2>Lagrangian mechanics<a class="headerlink" href="#lagrangian-mechanics" title="Permalink to this heading">#</a></h2>
+<span id="sec-lagrange"></span><h2>Lagrangian mechanics<a class="headerlink" href="#lagrangian-mechanics" title="Link to this heading">#</a></h2>
 <p>We will first present the formalism of Lagrangian mechanics and only later show how to derive it, and all other formulations, from one general axiom called Hamilton’s principle.</p>
 <p>We define the <strong>Lagrangian</strong> as the difference between the kinetic and potential energy of the system, expressed in terms of the Cartesian positions and velocities,</p>
 <div class="math notranslate nohighlight" id="equation-lagrangian">
-<span class="eqno">(8)<a class="headerlink" href="#equation-lagrangian" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(8)<a class="headerlink" href="#equation-lagrangian" title="Link to this equation">#</a></span>\[
       \mathcal{L}
       (\textbf{r}_1,...,\textbf{r}_N,\dot{\textbf{r}}_1,...,\dot{\textbf{r}}_N) = K(\dot{\textbf{r}}_1,...,\dot{\textbf{r}}_N) - U(\textbf{r}_1,...,\textbf{r}_N),
 \]</div>
 <p>where the kinetic energy is given by</p>
 <div class="math notranslate nohighlight" id="equation-kinetic">
-<span class="eqno">(9)<a class="headerlink" href="#equation-kinetic" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(9)<a class="headerlink" href="#equation-kinetic" title="Link to this equation">#</a></span>\[
     K(\dot{\textbf{r}}_1,...,\dot{\textbf{r}}_N) = 
     \frac{1}{2} \sum_{j=1}^N m_j \dot{\textbf{r}}^2_j.
 \]</div>
 <p>The classical equations of motion can be recovered from <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> through the celebrated <strong>Euler-Lagrange equations</strong>,</p>
 <div class="math notranslate nohighlight" id="equation-el-eq">
-<span class="eqno">(10)<a class="headerlink" href="#equation-el-eq" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(10)<a class="headerlink" href="#equation-el-eq" title="Link to this equation">#</a></span>\[
     \frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial \mathcal{L}}{\partial \dot{\textbf{r}}_j} = \frac{\partial \mathcal{L}}{\partial \textbf{r}_j}.
 \]</div>
 <div class="tip admonition">
@@ -718,22 +766,21 @@ What you did in your first-year mechanics course is to assume that <span class="
 We now consider another formulation of classical mechanics, due to Hamilton, which you already encountered in quantum mechanics but probably were not aware of its utility in the classical context.</p>
 </section>
 <section id="hamiltonian-mechanics">
-<span id="sec-hamilton"></span><h2>Hamiltonian mechanics<a class="headerlink" href="#hamiltonian-mechanics" title="Permalink to this heading">#</a></h2>
+<span id="sec-hamilton"></span><h2>Hamiltonian mechanics<a class="headerlink" href="#hamiltonian-mechanics" title="Link to this heading">#</a></h2>
 <p>While Lagrangian mechanics is based on a description of the dynamics of a system in terms of the positions and velocities, the Hamiltonian formulation is intimately connected to the phase space representation we introduced in Section <a class="reference internal" href="#sec-phase-space"><span class="std std-ref">Phase space</span></a>. We previously defined the Cartesian momentum, <span class="math notranslate nohighlight">\(\textbf{p}_j = m_j \dot{\textbf{r}}_j\)</span> in Eq. <a class="reference internal" href="#equation-momenta">(5)</a>. A wider definition is to consider a <strong>generalized momentum</strong>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8468b994-1def-4696-a0f5-7682077ddc36">
-<span class="eqno">(11)<a class="headerlink" href="#equation-8468b994-1def-4696-a0f5-7682077ddc36" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e87053a7-a618-407f-8550-830dca2e3f91">
+<span class="eqno">(11)<a class="headerlink" href="#equation-e87053a7-a618-407f-8550-830dca2e3f91" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \textbf{p}_j = \frac{\partial \mathcal{L}}{\partial \dot{\textbf{q}}_j},
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\textbf{q}_j\)</span> is some generalized coordinate. When we write the Lagrangian in Cartesian coordinates, <span class="math notranslate nohighlight">\(\textbf{r}_j\)</span>, this definition reduces to Eq. <a class="reference internal" href="#equation-momenta">(5)</a>, but it holds for any choice of coordinates! (Remember, this was a major strength also of the Lagrangian formulation).</p>
-<p>The <strong>Hamiltonian</strong> is then defined<a class="footnote-reference brackets" href="#footnote1" id="id1">1</a> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a1ba219c-77dd-4a7d-b26f-ab4444d9b0b7">
-<span class="eqno">(12)<a class="headerlink" href="#equation-a1ba219c-77dd-4a7d-b26f-ab4444d9b0b7" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\label{Hamiltonian_def}
+<p>The <strong>Hamiltonian</strong> is then defined<a class="footnote-reference brackets" href="#footnote1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> as</p>
+<div class="math notranslate nohighlight" id="equation-hamiltonian-def">
+<span class="eqno">(12)<a class="headerlink" href="#equation-hamiltonian-def" title="Link to this equation">#</a></span>\[
     \mathcal{H}(\textbf{q}_1,...,\textbf{q}_N,\textbf{p}_1,...,\textbf{p}_N) = \sum_{j=1}^N \textbf{p}_j \cdot \dot{\textbf{q}}_j(\textbf{p}_j) - \mathcal{L} \left (\textbf{q}_1,...,\textbf{q}_N,\dot{\textbf{q}}_1(\textbf{p}_1),...,\dot{\textbf{q}}_N(\textbf{p}_N) \right ),
-\end{equation}\]</div>
+\]</div>
 <p>and the equations of motion are called <strong>Hamilton’s equations</strong>,</p>
 <div class="math notranslate nohighlight" id="equation-hamilton-eq">
-<span class="eqno">(13)<a class="headerlink" href="#equation-hamilton-eq" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(13)<a class="headerlink" href="#equation-hamilton-eq" title="Link to this equation">#</a></span>\[
     \dot{\textbf{q}}_j = \frac{\partial \mathcal{H}}{\partial \textbf{p}_j}, \dot{\textbf{p}}_j = - \frac{\partial \mathcal{H}}{\partial \textbf{q}_j} .
 \]</div>
 <div class="tip admonition">
@@ -762,12 +809,12 @@ We now consider another formulation of classical mechanics, due to Hamilton, whi
 </div>
 <p>If we choose to work in Cartesian coordinates, <span class="math notranslate nohighlight">\(\dot{\textbf{r}}_j(\textbf{p}_j) = \textbf{p}_j / m_j \)</span>, according to Eq. <a class="reference internal" href="#equation-momenta">(5)</a>, we get</p>
 <div class="math notranslate nohighlight" id="equation-hamiltonian-cu">
-<span class="eqno">(14)<a class="headerlink" href="#equation-hamiltonian-cu" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(14)<a class="headerlink" href="#equation-hamiltonian-cu" title="Link to this equation">#</a></span>\[
     \mathcal{H}(\textbf{r}_1,...,\textbf{r}_N,\textbf{p}_1,...,\textbf{p}_N) = \sum_{i=1}^N \frac{\textbf{p}_j^2}{2 m_j} + U(\textbf{r}_1,...,\textbf{r}_N),
 \]</div>
 <p>which shows that the Hamiltonian is just the total energy of the system in terms of the Cartesian positions and momenta,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3a6db3fc-ebd1-47a7-a3dd-f109c6bd9252">
-<span class="eqno">(15)<a class="headerlink" href="#equation-3a6db3fc-ebd1-47a7-a3dd-f109c6bd9252" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2defab1d-8c34-432f-bc27-dcea7577371b">
+<span class="eqno">(15)<a class="headerlink" href="#equation-2defab1d-8c34-432f-bc27-dcea7577371b" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathcal{H}(\textbf{r}_1,...,\textbf{r}_N,\textbf{p}_1,...,\textbf{p}_N) = K(\dot{\textbf{r}}_1,...,\dot{\textbf{r}}_N) + U(\textbf{r}_1,...,\textbf{r}_N).
 \end{equation}\]</div>
 <p>Hamilton’s equations in this case also reduce to Newton’s equations of motion.</p>
@@ -792,7 +839,7 @@ We write the time derivative of <span class="math notranslate nohighlight">\(g\)
 \]</div>
 <p>Using Hamilton’s equations, we can write</p>
 <div class="math notranslate nohighlight" id="equation-poisson">
-<span class="eqno">(16)<a class="headerlink" href="#equation-poisson" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(16)<a class="headerlink" href="#equation-poisson" title="Link to this equation">#</a></span>\[
     \frac{\mathrm{d} g}{\mathrm{d} t} = \sum_{j=1}^N \left[ \frac{\partial g}{\partial \textbf{q}_j}  \cdot \frac{\partial \mathcal{H}}{\partial \textbf{p}_j} - \frac{\partial g}{\partial \textbf{p}_j}  \cdot \frac{\partial \mathcal{H}}{\partial \textbf{q}_j} \right] \equiv \left \{ g,\mathcal{H} \right \},
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\left \{ u, v \right \}\)</span> are termed the <strong>Poisson bracket</strong> between the functions <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>. Eq. <a class="reference internal" href="#equation-poisson">(16)</a> shows that a quantity <span class="math notranslate nohighlight">\(g\)</span> is conserved when its Poisson bracket with the Hamiltonian is zero. If you are scratching your head thinking, “Hey, this looks familiar!”, you are right. Indeed, the commutator between operators in quantum mechanics plays a similar role to that of the Poisson bracket between functions of phase space variables in classical mechanics. Unfortunately, we can’t discuss this in more detail. Since the Hamiltonian of Eq. <a class="reference internal" href="#equation-hamiltonian-cu">(14)</a> commutes with itself (and assuming it is time-independent, as we have been doing), this constitutes another proof of the conservation of energy along classical trajectories for conservative forces.</p>
@@ -811,11 +858,11 @@ We write the time derivative of <span class="math notranslate nohighlight">\(g\)
 </div>
 </section>
 <section id="the-action">
-<span id="sec-action"></span><h2>The action<a class="headerlink" href="#the-action" title="Permalink to this heading">#</a></h2>
+<span id="sec-action"></span><h2>The action<a class="headerlink" href="#the-action" title="Link to this heading">#</a></h2>
 <p>We have so far presented the classical equations of motions, be it in the Hamiltonian or the Lagrangian formalism, without deriving them. The question arises - can we derive the Euler-Lagrange equations, and from them Hamilton’s and Newton’s equations, from some underlying general principle? The answer is positive.</p>
 <p>To see how, we need to define the <strong>Action</strong> integral,</p>
 <div class="math notranslate nohighlight" id="equation-action">
-<span class="eqno">(17)<a class="headerlink" href="#equation-action" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(17)<a class="headerlink" href="#equation-action" title="Link to this equation">#</a></span>\[
     S\left[  \textbf{q}_1,...,\textbf{q}_N,  \dot{\textbf{q}}_1,...,\dot{\textbf{q}}_N \right] = \int_{t_1}^{t_2} \mathcal{L} (\textbf{q}_1(t),...,\textbf{q}_N(t),  \dot{\textbf{q}}_1(t),...,\dot{\textbf{q}}_N(t)) \mathrm{d}t.
 \]</div>
 <p>For brevity, we will denote collectively <span class="math notranslate nohighlight">\(\textbf{q}_1(t),...,\textbf{q}_N(t)\)</span> as <span class="math notranslate nohighlight">\(\textbf{Q}(t) \)</span> and similarly for the time derivatives.
@@ -829,18 +876,18 @@ Note that while the Lagrangian and Hamiltonian are <strong>functions</strong> of
 ``` -->
 <p>It turns out that the Euler-Lagrange equations can be derived by postulating that the classical trajectory makes the first variation of the action integral vanish. The first variation of a functional is an extension of the definition of derivatives to the world of functionals.
 We consider how the action changes when the trajectories undergo an arbitrary variation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-94cc05d5-1fac-415f-ad6f-c4a41446a701">
-<span class="eqno">(18)<a class="headerlink" href="#equation-94cc05d5-1fac-415f-ad6f-c4a41446a701" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aabef76a-9b00-4716-8d90-5dca243023df">
+<span class="eqno">(18)<a class="headerlink" href="#equation-aabef76a-9b00-4716-8d90-5dca243023df" title="Permalink to this equation">#</a></span>\[\begin{align}
     \textbf{q}_j(t,\alpha) &amp;= \textbf{q}_j(t,0) + \alpha \textbf{n}_j(t), &amp; \dot{\textbf{q}}_j(t,\alpha) &amp;= \dot{\textbf{q}}_j(t,0) + \alpha \dot{\textbf{n}}_j(t),
 \end{align}\]</div>
 <p>and denote the action for such trajectories as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bfa8727e-17f9-43d5-93f4-e8cb5a2e0795">
-<span class="eqno">(19)<a class="headerlink" href="#equation-bfa8727e-17f9-43d5-93f4-e8cb5a2e0795" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-060651bd-2cce-49ed-9386-96e74a2f9787">
+<span class="eqno">(19)<a class="headerlink" href="#equation-060651bd-2cce-49ed-9386-96e74a2f9787" title="Permalink to this equation">#</a></span>\[\begin{equation}
 S(\alpha) = \int_{t_1}^{t_2} \mathcal{L} (\textbf{q}_1(t,\alpha),...,\textbf{q}_N(t,\alpha),  \dot{\textbf{q}}_1(t,\alpha),...,\dot{\textbf{q}}_N(t,\alpha)) \mathrm{d}t.
 \end{equation}\]</div>
 <p>The first variation of <span class="math notranslate nohighlight">\(S\)</span> is defined as</p>
 <div class="math notranslate nohighlight" id="equation-s-deriv">
-<span class="eqno">(20)<a class="headerlink" href="#equation-s-deriv" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(20)<a class="headerlink" href="#equation-s-deriv" title="Link to this equation">#</a></span>\[
 \delta S = \frac{\mathrm{d} S}{\mathrm{d} \alpha} \Bigg|_{\alpha=0} \mathrm{d} \alpha = \int_{t_1}^{t_2} \frac{\mathrm{d \mathcal{L}}}{\mathrm{d} \alpha} \Bigg|_{\alpha=0} \mathrm{d} \alpha \mathrm{d}t, 
 \]</div>
 <p>and we search for the conditions that satisfy <span class="math notranslate nohighlight">\(\delta S = 0.\)</span></p>
@@ -856,7 +903,7 @@ S(\alpha) = \int_{t_1}^{t_2} \mathcal{L} (\textbf{q}_1(t,\alpha),...,\textbf{q}_
 \]</div>
 <p>The first term vanishes because the path variations at the endpoints have to be zero to fulfill the boundary conditions. Plugging the second term into Eq. <a class="reference internal" href="#equation-s-deriv">(20)</a> gives</p>
 <div class="math notranslate nohighlight" id="equation-deltas">
-<span class="eqno">(21)<a class="headerlink" href="#equation-deltas" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(21)<a class="headerlink" href="#equation-deltas" title="Link to this equation">#</a></span>\[
 \delta S = \sum_{j=1}^N \int_{t_1}^{t_2} \left[ \frac{\partial \mathcal{L}}{\partial \textbf{q}_j}  - \frac{\mathrm{d}}{\mathrm{d} t} \frac{\partial \mathcal{L}}{\partial \dot{\textbf{q}}_j} \right] \cdot \delta \textbf{q}_j \mathrm{d}t = 0,
 \]</div>
 <p>where <span class="math notranslate nohighlight">\( \delta \textbf{q}_j = \left( \frac{\partial \textbf{q}_j}{\partial \alpha} \right)_{\alpha=0} \mathrm{d} \alpha\)</span>.
@@ -865,11 +912,12 @@ But since the path variations <span class="math notranslate nohighlight">\(\delt
 out of all the possible paths that connect <span class="math notranslate nohighlight">\(\textbf{Q}(t_1), \dot{\textbf{Q}}(t_1)\)</span> and <span class="math notranslate nohighlight">\(\textbf{Q}(t_2), \dot{\textbf{Q}}(t_2)\)</span> the classical path is the one for which the action integral is stationary (also known as Hamilton’s principle).</p>
 <p>Is this postulate involving the first variation of the action more fundamental than the three laws of Newton or the Euler-Lagrange equations? In the last project of this course, some of you will work on incorporating quantum effects into your classical MD simulations. You will then encounter an ingenious formulation of quantum mechanics, due to Nobel Laureate <a class="reference external" href="https://en.wikipedia.org/wiki/Richard_Feynman">Richard P. Feynman</a>, which beautifully connects classical and quantum mechanics on the same framework involving the action integral. Its core observation is that while in classical mechanics there is one path that connects the initial and final points, the one that makes the action stationary, in quantum mechanics we have to sum over all possible paths - called a path integral.</p>
 <hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="footnote1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>We will not go into the details, but the Hamiltonian is defined as a Legendre transform of the Lagrangian with respect to the velocities.</p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footnote1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>We will not go into the details, but the Hamiltonian is defined as a Legendre transform of the Lagrangian with respect to the velocities.</p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -900,7 +948,7 @@ out of all the possible paths that connect <span class="math notranslate nohighl
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -928,14 +976,16 @@ out of all the possible paths that connect <span class="math notranslate nohighl
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-equations">Newton’s equations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-space">Phase space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrangian-mechanics">Lagrangian mechanics</a></li>
@@ -965,7 +1015,7 @@ By Prof. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 699
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -989,8 +1039,8 @@ By Prof. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 699
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

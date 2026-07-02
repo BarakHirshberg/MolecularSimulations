@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Molecular dynamics &#8212; Molecular Simulations - 0351-4057</title>
   
@@ -15,95 +14,86 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'MolecularDynamics';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Prerequisites for numerical projects" href="ProjPrerequisites.html" />
     <link rel="prev" title="Basic statistical mechanics" href="StatMech.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -111,7 +101,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -119,16 +108,69 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
   
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -143,6 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -156,11 +200,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/tau_logo.jpg" class="logo__image only-light" alt="Molecular Simulations - 0351-4057 - Home"/>
-    <script>document.write(`<img src="_static/tau_logo.jpg" class="logo__image only-dark" alt="Molecular Simulations - 0351-4057 - Home"/>`);</script>
+    <img src="_static/tau_logo.jpg" class="logo__image only-dark pst-js-only" alt="Molecular Simulations - 0351-4057 - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -187,14 +238,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -203,14 +259,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -235,14 +291,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/BarakHirshberg/MolecularSimulations/main/v2/gh/BarakHirshberg/MolecularSimulations/main?urlpath=tree/MolecularDynamics.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -253,14 +309,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/BarakHirshberg/MolecularSimulations/blob/main/MolecularDynamics.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_colab.png">
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -400,27 +456,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -440,7 +488,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propagating-in-time">Propagating in time</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-numerical-propagators">Deriving numerical propagators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-initial-conditions">Sampling initial conditions</a></li>
@@ -456,15 +504,15 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="molecular-dynamics">
-<h1>Molecular dynamics<a class="headerlink" href="#molecular-dynamics" title="Permalink to this heading">#</a></h1>
+<h1>Molecular dynamics<a class="headerlink" href="#molecular-dynamics" title="Link to this heading">#</a></h1>
 <p>We have seen that using the tools of statistical mechanics thermodynamic properties can be obtained through ensemble averages. The next challenge is to generate a set of samples of different microstates that are distributed according to the equilibrium phase space distribution function. This is exactly the idea behind MD and MC simulations. However, there is a key difference between the two methods.</p>
 <p>In their simplest form, MD simulations rely on the realization that the classical equations of motion of <span class="math notranslate nohighlight">\(N\)</span> particles, isolated in a box of volume <span class="math notranslate nohighlight">\(V\)</span> and acted upon by conservative forces, naturally generate samples from the microcanonical ensemble. The fixed energy <span class="math notranslate nohighlight">\(E\)</span> is determined by the initial conditions, which we will elaborate on later. It is possible, but not straightforward, to generate samples from other ensembles through MD simulations.</p>
 <p>In contrast, MC simulations generate samples from the equilibrium phase space distribution of various ensembles through a random process. In this chapter, we first discuss <span class="math notranslate nohighlight">\(NVE\)</span> MD in detail. Then, you will write the code for the first numerical project implementing your very own MD simulation. Then, we will do the same for MC simulations in the canonical ensemble.</p>
 <section id="propagating-in-time">
-<h2>Propagating in time<a class="headerlink" href="#propagating-in-time" title="Permalink to this heading">#</a></h2>
+<h2>Propagating in time<a class="headerlink" href="#propagating-in-time" title="Link to this heading">#</a></h2>
 <p>The heart of an MD simulation is the algorithm that propagates the classical equations of motion. There are quite a few different algorithms, and we present only one in detail. All of them, however, divide the total duration of the simulations into <span class="math notranslate nohighlight">\(P\)</span> time steps of length <span class="math notranslate nohighlight">\(\Delta t\)</span> and propagate the positions and velocities or momenta step by step in small increments. How small? We will see later.</p>
 <p>One of the most most popular algorithms is called <strong>velocity Verlet</strong>. It is derived by expanding <span class="math notranslate nohighlight">\(\textbf{r}(t+\Delta t)\)</span> in a Taylor series around <span class="math notranslate nohighlight">\(\Delta t = 0\)</span> up to second order,</p>
 <div class="math notranslate nohighlight">
@@ -473,7 +521,7 @@ document.write(`
 \]</div>
 <p>or in terms of the momenta and forces,</p>
 <div class="math notranslate nohighlight" id="equation-vv1">
-<span class="eqno">(39)<a class="headerlink" href="#equation-vv1" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(39)<a class="headerlink" href="#equation-vv1" title="Link to this equation">#</a></span>\[
 \textbf{r}(t+\Delta t) = \textbf{r}(t) + \frac{\textbf{p}(t)}{m} \Delta t + \frac{1}{2} \frac{\textbf{F}(t)}{m} {\Delta t}^2.
 \]</div>
 <p>We can similarly write a Taylor expansion of <span class="math notranslate nohighlight">\(\textbf{r}(t-\Delta t)\)</span>,</p>
@@ -487,62 +535,62 @@ document.write(`
 \textbf{r}(t) = \textbf{r}(t + \Delta t) - \frac{\textbf{p}(t + \Delta t)}{m} \Delta t + \frac{1}{2} \frac{\textbf{F}(t + \Delta t)}{m} {\Delta t}^2.
 \]</div>
 <p>This equation shows a very nice property of the velocity Verlet algorithm - <strong>time reversal symmetry</strong>. If we stop the simulation after some time and propagate backward in time by reversing the momenta, we will get back to the initial starting point.
-Plugging this expression in Eq. <a class="reference internal" href="#equation-vv1">(39)</a>, and solving for <span class="math notranslate nohighlight">\(\textbf{p}(t + \Delta t)\)</span>, we get</p>
+Plugging this expression in Equation <a class="reference internal" href="#equation-vv1">(39)</a>, and solving for <span class="math notranslate nohighlight">\(\textbf{p}(t + \Delta t)\)</span>, we get</p>
 <div class="math notranslate nohighlight" id="equation-vv2">
-<span class="eqno">(40)<a class="headerlink" href="#equation-vv2" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(40)<a class="headerlink" href="#equation-vv2" title="Link to this equation">#</a></span>\[
 \textbf{p}(t+\Delta t) = \textbf{p}(t) + \frac{1}{2} ( \textbf{F}(t) + \textbf{F}(t+\Delta t)) \Delta t.
 \]</div>
-<p>At every time step, the positions are updated first, through Eq. <a class="reference internal" href="#equation-vv1">(39)</a>, and then the new forces are evaluated using the new positions. In the second stage, the momenta are updated using <a class="reference internal" href="#equation-vv2">(40)</a>.</p>
+<p>At every time step, the positions are updated first, through Equation <a class="reference internal" href="#equation-vv1">(39)</a>, and then the new forces are evaluated using the new positions. In the second stage, the momenta are updated using <a class="reference internal" href="#equation-vv2">(40)</a>.</p>
 <p>An alternative form of the velocity Verlet algorithm is composed of three steps. First, the momenta are propagated half a step,</p>
 <div class="math notranslate nohighlight" id="equation-altvv1">
-<span class="eqno">(41)<a class="headerlink" href="#equation-altvv1" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(41)<a class="headerlink" href="#equation-altvv1" title="Link to this equation">#</a></span>\[
 \textbf{p}(t + \Delta t /2) = \textbf{p}(t) + \frac{1}{2} \textbf{F}(t) {\Delta t}.
 \]</div>
-<p>Then, the positions are updated according to Eq.<a class="reference internal" href="#equation-vv1">(39)</a>, which is now written as</p>
+<p>Then, the positions are updated according to Equation <a class="reference internal" href="#equation-vv1">(39)</a>, which is now written as</p>
 <div class="math notranslate nohighlight" id="equation-altvv2">
-<span class="eqno">(42)<a class="headerlink" href="#equation-altvv2" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(42)<a class="headerlink" href="#equation-altvv2" title="Link to this equation">#</a></span>\[
 \textbf{r}(t+\Delta t) = \textbf{r}(t) + \frac{\textbf{p}(t + \Delta t /2)}{m} \Delta t.
 \]</div>
 <p>The new forces, <span class="math notranslate nohighlight">\(\textbf{F}(t + \Delta t)\)</span>,  are evaluated next using the new positions, and the velocity is then propagated another half step using the new forces,</p>
 <div class="math notranslate nohighlight" id="equation-altvv3">
-<span class="eqno">(43)<a class="headerlink" href="#equation-altvv3" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(43)<a class="headerlink" href="#equation-altvv3" title="Link to this equation">#</a></span>\[
 \textbf{p}(t + \Delta t ) = \textbf{p}(t + \Delta t /2 ) + \frac{1}{2} \textbf{F}(t + \Delta t) {\Delta t}.
 \]</div>
-<p>Both forms of the velocity Verlet algorithm are equivalent, as can be seen by inserting Eq. <a class="reference internal" href="#equation-altvv1">(41)</a> into Eqns. <a class="reference internal" href="#equation-altvv2">(42)</a> and <a class="reference internal" href="#equation-altvv3">(43)</a>. However, the second form is more widespread since it avoids the need to store the forces at two different time instances on memory at every step. The second form can also be derived from a beautiful formal procedure for obtaining numerical schemes for MD simulations, which we will discuss next.</p>
+<p>Both forms of the velocity Verlet algorithm are equivalent, as can be seen by inserting Equation <a class="reference internal" href="#equation-altvv1">(41)</a> into Equations <a class="reference internal" href="#equation-altvv2">(42)</a> and <a class="reference internal" href="#equation-altvv3">(43)</a>. However, the second form is more widespread since it avoids the need to store the forces at two different time instances on memory at every step. The second form can also be derived from a beautiful formal procedure for obtaining numerical schemes for MD simulations, which we will discuss next.</p>
 <p>But first, what determines the time step <span class="math notranslate nohighlight">\(\Delta t\)</span>? While analytical solutions of the classical equations of motion rigorously conserve the total energy, our numerical solution keeps the energy constant only approximately. The size of the time step is typically determined so that the energy is conserved to some desired accuracy. The figure of merit is that the energy does not change more than <span class="math notranslate nohighlight">\(0.1 \%\)</span> of its initial value. You can get a good estimate of what this time step might be, by considering the fastest motion in the system. In molecular systems, it is typically the vibrational frequencies of H-X stretching modes (X=N, C, O) that are the fastest. Their period is <span class="math notranslate nohighlight">\(\sim 10\)</span> fs and thus the time step is usually between <span class="math notranslate nohighlight">\(0.1-2\)</span> fs. But there is no alternative for rigorous checking of energy conservation!</p>
 </section>
 <section id="deriving-numerical-propagators">
-<h2>Deriving numerical propagators<a class="headerlink" href="#deriving-numerical-propagators" title="Permalink to this heading">#</a></h2>
-<p>In Eq. <a class="reference internal" href="ClassicalMech.html#equation-poisson">(16)</a> we defined the Poisson brackets of some function of the phase space variables and the Hamiltonian. It turns out to be very powerful to define an operator, called the <strong>Liouvillian</strong>, using the Poisson brackets,</p>
+<h2>Deriving numerical propagators<a class="headerlink" href="#deriving-numerical-propagators" title="Link to this heading">#</a></h2>
+<p>In Equation <a class="reference internal" href="ClassicalMech.html#equation-poisson">(16)</a> we defined the Poisson brackets of some function of the phase space variables and the Hamiltonian. It turns out to be very powerful to define an operator, called the <strong>Liouvillian</strong>, using the Poisson brackets,</p>
 <div class="math notranslate nohighlight" id="equation-propagator">
-<span class="eqno">(44)<a class="headerlink" href="#equation-propagator" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(44)<a class="headerlink" href="#equation-propagator" title="Link to this equation">#</a></span>\[
 i\hat{L} =  \left \{\, ,\mathcal{H} \right \} = \sum_{j=1}^N \left[ \frac{\partial }{\partial \textbf{q}_j}  \cdot \frac{\partial \mathcal{H}}{\partial \textbf{p}_j} - \frac{\partial }{\partial \textbf{p}_j}  \cdot \frac{\partial \mathcal{H}}{\partial \textbf{q}_j} \right] = \sum_{j=1}^N \left[ \frac{\partial }{\partial \textbf{q}_j}  \cdot \dot{\textbf{q}}_j + \frac{\partial }{\partial \textbf{p}_j}  \cdot \dot{\textbf{p}}_j \right].
 \]</div>
 <p>Using this definition, the time derivative of any function of phase space coordinates <span class="math notranslate nohighlight">\(g(\textbf{x}) = g(\textbf{q}_1,...,\textbf{q}_N,\textbf{p}_1,...,\textbf{p}_N)\)</span>, can be written as</p>
 <div class="math notranslate nohighlight" id="equation-deriv-prop">
-<span class="eqno">(45)<a class="headerlink" href="#equation-deriv-prop" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(45)<a class="headerlink" href="#equation-deriv-prop" title="Link to this equation">#</a></span>\[
 \frac{\mathrm{d} g}{\mathrm{d} t} = \left \{ g ,\mathcal{H} \right \} = i\hat{L} g
 \]</div>
-<p>Eq. <a class="reference internal" href="#equation-deriv-prop">(45)</a> can be formally solved to get</p>
+<p>Equation <a class="reference internal" href="#equation-deriv-prop">(45)</a> can be formally solved to get</p>
 <div class="math notranslate nohighlight">
 \[
 g(\textbf{x}_t) = e^{i\hat{L} t} g(\textbf{x}_0),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(e^{i\hat{L} t}\)</span> is called the <strong>classical propagator</strong>. This solution equally applies to the trajectory itself, giving</p>
 <div class="math notranslate nohighlight" id="equation-traj-sol">
-<span class="eqno">(46)<a class="headerlink" href="#equation-traj-sol" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(46)<a class="headerlink" href="#equation-traj-sol" title="Link to this equation">#</a></span>\[
 \textbf{x}_t = e^{i\hat{L} t} \textbf{x}_0.
 \]</div>
 <p>You might have noticed that this framework for time propagation is very similar to the one you learned in quantum mechanics. If so, you are right, but unfortunately, we will not discuss this in depth here.</p>
-<p>Eq. <a class="reference internal" href="#equation-traj-sol">(46)</a> is extremely powerful. We now demonstrate how it can be used to derive numerical algorithms to solve the classical equations of motion. For simplicity, we will focus on a single particle in one dimension.</p>
+<p>Equation <a class="reference internal" href="#equation-traj-sol">(46)</a> is extremely powerful. We now demonstrate how it can be used to derive numerical algorithms to solve the classical equations of motion. For simplicity, we will focus on a single particle in one dimension.</p>
 <p>In principle, if we knew how to apply the classical propagator on the microstate vector, we would have solved the equations of motion for all times. For a single particle,</p>
 <div class="math notranslate nohighlight">
 \[
 i \hat{L} = \dot{q} \frac{\partial }{\partial q} + \dot{p} \frac{\partial }{\partial p}  = \frac{p}{m} \frac{\partial }{\partial q} + F(q) \frac{\partial }{\partial p}.
 \]</div>
 <p>This classical propagator can be divided into two contributions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-80377c5d-94a2-4cf8-bb20-fe05e2c038ef">
-<span class="eqno">(47)<a class="headerlink" href="#equation-80377c5d-94a2-4cf8-bb20-fe05e2c038ef" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-80db8624-d590-4791-a0fa-64c9bd4bcd31">
+<span class="eqno">(47)<a class="headerlink" href="#equation-80db8624-d590-4791-a0fa-64c9bd4bcd31" title="Permalink to this equation">#</a></span>\[\begin{align}
 
 i\hat{L}_1 &amp;= \frac{p}{m} \frac{\partial }{\partial q}, &amp; i\hat{L}_2 = F(q) \frac{\partial }{\partial p}.
 
@@ -572,18 +620,18 @@ i\hat{L}_2 i \hat{L}_1 \phi = F(q) \frac{\partial }{\partial p} \left[ \frac{p}{
 <p>The fact that the two operators do not commute means we cannot simply write <span class="math notranslate nohighlight">\(e^{i\hat{L}t} = e^{i\hat{L}_1t} e^{i\hat{L}_2t}\)</span> and apply the operators one by one on the microstate. This is unfortunate, because we often know what is the result of operating with <span class="math notranslate nohighlight">\(e^{i\hat{L}_1t}\)</span> or <span class="math notranslate nohighlight">\(e^{i\hat{L}_2t}\)</span> on <span class="math notranslate nohighlight">\(\textbf{x}\)</span>, while we do not know  how to act with <span class="math notranslate nohighlight">\(e^{i\hat{L}t}\)</span> on the microstate. But there is a way out!</p>
 <p>We use the following property of two non-commuting operators <span class="math notranslate nohighlight">\(\hat{A}\)</span> and <span class="math notranslate nohighlight">\(\hat{B}\)</span>,</p>
 <div class="math notranslate nohighlight" id="equation-trotter">
-<span class="eqno">(48)<a class="headerlink" href="#equation-trotter" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(48)<a class="headerlink" href="#equation-trotter" title="Link to this equation">#</a></span>\[
 e^{\hat{A}+\hat{B}} = \lim_{P \to \infty} \left[ e^{\hat{B}/2P} e^{\hat{A}/P} e^{\hat{B}/2P} \right]^P,
 \]</div>
 <p>called the <strong>Trotter expansion</strong>, to write the propagator as</p>
 <div class="math notranslate nohighlight" id="equation-prop-trotter">
-<span class="eqno">(49)<a class="headerlink" href="#equation-prop-trotter" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(49)<a class="headerlink" href="#equation-prop-trotter" title="Link to this equation">#</a></span>\[
 e^{i\hat{L}t} = \lim_{P \to \infty} \left[ e^{i\hat{L}_2 t/2P} e^{i \hat{L}_1 t/P} e^{i \hat{L}_2 t/2P} \right]^P.
 \]</div>
-<p>We then define the time step <span class="math notranslate nohighlight">\(\Delta t = t/P\)</span>, which shows that the Liouvillian can operate by successive propagation in small time steps. Does that ring any bells? It is exactly what we want to do in MD! This extremely powerful approach ensures that if we take the limit of <span class="math notranslate nohighlight">\( P \to \infty \)</span> (or, equivalently, <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>) for a fixed total time <span class="math notranslate nohighlight">\(t\)</span>, we will obtain the exact dynamics! Of course, in practice, we always work with a finite <span class="math notranslate nohighlight">\(P\)</span>, so the numerical trajectories are approximate. But Eq. <a class="reference internal" href="#equation-prop-trotter">(49)</a> promises that some nice properties of exact propagation will be retained in the numerical propagation (time-reversal symmetry, phase space incompressibility, etc.).</p>
+<p>We then define the time step <span class="math notranslate nohighlight">\(\Delta t = t/P\)</span>, which shows that the Liouvillian can operate by successive propagation in small time steps. Does that ring any bells? It is exactly what we want to do in MD! This extremely powerful approach ensures that if we take the limit of <span class="math notranslate nohighlight">\( P \to \infty \)</span> (or, equivalently, <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>) for a fixed total time <span class="math notranslate nohighlight">\(t\)</span>, we will obtain the exact dynamics! Of course, in practice, we always work with a finite <span class="math notranslate nohighlight">\(P\)</span>, so the numerical trajectories are approximate. But Equation <a class="reference internal" href="#equation-prop-trotter">(49)</a> promises that some nice properties of exact propagation will be retained in the numerical propagation (time-reversal symmetry, phase space incompressibility, etc.).</p>
 <p>So all that is left to do to derive a numerical algorithm is to operate with the discrete-time propagator,</p>
 <div class="math notranslate nohighlight" id="equation-discrete-prop">
-<span class="eqno">(50)<a class="headerlink" href="#equation-discrete-prop" title="Permalink to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(50)<a class="headerlink" href="#equation-discrete-prop" title="Link to this equation">#</a></span>\[\begin{split}
 \begin{align}
 e^{i\hat{L} \Delta t} \equiv &amp; e^{i\hat{L}_2 \frac{\Delta t}{2}} e^{i \hat{L}_1 \Delta t} e^{i \hat{L}_2 \frac{\Delta t}{2}} = \\
 &amp; \exp \left( \frac{\Delta t}{2} F(q) \frac{\partial }{\partial p} \right) \exp \left( \Delta t \frac{p}{m} \frac{\partial }{\partial q} \right) \exp \left( \frac{\Delta t}{2} F(q) \frac{\partial }{\partial p} \right),
@@ -608,13 +656,13 @@ p(t)
 \end{split}\]</div>
 <p>The final piece of the puzzle is to know how these exponential operators act on the microstate. This is given by their following property,</p>
 <div class="math notranslate nohighlight" id="equation-exp-act">
-<span class="eqno">(51)<a class="headerlink" href="#equation-exp-act" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(51)<a class="headerlink" href="#equation-exp-act" title="Link to this equation">#</a></span>\[
 \exp \left( c \frac{\partial}{\partial \eta} \right) g(\eta) = g(\eta + c).
 \]</div>
-<p>According to Eq. <a class="reference internal" href="#equation-exp-act">(51)</a>, these operators simply shift <span class="math notranslate nohighlight">\(eta\)</span> by the constant <span class="math notranslate nohighlight">\(c\)</span>. Note that <span class="math notranslate nohighlight">\(c\)</span> could depend on other independent variables which are not <span class="math notranslate nohighlight">\(\eta\)</span>. So if <span class="math notranslate nohighlight">\(\eta\)</span> is <span class="math notranslate nohighlight">\(q\)</span>, <span class="math notranslate nohighlight">\(c\)</span> could depend on <span class="math notranslate nohighlight">\(p\)</span> and vice versa.</p>
+<p>According to Equation <a class="reference internal" href="#equation-exp-act">(51)</a>, these operators simply shift <span class="math notranslate nohighlight">\(eta\)</span> by the constant <span class="math notranslate nohighlight">\(c\)</span>. Note that <span class="math notranslate nohighlight">\(c\)</span> could depend on other independent variables which are not <span class="math notranslate nohighlight">\(\eta\)</span>. So if <span class="math notranslate nohighlight">\(\eta\)</span> is <span class="math notranslate nohighlight">\(q\)</span>, <span class="math notranslate nohighlight">\(c\)</span> could depend on <span class="math notranslate nohighlight">\(p\)</span> and vice versa.</p>
 <div class="tip admonition">
 <p class="admonition-title">Active learning</p>
-<p>Prove Eq. <a class="reference internal" href="#equation-exp-act">(51)</a>.
+<p>Prove Equation <a class="reference internal" href="#equation-exp-act">(51)</a>.
 Hint: use the Taylor series <span class="math notranslate nohighlight">\(e^{x} = 1 + x + \frac{1}{2}x^2 + ...\)</span> for the exponent.</p>
 </div>
 <div class="dropdown admonition">
@@ -648,7 +696,7 @@ q(t) \\
 p(t +  \frac{\Delta t}{2})
 \end{matrix}
 \right),\end{split}\]</div>
-<p>where we have denoted <span class="math notranslate nohighlight">\(F(q(t))\)</span> as <span class="math notranslate nohighlight">\(F(t)\)</span> and the last step is due to Eq. <a class="reference internal" href="#equation-altvv1">(41)</a>.</p>
+<p>where we have denoted <span class="math notranslate nohighlight">\(F(q(t))\)</span> as <span class="math notranslate nohighlight">\(F(t)\)</span> and the last step is due to Equation <a class="reference internal" href="#equation-altvv1">(41)</a>.</p>
 <p>With the second operator, we get</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -672,7 +720,7 @@ p(t +  \frac{\Delta t}{2})
 \end{matrix}
 \right), 
 \end{split}\]</div>
-<p>where we have used Eq. <a class="reference internal" href="#equation-altvv2">(42)</a> in the last step.</p>
+<p>where we have used Equation <a class="reference internal" href="#equation-altvv2">(42)</a> in the last step.</p>
 <p>Finally, the last operator shifts the momentum by half a time step again,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -696,13 +744,13 @@ p(t +  \Delta t)\\
 \end{matrix}
 \right),
 \end{split}\]</div>
-<p>where we have again denoted <span class="math notranslate nohighlight">\( F(q(t + \Delta t)) = F(t + \Delta t) \)</span> and used Eq. <a class="reference internal" href="#equation-altvv3">(43)</a> in the final step.</p>
-<p>If you have been following, you might have realized that this discretization of the propagator, given by Eq. <a class="reference internal" href="#equation-discrete-prop">(50)</a>, resulted in the velocity Verlet algorithm. In fact, we do not need to go through the math every time, we could have just read the three steps of propagation directly from Eq. <a class="reference internal" href="#equation-discrete-prop">(50)</a>! Did I promise you a beautiful formalism or what?</p>
+<p>where we have again denoted <span class="math notranslate nohighlight">\( F(q(t + \Delta t)) = F(t + \Delta t) \)</span> and used Equation <a class="reference internal" href="#equation-altvv3">(43)</a> in the final step.</p>
+<p>If you have been following, you might have realized that this discretization of the propagator, given by Equation <a class="reference internal" href="#equation-discrete-prop">(50)</a>, resulted in the velocity Verlet algorithm. In fact, we do not need to go through the math every time, we could have just read the three steps of propagation directly from Equation <a class="reference internal" href="#equation-discrete-prop">(50)</a>! Did I promise you a beautiful formalism or what?</p>
 <p>It might seem like a little bit of an “overkill” to use this formalism to derive the velocity Verlet algorithm. You are right. But this formalism is a lot more powerful and can be used, for example, to derive efficient propagators for much more complicated situations, such as multiple time-stepping algorithms. They are required if you have a combination of very fast and very slow forces in the system, or for quantum simulations using path integrals (as some of you will see in the final project).</p>
 <p>After understanding the propagation algorithm at the core of MD simulations, we discuss briefly all other components of the simulation. For simplicity, we will consider a collection of <span class="math notranslate nohighlight">\(N\)</span> identical particles of mass <span class="math notranslate nohighlight">\(m\)</span> in a cubic box of side length <span class="math notranslate nohighlight">\(L\)</span> and volume <span class="math notranslate nohighlight">\(L^3\)</span>.</p>
 </section>
 <section id="sampling-initial-conditions">
-<h2>Sampling initial conditions<a class="headerlink" href="#sampling-initial-conditions" title="Permalink to this heading">#</a></h2>
+<h2>Sampling initial conditions<a class="headerlink" href="#sampling-initial-conditions" title="Link to this heading">#</a></h2>
 <p>Before we integrate the equations of motion to obtain trajectories, we need to define the initial conditions. This can be done in several ways, the simplest is to sample randomly the initial positions of the particles inside a cubic simulations box of length <span class="math notranslate nohighlight">\(L\)</span>. The initial momenta can be either set to zero, in that case, or sampled randomly themselves. A common practice is to sample them from the Maxwell-Boltzmann distribution.</p>
 <p>The Maxwell-Boltzmann distribution is just the Boltzmann distribution for a gas of <span class="math notranslate nohighlight">\(N\)</span> non-interacting particles of mass <span class="math notranslate nohighlight">\(m\)</span>. The Hamiltonian has only the kinetic energy contributions,</p>
 <div class="math notranslate nohighlight">
@@ -711,13 +759,13 @@ p(t +  \Delta t)\\
 \]</div>
 <p>and the phase space distribution function is</p>
 <div class="math notranslate nohighlight" id="equation-mb">
-<span class="eqno">(52)<a class="headerlink" href="#equation-mb" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(52)<a class="headerlink" href="#equation-mb" title="Link to this equation">#</a></span>\[
 f(\textbf{x}) = f(\textbf{p}_1,...,\textbf{p}_N) = \left( \frac{\beta}{2 \pi m} \right) ^{\frac{3N}{2}} e^{- \frac{\beta}{2m} \sum_{j=1}^N \textbf{p}_j^2}. 
 \]</div>
-<p>Eq. <a class="reference internal" href="#equation-mb">(52)</a> shows that the total probability density is just a multiplication of independent Gaussian probability densities for each momentum degree of freedom of each particle. Every Gaussian has zero mean and standard deviation <span class="math notranslate nohighlight">\(\sigma = \sqrt{m/\beta}\)</span>.</p>
+<p>Equation <a class="reference internal" href="#equation-mb">(52)</a> shows that the total probability density is just a multiplication of independent Gaussian probability densities for each momentum degree of freedom of each particle. Every Gaussian has zero mean and standard deviation <span class="math notranslate nohighlight">\(\sigma = \sqrt{m/\beta}\)</span>.</p>
 <div class="tip admonition">
 <p class="admonition-title">Active learning</p>
-<p>Show that the probability in Eq. <a class="reference internal" href="#equation-mb">(52)</a> is normalized.</p>
+<p>Show that the probability in Equation <a class="reference internal" href="#equation-mb">(52)</a> is normalized.</p>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
@@ -735,7 +783,7 @@ f(\textbf{x}) = f(\textbf{p}_1,...,\textbf{p}_N) = \left( \frac{\beta}{2 \pi m} 
 <p>Thus, we can obtain initial momenta according to the Boltzmann distribution by sampling the value of each momentum component of each particle randomly from a normal distribution with the appropriate mean and variance.</p>
 </section>
 <section id="evaluating-the-forces">
-<h2>Evaluating the forces<a class="headerlink" href="#evaluating-the-forces" title="Permalink to this heading">#</a></h2>
+<h2>Evaluating the forces<a class="headerlink" href="#evaluating-the-forces" title="Link to this heading">#</a></h2>
 <p>There are two common types of conservative forces that you encounter in MD simulations. The first is external potentials, which only depend on the position of the particle in the box, such as a <strong>harmonic trap</strong> of frequency <span class="math notranslate nohighlight">\(\omega_0\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -743,7 +791,7 @@ V(x,y,z) = \frac{1}{2} m \omega^2_0 (x^2 + y^2 + z^2).
 \]</div>
 <p>The total potential energy is then a sum over the contributions of all particles,</p>
 <div class="math notranslate nohighlight" id="equation-harm">
-<span class="eqno">(53)<a class="headerlink" href="#equation-harm" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(53)<a class="headerlink" href="#equation-harm" title="Link to this equation">#</a></span>\[
 V(\textbf{r}_1,...,\textbf{r}_N) = \frac{1}{2} m \omega_0^2 \sum_{j=1}^N (x_j^2 + y_j^2 + z_j^2).
 \]</div>
 <p>Each particle feels a force due to the trap independently of the other particles based on its position vector,</p>
@@ -758,7 +806,7 @@ V_{LJ}(r) = 4 \varepsilon \left[ \left( \frac{\sigma}{r} \right)^{12} - \left( \
 \]</div>
 <p>This force acts between every pair of particles, so that for the entire system we get</p>
 <div class="math notranslate nohighlight" id="equation-lj">
-<span class="eqno">(54)<a class="headerlink" href="#equation-lj" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(54)<a class="headerlink" href="#equation-lj" title="Link to this equation">#</a></span>\[
 V_{LJ}(\textbf{r}_1,...,\textbf{r}_N) = 4 \varepsilon \sum_{i=1}^{N-1} \sum_{j&gt;i}^N \left[ \left( \frac{\sigma}{r_{ij}} \right)^{12} - \left( \frac{\sigma}{r_{ij}} \right)^6 \right],
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(r_{ij} = | \textbf{r}_i - \textbf{r}_j |\)</span> is the distance between particles <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>.</p>
@@ -849,7 +897,7 @@ r_0 = 2^{1/6} \sigma.
 </div>
 </section>
 <section id="periodic-boundary-conditions">
-<h2>Periodic boundary conditions<a class="headerlink" href="#periodic-boundary-conditions" title="Permalink to this heading">#</a></h2>
+<h2>Periodic boundary conditions<a class="headerlink" href="#periodic-boundary-conditions" title="Link to this heading">#</a></h2>
 <p>We have already discussed that solving the classical equations of motion for <span class="math notranslate nohighlight">\(\sim 10^{23}\)</span> particles is impossible and the MD simulations solve them for smaller systems, with <span class="math notranslate nohighlight">\(10-10^6\)</span> particles. Luckily, many properties already converge to their bulk values. This is largely thanks to the use of <strong>periodic boundary conditions</strong>.</p>
 <p>The main problem with simulating small systems is their unrealistic surface area to volume ratio. This means that molecules on the surface feel different forces than molecules in the bulk of the material. If we had tried to simulate liquid water with a model of 10 or 100 water molecules in a cluster, the model would not be very accurate for most properties because of surface effects.</p>
 <p>The solution is to take our cubic box and replicate it in space in all three directions. During the simulation, for every molecule in the simulation box, there is an identical copy, called an <strong>image</strong>, in each one of the replicated cells. The image moves exactly in the same manner as the original molecules in the center box. If a molecule leaves the box through one of its sides, its periodic image enters through the opposite direction. In this way, the density is conserved in the central box. We do not need to store the coordinates of all of the(infinitely many) images. It is sufficient to keep just the coordinates of the <span class="math notranslate nohighlight">\(N\)</span> particles in the main box and switch between images when one leaves it and the other enters.</p>
@@ -870,22 +918,22 @@ r_0 = 2^{1/6} \sigma.
 <p>Finally, while periodic boundary conditions are great, they seem to have created a new problem. Now that we have infinitely many images of every particle, how are we to calculate the interaction between all of them? The practice is to overcome this problem by defining a spherical cutoff for the interaction of short-ranged potentials. One way to do it is by implementing the <strong>minimum image convention</strong>. The minimum image convention states that for each particle <span class="math notranslate nohighlight">\(i\)</span>, you calculate the interaction only with the closest image of particle <span class="math notranslate nohighlight">\(j\)</span>. This is done similarly for testing for periodic boundary conditions, but instead of applying it to the position vector of each particle, you use the distance vector between two particles. The minimum image convention effectively introduces a spherical cutoff to the potential at a distance of half the box length.</p>
 </section>
 <section id="observables">
-<h2>Observables<a class="headerlink" href="#observables" title="Permalink to this heading">#</a></h2>
-<p>In <a class="reference internal" href="StatMech.html#chap-eq"><span class="std std-ref">the previous chapter</span></a>, we showed how to calculate thermodynamic properties using ensemble averages. In this chapter, we discussed how to use MD simulations to sample the microcanonical ensemble in particular. Now, the question is - how do we use the trajectories to evaluate ensemble averages, such as in Eq. <a class="reference internal" href="StatMech.html#equation-ensemble-av-nve">(37)</a>?</p>
-<p>The numerical solution of the classical equations of motion generates a set of configurations at different time steps, denoted by <span class="math notranslate nohighlight">\(\textbf{x}_j\)</span>, where <span class="math notranslate nohighlight">\(t_j=j \Delta t\)</span> and <span class="math notranslate nohighlight">\(j=1,...,P\)</span>. For each sample, the desired thermodynamic property can be evaluated using expressions such as Eq. <a class="reference internal" href="ClassicalMech.html#equation-kinetic">(9)</a> for the kinetic energy or Eq. <a class="reference internal" href="#equation-harm">(53)</a> for a harmonic external trap. These expression are called estimators, and we denote their values as <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span>.
+<h2>Observables<a class="headerlink" href="#observables" title="Link to this heading">#</a></h2>
+<p>In <a class="reference internal" href="StatMech.html#chap-eq"><span class="std std-ref">the previous chapter</span></a>, we showed how to calculate thermodynamic properties using ensemble averages. In this chapter, we discussed how to use MD simulations to sample the microcanonical ensemble in particular. Now, the question is - how do we use the trajectories to evaluate ensemble averages, such as in Equation <a class="reference internal" href="StatMech.html#equation-ensemble-av-nve">(37)</a>?</p>
+<p>The numerical solution of the classical equations of motion generates a set of configurations at different time steps, denoted by <span class="math notranslate nohighlight">\(\textbf{x}_j\)</span>, where <span class="math notranslate nohighlight">\(t_j=j \Delta t\)</span> and <span class="math notranslate nohighlight">\(j=1,...,P\)</span>. For each sample, the desired thermodynamic property can be evaluated using expressions such as Equation <a class="reference internal" href="ClassicalMech.html#equation-kinetic">(9)</a> for the kinetic energy or Equation <a class="reference internal" href="#equation-harm">(53)</a> for a harmonic external trap. These expression are called estimators, and we denote their values as <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span>.
 Since the classical trajectories naturally sample the <span class="math notranslate nohighlight">\(NVE\)</span> ensemble, all configurations have the same energy and thus the same probability. The microcanonical expectation values are then obtained from a simple arithmetic mean of the estimators,</p>
 <div class="math notranslate nohighlight" id="equation-av-sim">
-<span class="eqno">(55)<a class="headerlink" href="#equation-av-sim" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(55)<a class="headerlink" href="#equation-av-sim" title="Link to this equation">#</a></span>\[
 \langle a \rangle_E = \frac{1}{P} \sum_{j=1}^{P} a(\textbf{x}_j).
 \]</div>
-<p>If we could generate MD simulations that naturally sample the canonical ensemble, we could evaluate expectation values also at constant temperature using Eq. <a class="reference internal" href="#equation-av-sim">(55)</a>. We will elaborate on this later.</p>
-<p>The most common thermodynamic observables that are evaluated in molecular dynamics simulations are the kinetic, potential, and total energies. The instantaneous value of the kinetic energy is given by Eq. <a class="reference internal" href="ClassicalMech.html#equation-kinetic">(9)</a>, or in terms of the momenta,</p>
+<p>If we could generate MD simulations that naturally sample the canonical ensemble, we could evaluate expectation values also at constant temperature using Equation <a class="reference internal" href="#equation-av-sim">(55)</a>. We will elaborate on this later.</p>
+<p>The most common thermodynamic observables that are evaluated in molecular dynamics simulations are the kinetic, potential, and total energies. The instantaneous value of the kinetic energy is given by Equation <a class="reference internal" href="ClassicalMech.html#equation-kinetic">(9)</a>, or in terms of the momenta,</p>
 <div class="math notranslate nohighlight" id="equation-kinetic-p">
-<span class="eqno">(56)<a class="headerlink" href="#equation-kinetic-p" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(56)<a class="headerlink" href="#equation-kinetic-p" title="Link to this equation">#</a></span>\[
     K(\textbf{p}_1,...,\textbf{p}_N) = 
     \frac{1}{2} \sum_{j=1}^N \frac{\textbf{p}^2_j}{m_j}.
 \]</div>
-<p>The potential energy is obtained from expressions such as Eq. <a class="reference internal" href="#equation-lj">(54)</a> for the LJ potential or Eq. <a class="reference internal" href="#equation-harm">(53)</a> for a harmonic trap. The total energy is of course the sum of the two contributions, given by</p>
+<p>The potential energy is obtained from expressions such as Equation <a class="reference internal" href="#equation-lj">(54)</a> for the LJ potential or Equation <a class="reference internal" href="#equation-harm">(53)</a> for a harmonic trap. The total energy is of course the sum of the two contributions, given by</p>
 <div class="math notranslate nohighlight">
 \[
 \langle E \rangle = \langle K \rangle + \langle U \rangle = \langle \mathcal{H}(\textbf{r}_1,...,\textbf{r}_N,\textbf{p}_1,...,\textbf{p}_N) \rangle.
@@ -898,20 +946,20 @@ Since the classical trajectories naturally sample the <span class="math notransl
 <p>Some properties, like the entropy or the (Gibbs or Helmholtz) free energy, can not be expressed as expectation values of some estimator in terms of the coordinates and momenta. Therefore, evaluating them is much more difficult. One of the final projects of this course will deal with methods to evaluate free energies.</p>
 <p>Many structural properties are also often obtained from MD simulations, for example, the density is given by a histogram (normalized by the total number of particles) of the positions,</p>
 <div class="math notranslate nohighlight" id="equation-density-est">
-<span class="eqno">(57)<a class="headerlink" href="#equation-density-est" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(57)<a class="headerlink" href="#equation-density-est" title="Link to this equation">#</a></span>\[
 \rho(r) = N \langle \sum_{j=1}^N \delta(\textbf{r}-\textbf{x}_j) \rangle.
 \]</div>
 <p>All of these relations hold both in the microcanonical and the canonical ensembles. The only difference is that the average should be taken with the proper phase space distribution function. After you will complete your first numerical project, we will learn about MC simulations, an alternative method to MD for sampling phase space distribution functions. We will use it to sample configurations from the canonical ensemble instead.</p>
 <p>But one of the major advantages of MD simulations is that they do not provide arbitrary samples of the microcanonical probability distribution, but rather they give the dynamics in time! This means we can also go beyond just static thermodynamic properties at equilibrium, as described above, to obtain time-dependent properties.</p>
 <p>Why is that important? A beautiful result in statistical mechanics is that transport properties, such as the conductance, viscosity, diffusion coefficients, and even reaction rates are determined by fluctuations of <strong>time correlation functions</strong> at equilibrium. This is called <a class="reference external" href="https://en.wikipedia.org/wiki/Fluctuation-dissipation_theorem"><strong>the fluctuation-dissipation theorem</strong></a>. It is remarkable because it states that how the system responds to a small perturbation taking it out of equilibrium, is determined (to first order) by fluctuations in time of some property, evaluated at equilibrium! You will learn more about it if you take the advanced nonequilibrium thermodynamics course. For our purposes, it is enough to know that equilibrium time correlation functions are defined as,</p>
 <div class="math notranslate nohighlight" id="equation-t-corfun">
-<span class="eqno">(58)<a class="headerlink" href="#equation-t-corfun" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(58)<a class="headerlink" href="#equation-t-corfun" title="Link to this equation">#</a></span>\[
 C_{AB}(\tau) = \langle a\left( \textbf{x}(t=0) \right) b\left( \textbf{x}(t=\tau) \right) \rangle,
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are the estimators of the thermodynamic quantities <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, respectively. Note that Eq. <a class="reference internal" href="#equation-t-corfun">(58)</a> is valid for an observable that has zero mean and unit variance, but can be written also more generally.</p>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are the estimators of the thermodynamic quantities <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, respectively. Note that Equation <a class="reference internal" href="#equation-t-corfun">(58)</a> is valid for an observable that has zero mean and unit variance, but can be written also more generally.</p>
 <p>Using the fluctuation-dissipation theorem, it is then possible to obtain, for example, the diffusion coefficient of a particle from its velocity autocorrelation function,</p>
 <div class="math notranslate nohighlight" id="equation-diffusion">
-<span class="eqno">(59)<a class="headerlink" href="#equation-diffusion" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(59)<a class="headerlink" href="#equation-diffusion" title="Link to this equation">#</a></span>\[
 D = \frac{1}{3} \int_0^{\infty} C_{vv}(\tau) \mathrm{d} \tau.
 \]</div>
 <p>Similar expressions exist for the other transport properties mentioned above. We will discuss time correlation functions in more detail in the Monte Carlo section, after the first numerical project.</p>
@@ -945,7 +993,7 @@ D = \frac{1}{3} \int_0^{\infty} C_{vv}(\tau) \mathrm{d} \tau.
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -973,14 +1021,16 @@ D = \frac{1}{3} \int_0^{\infty} C_{vv}(\tau) \mathrm{d} \tau.
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#propagating-in-time">Propagating in time</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deriving-numerical-propagators">Deriving numerical propagators</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-initial-conditions">Sampling initial conditions</a></li>
@@ -1011,7 +1061,7 @@ By Prof. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 699
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1035,8 +1085,8 @@ By Prof. Barak Hirshberg, School of Chemistry, Tel Aviv University, Tel Aviv 699
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
