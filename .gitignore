@@ -8,3 +8,6 @@ venv/
 env/
 ENV/
 .venv/
+
+# Local Claude Code notes (not part of the book)
+CLAUDE.md
