@@ -541,8 +541,8 @@ g(\textbf{x}_t) = e^{i\hat{L} t} g(\textbf{x}_0),
 i \hat{L} = \dot{q} \frac{\partial }{\partial q} + \dot{p} \frac{\partial }{\partial p}  = \frac{p}{m} \frac{\partial }{\partial q} + F(q) \frac{\partial }{\partial p}.
 \]</div>
 <p>This classical propagator can be divided into two contributions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-23a12c70-27ba-4aad-8355-2260cc257a4e">
-<span class="eqno">(47)<a class="headerlink" href="#equation-23a12c70-27ba-4aad-8355-2260cc257a4e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0337c315-e65e-4aaf-8bd5-60ed4c073d8d">
+<span class="eqno">(47)<a class="headerlink" href="#equation-0337c315-e65e-4aaf-8bd5-60ed4c073d8d" title="Permalink to this equation">#</a></span>\[\begin{align}
 
 i\hat{L}_1 &amp;= \frac{p}{m} \frac{\partial }{\partial q}, &amp; i\hat{L}_2 = F(q) \frac{\partial }{\partial p}.
 
@@ -703,7 +703,7 @@ p(t +  \Delta t)\\
 </section>
 <section id="sampling-initial-conditions">
 <h2>Sampling initial conditions<a class="headerlink" href="#sampling-initial-conditions" title="Permalink to this heading">#</a></h2>
-<p>Before we integrate the equations of motion to obtain trajectories, we need to define the initial conditions. This can be done in several ways, the simplest is to sample randomly the initial positions of the particles inside a cubic simulations box of length <span class="math notranslate nohighlight">\(L\)</span>. The initial momenta can be either set to zero, in that case, or sampled randomly themselves. A common practice is to sample them from the Maxwell-Boltzmann distribution.</p>
+<p>Before we integrate the equations of motion to obtain trajectories, we need to define the initial conditions. This can be done in several ways, the simplest is to sample randomly the initial positions of the particles inside a cubic simulation box of length <span class="math notranslate nohighlight">\(L\)</span> (in practice, particles that overlap must be avoided, since the repulsive forces between them would be huge). The initial momenta can then be either set to zero or sampled randomly. A common practice is to sample them from the Maxwell-Boltzmann distribution.</p>
 <p>The Maxwell-Boltzmann distribution is just the Boltzmann distribution for a gas of <span class="math notranslate nohighlight">\(N\)</span> non-interacting particles of mass <span class="math notranslate nohighlight">\(m\)</span>. The Hamiltonian has only the kinetic energy contributions,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -770,8 +770,8 @@ Explain the two contributions to the potential energy, i.e., <span class="math n
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p>As can be seen from the figure below, <span class="math notranslate nohighlight">\(-\varepsilon\)</span> is the depth of the potential well while <span class="math notranslate nohighlight">\(\sigma\)</span> is the value of <span class="math notranslate nohighlight">\(r\)</span> for which <span class="math notranslate nohighlight">\(V=0\)</span>, representing more or less the range in which repulsive interaction becomes dominant. This is a measure of the particle size, if you will.</p>
-<p>The value at the minimum is obtained from the first derivative,</p>
+<p>As can be seen from the figure below, <span class="math notranslate nohighlight">\(\varepsilon\)</span> is the depth of the potential well (its minimum value is <span class="math notranslate nohighlight">\(-\varepsilon\)</span>) while <span class="math notranslate nohighlight">\(\sigma\)</span> is the value of <span class="math notranslate nohighlight">\(r\)</span> for which <span class="math notranslate nohighlight">\(V=0\)</span>, representing more or less the range in which repulsive interaction becomes dominant. This is a measure of the particle size, if you will.</p>
+<p>The position of the minimum is obtained from the first derivative,</p>
 <div class="math notranslate nohighlight">
 \[
 4 \varepsilon \left[ -12 \sigma^{12} r^{-13} + 6 \sigma^6 r^{-7} \right] = 0.
@@ -781,13 +781,13 @@ Explain the two contributions to the potential energy, i.e., <span class="math n
 2 \sigma^6 = r_0^6 \\
 r_0 = 2^{1/6} \sigma.
 \end{split}\]</div>
-<p>Which, upon substitution in the potential given <span class="math notranslate nohighlight">\(V= 4\varepsilon(-\frac{1}{4}) = -\varepsilon\)</span> as expected.</p>
-<p>You might remember from your magnetism and electricity, first-year physics course that the interaction between two dipoles when you average over all possible relative orientations is given by</p>
+<p>Which, upon substitution in the potential gives <span class="math notranslate nohighlight">\(V= 4\varepsilon(-\frac{1}{4}) = -\varepsilon\)</span> as expected.</p>
+<p>You might remember from your magnetism and electricity, first-year physics course that the interaction between two dipoles, when you thermally average over all possible relative orientations, is given by</p>
 <div class="math notranslate nohighlight">
 \[
--\sim r^{-6}.
+\sim -r^{-6}.
 \]</div>
-<p>That is the second term in the LJ potential and it applies an attractive force at long distances. The second term can not be derived by such a classical analogy. Loosely speaking, it represents the fact that the two particles start repelling each other when their electron clouds overlap.</p>
+<p>That is the second term in the LJ potential and it applies an attractive force at long distances. More generally, it can be shown (outside the scope of this course) that <span class="math notranslate nohighlight">\(-r^{-6}\)</span> is the form of all van der Waals interactions, including those between nonpolar atoms and molecules, where it arises from fluctuating, induced dipoles (London dispersion). The first term can not be derived by such a classical analogy. Loosely speaking, it represents the fact that the two particles start repelling each other when their electron clouds overlap.</p>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -850,7 +850,7 @@ r_0 = 2^{1/6} \sigma.
 </section>
 <section id="periodic-boundary-conditions">
 <h2>Periodic boundary conditions<a class="headerlink" href="#periodic-boundary-conditions" title="Permalink to this heading">#</a></h2>
-<p>We have already discussed that solving the classical equations of motion for <span class="math notranslate nohighlight">\(\sim 10^{23}\)</span> particles is impossible and the MD simulations solve them for smaller systems, with <span class="math notranslate nohighlight">\(10-10^6\)</span> particles. Luckily, many properties already converge to their bulk values. This is largely thanks to the use of <strong>periodic boundary conditions</strong>.</p>
+<p>We have already discussed that solving the classical equations of motion for <span class="math notranslate nohighlight">\(\sim 10^{23}\)</span> particles is impossible and the MD simulations solve them for smaller systems, with <span class="math notranslate nohighlight">\(100-10^6\)</span> particles. Luckily, many properties already converge to their bulk values. This is largely thanks to the use of <strong>periodic boundary conditions</strong>.</p>
 <p>The main problem with simulating small systems is their unrealistic surface area to volume ratio. This means that molecules on the surface feel different forces than molecules in the bulk of the material. If we had tried to simulate liquid water with a model of 10 or 100 water molecules in a cluster, the model would not be very accurate for most properties because of surface effects.</p>
 <p>The solution is to take our cubic box and replicate it in space in all three directions. During the simulation, for every molecule in the simulation box, there is an identical copy, called an <strong>image</strong>, in each one of the replicated cells. The image moves exactly in the same manner as the original molecules in the center box. If a molecule leaves the box through one of its sides, its periodic image enters through the opposite direction. In this way, the density is conserved in the central box. We do not need to store the coordinates of all of the (infinitely many) images. It is sufficient to keep just the coordinates of the <span class="math notranslate nohighlight">\(N\)</span> particles in the main box and switch between images when one leaves it and the other enters.</p>
 <div class="tip admonition">
@@ -867,7 +867,7 @@ r_0 = 2^{1/6} \sigma.
 <p>Just kidding, you can still use if statements <em>if</em> you want to.</p>
 </div>
 <p>How large should be the main box so that the properties of the simulated system resemble the properties of a bulk liquid or solid? It depends on the interactions. If they are relatively short-ranged, then a small box may suffice. For the LJ potential, a box of side length <span class="math notranslate nohighlight">\(L=6\sigma\)</span> is usually sufficient. But for very long-range interaction, this is not the case, and more sophisticated methods are needed, of which we will not elaborate. In addition, this approach works when the fluctuations of the system in space are much smaller than the size of the box. So for the case of a gas-liquid phase transition, where the fluctuations are macroscopic (you can see the bubbles form!), this approach will not work. However, for systems far away from phase transitions and with short-range interactions, it is found to be highly successful.</p>
-<p>Finally, while periodic boundary conditions are great, they seem to have created a new problem. Now that we have infinitely many images of every particle, how are we to calculate the interaction between all of them? The practice is to overcome this problem by defining a spherical cutoff for the interaction of short-ranged potentials. One way to do it is by implementing the <strong>minimum image convention</strong>. The minimum image convention states that for each particle <span class="math notranslate nohighlight">\(i\)</span>, you calculate the interaction only with the closest image of particle <span class="math notranslate nohighlight">\(j\)</span>. This is done similarly for testing for periodic boundary conditions, but instead of applying it to the position vector of each particle, you use the distance vector between two particles. The minimum image convention effectively introduces a spherical cutoff to the potential at a distance of half the box length.</p>
+<p>Finally, while periodic boundary conditions are great, they seem to have created a new problem. Now that we have infinitely many images of every particle, how are we to calculate the interaction between all of them? The practice is to overcome this problem by truncating the interaction of short-ranged potentials. One way to do it is by implementing the <strong>minimum image convention</strong>. The minimum image convention states that for each particle <span class="math notranslate nohighlight">\(i\)</span>, you calculate the interaction only with the closest image of particle <span class="math notranslate nohighlight">\(j\)</span>. This is done similarly for testing for periodic boundary conditions, but instead of applying it to the position vector of each particle, you use the distance vector between two particles. The minimum image convention effectively truncates the potential at a distance of half the box length in each dimension. Interactions beyond that distance are neglected, so the box must be large enough for them to be negligible.</p>
 </section>
 <section id="observables">
 <h2>Observables<a class="headerlink" href="#observables" title="Permalink to this heading">#</a></h2>
@@ -890,16 +890,16 @@ Since the classical trajectories naturally sample the <span class="math notransl
 \[
 \langle E \rangle = \langle K \rangle + \langle U \rangle = \langle \mathcal{H}(\textbf{r}_1,...,\textbf{r}_N,\textbf{p}_1,...,\textbf{p}_N) \rangle.
 \]</div>
-<p>Other properties, such as the average pressure and temperature, can be obtained from the equipartition theorem which states that every degree of freedom that is quadratic in the Hamiltonian contributes <span class="math notranslate nohighlight">\(\frac{1}{2} k_B T\)</span> to the average total energy. Thus, for the temperature of <span class="math notranslate nohighlight">\(N\)</span> particles in three dimensions, we get</p>
+<p>Other properties can be obtained from related theorems: the pressure from the virial theorem, which we will not discuss, and the temperature from the equipartition theorem, which states that every degree of freedom that is quadratic in the Hamiltonian contributes <span class="math notranslate nohighlight">\(\frac{1}{2} k_B T\)</span> to the average total energy. Thus, for the temperature of <span class="math notranslate nohighlight">\(N\)</span> particles in three dimensions, we get</p>
 <div class="math notranslate nohighlight">
 \[
 \langle T \rangle = \frac{2 \langle K \rangle}{3Nk_B}.
 \]</div>
 <p>Some properties, like the entropy or the (Gibbs or Helmholtz) free energy, can not be expressed as expectation values of some estimator in terms of the coordinates and momenta. Therefore, evaluating them is much more difficult. One of the final projects of this course will deal with methods to evaluate free energies.</p>
-<p>Many structural properties are also often obtained from MD simulations, for example, the density is given by a histogram (normalized by the total number of particles) of the positions,</p>
+<p>Many structural properties are also often obtained from MD simulations, for example, the density is given by a histogram of the particle positions,</p>
 <div class="math notranslate nohighlight" id="equation-density-est">
 <span class="eqno">(57)<a class="headerlink" href="#equation-density-est" title="Permalink to this equation">#</a></span>\[
-\rho(r) = N \langle \sum_{j=1}^N \delta(\textbf{r}-\textbf{x}_j) \rangle.
+\rho(\textbf{r}) = \langle \sum_{j=1}^N \delta(\textbf{r}-\textbf{r}_j) \rangle.
 \]</div>
 <p>All of these relations hold both in the microcanonical and the canonical ensembles. The only difference is that the average should be taken with the proper phase space distribution function. After you will complete your first numerical project, we will learn about MC simulations, an alternative method to MD for sampling phase space distribution functions. We will use it to sample configurations from the canonical ensemble instead.</p>
 <p>But one of the major advantages of MD simulations is that they do not provide arbitrary samples of the microcanonical probability distribution, but rather they give the dynamics in time! This means we can also go beyond just static thermodynamic properties at equilibrium, as described above, to obtain time-dependent properties.</p>
@@ -908,8 +908,8 @@ Since the classical trajectories naturally sample the <span class="math notransl
 <span class="eqno">(58)<a class="headerlink" href="#equation-t-corfun" title="Permalink to this equation">#</a></span>\[
 C_{AB}(\tau) = \langle a\left( \textbf{x}(t=0) \right) b\left( \textbf{x}(t=\tau) \right) \rangle,
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are the estimators of the thermodynamic quantities <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, respectively. Note that Equation <a class="reference internal" href="#equation-t-corfun">(58)</a> is valid for an observable that has zero mean and unit variance, but can be written also more generally.</p>
-<p>Using the fluctuation-dissipation theorem, it is then possible to obtain, for example, the diffusion coefficient of a particle from its velocity autocorrelation function,</p>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are the estimators of the thermodynamic quantities <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, respectively. Note that at long times <span class="math notranslate nohighlight">\(C_{AB}(\tau)\)</span> decays to <span class="math notranslate nohighlight">\(\langle a \rangle \langle b \rangle\)</span>, which vanishes only for observables with zero mean. Otherwise, it is common to use instead the fluctuations <span class="math notranslate nohighlight">\(\delta a = a - \langle a \rangle\)</span>. For example, the velocity has zero mean, so its autocorrelation function decays to zero.</p>
+<p>Using the fluctuation-dissipation theorem, it is then possible to obtain, for example, the diffusion coefficient of a particle from its velocity autocorrelation function, <span class="math notranslate nohighlight">\(C_{vv}(\tau) = \langle \textbf{v}(0) \cdot \textbf{v}(\tau) \rangle\)</span>,</p>
 <div class="math notranslate nohighlight" id="equation-diffusion">
 <span class="eqno">(59)<a class="headerlink" href="#equation-diffusion" title="Permalink to this equation">#</a></span>\[
 D = \frac{1}{3} \int_0^{\infty} C_{vv}(\tau) \mathrm{d} \tau.

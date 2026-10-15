@@ -558,16 +558,17 @@ Click the green <code class="docutils literal notranslate"><span class="pre">Aut
 </div>
 <ul class="simple">
 <li><p>Create a new Markdown file <code class="docutils literal notranslate"><span class="pre">Hello_world.md</span></code> using Spyder and add to it some text.</p></li>
-<li><p>Commit your changes.</p></li>
+<li><p>Stage and commit your changes.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="n">Hello_world</span><span class="o">.</span><span class="n">md</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">Hello_world</span><span class="o">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;Add Hello_world.md&quot;</span>
 
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Push your changes to the remote repo.</p></li>
+<li><p>Push your changes to the remote repo. The first time you push a new branch, you need to tell git where to push it:</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">myBranch</span>
 
 </pre></div>
 </div>
@@ -622,7 +623,7 @@ Click the green <code class="docutils literal notranslate"><span class="pre">Aut
 </div>
 </div>
 </div>
-<p>Since the tests are in comments, they will be ignored by the interpreter. To enable them, add the following to your code:</p>
+<p>Since the tests are in docstrings, they will be ignored by the interpreter. To enable them, add the following to your code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
@@ -631,7 +632,7 @@ Click the green <code class="docutils literal notranslate"><span class="pre">Aut
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestResults(failed=0, attempted=3)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TestResults(failed=0, attempted=0)
 </pre></div>
 </div>
 </div>
@@ -758,7 +759,7 @@ Got:
 </div>
 </div>
 </div>
-<p>the <code class="docutils literal notranslate"><span class="pre">doctest</span></code> result summary indicates all tests have failed. This indicates an error in our code (in this case we missed the last product).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">doctest</span></code> result summary indicates that 3 of the 4 tests have failed (<code class="docutils literal notranslate"><span class="pre">factorial(0)</span></code> still passes, since it returns before the loop). This indicates an error in our code (in this case we missed the last product).</p>
 </section>
 <section id="testing-class-methods">
 <h3>Testing Class Methods<a class="headerlink" href="#testing-class-methods" title="Permalink to this heading">#</a></h3>
