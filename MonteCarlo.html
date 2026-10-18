@@ -669,35 +669,24 @@ neval = 1839958790
 <h2>The Central Limit Theorem<a class="headerlink" href="#the-central-limit-theorem" title="Permalink to this heading">#</a></h2>
 <p>We have just established that random (uniform) sampling could be very helpful for evaluating multi-dimensional integrals, in comparison to numerical quadrature. But there are situations in which uniform sampling could be highly wasteful too. For example, when <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> is localized in a small volume in the <span class="math notranslate nohighlight">\(3N\)</span> dimensional space. In that case, many of our uniform samples will not be counted when evaluating the integral.</p>
 <p>Note that this is the case also for the example of the n-ball above. Both the volume of the n-ball and that of the cube we sample from scale like <span class="math notranslate nohighlight">\(\sim R^d\)</span>, where <span class="math notranslate nohighlight">\(d\)</span> is the number of spatial dimensions, so the fraction of samples inside the ball does not depend on <span class="math notranslate nohighlight">\(R\)</span>. However, it strongly depends on <span class="math notranslate nohighlight">\(d\)</span>: in the first orthant, it is <span class="math notranslate nohighlight">\(\frac{\pi^{d/2}}{\Gamma(d/2+1)\,2^d}\)</span>, which is <span class="math notranslate nohighlight">\(0.79\)</span> for <span class="math notranslate nohighlight">\(d=2\)</span> and <span class="math notranslate nohighlight">\(0.52\)</span> for <span class="math notranslate nohighlight">\(d=3\)</span>, as we found above.</p>
-<div class="tip admonition">
-<p class="admonition-title">Active learning</p>
-<p>Compute the fraction of uniform samples that fall inside the n-ball for <span class="math notranslate nohighlight">\(d = 5, 10\)</span> and <span class="math notranslate nohighlight">\(20\)</span>. What happens in high dimensions, and why?</p>
-<p>Hint: What is the average value of <span class="math notranslate nohighlight">\(x_1^2 + \dots + x_d^2\)</span> for a point sampled uniformly in the cube?</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(d\)</span></p></th>
-<th class="head"><p>2</p></th>
-<th class="head"><p>3</p></th>
-<th class="head"><p>5</p></th>
-<th class="head"><p>10</p></th>
-<th class="head"><p>20</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Fraction inside</p></td>
-<td><p>0.79</p></td>
-<td><p>0.52</p></td>
-<td><p>0.16</p></td>
-<td><p><span class="math notranslate nohighlight">\(2.5 \times 10^{-3}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(2.5 \times 10^{-8}\)</span></p></td>
-</tr>
-</tbody>
-</table>
-<p>In high dimensions, almost all uniform samples fall outside the ball. Each coordinate contributes on average <span class="math notranslate nohighlight">\(\langle x_i^2 \rangle = R^2/3\)</span>, so a typical sample lies at a squared distance of <span class="math notranslate nohighlight">\(d R^2/3\)</span> from the origin, which is larger than <span class="math notranslate nohighlight">\(R^2\)</span> already for <span class="math notranslate nohighlight">\(d &gt; 3\)</span>. In other words, most of the volume of a high-dimensional cube is in its corners.</p>
-</div>
+<!-- Active learning on the n-ball fraction in high dimensions, commented out pending review.
+```{admonition} Active learning
+:class: tip
+Compute the fraction of uniform samples that fall inside the n-ball for $d = 5, 10$ and $20$. What happens in high dimensions, and why?
+
+Hint: What is the average value of $x_1^2 + \dots + x_d^2$ for a point sampled uniformly in the cube?
+```
+
+```{admonition} Solution
+:class: dropdown
+
+| $d$ | 2 | 3 | 5 | 10 | 20 |
+|---|---|---|---|---|---|
+| Fraction inside | 0.79 | 0.52 | 0.16 | $2.5 \times 10^{-3}$ | $2.5 \times 10^{-8}$ |
+
+In high dimensions, almost all uniform samples fall outside the ball. Each coordinate contributes on average $\langle x_i^2 \rangle = R^2/3$, so a typical sample lies at a squared distance of $d R^2/3$ from the origin, which is larger than $R^2$ already for $d > 3$. In other words, most of the volume of a high-dimensional cube is in its corners.
+```
+-->
 <p>For the problematic, localized case, can we do better than uniform sampling? Yes! If we know how to generate samples that are already distributed according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span>.</p>
 <p>At this point, we will <em>assume</em> that we have an algorithm for obtaining a set of <span class="math notranslate nohighlight">\(M\)</span> <strong>independent</strong> samples (configurations of the system) <span class="math notranslate nohighlight">\(\textbf x_1 ,..., \textbf x_M\)</span> that are all <strong>identically distributed</strong> according to <span class="math notranslate nohighlight">\(f(\textbf x)\)</span> with some mean <span class="math notranslate nohighlight">\(\langle a \rangle_f\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2 = \langle a^2 \rangle_f - \langle a \rangle_f^2\)</span>. This is by no means a trivial task. It is straightforward only for simple distributions and the form of Monte Carlo that we will study next was designed to address exactly this problem. But, for now, we will simply assume such an algorithm exists. If that is the case, we can then evaluate <span class="math notranslate nohighlight">\(a(\textbf{x}_j)\)</span> for each sample.</p>
 <p>The central limit theorem (CLT) ensures that if we consider the simple arithmetic mean of the samples as a random variable,</p>
