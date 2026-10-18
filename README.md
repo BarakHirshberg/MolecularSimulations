@@ -18,91 +18,6 @@ This repository contains interactive course materials built using [Jupyter Book]
 
 The materials are based on the authoritative book by Professor Mark E. Tuckerman, [Statistical Mechanics: Theory and Molecular Simulations](https://tau-primo.hosted.exlibrisgroup.com/permalink/f/8560f2/972TAU_ALMA51249053460004146).
 
-## For Students: How to Contribute
-
-We welcome contributions from students! This is a great way to improve the course materials and earn bonus credit.
-
-### What to Look For
-
-While reading the notes, look for:
-
--   **Typos** and spelling errors
--   **Grammatical mistakes**
--   **Mathematical errors** or inconsistencies
--   **Code bugs** or incorrect implementations
--   **Broken links** or references
--   **Clarifications** that would help other students understand better
--   **Missing explanations** or unclear sections
-
-**Hint:** There's at least one deliberate typo in the introduction page to help you practice!
-
-### How to Submit Corrections
-
-1. **Fork the repository** on GitHub
-
-    - Click the "Fork" button at the top right of this repository page
-
-2. **Clone your fork** to your local machine
-
-    ```bash
-    git clone https://github.com/YOUR_USERNAME/MolecularSimulations.git
-    cd MolecularSimulations
-    ```
-
-3. **Create a new branch** for your changes
-
-    ```bash
-    git checkout -b fix-typo-description
-    ```
-
-    (Use a descriptive branch name like `fix-typo-intro` or `clarify-equation-3`)
-
-4. **Make your changes**
-
-    - Edit the relevant notebook (`.ipynb`) or markdown (`.md`) file
-    - For notebooks, you can edit them directly in Jupyter or use a text editor
-    - Be careful not to modify code outputs unless you're fixing a bug
-
-5. **Test your changes** (optional but recommended)
-
-    - See the "Building the Book Locally" section below to build and preview your changes
-
-6. **Commit your changes**
-
-    ```bash
-    git add .
-    git commit -m "Fix typo in introduction: 'messes' -> 'messed'"
-    ```
-
-    (Use a clear, descriptive commit message)
-
-7. **Push to your fork**
-
-    ```bash
-    git push origin fix-typo-description
-    ```
-
-8. **Open a Pull Request**
-
-    - Go to the original repository on GitHub
-    - Click "New Pull Request"
-    - Select your fork and branch
-    - Write a clear description of what you fixed
-    - Submit the pull request
-
-9. **Wait for review**
-    - The instructor will review your changes
-    - If approved, your changes will be merged!
-    - If changes are requested, make the edits and push again
-
-### Tips for Successful Contributions
-
--   **One fix per pull request**: Submit separate PRs for different fixes (easier to review)
--   **Be specific**: Clearly describe what you changed and why
--   **Test first**: If possible, build the book locally to make sure your changes work
--   **Be respectful**: Keep feedback constructive and professional
--   **Check existing issues**: Someone might already be working on the same fix
-
 ## For Developers: Setting Up the Development Environment
 
 ### Prerequisites
@@ -211,13 +126,6 @@ git push origin gh-pages --force
 ## License
 
 See [LICENSE](LICENSE) file for details.
-
-## Contributing Guidelines
-
--   All contributions are welcome, especially from students taking the course
--   Please follow the contribution process outlined above
--   Keep changes focused and well-documented
--   Be respectful and constructive in all interactions
 
 ## Questions or Issues?
 
