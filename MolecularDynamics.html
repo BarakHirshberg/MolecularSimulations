@@ -541,8 +541,8 @@ g(\textbf{x}_t) = e^{i\hat{L} t} g(\textbf{x}_0),
 i \hat{L} = \dot{q} \frac{\partial }{\partial q} + \dot{p} \frac{\partial }{\partial p}  = \frac{p}{m} \frac{\partial }{\partial q} + F(q) \frac{\partial }{\partial p}.
 \]</div>
 <p>This classical propagator can be divided into two contributions</p>
-<div class="amsmath math notranslate nohighlight" id="equation-52eae4c0-d107-4531-afa8-5a92e9e6933c">
-<span class="eqno">(47)<a class="headerlink" href="#equation-52eae4c0-d107-4531-afa8-5a92e9e6933c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1d9bc965-e9a7-4d82-926a-43e683c2817d">
+<span class="eqno">(47)<a class="headerlink" href="#equation-1d9bc965-e9a7-4d82-926a-43e683c2817d" title="Permalink to this equation">#</a></span>\[\begin{align}
 
 i\hat{L}_1 &amp;= \frac{p}{m} \frac{\partial }{\partial q}, &amp; i\hat{L}_2 = F(q) \frac{\partial }{\partial p}.
 
@@ -861,7 +861,7 @@ r_0 = 2^{1/6} \sigma.
 <p class="admonition-title">Solution</p>
 <p>Trick question alert! No if statements are needed! We can do this for all the position components of all particles in two lines by using <a class="reference external" href="https://www.geeksforgeeks.org/indexing-in-numpy/">Boolean indexing</a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="p">[</span> <span class="n">r</span> <span class="o">&gt;</span> <span class="n">L</span><span class="o">/</span><span class="mi">2</span> <span class="p">]</span> <span class="o">-=</span> <span class="n">L</span>
-<span class="n">r</span><span class="p">[</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="n">L</span><span class="o">/</span><span class="mi">2</span> <span class="p">]</span> <span class="o">+=</span> <span class="n">L</span>
+<span class="n">r</span><span class="p">[</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">L</span><span class="o">/</span><span class="mi">2</span> <span class="p">]</span> <span class="o">+=</span> <span class="n">L</span>
 </pre></div>
 </div>
 <p>Just kidding, you can still use if statements <em>if</em> you want to.</p>
