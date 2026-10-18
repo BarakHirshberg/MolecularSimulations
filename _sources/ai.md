@@ -1,4 +1,4 @@
-# AI in this course
+# How the course works
 
 **Policy.** AI is allowed in the projects and exercises, without disclosure. It is not allowed in the oral exams or the final defense.
 
