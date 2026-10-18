@@ -442,6 +442,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-a-path-integral-molecular-dynamics-monte-carlo">Option A - Path Integral Molecular Dynamics / Monte Carlo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-b-metadynamics">Option B - Metadynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
             </nav>
         </div>
@@ -485,7 +486,7 @@ But, more concretely to our purposes, it also shows how one can use classical MD
 <p>This is possible because there is a mapping of each quantum system to a larger system of classical particles which has the same partition function. This is achieved by replacing every quantum particle with a classical <strong>ring polymer</strong> composed of <span class="math notranslate nohighlight">\(P\)</span> beads which are copies of the original particle that are connected with harmonic springs. Use the following two sources to read all about it:</p>
 <p><em>Reading material:</em></p>
 <ol class="arabic simple">
-<li><p>M.E. Tuckerman, <a class="reference external" href="https://tau-primo.hosted.exlibrisgroup.com/permalink/f/8560f2/972TAU_ALMA51249053460004146">Statistical Mechanics: Theory and Molecular Simulations</a> <span id="id1">[<a class="reference internal" href="intro.html#id4" title="Mark Tuckerman. Statistical Mechanics: Theory and Molecular Simulation. Oxford Graduate Texts. Oxford University Press, Oxford, New York, February 2010. ISBN 978-0-19-852526-4.">1</a>]</span>, Chapter 12.</p></li>
+<li><p>M.E. Tuckerman, <a class="reference external" href="https://tau-primo.hosted.exlibrisgroup.com/permalink/f/8560f2/972TAU_ALMA51249053460004146">Statistical Mechanics: Theory and Molecular Simulations</a> <span id="id1">[<a class="reference internal" href="#id5" title="Mark Tuckerman. Statistical Mechanics: Theory and Molecular Simulation. Oxford Graduate Texts. Oxford University Press, Oxford, New York, February 2010. ISBN 978-0-19-852526-4.">F1</a>]</span>, Chapter 12.</p></li>
 <li><p>M. Ceriotti, V, Kapil, Y. Litman, T. Markland and M. Rossi, Booklet of the CECAM Flagship School on Path Integral Quantum Mechanics. Sections 1-2, available on the moodle.</p></li>
 </ol>
 <p><em>Simulation details:</em> Evaluate the average total energy of a quantum particle (Ar atom) in a one-dimensional harmonic trap of frequency <span class="math notranslate nohighlight">\(\omega_0\)</span>, with <span class="math notranslate nohighlight">\(\hbar \omega_0 = 50\)</span> meV, as a function of inverse temperature <span class="math notranslate nohighlight">\(\beta=(k_BT)^{-1}\)</span>. Use values of <span class="math notranslate nohighlight">\(\beta \hbar \omega_0 = 1,2,3,4,5,6\)</span>. To estimate the statistical uncertainty of your results run several independent simulations at every temperature. Show that the energy converges to the correct ground state energy as you decrease the temperature (increase <span class="math notranslate nohighlight">\(\beta\)</span>). Compare the results at all temperatures with the analytical results that can be derived from the exact expression for the partition function.  Don’t forget to show the convergence of your simulation with respect to the number of beads. You can do this only for the lowest temperature and then just scale the number of beads with temperature, keeping <span class="math notranslate nohighlight">\(\beta \hbar \omega_0 / P\)</span> fixed (i.e., increasing the temperature by a factor of two allows you to halve the number of beads).</p>
@@ -510,8 +511,8 @@ But, more concretely to our purposes, it also shows how one can use classical MD
 <p><strong>Metadynamics</strong> is an algorithm that allows for <strong>enhanced sampling</strong> of such rare events by adding a bias potential to the system, which is built as the simulation progresses, pushing it from one state to another. It also provides a way of evaluating the free energy surface of the process without the added bias. This is achieved in practice by depositing a Gaussian every 100-500 steps during the simulation. You can read all about it in the following two review papers:</p>
 <p><em>Reading material:</em></p>
 <ol class="arabic simple">
-<li><p>G. Bussi, A. Laio, <a class="reference external" href="https://doi.org/10.1038/s42254-020-0153-0">Using metadynamics to explore complex free-energy landscapes</a> <span id="id2">[<a class="reference internal" href="intro.html#id6" title="Giovanni Bussi and Alessandro Laio. Using metadynamics to explore complex free-energy landscapes. Nature Reviews Physics, 2(4):200–212, April 2020. URL: https://doi.org/10.1038/s42254-020-0153-0, doi:10.1038/s42254-020-0153-0.">3</a>]</span>.</p></li>
-<li><p>A. Valsson, P. Tiwary, and M. Parrinello, <a class="reference external" href="https://doi.org/10.1146/annurev-physchem-040215-112229">Enhancing Important Fluctuations: Rare Events and Metadynamics from a Conceptual Viewpoint</a> <span id="id3">[<a class="reference internal" href="intro.html#id7" title="Omar Valsson, Pratyush Tiwary, and Michele Parrinello. Enhancing Important Fluctuations: Rare Events and Metadynamics from a Conceptual Viewpoint. Annual Review of Physical Chemistry, 67(1):159–184, 2016. _eprint: https://doi.org/10.1146/annurev-physchem-040215-112229. URL: https://doi.org/10.1146/annurev-physchem-040215-112229, doi:10.1146/annurev-physchem-040215-112229.">4</a>]</span>.</p></li>
+<li><p>G. Bussi, A. Laio, <a class="reference external" href="https://doi.org/10.1038/s42254-020-0153-0">Using metadynamics to explore complex free-energy landscapes</a> <span id="id2">[<a class="reference internal" href="#id7" title="Giovanni Bussi and Alessandro Laio. Using metadynamics to explore complex free-energy landscapes. Nature Reviews Physics, 2(4):200–212, April 2020. URL: https://doi.org/10.1038/s42254-020-0153-0, doi:10.1038/s42254-020-0153-0.">F2</a>]</span>.</p></li>
+<li><p>A. Valsson, P. Tiwary, and M. Parrinello, <a class="reference external" href="https://doi.org/10.1146/annurev-physchem-040215-112229">Enhancing Important Fluctuations: Rare Events and Metadynamics from a Conceptual Viewpoint</a> <span id="id3">[<a class="reference internal" href="#id8" title="Omar Valsson, Pratyush Tiwary, and Michele Parrinello. Enhancing Important Fluctuations: Rare Events and Metadynamics from a Conceptual Viewpoint. Annual Review of Physical Chemistry, 67(1):159–184, 2016. _eprint: https://doi.org/10.1146/annurev-physchem-040215-112229. URL: https://doi.org/10.1146/annurev-physchem-040215-112229, doi:10.1146/annurev-physchem-040215-112229.">F3</a>]</span>.</p></li>
 </ol>
 <p><em>Simulation details:</em> Perform Metadynamics simulations at <span class="math notranslate nohighlight">\(298\)</span> K for an Ar atom in the double well potential energy surface:</p>
 <div class="math notranslate nohighlight">
@@ -534,6 +535,22 @@ V(x) = A x^4 - Bx^2,
 </div>
 <p>with parameters of our choice, and compare the average of <code class="docutils literal notranslate"><span class="pre">F</span></code> over the seeds with the exact free energy you expect from the potential, over the wells and the barrier, after shifting it by a constant. The deviation should be small: about the size of the differences between your independent runs.</p>
 <p><em>Bonus:</em> Implement the well-tempered version of Metadynamics through the <code class="docutils literal notranslate"><span class="pre">biasfactor</span></code> argument of <code class="docutils literal notranslate"><span class="pre">runMetaD</span></code>, and compare its performance against standard metadynamics. If you do implement well-tempered Metadynamics, note that you will have to use a grid to calculate <span class="math notranslate nohighlight">\(c(t)\)</span>, the reweighting factor, to obtain the unbiased free energy.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<div class="docutils container" id="id4">
+<dl class="citation">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">F1</a></span></dt>
+<dd><p>Mark Tuckerman. <em>Statistical Mechanics: Theory and Molecular Simulation</em>. Oxford Graduate Texts. Oxford University Press, Oxford, New York, February 2010. ISBN 978-0-19-852526-4.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id2">F2</a></span></dt>
+<dd><p>Giovanni Bussi and Alessandro Laio. Using metadynamics to explore complex free-energy landscapes. <em>Nature Reviews Physics</em>, 2(4):200–212, April 2020. URL: <a class="reference external" href="https://doi.org/10.1038/s42254-020-0153-0">https://doi.org/10.1038/s42254-020-0153-0</a>, <a class="reference external" href="https://doi.org/10.1038/s42254-020-0153-0">doi:10.1038/s42254-020-0153-0</a>.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id3">F3</a></span></dt>
+<dd><p>Omar Valsson, Pratyush Tiwary, and Michele Parrinello. Enhancing Important Fluctuations: Rare Events and Metadynamics from a Conceptual Viewpoint. <em>Annual Review of Physical Chemistry</em>, 67(1):159–184, 2016. _eprint: https://doi.org/10.1146/annurev-physchem-040215-112229. URL: <a class="reference external" href="https://doi.org/10.1146/annurev-physchem-040215-112229">https://doi.org/10.1146/annurev-physchem-040215-112229</a>, <a class="reference external" href="https://doi.org/10.1146/annurev-physchem-040215-112229">doi:10.1146/annurev-physchem-040215-112229</a>.</p>
+</dd>
+</dl>
+</div>
 </section>
 </section>
 
@@ -593,6 +610,7 @@ V(x) = A x^4 - Bx^2,
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-a-path-integral-molecular-dynamics-monte-carlo">Option A - Path Integral Molecular Dynamics / Monte Carlo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-b-metadynamics">Option B - Metadynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
 
