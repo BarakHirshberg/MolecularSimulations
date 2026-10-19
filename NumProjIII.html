@@ -461,17 +461,17 @@ document.write(`
 You have also learned some of the theory underlying both methods, including analytical mechanics, statistical mechanics, and random processes. This is a highly non-trivial achievement.</p>
 <p>Now, to the final project that will determine <span class="math notranslate nohighlight">\(50\%\)</span> of your grade. This time, I will not teach you the theory myself. Instead, I will briefly describe two advanced simulation methods that you can choose from, and refer you to the relevant reading material. Your job is to read the material, implement the method, run the simulations described below, and present what you have learned in a 10-minute talk at your final defense. Build your talk around the following guiding principles:</p>
 <ol class="arabic simple">
-<li><p>Which advanced method have you chosen to implement?</p></li>
-<li><p>Explain what is the problem with standard simulations the method attempts to solve.</p></li>
-<li><p>How does the algorithm work? Explain the physical motivation behind it.</p></li>
-<li><p>Discuss the limitations of the method.</p></li>
+<li><p>Which advanced method have you chosen, how does the algorithm work, and what is the physical motivation behind it?</p></li>
+<li><p>What is the problem with standard simulations that the method attempts to solve?</p></li>
+<li><p>What are your results? Show the figures from your results notebook, with error bars, and compare them with what you expected.</p></li>
+<li><p>What are the limitations of the method?</p></li>
 <li><p>Can you think of ways to improve upon it?</p></li>
 </ol>
 <p>Then, you need to implement your advanced method and run a simple simulation, as described below.
 Build on your own code from Projects I and II, in the same repository; do not start from scratch. Work on a new branch named <code class="docutils literal notranslate"><span class="pre">final</span></code>, created from your <code class="docutils literal notranslate"><span class="pre">project2</span></code> branch: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">final</span> <span class="pre">project2</span></code> (the first time you push it: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">-u</span> <span class="pre">origin</span> <span class="pre">final</span></code>), or with the Codespaces interface as described in the README. Submit your results as a short notebook with the required figures; captions are enough, no written summary is needed.</p>
 <p><strong>How you are assessed.</strong> The final project is 50% of your grade, entirely through an in-person defense after the break, about 20 minutes long and without AI tools:</p>
 <ol class="arabic simple">
-<li><p><strong>A presentation:</strong> up to 10 slides in 10 minutes, answering the five questions above and showing your results (the figures from your results notebook).</p></li>
+<li><p><strong>A presentation:</strong> up to 10 slides in 10 minutes, answering the five questions above.</p></li>
 <li><p><strong>An oral exam on your own code</strong> (about 10 minutes), in the same format as the oral exams during the semester: explain a part of your implementation and why you implemented it that way; read a different version of that part and explain what it does, how it differs from yours, and what would happen if you used it; and answer a question on the theory behind your method or on one of your figures.</p></li>
 </ol>
 <p>Before the defense, your <code class="docutils literal notranslate"><span class="pre">runPIMD</span></code> or <code class="docutils literal notranslate"><span class="pre">runMetaD</span></code> method is checked automatically (see your option below). Bonus points are given when the bonus checks pass.</p>
@@ -491,6 +491,11 @@ But, more concretely to our purposes, it also shows how one can use classical MD
 <li><p>M. Ceriotti, V, Kapil, Y. Litman, T. Markland and M. Rossi, Booklet of the CECAM Flagship School on Path Integral Quantum Mechanics. Sections 1-2, available on the moodle.</p></li>
 </ol>
 <p><em>Simulation details:</em> Evaluate the average total energy of a quantum particle (Ar atom) in a one-dimensional harmonic trap of frequency <span class="math notranslate nohighlight">\(\omega_0\)</span>, with <span class="math notranslate nohighlight">\(\hbar \omega_0 = 50\)</span> meV, as a function of inverse temperature <span class="math notranslate nohighlight">\(\beta=(k_BT)^{-1}\)</span>. Use values of <span class="math notranslate nohighlight">\(\beta \hbar \omega_0 = 1,2,3,4,5,6\)</span>. To estimate the statistical uncertainty of your results run several independent simulations at every temperature. Show that the energy converges to the correct ground state energy as you decrease the temperature (increase <span class="math notranslate nohighlight">\(\beta\)</span>). Compare the results at all temperatures with the analytical results that can be derived from the exact expression for the partition function.  Don’t forget to show the convergence of your simulation with respect to the number of beads. You can do this only for the lowest temperature and then just scale the number of beads with temperature, keeping <span class="math notranslate nohighlight">\(\beta \hbar \omega_0 / P\)</span> fixed (i.e., increasing the temperature by a factor of two allows you to halve the number of beads).</p>
+<p><em>Figures to show:</em></p>
+<ol class="arabic simple">
+<li><p>The average energy against <span class="math notranslate nohighlight">\(\beta \hbar \omega_0 = 1, \dots, 6\)</span>, with error bars from independent runs, together with the exact curve.</p></li>
+<li><p>The energy against the number of beads at the lowest temperature (convergence with <span class="math notranslate nohighlight">\(P\)</span>).</p></li>
+</ol>
 <p><em>What to deliver:</em> add a method with exactly this signature to your <code class="docutils literal notranslate"><span class="pre">Simulation</span></code> class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">runPIMD</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">betahw</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;MD&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return (E_mean, E_error): the average total energy and its statistical error, in meV.&quot;&quot;&quot;</span>
@@ -522,6 +527,12 @@ V(x) = A x^4 - Bx^2,
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(A=4.11 \cdot 10^{20} \, J m^{-4}, B = 8.22 \,J m^{-2}\)</span>.</p>
 <p>First show that this potential leads to the transition from one well to another being a rare event. Then, use the position of the particle as a collective variable to perform a Metadynamics simulation biasing the system to go from one well to the next. Compare the Metadynamics simulations with the unbiased simulations using the same potential. Finally, obtain the unbiased free-energy surface of the system, using one of the approaches described in the review, and compare it with your expectation based on the potential above. Evaluate the error on your free energy surface estimate by running several independent trajectories and evaluating their standard deviation. Accumulate the bias on a grid, for computational efficiency.</p>
+<p><em>Figures to show:</em></p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(x(t)\)</span> of the unbiased run: no transition.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x(t)\)</span> of a Metadynamics run, showing the transitions, together with the bias at the end of the run.</p></li>
+<li><p>The free energy from the bias, averaged over independent runs with error bars, against the exact <span class="math notranslate nohighlight">\(V(x)/k_B T\)</span> after shifting by a constant.</p></li>
+</ol>
 <p><em>What to deliver:</em> add a method with exactly this signature to your <code class="docutils literal notranslate"><span class="pre">Simulation</span></code> class:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">runMetaD</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">pace</span><span class="p">,</span> <span class="n">seed</span><span class="p">,</span> <span class="n">biasfactor</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return (x, F): a grid of positions in Angstrom, covering at least -1.5 to 1.5 Angstrom,</span>
