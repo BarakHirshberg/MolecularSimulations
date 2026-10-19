@@ -8,12 +8,13 @@
 
 | Component | Weight |
 | --- | --- |
-| Two oral exams, one per project, in class, about 15 minutes each | 50% (equal weights) |
-| Final defense, during the break (date coordinated with you) | 50% |
+| Oral exam 1 (Project 1), in class | 25% |
+| Oral exam 2 (Project 2), in class | 25% |
+| Final defense, during the break (date coordinated with you): a talk and an oral exam on your code | 50% |
 
 Push your work for each project to its branch (see the README in your repository). At the end of each project, the state of that branch at the deadline is checked automatically. These checks are not graded; you get feedback on what to fix.
 
-**How an oral exam works.** You open your own repository, and I guide you through it. You explain a part of your code that I choose, and why you wrote it that way. You change a parameter or a line as I instruct, say what you expect to happen and why, and then run it. You also answer a question on the theory behind your code. Each answer is scored 0–2.
+**How an oral exam works.** You open your own repository, and I ask three questions: explain a part of your code that I choose, and why you wrote it that way; say what would happen, and why, if a line of your code were changed as I instruct (we run it if we disagree); and a question on the theory behind your code. Each answer is scored 0–3. The talk at the defense is scored the same way, one score per guiding question of the final project.
 
 **Course structure.** The dates are on Moodle.
 
