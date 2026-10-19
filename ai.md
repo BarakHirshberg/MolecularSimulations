@@ -20,16 +20,16 @@ Push your work for each project to its branch (see the README in your repository
 
 | Class | In class | Due before this class |
 | --- | --- | --- |
-| 1 | Classical mechanics; course introduction | |
-| 2 | Statistical mechanics | |
-| 3 | Molecular dynamics; GitHub fundamentals and project instructions | |
+| 1 | Course introduction; classical mechanics | |
+| 2 | Statistical mechanics fundamentals | |
+| 3 | Molecular dynamics; GitHub fundamentals and Project 1 instructions | |
 | 4 | Project 1 in class (Part A) | |
 | 5 | Project 1 in class (Part B) | |
 | 6 | Oral exam 1 | Project 1 |
 | 7 | Monte Carlo I | |
-| 8 | Monte Carlo II; Project 2 handed out | |
-| 9 | Project 2 in class | |
-| 10 | Project 2 in class | |
+| 8 | Monte Carlo II; Project 2 instructions | |
+| 9 | Project 2 in class (Parts A and B) | |
+| 10 | Project 2 in class (Part C) | |
 | 11 | Oral exam 2 | Project 2 |
 | 12 | The final project explained | |
 | Break | Final project; final defense | |
