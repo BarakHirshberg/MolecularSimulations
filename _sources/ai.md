@@ -14,7 +14,7 @@
 
 Push your work for each project to its branch (see the README in your repository). At the end of each project, the state of that branch at the deadline is checked automatically. These checks are not graded; you get feedback on what to fix.
 
-**How an oral exam works.** You open your own repository, and I ask three questions: explain a part of your code that I choose, and why you wrote it that way; say what would happen, and why, if a line of your code were changed as I instruct; and a question on the theory behind your code. Each answer is scored 0–3. The talk at the defense is scored the same way, one score per guiding question of the final project.
+**How an oral exam works.** You open your own repository, and I ask three questions: explain a part of your code that I choose, and why you wrote it that way; read a different version of that part and explain what it does, how it differs from yours, and what would happen if you used it; and a question on the theory behind your code. Each answer is scored 0–3. The talk at the defense is scored the same way, one score per guiding question of the final project.
 
 **Course structure.** The dates are on Moodle.
 
