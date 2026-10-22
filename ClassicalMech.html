@@ -691,7 +691,13 @@ The name conservative forces comes from the fact that the total energy is conser
 \[\frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial \mathcal{L}}{\partial \dot{\textbf{r}}_j} = m_j \ddot{\textbf{r}}_j \]</div>
 <p>Which, upon substitution into Eq. <a class="reference internal" href="#equation-el-eq">(10)</a>, gives Newton’s equations of motion, Eq. <a class="reference internal" href="#equation-newton2nd-n">(3)</a>.</p>
 </div>
-<p>So, why do we need Lagrangian Mechanics? In what way are they more useful than Newtonian Mechanics? The short (and insufficient) answer is that they allow us to write equations of motions easily when non-Cartesian coordinates are natural to the problem. The new coordinates are often called <strong>generalized coordinates</strong>. This is because the Euler-Lagrange equations, Eq. <a class="reference internal" href="#equation-el-eq">(10)</a>, do not change under such <strong>point transformations</strong>. Lagrangian mechanics also allow us to handle constraints in a much more straightforward manner than Newtonian dynamics. Finally, Lagrangian mechanics are convenient to prove a remarkable result - that conservation laws are related to symmetry (Noether’s theorem)! This is a topic of some depth that we will not pursue here. Instead, we will barely scratch the surface of the utility of Lagrangian mechanics with a simple example.</p>
+<p>So, why do we need Lagrangian Mechanics? In what way are they more useful than Newtonian Mechanics? The short (and insufficient) answer is that they allow us to write equations of motions easily when non-Cartesian coordinates are natural to the problem. The new coordinates are often called <strong>generalized coordinates</strong>. This is because the Euler-Lagrange equations, Eq. <a class="reference internal" href="#equation-el-eq">(10)</a>, do not change under such <strong>point transformations</strong>. Lagrangian mechanics also allow us to handle constraints in a much more straightforward manner than Newtonian dynamics. Finally, Lagrangian mechanics are convenient to prove a remarkable result - that conservation laws are related to symmetry (Noether’s theorem)! We will not pursue the full theorem here, but a simple example shows the connection. Suppose the potential energy does not depend on a Cartesian coordinate <span class="math notranslate nohighlight">\(x\)</span>. Shifting <span class="math notranslate nohighlight">\(x\)</span> by a constant then leaves the Lagrangian unchanged: the system has a translation symmetry in that direction. Since <span class="math notranslate nohighlight">\(\partial \mathcal{L}/\partial x = 0\)</span>, the Euler-Lagrange equation gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial \mathcal{L}}{\partial \dot{x}} = 0.
+\]</div>
+<p>For our kinetic energy, <span class="math notranslate nohighlight">\(\partial \mathcal{L}/\partial \dot{x} = m\dot{x} = p_x\)</span>, so the corresponding component of linear momentum is conserved. A symmetry of the Lagrangian has given us a conservation law!</p>
+<p>We now illustrate the usefulness of generalized coordinates with a pendulum.</p>
 <p>Consider a pendulum composed of a mass <span class="math notranslate nohighlight">\(m\)</span> attached to a string of fixed length <span class="math notranslate nohighlight">\(l\)</span> hanging off a surface by an angle <span class="math notranslate nohighlight">\(\phi\)</span>.
 In Newtonian Mechanics, we would have first considered the different forces: gravity applies a force <span class="math notranslate nohighlight">\(m\textbf{g}\)</span> directed along the <span class="math notranslate nohighlight">\(y\)</span> axis and the string applies a radial force <span class="math notranslate nohighlight">\(\textbf{T}\)</span>, which is unknown, to compensate for the radial component of the gravitational pull. In other words, the tension force is required to make sure the mass doesn’t move in the radial direction, i.e., that the constraint on the length of the string is fulfilled. Then, we would write down the equations of motions for each force component and after some algebraic manipulations, we would get the equations for the dynamics of the angle <span class="math notranslate nohighlight">\(\phi\)</span> and an expression for the tension force. Let us see how simple this process gets with the Lagrangian formalism instead.</p>
 <p>We define two generalized coordinates, <span class="math notranslate nohighlight">\( x = l\sin{\phi}\)</span> and <span class="math notranslate nohighlight">\( y= l \cos{\phi}.\)</span> The kinetic energy is then given by,</p>
@@ -721,8 +727,8 @@ We now consider another formulation of classical mechanics, due to Hamilton, whi
 <section id="hamiltonian-mechanics">
 <span id="sec-hamilton"></span><h2>Hamiltonian mechanics<a class="headerlink" href="#hamiltonian-mechanics" title="Permalink to this heading">#</a></h2>
 <p>While Lagrangian mechanics is based on a description of the dynamics of a system in terms of the positions and velocities, the Hamiltonian formulation is intimately connected to the phase space representation we introduced in Section <a class="reference internal" href="#sec-phase-space"><span class="std std-ref">Phase space</span></a>. We previously defined the linear momentum, <span class="math notranslate nohighlight">\(\textbf{p}_j = m_j \dot{\textbf{r}}_j\)</span>, in Eq. <a class="reference internal" href="#equation-momenta">(5)</a>. For generalized coordinates <span class="math notranslate nohighlight">\(\textbf{q}_j\)</span>, we define the corresponding <strong>conjugate momenta</strong>, also called generalized momenta, as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71a7fd4c-f73f-4a01-b6cb-d8336797b13d">
-<span class="eqno">(11)<a class="headerlink" href="#equation-71a7fd4c-f73f-4a01-b6cb-d8336797b13d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-90a35015-9dde-4cf9-8170-b1c70ba98a3c">
+<span class="eqno">(11)<a class="headerlink" href="#equation-90a35015-9dde-4cf9-8170-b1c70ba98a3c" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \textbf{p}_j = \frac{\partial \mathcal{L}}{\partial \dot{\textbf{q}}_j}.
 \end{equation}\]</div>
 <p>For the Cartesian Lagrangian in Eq. <a class="reference internal" href="#equation-lagrangian">(8)</a>, this definition reduces to Eq. <a class="reference internal" href="#equation-momenta">(5)</a>. For other choices of coordinates, the conjugate momenta need not be linear momenta, as we will see for the pendulum below.</p>
@@ -767,8 +773,8 @@ We now consider another formulation of classical mechanics, due to Hamilton, whi
     \mathcal{H}(\textbf{r}_1,...,\textbf{r}_N,\textbf{p}_1,...,\textbf{p}_N) = \sum_{j=1}^N \frac{\textbf{p}_j^2}{2 m_j} + U(\textbf{r}_1,...,\textbf{r}_N),
 \]</div>
 <p>which shows that the Hamiltonian is just the total energy of the system in terms of the Cartesian positions and momenta,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7f79af9-b897-44b1-84a7-c698b4991999">
-<span class="eqno">(15)<a class="headerlink" href="#equation-a7f79af9-b897-44b1-84a7-c698b4991999" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-46c48043-674f-4e48-813a-520b82fc8bb2">
+<span class="eqno">(15)<a class="headerlink" href="#equation-46c48043-674f-4e48-813a-520b82fc8bb2" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathcal{H}(\textbf{r}_1,...,\textbf{r}_N,\textbf{p}_1,...,\textbf{p}_N) = K(\dot{\textbf{r}}_1,...,\dot{\textbf{r}}_N) + U(\textbf{r}_1,...,\textbf{r}_N).
 \end{equation}\]</div>
 <p>Hamilton’s equations in this case also reduce to Newton’s equations of motion.</p>
@@ -830,13 +836,13 @@ Note that while the Lagrangian and Hamiltonian are <strong>functions</strong> of
 ``` -->
 <p>It turns out that the Euler-Lagrange equations can be derived by postulating that the classical trajectory makes the first variation of the action integral vanish. The first variation of a functional is an extension of the definition of derivatives to the world of functionals.
 We consider how the action changes when the trajectories undergo an arbitrary variation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e5697d0-3a33-4ef3-85a7-197f4baa978e">
-<span class="eqno">(18)<a class="headerlink" href="#equation-7e5697d0-3a33-4ef3-85a7-197f4baa978e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bfc0b6e6-2469-4f50-b971-60e6b7412e35">
+<span class="eqno">(18)<a class="headerlink" href="#equation-bfc0b6e6-2469-4f50-b971-60e6b7412e35" title="Permalink to this equation">#</a></span>\[\begin{align}
     \textbf{q}_j(t,\alpha) &amp;= \textbf{q}_j(t,0) + \alpha \textbf{n}_j(t), &amp; \dot{\textbf{q}}_j(t,\alpha) &amp;= \dot{\textbf{q}}_j(t,0) + \alpha \dot{\textbf{n}}_j(t),
 \end{align}\]</div>
 <p>and denote the action for such trajectories as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e1fb502f-daa5-4d7a-b833-7612f2575cb4">
-<span class="eqno">(19)<a class="headerlink" href="#equation-e1fb502f-daa5-4d7a-b833-7612f2575cb4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5da916a4-3e2d-43d5-82c3-6ef42e470798">
+<span class="eqno">(19)<a class="headerlink" href="#equation-5da916a4-3e2d-43d5-82c3-6ef42e470798" title="Permalink to this equation">#</a></span>\[\begin{equation}
 S(\alpha) = \int_{t_1}^{t_2} \mathcal{L} (\textbf{q}_1(t,\alpha),...,\textbf{q}_N(t,\alpha),  \dot{\textbf{q}}_1(t,\alpha),...,\dot{\textbf{q}}_N(t,\alpha)) \mathrm{d}t.
 \end{equation}\]</div>
 <p>The first variation of <span class="math notranslate nohighlight">\(S\)</span> is defined as</p>
