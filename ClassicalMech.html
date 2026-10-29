@@ -698,8 +698,14 @@ The name conservative forces comes from the fact that the total energy is conser
 \]</div>
 <p>For our kinetic energy, <span class="math notranslate nohighlight">\(\partial \mathcal{L}/\partial \dot{x} = m\dot{x} = p_x\)</span>, so the corresponding component of linear momentum is conserved. A symmetry of the Lagrangian has given us a conservation law!</p>
 <p>We now illustrate the usefulness of generalized coordinates with a pendulum.</p>
-<p>Consider a pendulum composed of a mass <span class="math notranslate nohighlight">\(m\)</span> attached to a string of fixed length <span class="math notranslate nohighlight">\(l\)</span> hanging off a surface by an angle <span class="math notranslate nohighlight">\(\phi\)</span>.
-In Newtonian Mechanics, we would have first considered the different forces: gravity applies a force <span class="math notranslate nohighlight">\(m\textbf{g}\)</span> directed along the <span class="math notranslate nohighlight">\(y\)</span> axis and the string applies a radial force <span class="math notranslate nohighlight">\(\textbf{T}\)</span>, which is unknown, to compensate for the radial component of the gravitational pull. In other words, the tension force is required to make sure the mass doesn’t move in the radial direction, i.e., that the constraint on the length of the string is fulfilled. Then, we would write down the equations of motions for each force component and after some algebraic manipulations, we would get the equations for the dynamics of the angle <span class="math notranslate nohighlight">\(\phi\)</span> and an expression for the tension force. Let us see how simple this process gets with the Lagrangian formalism instead.</p>
+<p>Consider a pendulum composed of a mass <span class="math notranslate nohighlight">\(m\)</span> attached to a string of fixed length <span class="math notranslate nohighlight">\(l\)</span> hanging off a surface by an angle <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+<figure class="align-center" id="fig-pendulum">
+<a class="reference internal image-reference" href="_images/pendulum.png"><img alt="_images/pendulum.png" src="_images/pendulum.png" style="width: 45%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The pendulum: a mass <span class="math notranslate nohighlight">\(m\)</span> on a string of fixed length <span class="math notranslate nohighlight">\(l\)</span>, at an angle <span class="math notranslate nohighlight">\(\phi\)</span> from the vertical. Gravity <span class="math notranslate nohighlight">\(m\textbf{g}\)</span> acts along the <span class="math notranslate nohighlight">\(y\)</span> axis and the tension <span class="math notranslate nohighlight">\(\textbf{T}\)</span> along the string. With <span class="math notranslate nohighlight">\(x = l\sin\phi\)</span> and <span class="math notranslate nohighlight">\(y = l\cos\phi\)</span>, the mass is at height <span class="math notranslate nohighlight">\(l - y\)</span> above its lowest point.</span><a class="headerlink" href="#fig-pendulum" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In Newtonian Mechanics, we would have first considered the different forces: gravity applies a force <span class="math notranslate nohighlight">\(m\textbf{g}\)</span> directed along the <span class="math notranslate nohighlight">\(y\)</span> axis and the string applies a radial force <span class="math notranslate nohighlight">\(\textbf{T}\)</span>, which is unknown, to compensate for the radial component of the gravitational pull. In other words, the tension force is required to make sure the mass doesn’t move in the radial direction, i.e., that the constraint on the length of the string is fulfilled. Then, we would write down the equations of motions for each force component and after some algebraic manipulations, we would get the equations for the dynamics of the angle <span class="math notranslate nohighlight">\(\phi\)</span> and an expression for the tension force. Let us see how simple this process gets with the Lagrangian formalism instead.</p>
 <p>We define two generalized coordinates, <span class="math notranslate nohighlight">\( x = l\sin{\phi}\)</span> and <span class="math notranslate nohighlight">\( y= l \cos{\phi}.\)</span> The kinetic energy is then given by,</p>
 <div class="math notranslate nohighlight">
 \[
@@ -727,8 +733,8 @@ We now consider another formulation of classical mechanics, due to Hamilton, whi
 <section id="hamiltonian-mechanics">
 <span id="sec-hamilton"></span><h2>Hamiltonian mechanics<a class="headerlink" href="#hamiltonian-mechanics" title="Permalink to this heading">#</a></h2>
 <p>While Lagrangian mechanics is based on a description of the dynamics of a system in terms of the positions and velocities, the Hamiltonian formulation is intimately connected to the phase space representation we introduced in Section <a class="reference internal" href="#sec-phase-space"><span class="std std-ref">Phase space</span></a>. We previously defined the linear momentum, <span class="math notranslate nohighlight">\(\textbf{p}_j = m_j \dot{\textbf{r}}_j\)</span>, in Eq. <a class="reference internal" href="#equation-momenta">(5)</a>. For generalized coordinates <span class="math notranslate nohighlight">\(\textbf{q}_j\)</span>, we define the corresponding <strong>conjugate momenta</strong>, also called generalized momenta, as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c3423a83-ba22-4499-80bf-455fe14a9bd0">
-<span class="eqno">(11)<a class="headerlink" href="#equation-c3423a83-ba22-4499-80bf-455fe14a9bd0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e19a6942-9644-4f85-b2a1-df1c87598791">
+<span class="eqno">(11)<a class="headerlink" href="#equation-e19a6942-9644-4f85-b2a1-df1c87598791" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \textbf{p}_j = \frac{\partial \mathcal{L}}{\partial \dot{\textbf{q}}_j}.
 \end{equation}\]</div>
 <p>For the Cartesian Lagrangian in Eq. <a class="reference internal" href="#equation-lagrangian">(8)</a>, this definition reduces to Eq. <a class="reference internal" href="#equation-momenta">(5)</a>. For other choices of coordinates, the conjugate momenta need not be linear momenta, as we will see for the pendulum below.</p>
@@ -773,8 +779,8 @@ We now consider another formulation of classical mechanics, due to Hamilton, whi
     \mathcal{H}(\textbf{r}_1,...,\textbf{r}_N,\textbf{p}_1,...,\textbf{p}_N) = \sum_{j=1}^N \frac{\textbf{p}_j^2}{2 m_j} + U(\textbf{r}_1,...,\textbf{r}_N),
 \]</div>
 <p>which shows that the Hamiltonian is just the total energy of the system in terms of the Cartesian positions and momenta,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b4380dbd-675c-44f6-ada4-d23d1a8db6c9">
-<span class="eqno">(15)<a class="headerlink" href="#equation-b4380dbd-675c-44f6-ada4-d23d1a8db6c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d72bc73c-8c44-40b7-bfb9-70a2b72e60b4">
+<span class="eqno">(15)<a class="headerlink" href="#equation-d72bc73c-8c44-40b7-bfb9-70a2b72e60b4" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \mathcal{H}(\textbf{r}_1,...,\textbf{r}_N,\textbf{p}_1,...,\textbf{p}_N) = K(\dot{\textbf{r}}_1,...,\dot{\textbf{r}}_N) + U(\textbf{r}_1,...,\textbf{r}_N).
 \end{equation}\]</div>
 <p>Hamilton’s equations in this case also reduce to Newton’s equations of motion.</p>
@@ -830,18 +836,18 @@ Note that while the Lagrangian and Hamiltonian are <strong>functions</strong> of
 <figure class="align-center" id="fig-action-paths">
 <a class="reference internal image-reference" href="_images/action_paths.png"><img alt="_images/action_paths.png" src="_images/action_paths.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Paths in the configuration space of two coordinates that start at <span class="math notranslate nohighlight">\(\textbf{Q}(t_1)\)</span> and end at <span class="math notranslate nohighlight">\(\textbf{Q}(t_2)\)</span>. Each has its own value of the action. Only the end points are fixed: the paths differ everywhere in between. The principle of extremal action singles out the path (solid) along which the action is stationary.</span><a class="headerlink" href="#fig-action-paths" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Paths in the configuration space of two coordinates that start at <span class="math notranslate nohighlight">\(\textbf{Q}(t_1)\)</span> and end at <span class="math notranslate nohighlight">\(\textbf{Q}(t_2)\)</span>. Each has its own value of the action. Only the end points are fixed: the paths differ everywhere in between. The principle of extremal action singles out the path (solid) along which the action is stationary.</span><a class="headerlink" href="#fig-action-paths" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>It turns out that the Euler-Lagrange equations can be derived by postulating that the classical trajectory makes the first variation of the action integral vanish. The first variation of a functional is an extension of the definition of derivatives to the world of functionals.
 We consider how the action changes when the trajectories undergo an arbitrary variation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d15d6a25-4be1-44cb-aaa5-4563c59b131d">
-<span class="eqno">(18)<a class="headerlink" href="#equation-d15d6a25-4be1-44cb-aaa5-4563c59b131d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9d739e1b-ee3b-42f5-bf86-11fb000d80c3">
+<span class="eqno">(18)<a class="headerlink" href="#equation-9d739e1b-ee3b-42f5-bf86-11fb000d80c3" title="Permalink to this equation">#</a></span>\[\begin{align}
     \textbf{q}_j(t,\alpha) &amp;= \textbf{q}_j(t,0) + \alpha \textbf{n}_j(t), &amp; \dot{\textbf{q}}_j(t,\alpha) &amp;= \dot{\textbf{q}}_j(t,0) + \alpha \dot{\textbf{n}}_j(t),
 \end{align}\]</div>
 <p>and denote the action for such trajectories as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5c78b739-d54c-48ee-babd-4aba6e2b702a">
-<span class="eqno">(19)<a class="headerlink" href="#equation-5c78b739-d54c-48ee-babd-4aba6e2b702a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-54d5cf7c-442b-4f51-8657-8c5e10d74571">
+<span class="eqno">(19)<a class="headerlink" href="#equation-54d5cf7c-442b-4f51-8657-8c5e10d74571" title="Permalink to this equation">#</a></span>\[\begin{equation}
 S(\alpha) = \int_{t_1}^{t_2} \mathcal{L} (\textbf{q}_1(t,\alpha),...,\textbf{q}_N(t,\alpha),  \dot{\textbf{q}}_1(t,\alpha),...,\dot{\textbf{q}}_N(t,\alpha)) \mathrm{d}t.
 \end{equation}\]</div>
 <p>The first variation of <span class="math notranslate nohighlight">\(S\)</span> is defined as</p>
