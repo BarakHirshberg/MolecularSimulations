@@ -447,6 +447,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-a-property-of-hamilton-s-equations">Step 1: a property of Hamilton’s equations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-counting-systems">Step 2: counting systems</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-liouville-equation-says">What the Liouville equation says</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-liouville-equation">Solving the Liouville equation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-space-incompressibility">Phase space incompressibility</a></li>
@@ -482,8 +483,8 @@ A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t
 </figcaption>
 </figure>
 <p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfill the properties:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-25dcb43c-00c0-4274-9476-5f06835def7d">
-<span class="eqno">(23)<a class="headerlink" href="#equation-25dcb43c-00c0-4274-9476-5f06835def7d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5ed25278-679b-4e02-b595-4b173774bca6">
+<span class="eqno">(23)<a class="headerlink" href="#equation-5ed25278-679b-4e02-b595-4b173774bca6" title="Permalink to this equation">#</a></span>\[\begin{align}
  \int f(\textbf{x},t) \, \mathrm{d} \textbf{x} &amp;= 1, &amp; f(\textbf{x},t) &amp; \ge 0.
 \end{align}\]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span> represents the probability that a system from the ensemble is in the volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\textbf{x}+\mathrm{d}\textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> (or, alternatively, the fraction of systems therein).</p>
@@ -634,6 +635,14 @@ f(\textbf{x}(t),t) = f(\textbf{x}(0),0).
 </figcaption>
 </figure>
 </section>
+<section id="solving-the-liouville-equation">
+<h3>Solving the Liouville equation<a class="headerlink" href="#solving-the-liouville-equation" title="Permalink to this heading">#</a></h3>
+<p>Can we solve Eq. <a class="reference internal" href="#equation-liouville1">(25)</a> for <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>? It is a first-order linear partial differential equation, and the curves along which its solution is constant, its characteristics, are precisely the trajectories of the systems. Solving it is therefore equivalent to solving the equations of motion: if we know where every system came from, <span class="math notranslate nohighlight">\(f(\textbf{x},t) = f(\textbf{x}(0),0)\)</span>, which is how the animations above were drawn. But then we gain nothing beyond the trajectories themselves. Instead, the Liouville equation is useful in two other ways (and more that we will not discuss here).</p>
+<ol class="arabic simple">
+<li><p><strong>Equilibrium.</strong> We can find distributions that do not change in time at all, <span class="math notranslate nohighlight">\(\partial f / \partial t = 0\)</span>, without solving the equations of motion. This is the main use of the Liouville equation in this course, and the subject of the next section.</p></li>
+<li><p><strong>Moments.</strong> Multiplying Eq. <a class="reference internal" href="#equation-liouville1">(25)</a> by <span class="math notranslate nohighlight">\(q\)</span>, <span class="math notranslate nohighlight">\(p\)</span>, <span class="math notranslate nohighlight">\(q^2\)</span> and so on, and integrating over phase space, we obtain ordinary differential equations for the averages <span class="math notranslate nohighlight">\(\langle q \rangle\)</span>, <span class="math notranslate nohighlight">\(\langle p \rangle\)</span>, <span class="math notranslate nohighlight">\(\langle q^2 \rangle\)</span> and so on, without ever obtaining the full distribution. For the harmonic oscillator, for example, <span class="math notranslate nohighlight">\(\mathrm{d} \langle q \rangle / \mathrm{d}t = \langle p \rangle / m\)</span> and <span class="math notranslate nohighlight">\(\mathrm{d} \langle p \rangle / \mathrm{d}t = - m \omega_0^2 \langle q \rangle\)</span>, so the average position and momentum of the ensemble obey Newton’s equations exactly.</p></li>
+</ol>
+</section>
 </section>
 <section id="phase-space-incompressibility">
 <h2>Phase space incompressibility<a class="headerlink" href="#phase-space-incompressibility" title="Permalink to this heading">#</a></h2>
@@ -695,8 +704,8 @@ A=
 \frac{\mathrm{d}}{\mathrm{d}t} \det{J} = \dot{J}_{11} J_{22} + J_{11} \dot{J}_{22} - \dot{J}_{12} J_{21} - J_{12} \dot{J}_{21}.
 \]</div>
 <p>The four entries of <span class="math notranslate nohighlight">\(\dot{J} = A J\)</span> are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9087663a-b786-466e-84ce-448e454fa5d4">
-<span class="eqno">(34)<a class="headerlink" href="#equation-9087663a-b786-466e-84ce-448e454fa5d4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5626d553-e084-419c-99c1-5b9358d5ac0e">
+<span class="eqno">(34)<a class="headerlink" href="#equation-5626d553-e084-419c-99c1-5b9358d5ac0e" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot{J}_{11} &amp;= A_{11} J_{11} + A_{12} J_{21}, &amp; \dot{J}_{12} &amp;= A_{11} J_{12} + A_{12} J_{22}, \\
 \dot{J}_{21} &amp;= A_{21} J_{11} + A_{22} J_{21}, &amp; \dot{J}_{22} &amp;= A_{21} J_{12} + A_{22} J_{22}.
 \end{align}\]</div>
@@ -797,7 +806,7 @@ A = \langle a \rangle_E = \frac{ \int \delta (\mathcal{H}(\textbf{x}) - E) \, a(
 A = \langle a \rangle_{\beta} = \frac{ \int e^{-\beta \mathcal{H} (\textbf{x})} \, a(\textbf{x}) \, \mathrm{d} \textbf{x}} {\int e^{-\beta \mathcal{H} (\textbf{x})} \, \mathrm{d} \textbf{x}} .
 \]</div>
 <p>The canonical ensemble is usually denoted by the letters NVT.</p>
-<p><a class="reference internal" href="#fig-equilibrium-sho"><span class="std std-numref">Fig. 7</span></a> and <a class="reference internal" href="#fig-equilibrium-pendulum"><span class="std std-numref">Fig. 8</span></a> show two examples, an ensemble of harmonic oscillators and an ensemble of pendulums, both in the canonical ensemble. Compare them to <a class="reference internal" href="#fig-liouville-sho"><span class="std std-numref">Fig. 5</span></a> and <a class="reference internal" href="#fig-liouville-pendulum"><span class="std std-numref">Fig. 6</span></a>: the systems move along their trajectories exactly as before, but the distributions do not change in time.</p>
+<p><a class="reference internal" href="#fig-equilibrium-sho"><span class="std std-numref">Fig. 7</span></a> and <a class="reference internal" href="#fig-equilibrium-pendulum"><span class="std std-numref">Fig. 8</span></a> show two examples, an ensemble of harmonic oscillators and an ensemble of pendulums, both in the canonical ensemble. Compare them to <a class="reference internal" href="#fig-liouville-sho"><span class="std std-numref">Fig. 5</span></a> and <a class="reference internal" href="#fig-liouville-pendulum"><span class="std std-numref">Fig. 6</span></a>: the systems move along their trajectories exactly as before, but the distributions do not change in time. Note that we never solved the equations of motion of the pendulum, and we do not need to: <span class="math notranslate nohighlight">\(e^{-\beta \mathcal{H}}\)</span> solves the Liouville equation for any <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>.</p>
 <figure class="align-center" id="fig-equilibrium-sho">
 <a class="reference internal image-reference" href="_images/equilibrium_sho.gif"><img alt="_images/equilibrium_sho.gif" src="_images/equilibrium_sho.gif" style="width: 45%;" /></a>
 <figcaption>
@@ -881,6 +890,7 @@ A = \langle a \rangle_{\beta} = \frac{ \int e^{-\beta \mathcal{H} (\textbf{x})} 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-a-property-of-hamilton-s-equations">Step 1: a property of Hamilton’s equations</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-counting-systems">Step 2: counting systems</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-the-liouville-equation-says">What the Liouville equation says</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-liouville-equation">Solving the Liouville equation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-space-incompressibility">Phase space incompressibility</a></li>
