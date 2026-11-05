@@ -482,8 +482,8 @@ A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t
 </figcaption>
 </figure>
 <p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfill the properties:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78db5860-e226-4843-81f0-83ba65b7270b">
-<span class="eqno">(23)<a class="headerlink" href="#equation-78db5860-e226-4843-81f0-83ba65b7270b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c23a359b-f052-4682-8807-a19ae1654e31">
+<span class="eqno">(23)<a class="headerlink" href="#equation-c23a359b-f052-4682-8807-a19ae1654e31" title="Permalink to this equation">#</a></span>\[\begin{align}
  \int f(\textbf{x},t) \, \mathrm{d} \textbf{x} &amp;= 1, &amp; f(\textbf{x},t) &amp; \ge 0.
 \end{align}\]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span> represents the probability that a system from the ensemble is in the volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\textbf{x}+\mathrm{d}\textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> (or, alternatively, the fraction of systems therein).</p>
@@ -625,7 +625,7 @@ f(\textbf{x}(t),t) = f(\textbf{x}(0),0).
 <figure class="align-center" id="fig-liouville-pendulum">
 <a class="reference internal image-reference" href="_images/liouville_pendulum.gif"><img alt="_images/liouville_pendulum.gif" src="_images/liouville_pendulum.gif" style="width: 45%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">The same for an ensemble of pendulums, <span class="math notranslate nohighlight">\(\mathcal{H} = \frac{p^2}{2} + 1 - \cos q\)</span>. The period depends on the energy, so the distribution changes its shape, but not its area. The purple system starts with the highest energy and ends up in the tail.</span><a class="headerlink" href="#fig-liouville-pendulum" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">The same for an ensemble of pendulums, <span class="math notranslate nohighlight">\(\mathcal{H} = \frac{p_\phi^2}{2 m l^2} + m g l (1 - \cos{\phi})\)</span> as in the previous chapter, with <span class="math notranslate nohighlight">\(m = l = g = 1\)</span>. The period depends on the energy, so the distribution changes its shape, but not its area. The purple system starts with the highest energy and ends up in the tail.</span><a class="headerlink" href="#fig-liouville-pendulum" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -776,6 +776,19 @@ A = \langle a \rangle_E = \frac{ \int \delta (\mathcal{H}(\textbf{x}) - E) \, a(
 A = \langle a \rangle_{\beta} = \frac{ \int e^{-\beta \mathcal{H} (\textbf{x})} \, a(\textbf{x}) \, \mathrm{d} \textbf{x}} {\int e^{-\beta \mathcal{H} (\textbf{x})} \, \mathrm{d} \textbf{x}} .
 \]</div>
 <p>The canonical ensemble is usually denoted by the letters NVT.</p>
+<p><a class="reference internal" href="#fig-equilibrium-sho"><span class="std std-numref">Fig. 7</span></a> and <a class="reference internal" href="#fig-equilibrium-pendulum"><span class="std std-numref">Fig. 8</span></a> show two examples, an ensemble of harmonic oscillators and an ensemble of pendulums, both in the canonical ensemble. Compare them to <a class="reference internal" href="#fig-liouville-sho"><span class="std std-numref">Fig. 5</span></a> and <a class="reference internal" href="#fig-liouville-pendulum"><span class="std std-numref">Fig. 6</span></a>: the systems move along their trajectories exactly as before, but the distributions do not change in time.</p>
+<figure class="align-center" id="fig-equilibrium-sho">
+<a class="reference internal image-reference" href="_images/equilibrium_sho.gif"><img alt="_images/equilibrium_sho.gif" src="_images/equilibrium_sho.gif" style="width: 45%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">An ensemble of harmonic oscillators at equilibrium, <span class="math notranslate nohighlight">\(f \propto e^{-\beta \mathcal{H}}\)</span> (color), with a few systems shown as points and four of them with their trajectories. The systems move, the distribution does not.</span><a class="headerlink" href="#fig-equilibrium-sho" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="fig-equilibrium-pendulum">
+<a class="reference internal image-reference" href="_images/equilibrium_pendulum.gif"><img alt="_images/equilibrium_pendulum.gif" src="_images/equilibrium_pendulum.gif" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">The same for an ensemble of pendulums, over the full circle <span class="math notranslate nohighlight">\(-\pi \le \phi \le \pi\)</span>. Systems that go over the top leave the frame on one side and reappear on the other.</span><a class="headerlink" href="#fig-equilibrium-pendulum" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 
