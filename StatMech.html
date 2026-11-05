@@ -482,8 +482,8 @@ A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t
 </figcaption>
 </figure>
 <p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfill the properties:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3535a92c-04f2-4673-a545-6538fb3de576">
-<span class="eqno">(23)<a class="headerlink" href="#equation-3535a92c-04f2-4673-a545-6538fb3de576" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-25dcb43c-00c0-4274-9476-5f06835def7d">
+<span class="eqno">(23)<a class="headerlink" href="#equation-25dcb43c-00c0-4274-9476-5f06835def7d" title="Permalink to this equation">#</a></span>\[\begin{align}
  \int f(\textbf{x},t) \, \mathrm{d} \textbf{x} &amp;= 1, &amp; f(\textbf{x},t) &amp; \ge 0.
 \end{align}\]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span> represents the probability that a system from the ensemble is in the volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\textbf{x}+\mathrm{d}\textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> (or, alternatively, the fraction of systems therein).</p>
@@ -500,6 +500,11 @@ total energy in the canonical ensemble.</p>
 <p>Hint: In that case,</p>
 <div class="math notranslate nohighlight">
 \[f(q,p) = \frac{e^{-\beta \mathcal{H}(q,p)}}{\mathcal{Z}} \]</div>
+<p>You will need the Gaussian integrals, for <span class="math notranslate nohighlight">\(a &gt; 0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{-\infty}^{\infty} e^{-a x^2} \, \mathrm{d}x = \sqrt{\frac{\pi}{a}}, \qquad \int_{-\infty}^{\infty} x^2 e^{-a x^2} \, \mathrm{d}x = \frac{1}{2a} \sqrt{\frac{\pi}{a}}.
+\]</div>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
@@ -690,8 +695,8 @@ A=
 \frac{\mathrm{d}}{\mathrm{d}t} \det{J} = \dot{J}_{11} J_{22} + J_{11} \dot{J}_{22} - \dot{J}_{12} J_{21} - J_{12} \dot{J}_{21}.
 \]</div>
 <p>The four entries of <span class="math notranslate nohighlight">\(\dot{J} = A J\)</span> are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9681fc60-4911-4f96-9926-83947c3ed0e6">
-<span class="eqno">(34)<a class="headerlink" href="#equation-9681fc60-4911-4f96-9926-83947c3ed0e6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9087663a-b786-466e-84ce-448e454fa5d4">
+<span class="eqno">(34)<a class="headerlink" href="#equation-9087663a-b786-466e-84ce-448e454fa5d4" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot{J}_{11} &amp;= A_{11} J_{11} + A_{12} J_{21}, &amp; \dot{J}_{12} &amp;= A_{11} J_{12} + A_{12} J_{22}, \\
 \dot{J}_{21} &amp;= A_{21} J_{11} + A_{22} J_{21}, &amp; \dot{J}_{22} &amp;= A_{21} J_{12} + A_{22} J_{22}.
 \end{align}\]</div>
