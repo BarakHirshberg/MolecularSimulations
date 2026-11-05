@@ -482,8 +482,8 @@ A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t
 </figcaption>
 </figure>
 <p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfill the properties:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c23a359b-f052-4682-8807-a19ae1654e31">
-<span class="eqno">(23)<a class="headerlink" href="#equation-c23a359b-f052-4682-8807-a19ae1654e31" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3535a92c-04f2-4673-a545-6538fb3de576">
+<span class="eqno">(23)<a class="headerlink" href="#equation-3535a92c-04f2-4673-a545-6538fb3de576" title="Permalink to this equation">#</a></span>\[\begin{align}
  \int f(\textbf{x},t) \, \mathrm{d} \textbf{x} &amp;= 1, &amp; f(\textbf{x},t) &amp; \ge 0.
 \end{align}\]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span> represents the probability that a system from the ensemble is in the volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\textbf{x}+\mathrm{d}\textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> (or, alternatively, the fraction of systems therein).</p>
@@ -689,10 +689,26 @@ A=
 \[
 \frac{\mathrm{d}}{\mathrm{d}t} \det{J} = \dot{J}_{11} J_{22} + J_{11} \dot{J}_{22} - \dot{J}_{12} J_{21} - J_{12} \dot{J}_{21}.
 \]</div>
-<p>Substituting <span class="math notranslate nohighlight">\(\dot{J}_{kl} = A_{k1} J_{1l} + A_{k2} J_{2l}\)</span>, the terms with <span class="math notranslate nohighlight">\(A_{12}\)</span> and <span class="math notranslate nohighlight">\(A_{21}\)</span> cancel in pairs, and the terms with <span class="math notranslate nohighlight">\(A_{11}\)</span> and <span class="math notranslate nohighlight">\(A_{22}\)</span> each collect to <span class="math notranslate nohighlight">\(\det{J}\)</span>,</p>
+<p>The four entries of <span class="math notranslate nohighlight">\(\dot{J} = A J\)</span> are</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9681fc60-4911-4f96-9926-83947c3ed0e6">
+<span class="eqno">(34)<a class="headerlink" href="#equation-9681fc60-4911-4f96-9926-83947c3ed0e6" title="Permalink to this equation">#</a></span>\[\begin{align}
+\dot{J}_{11} &amp;= A_{11} J_{11} + A_{12} J_{21}, &amp; \dot{J}_{12} &amp;= A_{11} J_{12} + A_{12} J_{22}, \\
+\dot{J}_{21} &amp;= A_{21} J_{11} + A_{22} J_{21}, &amp; \dot{J}_{22} &amp;= A_{21} J_{12} + A_{22} J_{22}.
+\end{align}\]</div>
+<p>Substituting them,</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\mathrm{d}}{\mathrm{d}t} \det{J} = A_{11} \left( J_{11} J_{22} - J_{12} J_{21} \right) + A_{22} \left( J_{11} J_{22} - J_{12} J_{21} \right) = \left( A_{11} + A_{22} \right) \det{J}.
+\frac{\mathrm{d}}{\mathrm{d}t} \det{J} = \left( A_{11} J_{11} + A_{12} J_{21} \right) J_{22} + J_{11} \left( A_{21} J_{12} + A_{22} J_{22} \right) - \left( A_{11} J_{12} + A_{12} J_{22} \right) J_{21} - J_{12} \left( A_{21} J_{11} + A_{22} J_{21} \right).
+\]</div>
+<p>Collecting the terms by the elements of <span class="math notranslate nohighlight">\(A\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathrm{d}}{\mathrm{d}t} \det{J} = A_{11} \left( J_{11} J_{22} - J_{12} J_{21} \right) + A_{22} \left( J_{11} J_{22} - J_{12} J_{21} \right) + A_{12} \left( J_{21} J_{22} - J_{22} J_{21} \right) + A_{21} \left( J_{11} J_{12} - J_{12} J_{11} \right).
+\]</div>
+<p>The last two brackets vanish, and the first two are both <span class="math notranslate nohighlight">\(\det{J}\)</span>, so</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathrm{d}}{\mathrm{d}t} \det{J} = \left( A_{11} + A_{22} \right) \det{J}.
 \]</div>
 </div>
 <p>The sum <span class="math notranslate nohighlight">\(A_{11} + A_{22}\)</span> is exactly the quantity of Step 1, Eq. <a class="reference internal" href="#equation-pre-incomp">(26)</a>, evaluated at <span class="math notranslate nohighlight">\(\textbf{x}_t\)</span>. Therefore,</p>
@@ -745,12 +761,12 @@ f(\textbf{x}) = \frac{1}{\mathcal{Z}} \mathcal{F}(\mathcal{H}(\textbf{x})).
 \]</div>
 <p>The averages of macroscopic observables will then also be time-independent (you might remember this definition from earlier classes for thermodynamic equilibrium), given by</p>
 <div class="math notranslate nohighlight" id="equation-ensemble-av-eq">
-<span class="eqno">(34)<a class="headerlink" href="#equation-ensemble-av-eq" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(35)<a class="headerlink" href="#equation-ensemble-av-eq" title="Permalink to this equation">#</a></span>\[
 A = \langle a \rangle_f = \frac{1}{\mathcal{Z}} \int \mathcal{F}(\mathcal{H}(\textbf{x})) \, a(\textbf{x}) \, \mathrm{d} \textbf{x}.
 \]</div>
 <p>The denominator <span class="math notranslate nohighlight">\(\mathcal{Z}\)</span> is called the <strong>partition function</strong>, which is used to normalize the function <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, defined as</p>
 <div class="math notranslate nohighlight" id="equation-partition-func">
-<span class="eqno">(35)<a class="headerlink" href="#equation-partition-func" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(36)<a class="headerlink" href="#equation-partition-func" title="Permalink to this equation">#</a></span>\[
 \mathcal{Z} = \int \mathcal{F}(\mathcal{H}(\textbf{x})) \, \mathrm{d} \textbf{x}.
 \]</div>
 <p>To proceed and write specific expressions for <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, we invoke a second postulate, called <strong>the hypothesis of equal <em>a priori</em> probabilities</strong>. In simple terms, it says that for an ensemble of isolated systems, each characterized by the same number of particles, volume, and total energy, all microstates have equal probability. That is, the phase space distribution is a constant when the energy is between <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(E + \delta E\)</span> and zero otherwise.</p>
@@ -762,7 +778,7 @@ A = \langle a \rangle_f = \frac{1}{\mathcal{Z}} \int \mathcal{F}(\mathcal{H}(\te
 \]</div>
 <p>and expectation values are obtained through</p>
 <div class="math notranslate nohighlight" id="equation-ensemble-av-nve">
-<span class="eqno">(36)<a class="headerlink" href="#equation-ensemble-av-nve" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(37)<a class="headerlink" href="#equation-ensemble-av-nve" title="Permalink to this equation">#</a></span>\[
 A = \langle a \rangle_E = \frac{ \int \delta (\mathcal{H}(\textbf{x}) - E) \, a(\textbf{x}) \, \mathrm{d} \textbf{x}} {\int \delta (\mathcal{H}(\textbf{x}) - E) \, \mathrm{d} \textbf{x}} .
 \]</div>
 <p>You have derived in previous courses <span class="math notranslate nohighlight">\(\mathcal{F}(\mathcal{H}(\textbf{x}))\)</span> for other ensembles. We will not repeat this derivation here, but just mention that all of them can be derived from our two postulates by considering the entire ensemble as an isolated system. For an ensemble of systems with a fixed number of particles, volume, and temperature, called the <strong>canonical ensemble</strong>, <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is the famous Boltzmann distribution,</p>
@@ -772,7 +788,7 @@ A = \langle a \rangle_E = \frac{ \int \delta (\mathcal{H}(\textbf{x}) - E) \, a(
 \]</div>
 <p>and the observables are given by</p>
 <div class="math notranslate nohighlight" id="equation-ensemble-av-nvt">
-<span class="eqno">(37)<a class="headerlink" href="#equation-ensemble-av-nvt" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(38)<a class="headerlink" href="#equation-ensemble-av-nvt" title="Permalink to this equation">#</a></span>\[
 A = \langle a \rangle_{\beta} = \frac{ \int e^{-\beta \mathcal{H} (\textbf{x})} \, a(\textbf{x}) \, \mathrm{d} \textbf{x}} {\int e^{-\beta \mathcal{H} (\textbf{x})} \, \mathrm{d} \textbf{x}} .
 \]</div>
 <p>The canonical ensemble is usually denoted by the letters NVT.</p>
