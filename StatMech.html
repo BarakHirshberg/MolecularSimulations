@@ -483,8 +483,8 @@ A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t
 </figcaption>
 </figure>
 <p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfill the properties:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a338d39c-e9ea-45ca-995b-413b0b8662bd">
-<span class="eqno">(23)<a class="headerlink" href="#equation-a338d39c-e9ea-45ca-995b-413b0b8662bd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8acb88ea-395a-4094-833c-3e55e0923b39">
+<span class="eqno">(23)<a class="headerlink" href="#equation-8acb88ea-395a-4094-833c-3e55e0923b39" title="Permalink to this equation">#</a></span>\[\begin{align}
  \int f(\textbf{x},t) \, \mathrm{d} \textbf{x} &amp;= 1, &amp; f(\textbf{x},t) &amp; \ge 0.
 \end{align}\]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span> represents the probability that a system from the ensemble is in the volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\textbf{x}+\mathrm{d}\textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> (or, alternatively, the fraction of systems therein).</p>
@@ -704,8 +704,8 @@ A=
 \frac{\mathrm{d}}{\mathrm{d}t} \det{J} = \dot{J}_{11} J_{22} + J_{11} \dot{J}_{22} - \dot{J}_{12} J_{21} - J_{12} \dot{J}_{21}.
 \]</div>
 <p>The four entries of <span class="math notranslate nohighlight">\(\dot{J} = A J\)</span> are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-819196d3-cad0-487e-9239-690629f2de20">
-<span class="eqno">(34)<a class="headerlink" href="#equation-819196d3-cad0-487e-9239-690629f2de20" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-391d3326-7cb4-4874-a6c1-04f5acde64ba">
+<span class="eqno">(34)<a class="headerlink" href="#equation-391d3326-7cb4-4874-a6c1-04f5acde64ba" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot{J}_{11} &amp;= A_{11} J_{11} + A_{12} J_{21}, &amp; \dot{J}_{12} &amp;= A_{11} J_{12} + A_{12} J_{22}, \\
 \dot{J}_{21} &amp;= A_{21} J_{11} + A_{22} J_{21}, &amp; \dot{J}_{22} &amp;= A_{21} J_{12} + A_{22} J_{22}.
 \end{align}\]</div>
@@ -798,11 +798,11 @@ p = \frac{\partial \mathcal{L}}{\partial \dot{q}} = m e^{\gamma t} \dot{q},
 \[
 \frac{\partial \dot{q}}{\partial q} + \frac{\partial \dot{v}}{\partial v} = - \gamma \neq 0.
 \]</div>
-<p>Repeating the proof of Eq. <a class="reference internal" href="#equation-incompressibility">(32)</a> in these variables gives <span class="math notranslate nohighlight">\(\frac{\mathrm{d}}{\mathrm{d}t} \det{J} = - \gamma \det{J}\)</span>, so a volume of initial conditions in the <span class="math notranslate nohighlight">\((q,v)\)</span> plane shrinks as <span class="math notranslate nohighlight">\(e^{-\gamma t}\)</span>. <a class="reference internal" href="#fig-damped"><span class="std std-numref">Fig. 7</span></a> shows the same ensemble of damped oscillators in both planes. In the <span class="math notranslate nohighlight">\((q,v)\)</span> plane, all the oscillators spiral towards rest at the origin and the rectangle shrinks. In the <span class="math notranslate nohighlight">\((q,p)\)</span> plane, it is squeezed in <span class="math notranslate nohighlight">\(q\)</span> but stretched in <span class="math notranslate nohighlight">\(p = m e^{\gamma t} \dot{q}\)</span>, and its area stays constant. Phase space volume is conserved in the canonical coordinates, not in any coordinates we find natural.</p>
+<p>Repeating the proof of Eq. <a class="reference internal" href="#equation-incompressibility">(32)</a> in these variables gives <span class="math notranslate nohighlight">\(\frac{\mathrm{d}}{\mathrm{d}t} \det{J} = - \gamma \det{J}\)</span>, so a volume of initial conditions in the <span class="math notranslate nohighlight">\((q,v)\)</span> plane shrinks as <span class="math notranslate nohighlight">\(e^{-\gamma t}\)</span>. <a class="reference internal" href="#fig-damped"><span class="std std-numref">Fig. 7</span></a> shows the same ensemble of damped oscillators in both planes. In the <span class="math notranslate nohighlight">\((q,v)\)</span> plane, all the oscillators spiral towards rest at the origin and the square shrinks. In the <span class="math notranslate nohighlight">\((q,p)\)</span> plane, it is squeezed in <span class="math notranslate nohighlight">\(q\)</span> but stretched in <span class="math notranslate nohighlight">\(p = m e^{\gamma t} \dot{q}\)</span>, and its area stays constant. Phase space volume is conserved in the canonical coordinates, not in any coordinates we find natural.</p>
 <figure class="align-center" id="fig-damped">
 <a class="reference internal image-reference" href="_images/damped.gif"><img alt="_images/damped.gif" src="_images/damped.gif" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">An ensemble of damped oscillators (<span class="math notranslate nohighlight">\(m = \omega_0 = 1\)</span>, <span class="math notranslate nohighlight">\(\gamma = 0.1\)</span>) starting from a rectangle of initial conditions, in the <span class="math notranslate nohighlight">\((q,v)\)</span> plane (top) and in the <span class="math notranslate nohighlight">\((q,p)\)</span> plane (bottom), with <span class="math notranslate nohighlight">\(f\)</span> as color and the area of the rectangle. Four systems are highlighted with their trajectories.</span><a class="headerlink" href="#fig-damped" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">An ensemble of damped oscillators (<span class="math notranslate nohighlight">\(m = \omega_0 = 1\)</span>, <span class="math notranslate nohighlight">\(\gamma = 0.1\)</span>) starting from the same distribution as in <a class="reference internal" href="#fig-liouville-sho"><span class="std std-numref">Fig. 5</span></a>, in the <span class="math notranslate nohighlight">\((q,v)\)</span> plane (top) and in the <span class="math notranslate nohighlight">\((q,p)\)</span> plane (bottom), with the area of the square. Note the different scales of the two panels.</span><a class="headerlink" href="#fig-damped" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
