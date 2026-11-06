@@ -483,8 +483,8 @@ A = \bar{a}_{\tau} =  \frac{1}{\tau} \int_0^{\tau} a(\textbf{x}(t)) \mathrm{d} t
 </figcaption>
 </figure>
 <p>We define the function <span class="math notranslate nohighlight">\(f(\textbf{x},t)\)</span>, called the <strong>phase space distribution function</strong>, as the probability density of observing a system in the ensemble in a specific microstate at time <span class="math notranslate nohighlight">\(t\)</span>. Since it is a probability density, it has to fulfill the properties:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5ed25278-679b-4e02-b595-4b173774bca6">
-<span class="eqno">(23)<a class="headerlink" href="#equation-5ed25278-679b-4e02-b595-4b173774bca6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cc03e1b2-accf-4220-bd5b-bfdfd3537125">
+<span class="eqno">(23)<a class="headerlink" href="#equation-cc03e1b2-accf-4220-bd5b-bfdfd3537125" title="Permalink to this equation">#</a></span>\[\begin{align}
  \int f(\textbf{x},t) \, \mathrm{d} \textbf{x} &amp;= 1, &amp; f(\textbf{x},t) &amp; \ge 0.
 \end{align}\]</div>
 <p>In other words, <span class="math notranslate nohighlight">\(f(\textbf{x},t) \, \mathrm{d} \textbf{x}\)</span> represents the probability that a system from the ensemble is in the volume element between <span class="math notranslate nohighlight">\(\textbf{x}\)</span> and <span class="math notranslate nohighlight">\(\textbf{x}+\mathrm{d}\textbf{x}\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> (or, alternatively, the fraction of systems therein).</p>
@@ -704,8 +704,8 @@ A=
 \frac{\mathrm{d}}{\mathrm{d}t} \det{J} = \dot{J}_{11} J_{22} + J_{11} \dot{J}_{22} - \dot{J}_{12} J_{21} - J_{12} \dot{J}_{21}.
 \]</div>
 <p>The four entries of <span class="math notranslate nohighlight">\(\dot{J} = A J\)</span> are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5626d553-e084-419c-99c1-5b9358d5ac0e">
-<span class="eqno">(34)<a class="headerlink" href="#equation-5626d553-e084-419c-99c1-5b9358d5ac0e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-13be9149-431f-41b0-a57c-ece8a5ce2981">
+<span class="eqno">(34)<a class="headerlink" href="#equation-13be9149-431f-41b0-a57c-ece8a5ce2981" title="Permalink to this equation">#</a></span>\[\begin{align}
 \dot{J}_{11} &amp;= A_{11} J_{11} + A_{12} J_{21}, &amp; \dot{J}_{12} &amp;= A_{11} J_{12} + A_{12} J_{22}, \\
 \dot{J}_{21} &amp;= A_{21} J_{11} + A_{22} J_{21}, &amp; \dot{J}_{22} &amp;= A_{21} J_{12} + A_{22} J_{22}.
 \end{align}\]</div>
@@ -760,6 +760,52 @@ J=
 \end{split}\]</div>
 <p>whose determinant is <span class="math notranslate nohighlight">\(\det{J} = \cos^2{\omega_0 t} + \sin^2(\omega_0 t ) = 1\)</span>.</p>
 </div>
+<div class="note dropdown admonition">
+<p class="admonition-title">Extra reading: a damped oscillator</p>
+<p>Does volume conservation hold for any Hamiltonian, even one that depends on time? Consider a damped harmonic oscillator, with the equation of motion</p>
+<div class="math notranslate nohighlight">
+\[
+\ddot{q} = - \gamma \dot{q} - \omega_0^2 q,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\gamma\)</span> is a friction coefficient. Friction is not a conservative force, but the equation of motion can still be obtained from a Lagrangian,</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}(q,\dot{q},t) = e^{\gamma t} \left( \frac{1}{2} m \dot{q}^2 - \frac{1}{2} m \omega_0^2 q^2 \right),
+\]</div>
+<p>which depends explicitly on time. Indeed, the Euler-Lagrange equation, Eq. <a class="reference internal" href="ClassicalMech.html#equation-el-eq">(10)</a>, gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathrm{d}}{\mathrm{d}t} \left( m e^{\gamma t} \dot{q} \right) = m e^{\gamma t} \left( \ddot{q} + \gamma \dot{q} \right) = - m \omega_0^2 e^{\gamma t} q,
+\]</div>
+<p>and dividing by <span class="math notranslate nohighlight">\(m e^{\gamma t}\)</span> recovers the equation of motion. The momentum conjugate to <span class="math notranslate nohighlight">\(q\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[
+p = \frac{\partial \mathcal{L}}{\partial \dot{q}} = m e^{\gamma t} \dot{q},
+\]</div>
+<p>which is not the linear momentum <span class="math notranslate nohighlight">\(m \dot{q}\)</span>. The Hamiltonian, Eq. <a class="reference internal" href="ClassicalMech.html#equation-hamiltonian-def">(12)</a>, is</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{H}(q,p,t) = p \dot{q} - \mathcal{L} = e^{-\gamma t} \frac{p^2}{2m} + e^{\gamma t} \frac{1}{2} m \omega_0^2 q^2.
+\]</div>
+<p>Unlike the cases of the previous chapter, it depends explicitly on time and it is not <span class="math notranslate nohighlight">\(K + U\)</span>. Hamilton’s equations, Eq. <a class="reference internal" href="ClassicalMech.html#equation-hamilton-eq">(13)</a>, are</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{q} = \frac{\partial \mathcal{H}}{\partial p} = e^{-\gamma t} \frac{p}{m}, \qquad \dot{p} = - \frac{\partial \mathcal{H}}{\partial q} = - e^{\gamma t} m \omega_0^2 q,
+\]</div>
+<p>and differentiating the first and substituting the second recovers the equation of motion once more.</p>
+<p>Nothing in the proofs of this chapter required the Hamiltonian to be independent of time. Step 1 of the proof of the Liouville equation, Eq. <a class="reference internal" href="#equation-pre-incomp">(26)</a>, only involves the mixed second derivatives of <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>, which are equal for any <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>. Therefore, the Liouville equation holds and the phase space volume is conserved, but only in the canonical pair <span class="math notranslate nohighlight">\((q,p)\)</span>. In terms of the position and velocity, <span class="math notranslate nohighlight">\(v = \dot{q}\)</span>, the equations of motion are <span class="math notranslate nohighlight">\(\dot{q} = v\)</span> and <span class="math notranslate nohighlight">\(\dot{v} = - \gamma v - \omega_0^2 q\)</span>, so that</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial \dot{q}}{\partial q} + \frac{\partial \dot{v}}{\partial v} = - \gamma \neq 0.
+\]</div>
+<p>Repeating the proof of Eq. <a class="reference internal" href="#equation-incompressibility">(32)</a> in these variables gives <span class="math notranslate nohighlight">\(\frac{\mathrm{d}}{\mathrm{d}t} \det{J} = - \gamma \det{J}\)</span>, so a volume of initial conditions in the <span class="math notranslate nohighlight">\((q,v)\)</span> plane shrinks as <span class="math notranslate nohighlight">\(e^{-\gamma t}\)</span>. <a class="reference internal" href="#fig-damped"><span class="std std-numref">Fig. 7</span></a> shows the same ensemble of damped oscillators in both planes. In the <span class="math notranslate nohighlight">\((q,v)\)</span> plane, all the oscillators spiral towards rest at the origin and the rectangle shrinks. In the <span class="math notranslate nohighlight">\((q,p)\)</span> plane, it is squeezed in <span class="math notranslate nohighlight">\(q\)</span> but stretched in <span class="math notranslate nohighlight">\(p = m e^{\gamma t} \dot{q}\)</span>, and its area stays constant. Phase space volume is conserved in the canonical coordinates, not in any coordinates we find natural.</p>
+<figure class="align-center" id="fig-damped">
+<a class="reference internal image-reference" href="_images/damped.gif"><img alt="_images/damped.gif" src="_images/damped.gif" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">An ensemble of damped oscillators (<span class="math notranslate nohighlight">\(m = \omega_0 = 1\)</span>, <span class="math notranslate nohighlight">\(\gamma = 0.1\)</span>) starting from a rectangle of initial conditions, in the <span class="math notranslate nohighlight">\((q,v)\)</span> plane (left) and in the <span class="math notranslate nohighlight">\((q,p)\)</span> plane (right), with the area of the rectangle. Four systems are highlighted with their trajectories.</span><a class="headerlink" href="#fig-damped" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="equilibrium">
 <span id="chap-eq"></span><h2>Equilibrium<a class="headerlink" href="#equilibrium" title="Permalink to this heading">#</a></h2>
@@ -806,17 +852,17 @@ A = \langle a \rangle_E = \frac{ \int \delta (\mathcal{H}(\textbf{x}) - E) \, a(
 A = \langle a \rangle_{\beta} = \frac{ \int e^{-\beta \mathcal{H} (\textbf{x})} \, a(\textbf{x}) \, \mathrm{d} \textbf{x}} {\int e^{-\beta \mathcal{H} (\textbf{x})} \, \mathrm{d} \textbf{x}} .
 \]</div>
 <p>The canonical ensemble is usually denoted by the letters NVT.</p>
-<p><a class="reference internal" href="#fig-equilibrium-sho"><span class="std std-numref">Fig. 7</span></a> and <a class="reference internal" href="#fig-equilibrium-pendulum"><span class="std std-numref">Fig. 8</span></a> show two examples, an ensemble of harmonic oscillators and an ensemble of pendulums, both in the canonical ensemble. Compare them to <a class="reference internal" href="#fig-liouville-sho"><span class="std std-numref">Fig. 5</span></a> and <a class="reference internal" href="#fig-liouville-pendulum"><span class="std std-numref">Fig. 6</span></a>: the systems move along their trajectories exactly as before, but the distributions do not change in time. Note that we never solved the equations of motion of the pendulum, and we do not need to: <span class="math notranslate nohighlight">\(e^{-\beta \mathcal{H}}\)</span> solves the Liouville equation for any <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>.</p>
+<p><a class="reference internal" href="#fig-equilibrium-sho"><span class="std std-numref">Fig. 8</span></a> and <a class="reference internal" href="#fig-equilibrium-pendulum"><span class="std std-numref">Fig. 9</span></a> show two examples, an ensemble of harmonic oscillators and an ensemble of pendulums, both in the canonical ensemble. Compare them to <a class="reference internal" href="#fig-liouville-sho"><span class="std std-numref">Fig. 5</span></a> and <a class="reference internal" href="#fig-liouville-pendulum"><span class="std std-numref">Fig. 6</span></a>: the systems move along their trajectories exactly as before, but the distributions do not change in time. Note that we never solved the equations of motion of the pendulum, and we do not need to: <span class="math notranslate nohighlight">\(e^{-\beta \mathcal{H}}\)</span> solves the Liouville equation for any <span class="math notranslate nohighlight">\(\mathcal{H}\)</span>.</p>
 <figure class="align-center" id="fig-equilibrium-sho">
 <a class="reference internal image-reference" href="_images/equilibrium_sho.gif"><img alt="_images/equilibrium_sho.gif" src="_images/equilibrium_sho.gif" style="width: 45%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">An ensemble of harmonic oscillators at equilibrium, <span class="math notranslate nohighlight">\(f \propto e^{-\beta \mathcal{H}}\)</span> (color), with a few systems shown as points and four of them with their trajectories. The systems move, the distribution does not.</span><a class="headerlink" href="#fig-equilibrium-sho" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">An ensemble of harmonic oscillators at equilibrium, <span class="math notranslate nohighlight">\(f \propto e^{-\beta \mathcal{H}}\)</span> (color), with a few systems shown as points and four of them with their trajectories. The systems move, the distribution does not.</span><a class="headerlink" href="#fig-equilibrium-sho" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="fig-equilibrium-pendulum">
 <a class="reference internal image-reference" href="_images/equilibrium_pendulum.gif"><img alt="_images/equilibrium_pendulum.gif" src="_images/equilibrium_pendulum.gif" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">The same for an ensemble of pendulums, over the full circle <span class="math notranslate nohighlight">\(-\pi \le \phi \le \pi\)</span>. Systems that go over the top leave the frame on one side and reappear on the other.</span><a class="headerlink" href="#fig-equilibrium-pendulum" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">The same for an ensemble of pendulums, over the full circle <span class="math notranslate nohighlight">\(-\pi \le \phi \le \pi\)</span>. Systems that go over the top leave the frame on one side and reappear on the other.</span><a class="headerlink" href="#fig-equilibrium-pendulum" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
