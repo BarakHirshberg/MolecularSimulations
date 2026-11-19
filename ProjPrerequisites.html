@@ -442,7 +442,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linux-terminal">The Linux terminal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-basics">GitHub basics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-classroom-assignments">GitHub Classroom Assignments</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-project-repository">Your project repository</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-codespaces">1. Github Codespaces:</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#save-sync">Save &amp; Sync</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#codespaces-access">Codespaces Access</a></li>
@@ -501,20 +501,15 @@ Once you are done with all changes, you must <em>merge</em> your branch back wit
 <li><p>Free upgrade to Pro with <a class="reference external" href="https://education.github.com/pack">GitHub Student Developer Pack</a>.</p></li>
 </ul>
 </section>
-<section id="github-classroom-assignments">
-<h2>GitHub Classroom Assignments<a class="headerlink" href="#github-classroom-assignments" title="Permalink to this heading">#</a></h2>
-<p>The course assignments will be handled through GitHub Classroom, which simplifies the management of programming assignments by using GitHub’s repository and version control features. It allows teachers to distribute tasks and review student submissions efficiently, enhancing collaboration and feedback in computer science education.</p>
-<p>The first “assignment” is an exercise developed by GitHub to let you practice this workflow. It will explain everything I mentioned in brief and more.
-This and all next assignments can be done using the GitHub Codespaces environment (recommended) or a local development environment (for more advanced users who are at ease with Linux and Anaconda).</p>
-<p>You will need to accept each assignment. For example, accept the first “assignment”: Git and GitHub fundamentals. You can find a link to this “assignment” in the course’s moodle.
-Click the green <code class="docutils literal notranslate"><span class="pre">Authorize</span> <span class="pre">GitHub</span> <span class="pre">Classroom</span></code> button and then click <code class="docutils literal notranslate"><span class="pre">Accept</span> <span class="pre">this</span> <span class="pre">assignment</span></code>. This will create your assignment’s remote repository.</p>
-<p><img alt="Codespaces" src="_images/codespace1.jpeg" /></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">git-and-github-fundamentals</span></code> has one <code class="docutils literal notranslate"><span class="pre">README.md</span></code> text file which explains the GitHub workflow. Read it carefully, follow the links as needed, and ensure you understand GitHub’s workflow.</p>
+<section id="your-project-repository">
+<h2>Your project repository<a class="headerlink" href="#your-project-repository" title="Permalink to this heading">#</a></h2>
+<p>The course projects are handled through GitHub. Each of you gets a private repository in the course’s GitHub organization, created from the course template and named after your GitHub username: <code class="docutils literal notranslate"><span class="pre">https://github.com/Molecular-Simulations-Course/2026-numerical-projects-YOURNAME</span></code>. To get it, send Barak your GitHub username. You will receive an invitation by email (also at <a class="reference external" href="https://github.com/notifications">github.com/notifications</a>); accept it, and the repository is yours. You will use the same repository for all the projects, each on its own branch (see its <code class="docutils literal notranslate"><span class="pre">README.md</span></code>).</p>
+<p>The projects can be done using the GitHub Codespaces environment (recommended) or a local development environment (for more advanced users who are at ease with Linux and Anaconda). We will practice the GitHub workflow together in class, in your repository.</p>
 <p>Selecting a working environment, you may choose between the following two options:</p>
 <section id="github-codespaces">
 <h3>1. Github Codespaces:<a class="headerlink" href="#github-codespaces" title="Permalink to this heading">#</a></h3>
 <p>GitHub Codespaces is a cloud-based platform provided by GitHub, offering a fully configured and customizable development environment directly within the browser. It enables developers to create, edit, and run code without setting up anything on your local machine. This service supports Visual Studio Code, allowing for a seamless and familiar coding experience. Additionally, it allows multiple developers to work in the same environment.</p>
-<p>Click the black button <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">in</span> <span class="pre">GitHub</span> <span class="pre">Codespaces</span></code> to open a new window with the Codespaces environment. As you may see, this environment allows you to edit the GitHub fundamentals repository in your browser, offering full GitHub functionality using the icons on the left of your screen. In the project repositories, the codespace also comes with the course’s Python environment already installed and activated, so you do not need to install anything.</p>
+<p>In your repository, click the green <code class="docutils literal notranslate"><span class="pre">Code</span></code> button, select the <code class="docutils literal notranslate"><span class="pre">Codespaces</span></code> tab and click <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">codespace</span> <span class="pre">on</span> <span class="pre">main</span></code>. This opens a new window with the Codespaces environment, which allows you to edit your repository in your browser, offering full GitHub functionality using the icons on the left of your screen. The first time, it takes a few minutes to build the course’s Python environment; after that, it is already installed and activated, so you do not need to install anything. Codespaces are free for personal accounts up to a monthly quota, so stop your codespace when you are done (it also stops by itself after 30 minutes of inactivity).</p>
 <section id="save-sync">
 <h4>Save &amp; Sync<a class="headerlink" href="#save-sync" title="Permalink to this heading">#</a></h4>
 <p><img alt="sync" src="_images/sync.jpeg" /></p>
@@ -522,7 +517,7 @@ Click the green <code class="docutils literal notranslate"><span class="pre">Aut
 </section>
 <section id="codespaces-access">
 <h4>Codespaces Access<a class="headerlink" href="#codespaces-access" title="Permalink to this heading">#</a></h4>
-<p>After you saved your work, you can exit codespaces by simply closing its tab. Anytime you wish to re-access it, open <a class="reference external" href="https://github.com">GitHub</a> and click your <code class="docutils literal notranslate"><span class="pre">git-and-github-fundamentals-YOURNAME</span></code> repository. Click the green button <code class="docutils literal notranslate"><span class="pre">Code</span></code> and select the <code class="docutils literal notranslate"><span class="pre">Codespaces</span></code> tab. This should feature the last codespaces environment you opened and allow you to access it.</p>
+<p>After you saved your work, you can exit codespaces by simply closing its tab. Anytime you wish to re-access it, open <a class="reference external" href="https://github.com">GitHub</a> and click your <code class="docutils literal notranslate"><span class="pre">2026-numerical-projects-YOURNAME</span></code> repository. Click the green button <code class="docutils literal notranslate"><span class="pre">Code</span></code> and select the <code class="docutils literal notranslate"><span class="pre">Codespaces</span></code> tab. This should feature the last codespaces environment you opened and allow you to access it.</p>
 <p><img alt="Codespaces2" src="_images/codespace2.jpeg" /></p>
 </section>
 </section>
@@ -544,9 +539,9 @@ Click the green <code class="docutils literal notranslate"><span class="pre">Aut
 </table>
 <ul class="simple">
 <li><p>Install <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a>. In each project repository, create the course’s Python environment once with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span> <span class="pre">-f</span> <span class="pre">environment.yml</span></code>, and activate it with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">molsim</span></code> before running your code. This gives you exactly the same package versions as Codespaces. You can edit files with Spyder or <a class="reference external" href="https://www.jetbrains.com/pycharm/">Pycharm</a>, but run your code from a terminal in which <code class="docutils literal notranslate"><span class="pre">molsim</span></code> is activated.</p></li>
-<li><p>Clone the first assignment’s repository locally to your computer using the GitHub classroom link (edit YOURNAME): <code class="docutils literal notranslate"><span class="pre">https://github.com/Molecular-Simulations-Course/git-and-github-fundamentals-YOURNAME</span></code> . The changes you will make on your local copy will not affect the remote one until you push your changes.</p></li>
+<li><p>Clone your repository locally to your computer (edit YOURNAME): <code class="docutils literal notranslate"><span class="pre">https://github.com/Molecular-Simulations-Course/2026-numerical-projects-YOURNAME</span></code>. The changes you will make on your local copy will not affect the remote one until you push your changes.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Molecular</span><span class="o">-</span><span class="n">Simulations</span><span class="o">-</span><span class="n">Course</span><span class="o">/</span><span class="n">git</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">github</span><span class="o">-</span><span class="n">fundamentals</span><span class="o">-</span><span class="n">YOURNAME</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Molecular</span><span class="o">-</span><span class="n">Simulations</span><span class="o">-</span><span class="n">Course</span><span class="o">/</span><span class="mi">2026</span><span class="o">-</span><span class="n">numerical</span><span class="o">-</span><span class="n">projects</span><span class="o">-</span><span class="n">YOURNAME</span>
 
 </pre></div>
 </div>
@@ -834,7 +829,7 @@ Got:
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-linux-terminal">The Linux terminal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-basics">GitHub basics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#github-classroom-assignments">GitHub Classroom Assignments</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#your-project-repository">Your project repository</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-codespaces">1. Github Codespaces:</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#save-sync">Save &amp; Sync</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#codespaces-access">Codespaces Access</a></li>
